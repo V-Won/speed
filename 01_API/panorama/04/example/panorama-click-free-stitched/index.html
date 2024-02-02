@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html data-type="example" data-id="panorama-click-free">
+  <head>
+    <title>jQuery Reel Click-Free Stitched Panorama Example</title>
+    <meta charset='utf-8' content='text/html' http-equiv='Content-type' />
+
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js' type='text/javascript'></script>
+    <script src='../../jquery.reel.js' type='text/javascript'></script>
+
+    <!-- Common examples style (gray background, thin fonts etc.) -->
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <a href="../index.html">Examples</a> ‹
+    <h1>Click-Free Stitched Panorama</h1>
+    <p class="credits photo"><a href="mailto:mr.thangnguyen@gmail.com">Tom Nguyen</a></p>
+
+    <img src="stitched.jpg" width="297" height="167"
+      class="reel"
+      id="image"
+      data-image="stitched-reel.jpg"
+      data-stitched="1821"
+      data-frames="60"
+      data-frame="23"
+      data-speed="-0.05"
+      data-clickfree="true"
+      data-wheelable="false">
+
+    <!-- Or Javascript alternative:
+
+    <img id="image" src="stitched.jpg" width="297" height="167" />
+    <script>
+      $('#image').reel({
+        image:       'stitched-reel.jpg',
+        stitched:    1821,
+        frames:      60,
+        frame:       23,
+        speed:       -0.05,
+        clickfree:   true,
+        wheelable:   false
+      });
+    </script>
+
+    -->
+
+<!--
+     Everything you might need to make Reel is above this line.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     Everything below this line is only here to make the example display illustratively
+     with pretty source code, indicators, ... So you do NOT need any of it.
+-->
+
+    <pre>
+    &lt;img src=<strong>"<a href="stitched.jpg">stitched.jpg</a>"</strong> width=<strong>"297"</strong> height=<strong>"167"</strong>
+      <a href="http://reel360.org/reel#class">class</a>=<strong>"reel"</strong>
+      <a href="http://reel360.org/reel#id">id</a>=<strong>"image"</strong>
+      data-<a href="http://reel360.org/reel#image">image</a>=<strong>"<a href="stitched-reel.jpg">stitched-reel.jpg</a>"</strong>
+      data-<a href="http://reel360.org/reel#stitched">stitched</a>=<strong>"1821"</strong>
+      data-<a href="http://reel360.org/reel#frames">frames</a>=<strong>"60"</strong>
+      data-<a href="http://reel360.org/reel#frame">frame</a>=<strong>"23"</strong>
+      data-<a href="http://reel360.org/reel#speed">speed</a>=<strong>"-0.05"</strong>
+      data-<a href="http://reel360.org/reel#clickfree">clickfree</a>=<strong>"true"</strong>
+      data-<a href="http://reel360.org/reel#wheelable">wheelable</a>=<strong>"false"</strong>&gt;</pre>
+    
+    <!-- Following script line only enables in-picture indicators. To remove them simply delete it. -->
+    <script> $.reel.def.indicator = 5; </script>
+
+    <div class="ballast">
+      <p>Some text ballast to make the page positively scroll-worthy for testing purposes.</p>
+      <p><a href="http://en.wikipedia.org/wiki/Lorem_Ipsum">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Sed rutrum semper imperdiet. Integer non auctor orci. Nullam dictum pretium metus, interdum congue sapien lobortis in. Donec sed massa a tellus dapibus auctor et in mauris. Curabitur adipiscing fermentum felis vel molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut semper sem ut nulla fringilla luctus. Curabitur dignissim quam ac libero consequat tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Nunc sed lectus eget magna suscipit tempor eget id nibh.</p>
+    </div>
+  </body>
+</html>
+

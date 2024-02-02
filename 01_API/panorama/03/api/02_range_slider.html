@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>02_range_slider</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+		<script>
+			$(document).ready(function(){
+				$('#slider-range').slider({
+					range:true,  // 기본값은 false
+					min:1000,
+					max:100000,
+					values:[5000, 80000],
+					slide:function(event, ui){
+						writeValue(ui.values);
+					}
+				});
+				
+				var values = $('#slider-range').slider('option', 'values');
+				writeValue(values);
+				
+				function writeValue(values){
+					var rangeValue = '$' + values[0] + ' ~ ' + '$' + values[1];
+					$('#amount').val(rangeValue);
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<p>
+		  <label for="amount">Price range:</label>
+		  <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+		</p>
+		 
+		<div id="slider-range"></div>
+	</body>
+</html>

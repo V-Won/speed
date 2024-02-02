@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html rang="kor">
+<meta charset="utf-8">
+<head>
+<title>이미지슬라이드</title>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+
+<style type="text/css">
+*{margin:0;padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+body{overflow:hidden;}
+#wrap {position:relative;width:100%;}
+#wrap > div{position:relative;width:100%;font-size:200px;text-align:center;}
+#wrap > div#a{background:#e8e8e8;}
+#wrap > div#b{background:gray;}
+#wrap > div#c{background:red;}
+</style>
+
+<script type="text/javascript">
+$(function(){
+    var height, // window height
+        count = 0, // 마우스 위 아래
+        $tg = $("#wrap"), // scroll box
+        tgTotalLength = $("#wrap .box-scrollAr").length; // section 개수
+
+    $(window).on('resize load', function(){
+        height = $(window).height();
+
+        $tg.css({"height":height});
+        $tg.find(".box-scrollAr").css("height",height);
+        $tg.css({top:count*$(window).height()});
+    });
+
+    $("html, body").on('mousewheel', function(event) { // DOMMouseScroll
+        var Evt = event.originalEvent;
+
+        if ($tg.is(":animated")) return false; // Scroll 이벤트 중복 막기
+
+        if (Evt.wheelDelta >= 0 && count != 0) { // Scroll up && 처음 위로 x
+            count++;
+            $tg.animate({top:count*$(window).height()},500);
+        }else if(Evt.wheelDelta <= 0 && -count < tgTotalLength - 1){ // Scroll down && 마지막 아래로 x
+            count--;
+            $tg.animate({top:count*$(window).height()},500);
+        }
+    });
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="a" class="box-scrollAr">1</div>
+	<div id="b" class="box-scrollAr">2</div>
+	<div id="c" class="box-scrollAr">3</div>
+    <div id="e" class="box-scrollAr">4</div>
+</div>
+<div>footer</div>
+</body>
+</html>

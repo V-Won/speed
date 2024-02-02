@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Parallax.js | Simple Example</title>
+
+	<!-- Behavioral Meta Data -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="styles/styles_test.css"/>
+	<style type="text/css">
+	.layer:nth-child(1){opacity:1;}
+	</style>
+</head>
+<body>
+
+	<div id="container" class="container">
+		<ul id="scene">
+			<li class="layer" data-depth="3.00"><img src="images/logo_cj.jpg"></li>
+		</ul>
+	</div>
+
+	<div class="">본문<br>본문<br>본문<br>본문<br>본문<br></div>
+
+	<!-- Scripts -->
+	<script src="../deploy/parallax.js"></script>
+	<script>
+
+	// Pretty simple huh?
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+
+	</script>
+
+</body>
+</html>

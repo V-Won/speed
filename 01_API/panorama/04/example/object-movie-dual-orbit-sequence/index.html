@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html data-type="example" data-id="sequence-dual-orbit">
+  <head>
+    <title>jQuery Reel Dual-Orbit Sequence Object Movie Example</title>
+    <meta charset='utf-8' content='text/html' http-equiv='Content-type' />
+
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js' type='text/javascript'></script>
+    <script src='../../jquery.reel.js' type='text/javascript'></script>
+
+    <!-- Common examples style (gray background, thin fonts etc.) -->
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      #green_marker {
+        width: 20px;
+        height: 20px;
+        margin-left: -20px;
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">Examples</a> ‹
+    <h1>Dual-Orbit Sequence</h1>
+    <p class="credits photo"><a href="mailto:tomas.krivda@gmail.com">Tomáš Krivda</a></p>
+
+    <img src="phone.png" width="200" height="200"
+      class="reel"
+      id="image"
+      data-images="phone/##.png"
+      data-footage="10"
+      data-cw="true"
+      data-orbital="3"
+      data-inversed="true"
+      data-speed="0.7">
+
+    <div class="reel-annotation"
+      id="green_marker"
+      data-x="200"
+      data-y="0"
+      data-at="+++-----++"
+      data-for="image">
+    </div>
+
+    <!-- Or Javascript alternative:
+
+    <img id="image" src="phone.png" width="200" height="200" />
+    <script>
+      $('#image').reel({
+        footage:     10,
+        cw:          true,
+        orbital:     3,
+        inversed:    true,
+        speed:       0.7,
+        images:      'phone/##.png',
+        annotations: {
+          "green_marker": {
+            node: $('<div/>'),
+            x: 180, y: 0,
+            at: '+++-----++'
+          }
+        }
+      });
+    </script>
+
+    -->
+
+<!--
+     Everything you might need to make Reel is above this line.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     Everything below this line is only here to make the example display illustratively
+     with pretty source code, indicators, ... So you do NOT need any of it.
+-->
+
+    <pre>
+    &lt;img src=<strong>"<a href="phone.png">phone.png</a>"</strong> width=<strong>"200"</strong> height=<strong>"200"</strong>
+      <a href="http://reel360.org/reel#class">class</a>=<strong>"reel"</strong>
+      <a href="http://reel360.org/reel#id">id</a>=<strong>"image"</strong>
+      data-<a href="http://reel360.org/reel#images">images</a>=<strong>"<a href="phone/07.png">phone/##.png</a>"</strong>
+      data-<a href="http://reel360.org/reel#footage">footage</a>=<strong>"10"</strong>
+      data-<a href="http://reel360.org/reel#cw">cw</a>=<strong>"true"</strong>
+      data-<a href="http://reel360.org/reel#orbital">orbital</a>=<strong>"3"</strong>
+      data-<a href="http://reel360.org/reel#inversed">inversed</a>=<strong>"true"</strong>
+      data-<a href="http://reel360.org/reel#speed">speed</a>=<strong>"0.7"</strong>&gt;</pre>
+
+    <p>
+      And the <a href="http://github.com/pisi/Reel/wiki/Annotations">annotation</a> marker:
+    </p>
+
+    <pre>
+    &lt;div <a href="http://reel360.org/reel#annotation-class">class</a>=<strong>"reel-annotation"</strong>
+      <a href="http://reel360.org/reel#annotation-id">id</a>=<strong>"first_row"</strong>
+      data-<a href="http://reel360.org/reel#annotation-x">x</a>=<strong>"180"</strong>
+      data-<a href="http://reel360.org/reel#annotation-y">y</a>=<strong>"0"</strong>
+      data-<a href="http://reel360.org/reel#annotation-at">at</a>=<strong>"+++-----++"</strong>
+      data-<a href="http://reel360.org/reel#annotation-for">for</a>=<strong>"image"</strong>&gt;
+    &lt;/div&gt;</pre>
+    
+    <!-- Following script line only enables in-picture indicators. To remove them simply delete it. -->
+    <script> $.reel.def.indicator = 5; </script>
+
+    <div class="ballast">
+      <p>Some text ballast to make the page positively scroll-worthy for testing purposes.</p>
+      <p><a href="http://en.wikipedia.org/wiki/Lorem_Ipsum">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Sed rutrum semper imperdiet. Integer non auctor orci. Nullam dictum pretium metus, interdum congue sapien lobortis in. Donec sed massa a tellus dapibus auctor et in mauris. Curabitur adipiscing fermentum felis vel molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut semper sem ut nulla fringilla luctus. Curabitur dignissim quam ac libero consequat tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Nunc sed lectus eget magna suscipit tempor eget id nibh.</p>
+    </div>
+  </body>
+</html>
+

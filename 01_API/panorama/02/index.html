@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    /*/ 360deg view /*/
+
+    /* wrapper */
+    .g {
+      width: 600px;     
+      height: 400px;
+        
+        margin: 50px auto;
+        
+        position: relative; 
+        overflow: hidden;  
+      
+      box-shadow: 0 -15px 15px -10px black;
+        }
+        
+        /* images from: 
+    http://www.ajax-zoom.com/examples/example15.php
+    */
+    .i {
+        width: 100%;
+        height: 100%;
+        background: url('http://dl.dropbox.com/u/32750720/spen/goggle_sprite.jpg') top left no-repeat;
+        
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        
+        box-shadow: inset 0 0 150px black;
+      border-radius: 10px;
+      
+      border-top: 1px solid rgba(255,255,255,.7);
+      border-bottom: 1px solid black;
+        }
+
+    /* the hoverboards: 24 divs which when hovered over changes bg position of .i */
+    .h {
+        height: 400px;
+        width: 25px;
+        
+        float: left;
+        }
+        .h:nth-child(2):hover ~ .i {
+            background-position: -600px 0;
+            }
+        .h:nth-child(3):hover ~ .i {
+            background-position: -1200px 0;
+            }
+        .h:nth-child(4):hover ~ .i {
+            background-position: -1800px 0;
+            }
+        .h:nth-child(5):hover ~ .i {
+            background-position: -2400px 0;
+            }
+        .h:nth-child(6):hover ~ .i {
+            background-position: -3000px 0;
+            }
+        .h:nth-child(7):hover ~ .i {
+            background-position: -3600px 0;
+            }
+        .h:nth-child(8):hover ~ .i {
+            background-position: -4200px 0;
+            }
+        .h:nth-child(9):hover ~ .i {
+            background-position: -4800px 0;
+            }
+        .h:nth-child(10):hover ~ .i {
+            background-position: -5400px 0;
+            }
+        .h:nth-child(11):hover ~ .i {
+            background-position: -6000px 0;
+            }
+        .h:nth-child(12):hover ~ .i {
+            background-position: -6600px 0;
+            }
+        .h:nth-child(13):hover ~ .i {
+            background-position: -7200px 0;
+            }
+        .h:nth-child(14):hover ~ .i {
+            background-position: -7800px 0;
+            }
+        .h:nth-child(15):hover ~ .i {
+            background-position: -8400px 0;
+            }
+        .h:nth-child(16):hover ~ .i {
+            background-position: -9000px 0;
+            }
+        .h:nth-child(17):hover ~ .i {
+            background-position: -9600px 0;
+            }
+        .h:nth-child(18):hover ~ .i {
+            background-position: -10200px 0;
+            }
+        .h:nth-child(19):hover ~ .i {
+            background-position: -10800px 0;
+            }
+        .h:nth-child(20):hover ~ .i {
+            background-position: -11400px 0;
+            }
+        .h:nth-child(21):hover ~ .i {
+            background-position: -12000px 0;
+            }
+        .h:nth-child(22):hover ~ .i {
+            background-position: -12600px 0;
+            }
+        .h:nth-child(23):hover ~ .i {
+            background-position: -13200px 0;
+            }
+        .h:nth-child(24):hover ~ .i {
+            background-position: -13800px 0;
+            }
+
+    /*/ Panorama view /*/
+
+    * {box-sizing: border-box}
+
+    body { 
+        margin: 0 0 140px; 
+        padding: 10px; 
+        background: #222;
+        
+        color: white;
+        text-align: center;
+        font-family: sans-serif;
+        }
+    .fixed {
+        width: 100%;
+        background: #222;
+        
+        padding: 10px;
+        
+        position: fixed;
+        top: 0px;
+        z-index: 11;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="fixed">Swipe mouse over the image horizontally to see it in action:</div>
+
+    <div class="g">
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div> 
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        
+        <div class="i"></div>
+    </div>
+
+</body>
+</html>

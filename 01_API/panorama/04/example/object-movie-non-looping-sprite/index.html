@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html data-type="example" data-id="object-movie-non-looping-sprite">
+  <head>
+    <title>jQuery Reel Non-Looping Sprite Object Movie Example</title>
+    <meta charset='utf-8' content='text/html' http-equiv='Content-type' />
+
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js' type='text/javascript'></script>
+    <script src='../../jquery.reel.js' type='text/javascript'></script>
+
+    <!-- Common examples style (gray background, thin fonts etc.) -->
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <a href="../index.html">Examples</a> ‹
+    <h1>Non-looping Sprite</h1>
+    <p class="credits graphic"><a href="https://github.com/gnatok">Alex Gnatishin</a></p>
+
+    <img src="torso.jpg" width="200" height="200"
+      class="reel"
+      id="image"
+      data-image="clothed.jpg"
+      data-frames="5"
+      data-frame="3"
+      data-loops="false"
+      data-speed="0.5"
+      data-revolution="100">
+
+    <!-- Or Javascript alternative:
+
+    <img id="image" src="torso.jpg" width="200" height="200" />
+    <script>
+      $('#image').reel({
+        image:       'clothed.jpg',
+        frames:      5,
+        frame:       3,
+        loops:       false,
+        speed:       0.5,
+        revolution:  100
+      });
+    </script>
+
+    -->
+
+<!--
+     Everything you might need to make Reel is above this line.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     Everything below this line is only here to make the example display illustratively
+     with pretty source code, indicators, ... So you do NOT need any of it.
+-->
+
+    <pre>
+    &lt;img src=<strong>"<a href="torso.jpg">torso.jpg</a>"</strong> width=<strong>"200"</strong> height=<strong>"200"</strong>
+      <a href="http://reel360.org/reel#class">class</a>=<strong>"reel"</strong>
+      <a href="http://reel360.org/reel#id">id</a>=<strong>"image"</strong>
+      data-<a href="http://reel360.org/reel#image">image</a>=<strong>"<a href="clothed.jpg">clothed.jpg</a>"</strong>
+      data-<a href="http://reel360.org/reel#frames">frames</a>=<strong>"5"</strong>
+      data-<a href="http://reel360.org/reel#frame">frame</a>=<strong>"3"</strong>
+      data-<a href="http://reel360.org/reel#loops">loops</a>=<strong>"false"</strong>
+      data-<a href="http://reel360.org/reel#speed">speed</a>=<strong>"0.5"</strong>
+      data-<a href="http://reel360.org/reel#revolution">revolution</a>=<strong>"100"</strong>&gt;</pre>
+    
+    <p>
+      To test realtime images switching:
+      <button id="strip">Naked</button>
+      <button id="clothe">Clothed</button>
+    </p>
+    <script>
+
+      $('#strip').click(function(){
+        $('#image').reel('image', 'naked.jpg');
+      });
+
+      $('#clothe').click(function(){
+        $('#image').reel('image', 'clothed.jpg');
+      });
+
+    </script>
+
+    <pre>
+    $(<strong>"#image"</strong>).reel(<strong>"image"</strong>, <strong>"<a href="naked.jpg">naked.jpg</a>"</strong>);
+    $(<strong>"#image"</strong>).reel(<strong>"image"</strong>, <strong>"<a href="clothed.jpg">clothed.jpg</a>"</strong>);</pre>
+
+    <!-- Following script line only enables in-picture indicators. To remove them simply delete it. -->
+    <script> $.reel.def.indicator = 5; </script>
+
+    <div class="ballast">
+      <p>Some text ballast to make the page positively scroll-worthy for testing purposes.</p>
+      <p><a href="http://en.wikipedia.org/wiki/Lorem_Ipsum">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Sed rutrum semper imperdiet. Integer non auctor orci. Nullam dictum pretium metus, interdum congue sapien lobortis in. Donec sed massa a tellus dapibus auctor et in mauris. Curabitur adipiscing fermentum felis vel molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut semper sem ut nulla fringilla luctus. Curabitur dignissim quam ac libero consequat tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Nunc sed lectus eget magna suscipit tempor eget id nibh.</p>
+    </div>
+  </body>
+</html>
+

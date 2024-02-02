@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- Behavioral Meta Data -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="styles/styles_test.css"/>
+	<style type="text/css">
+		.layer:nth-child(1){opacity:1;}
+		.box-test{overflow:hidden;height:75px;position:relative;}
+		.box-test:after{background:url('images/bg.png') repeat-x 0 0;content:'';display:block;clear:both;width:100%;height:24px;position:absolute;top:0;left:0;right:0;}
+	</style>
+</head>
+<body>
+
+	<div class="box-test" id="scene">
+		<div class="layer" data-depth="0.5"><img src="images/pt.jpg" style="margin-top:-220px;margin-left:-70px;width:1000px;"></div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="scripts/jquery.js"></script>
+	<script src="../deploy/jquery.parallax.js"></script>
+	<script>
+	$('#scene').parallax();
+
+	/*$('#scene').parallax({
+		calibrateX: false,
+		calibrateY: true,
+		invertX: false,
+		invertY: true,
+		limitX: false,
+		limitY: 10,
+		scalarX: 2,
+		scalarY: 8,
+		frictionX: 0.2,
+		frictionY: 0.8,
+		originX: 0.0,
+		originY: 1.0
+	});*/
+	</script>
+
+</body>
+</html>
