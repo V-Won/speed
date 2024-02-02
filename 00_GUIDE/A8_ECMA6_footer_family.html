@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body style="padding:10px;">
+
+	<style>
+		.footer-family{width: 190px;}
+		.footer-family .dropdown{width: 100%;background-color: #fff;position: relative;display: inline-flex;min-width: 97px;height: 40px;padding: 0;margin-right: 8px;background: #f5f3ec;border: 1px solid #dbd3c7;border-radius: 8px;font-size: 14px;color: #666;}
+		.footer-family .dropdown.is-open{border-bottom-left-radius: 0;border-bottom-right-radius: 0;}
+		.footer-family .button {position: relative;display: block;width: 100%;height: 100%;padding: 5px 25px 5px 16px;text-align: left;overflow: hidden;max-width: 100%;text-overflow: ellipsis;vertical-align: middle;display: inline-block;white-space: nowrap;}
+		.footer-family .button:before {position: absolute;right: 20px;top: 50%;width: 5px;height: 5px;margin-top: -3px;border-bottom: 1px solid #666;border-left: 1px solid #666;transform: rotate(-45deg) translateY(-50%);content: "";}
+		.footer-family .dropdown.is-open .button:before {transform: rotate(135deg);}
+		.footer-family .dropdown.is-open .dropdown-list {display: block;}
+		.footer-family .dropdown-list{display: none;position: absolute;top: 100%;left: -1px;right: -1px;overflow-x: hidden;overflow-y: auto;width: calc(100% + 2px);max-height: 250px;padding: 0;background: #f5f3ec;border: 1px solid #dbd3c7;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;z-index: 10;}
+		.footer-family .dropdown-list::-webkit-scrollbar {
+			width: 8px;
+			height: 10px;
+		}
+		.footer-family .dropdown-list::-webkit-scrollbar-thumb {
+			background-color: #c8c6bd;
+			border-radius: 10px;
+		}
+		.footer-family .dropdown-list::-webkit-scrollbar-track {
+			background-color: #eae7e2;
+			border-radius: 10px;
+			box-shadow: inset 0px 0px 1px #c8c6bd;
+		}
+		.footer-family .dropdown-list .dropdown-btn {display: block;width: 100%;padding: 10px 16px;text-align: left;line-height: 1.2;}
+	</style>
+
+	<div class="footer-family" data-event="family">
+		<div class="dropdown">
+			<button type="button" class="button">VW Family</button>
+			<ul class="dropdown-list">
+				<li><a class="dropdown-btn" target="_blank" href="#">1</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">2</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">3</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">4</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">5</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">6</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">7</a></li>
+				<li><a class="dropdown-btn" target="_blank" href="#">8</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		footerFamily.initialize();
+	</script>
+	
+</body>
+</html>

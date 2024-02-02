@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<style>
+		.selectBox{position: relative;border:1px solid #ccc;border-radius: 4px;margin:10px;}
+		.selectBox > button{padding:10px 25px 10px 10px;position: relative;width: 100%;text-align: left;}
+		.selectBox > button:after{content: '';display: block;position: absolute;top:50%;right:10px;transform: translate(0, -50%);background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M0.835938 0.917969L5.0026 5.08464L9.16927 0.917969H0.835938Z' fill='%23444444'/%3E%3C/svg%3E");width: 10px;height: 5px;background-repeat: no-repeat;transition: transform 0.4s;}
+		.selectBox ul{display: none;position: absolute;top:100%;left:0;right:0;background: #fff;border:1px solid #ccc;left:-1px;right:-1px;margin-top:-1px;border-radius: 0 0 4px 4px;}
+		.selectBox ul li button{padding:10px;width:100%;text-align: left;}
+
+		.selectBox.is-active{z-index: 10;border-radius: 4px 4px 0 0;}
+		.selectBox.is-active > button:after{transform: rotate(-180deg);}
+		.selectBox.is-active ul{display: block;}
+
+		.selectBox.disabled{background: #ccc;}
+		.selectBox.disabled button:hover{cursor: default;}
+	</style>
+
+	<div class="selectBox" data-event="selectBox">
+		<button class="button">selectBox 1</button>
+		<ul>
+			<li><button>1-1</button></li>
+			<li><button>1-2</button></li>
+			<li><button>1-3</button></li>
+			<li><button>1-4</button></li>
+		</ul>
+	</div>
+
+	<div class="selectBox" data-event="selectBox">
+		<button class="button">selectBox 2</button>
+		<ul>
+			<li><button>2-1</button></li>
+			<li><button>2-2</button></li>
+			<li><button>2-3</button></li>
+			<li><button>2-4</button></li>
+		</ul>
+	</div>
+
+	<div class="selectBox disabled" data-event="selectBox">
+		<button class="button">disabled</button>
+		<ul>
+			<li><button>3-1</button></li>
+			<li><button>3-2</button></li>
+			<li><button>3-3</button></li>
+			<li><button>3-4</button></li>
+		</ul>
+	</div>
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		selectBox.initialize();
+	</script>
+	
+</body>
+</html>

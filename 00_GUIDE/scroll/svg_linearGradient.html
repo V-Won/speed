@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initiainclude-htmll-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+  <title>삼광의료재단</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="../static/images/logo/favicon.svg">
+  <link rel="shortcut icon" type="image/x-icon" href="../static/images/logo/favicon.ico" />
+  <link rel="stylesheet" href="../static/css/style.css"><!-- 공통 css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /><!-- swiper css -->
+</head>
+
+<body>
+
+  <div>
+    <svg viewBox="0 0 100 100" width="100px" height="100px" fill="none" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="a">
+          <stop offset="0" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="3s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="50%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values=".5;.2;.5" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="100%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values="1;.9;1" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF;#FFDDB7" dur="3.1500000000000004s"
+              repeatCount="indefinite"></animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5" dur="5.4s"
+            repeatCount="indefinite"></animateTransform>
+        </linearGradient>
+        <linearGradient id="gradientA">
+          <stop offset="0%" stop-color="#FFDDB7" stop-opacity="0">
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF" dur="10s" repeatCount="indefinite"></animate>
+          </stop>
+          <stop offset="50" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="10s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5"
+            dur="4.199999999999999s" repeatCount="indefinite"></animateTransform>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" rx="6px" ry="6px" width="100%" height="100%" fill="url(#a)"
+        mask="url(#aa)" preserveAspectRatio="none" vector-effect="non-scaling-stroke">
+      </rect>
+      <mask id="aa">
+        <rect x="0" y="0" rx="6px" ry="6px" vector-effect="non-scaling-stroke" width="100%" height="100%" fill="black"
+          stroke="white" preserveAspectRatio="none" stroke-width="10"></rect>
+      </mask>
+    </svg>
+  </div>
+  
+  <div>
+    <svg viewBox="0 0 100 100" width="100px" height="100px" fill="none" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="b">
+          <stop offset="0" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="3s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="50%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values=".5;.2;.5" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="100%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values="1;.9;1" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF;#FFDDB7" dur="3.1500000000000004s"
+              repeatCount="indefinite"></animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5" dur="5.4s"
+            repeatCount="indefinite"></animateTransform>
+        </linearGradient>
+        <linearGradient id="gradientB">
+          <stop offset="0%" stop-color="#FFDDB7" stop-opacity="0">
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF" dur="10s" repeatCount="indefinite"></animate>
+          </stop>
+          <stop offset="50" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="10s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5"
+            dur="4.199999999999999s" repeatCount="indefinite"></animateTransform>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" rx="6px" ry="6px" width="100%" height="100%" fill="url(#b)"
+        mask="url(#bb)" preserveAspectRatio="none" vector-effect="non-scaling-stroke">
+      </rect>
+      <!-- <mask id="bb">
+        <rect x="0" y="0" rx="6px" ry="6px" vector-effect="non-scaling-stroke" width="100%" height="100%" fill="black"
+          stroke="white" preserveAspectRatio="none" stroke-width="10"></rect>
+      </mask> -->
+    </svg>
+  </div>
+
+  <!-- 공통 js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+  <script src="../static/js/includeHTML.js"></script>
+  <script src="../static/js/front.js"></script>
+  <!-- //공통 js -->
+
+  <!-- swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- //swiper.js -->
+
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://assets.codepen.io/16327/DrawSVGPlugin3.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+</body>
+
+</html>

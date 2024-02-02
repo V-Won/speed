@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<style>
+		header{background-color: #eee;padding:20px;font-size: 140%;font-weight: bold;}
+		[data-event="header"]{z-index: 10;}
+		[data-event="header"].is-fixed{position: fixed;top:0;left:0;right:0;color:red;}
+		[data-event="listSticky"] .item{display: flex;padding:20px;position: relative;}
+		[data-event="listSticky"] .item .left,
+		[data-event="listSticky"] .item .right{font-size: 140%;font-weight: bold;border:1px solid #ddd;}
+		[data-event="listSticky"] .item .left{height: 1000px;flex: 1 1 content;margin-right:20px;padding:20px;}
+		[data-event="listSticky"] .item .right{height:320px;flex: 0 0 200px;padding:20px;float:right;position: sticky;top:90px;background: rgb(237, 237, 237);}
+	</style>
+
+	<div style="background-color: #333333;color: #fefefe;padding: 20px;font-size: 140%;font-weight: bold;display: flex;height:10vh;align-items: center;">GAP</div>
+
+	<header data-event="header">
+		Header
+	</header>
+
+	<div data-event="listSticky">
+		<div class="item">
+			<div class="left">1-1</div>
+			<div class="right">1-2</div>
+		</div>
+		<div class="item">
+			<div class="left">2-1</div>
+			<div class="right">2-2</div>
+		</div>
+		<div class="item">
+			<div class="left">3-1</div>
+			<div class="right">3-2</div>
+		</div>
+		<div class="item">
+			<div class="left">4-1</div>
+			<div class="right">4-2</div>
+		</div>
+	</div>
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		scrollSticky.initialize();
+	</script>
+	
+</body>
+</html>

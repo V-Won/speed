@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<style>
+		.box{position: fixed;top:0;left:0;right:0;}
+		.box ul{display: flex;padding:6px 3px 0;}
+		.box li{text-align: center;flex: 1 1 content;margin:0 3px;}
+		.box li:first-child{flex: 0 0 200px;}
+		.box li.is-active button{background-color: red;}
+		.box li button{display: flex;background: #000;color:#fff;height: 50px;justify-content: center;align-items: center;transform: all 0.5s;width: 100%;}
+		.section{}
+		.section .item{justify-content: center;align-items: center;color: red;font-size: 50px;height: 100vh;display: none;}
+		.section .item.is-active{display: flex;}
+		.section .item:nth-child(odd){background: #e3e3e3;}
+	</style>
+
+	<div class="box" data-event="tabMenu">
+		<ul>
+			<li data-tab="1"><button>메뉴 1번 <br>WIDTH 200px 고정</button></li>
+			<li data-tab="2" class="is-active"><button>메뉴 2</button></li>
+			<li data-tab="3"><button>메뉴 3</button></li>
+			<li data-tab="4"><button>메뉴 4</button></li>
+		</ul>
+	</div>
+
+	<div class="section" data-event="tabMenu-section">
+		<div class="item" data-section="1">1번 영역</div>
+		<div class="item" data-section="2">2번 영역</div>
+		<div class="item" data-section="3">3번 영역</div>
+		<div class="item" data-section="4">4번 영역</div>
+	</div>
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		tabMenu.initialize();
+	</script>
+	
+</body>
+</html>

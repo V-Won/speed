@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>https://webstoryboy.co.kr/1909</title>
+
+  <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    body {
+      color: #fff;
+      font-family: "NexonLv1Gothic";
+      font-weight: 300;
+      background-color: #111;
+    }
+
+    #parallax__title {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      z-index: 1000;
+    }
+
+    #parallax__title h1 {
+      font-size: 30px;
+      border-bottom: 1px dashed #fff;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      font-weight: 400;
+      display: inline-block;
+    }
+
+    #parallax__title p {
+      font-size: 16px;
+    }
+
+    #parallax__title ul {
+      margin-top: 10px;
+    }
+
+    #parallax__title li {
+      display: inline;
+    }
+
+    #parallax__title li a {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px dashed #fff;
+      display: inline-block;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+    }
+
+    #parallax__title li.active a {
+      background: #fff;
+      color: #000;
+    }
+
+    /* parallax__cont */
+    #parallax__cont {
+      overflow: hidden;
+    }
+
+    .parallax__item {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parallax__item:nth-child(2n) {
+      background-color: #222;
+    }
+
+    .parallax__item__num {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 5vw;
+      line-height: 1;
+    }
+
+    .parallax__item__img {
+      width: 10vw;
+      height: 10vw;
+      background-color: #fff;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .parallax__item__img {
+      filter: hue-rotate(0) !important;
+      position: relative;
+    }
+
+    .parallax__item__img.active:after{
+      content: 'active Class 추가';
+      display: block;
+      position: absolute;
+      top:50%;
+      left:50%;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background: #000;
+    }
+
+    .parallax__item:nth-child(1) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images14.jpg);
+    }
+
+    .parallax__item:nth-child(2) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images15.jpg);
+    }
+
+    .parallax__item:nth-child(3) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images03.jpg);
+    }
+
+    .parallax__item:nth-child(4) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images04.jpg);
+    }
+
+    .parallax__item:nth-child(5) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images05.jpg);
+    }
+
+    .parallax__item:nth-child(6) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images06.jpg);
+    }
+
+    .parallax__item:nth-child(7) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images07.jpg);
+    }
+
+    .parallax__item:nth-child(8) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images08.jpg);
+    }
+
+    .parallax__item:nth-child(9) .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images09.jpg);
+    }
+
+    .parallax__item__img.active {
+      filter: hue-rotate(100deg);
+    }
+  </style>
+</head>
+
+<body>
+  <header id="parallax__title">
+    <h1>GSAP Parallax Effect01</h1>
+    <p>GSAP scrollTrigger - 애니메이션 기본 효과</p>
+    <ul>
+      <li class="active"><a href="gsap01.html">1</a></li>
+      <li><a href="gsap02.html">2</a></li>
+      <li><a href="gsap03.html">3</a></li>
+      <li><a href="gsap03_2.html">3-2</a></li>
+      <li><a href="gsap04.html">4</a></li>
+      <li><a href="gsap05.html">5</a></li>
+      <li><a href="gsap06.html">6</a></li>
+      <li><a href="gsap07.html">7</a></li>
+      <li><a href="gsap08.html">8</a></li>
+      <li><a href="gsap09.html">9</a></li>
+      <li><a href="gsap10.html">10</a></li>
+      <li><a href="gsap11.html">11</a></li>
+      <li><a href="gsap12.html">12</a></li>
+      <li><a href="gsap13.html">13</a></li>
+      <li><a href="gsap14.html">14</a></li>
+      <li><a href="gsap15.html">15</a></li>
+    </ul>
+  </header>
+  <!-- //parallax__title  -->
+
+  <main id="parallax__cont">
+    <section id="section1" class="parallax__item">
+      <span class="parallax__item__num">01</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section1 -->
+
+    <section id="section2" class="parallax__item">
+      <span class="parallax__item__num">02</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section2 -->
+
+    <section id="section3" class="parallax__item">
+      <span class="parallax__item__num">03</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section3 -->
+
+    <section id="section4" class="parallax__item">
+      <span class="parallax__item__num">04</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section4 -->
+
+    <section id="section5" class="parallax__item">
+      <span class="parallax__item__num">05</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section5 -->
+
+    <section id="section6" class="parallax__item">
+      <span class="parallax__item__num">06</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section6 -->
+
+    <section id="section7" class="parallax__item">
+      <span class="parallax__item__num">07</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section7 -->
+
+    <section id="section8" class="parallax__item">
+      <span class="parallax__item__num">08</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section8 -->
+
+    <section id="section9" class="parallax__item">
+      <span class="parallax__item__num">09</span>
+      <div class="parallax__item__img"></div>
+    </section>
+    <!-- //section9 -->
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+
+  <script>
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+    
+    const box1 = document.querySelector("#section1 .parallax__item__img");
+    const box2 = document.querySelector("#section2 .parallax__item__img");
+    const box3 = document.querySelector("#section3 .parallax__item__img");
+    const box4 = document.querySelector("#section4 .parallax__item__img");
+    const box5 = document.querySelector("#section5 .parallax__item__img");
+    const box6 = document.querySelector("#section6 .parallax__item__img");
+    const box7 = document.querySelector("#section7 .parallax__item__img");
+    const box8 = document.querySelector("#section8 .parallax__item__img");
+    const box9 = document.querySelector("#section9 .parallax__item__img");
+
+    // 01
+    gsap.to(box1, {
+      duration: 1,
+      x: 500,
+      borderRadius: 100,
+      rotation: 360,
+    });
+
+    // 02 : trigger
+    gsap.to(box2, {
+      duration: 2,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+      
+      scrollTrigger: {
+        trigger: box2,  //시작점 설정
+        start:"top 50%",
+        id: "box2",
+        markers: true
+      }
+    });
+
+    // 03 : toggleActions
+    gsap.to(box3, {
+      duration: 1,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+
+      scrollTrigger: {
+        trigger: box3,
+        toggleActions: "play pause reverse none",
+      }
+    });
+
+    // 04 : start, end
+    gsap.to(box4, {
+      duration: 1,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+
+      scrollTrigger: {
+        trigger: box4,
+        start: "top 50%", // 첫 번째 요소는 요소의 시작점을 의미하고, 두 번째 요소는 브라우저의 시작점을 의미 // top, bottom, left, right, center를 사용할 수 있으면, px이나 % 사용도 가능
+        end: "bottom 20%",
+        toggleActions: "play pause reverse pause",
+        markers: true,
+        id: 'box4'
+      }
+    });
+
+    // 05 : scrub
+    gsap.to(box5, {
+      duration: 1,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+
+      scrollTrigger: {
+        trigger: box5,
+        start: "top 50%",
+        end: "bottom 20%",
+        scrub: 0.2,    //true, 1, 2,....
+        markers: false,
+      }
+    });
+
+    // 06 : pin
+    gsap.to(box6, {
+      duration: 2,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+
+      scrollTrigger: {
+        trigger: box6,
+        start: "top 50%",
+        end: "3000px 100px", // 3000px 스크롤 할때 까지 pin 고정.
+        pin: true,
+        scrub: true,
+        markers: false,
+      }
+    });
+
+    // 07 : toggleClass
+    gsap.to(box7, {
+      duration: 2,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+
+      scrollTrigger: {
+        trigger: box7,
+        start: "top 70%",
+        end: "bottom 10%",
+        scrub: true,
+        markers: true,
+        toggleClass: "active", // addClass
+        id: "box7"
+      }
+    });
+
+    // 08 : callback
+    gsap.to(box8, {
+      duration: 2,
+      x: 500,
+      rotation: 360,
+      borderRadius: 100,
+
+      scrollTrigger: {
+        trigger: box8,
+        start: "top 65%",
+        end: "bottom 45%",
+        scrub: true,
+        markers: true,
+        id: "box8",
+        // onEnter : () => {console.log("onEnter")}, // 시작 지점 진입
+        // onLeave : () => {console.log("onLeave")}, // end 지점 밖으로 나감
+        // onEnterBack : () => {console.log("onEnterBack")}, // end 지점 반대로 돌아옴
+        // onLeaveBack : () => {console.log("onLeaveBack")}, // start 지점 반대로 돌아옴
+        // onUpdate : (self) => {console.log("onUpdate", self.progress.toFixed(3))}, // scroll 퍼센트 구하기 가능
+        onToggle: (e) => { console.log("onToggle", e.isActive) }, // true false callback
+      }
+    });
+  </script>
+</body>
+
+</html>

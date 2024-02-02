@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"
+    />
+    <title></title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <!-- 공통 css -->
+  </head>
+  <body>
+    <div id="item-wrap"></div>
+    <script>
+      const userList = reqUserList(); // 함수 선언 전 변수 선언은 호이스팅에 의해 허락됨
+
+      function reqUserList() {
+        return [
+          { name: "1", phone: "1" },
+          { name: "2", phone: "2" },
+          { name: "3", phone: "3" },
+        ];
+      }
+
+      function deleteUser(index) {
+        userList.splice(index, 1);
+
+        render();
+      }
+
+      function makeListToDom(list) {
+        const dom = list.map(
+          (elem, index, array) => `
+            <div>
+              ${elem.name}<br>
+              ${elem.phone}
+            </div>
+          `
+        );
+
+        return dom;
+      }
+
+      function renderList(dom) {
+        const d = dom.join("");
+
+        document.getElementById("item-wrap").innerHTML = d;
+      }
+
+      function render() {
+        const userListDom = makeListToDom(userList);
+
+        renderList(userListDom);
+      }
+
+      render()
+    </script>
+  </body>
+</html>

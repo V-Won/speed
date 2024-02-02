@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<style>
+		.box{height:3000px;}
+		.box span{font-size: 50px;position: fixed;top:50%;left:50%;transform: translate(-50%, -50%);}
+		.progress-bar{position: sticky;top:0;height: 5px;background-color: red;width: 0;transition: width .4s;}
+	</style>
+
+	<div class="progress-bar" data-event="progressBar"></div>
+
+	<div class="box"><span>Scroll Down</span></div>
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		progressBar.initialize();
+	</script>
+	
+</body>
+</html>

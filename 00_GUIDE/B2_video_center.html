@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<style>
+		.section-video{
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+		}
+
+		.primary-video{
+				max-width: none;
+				max-height: 100%;
+				min-width: 100%;
+				min-height: 100%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+		}
+		
+		@media (min-aspect-ratio:16 / 9){
+			.primary-video {
+				max-height: none;
+				max-width: 100%;
+			}
+		}
+	</style>
+
+	<div class="section-video">
+		<video class="primary-video" autoplay loop>
+				<source src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto/Model-X-Main-Hero-Desktop-NA.mp4">
+				<!-- <source src="https://www.tesla.com/ns_videos/HomepageLoop_032917.mp4?20170331"> -->
+		</video>
+	</div>
+	
+</body>
+</html>

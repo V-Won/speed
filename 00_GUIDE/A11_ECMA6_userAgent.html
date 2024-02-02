@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		let Browser = {
+			a : navigator.userAgent.toLowerCase()
+		}
+
+		Browser = {
+			ie : /*@cc_on true || @*/ false,
+			ie6 : Browser.a.indexOf('msie 6') != -1,
+			ie7 : Browser.a.indexOf('msie 7') != -1,
+			ie8 : Browser.a.indexOf('msie 8') != -1,
+			ie9 : Browser.a.indexOf('msie 9') != -1,
+			opera : !!window.opera,
+			safari : Browser.a.indexOf('safari') != -1,
+			safari3 : Browser.a.indexOf('applewebkit/5') != -1,
+			mac : Browser.a.indexOf('mac') != -1,
+			chrome : Browser.a.indexOf('chrome') != -1,
+			firefox : Browser.a.indexOf('firefox') != -1
+		}
+
+		alert(`${navigator.userAgent.toLowerCase()}`);
+
+		function whatKindOfBrowser() {
+			if (Browser.chrome) {
+				alert("구글 크롬을 사용중입니다.");
+			} else if (Browser.ie6) {
+				alert("IE 6을 사용중입니다.");
+			} else if (Browser.ie7) {
+				alert("IE 7을 사용중입니다.");
+			} else if (Browser.ie8) {
+				alert("IE 8을 사용중입니다.");
+			} else if (Browser.ie9) {
+				alert("IE 9를 사용중입니다.");
+			} else if (Browser.opera) {
+				alert("오페라를 사용중입니다.");
+			} else if (Browser.safari) {
+				alert("사파리를 사용중입니다.");
+			} else if (Browser.safari2) {
+				alert("사파리2를 사용중입니다.");
+			} else if (Browser.safari3) {
+				alert("사파리3을 사용중입니다.");
+			} else if (Browser.mac) {
+				alert("맥 브라우져를 사용중입니다.");
+			} else if (Browser.firefox) {
+				alert("파이어폭스를 사용중입니다.");
+			} else {
+				alert("브라우져 체크 목록에 없습니다.");
+			}
+		}
+
+	whatKindOfBrowser();
+	</script>
+	
+</body>
+</html>

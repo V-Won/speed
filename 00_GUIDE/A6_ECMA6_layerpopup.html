@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body style="padding:10px;">
+
+	<style>
+		[data-event="layerOpen"]{font-size: 20px;border-radius: 4px;border:1px solid #ccc;margin:3px;padding:3px;min-width: 100px;}
+		/* layer */
+		.oh{overflow: hidden;}
+		.box-layer{ background: rgba(0, 0, 0, 0.6);height: 100%;left: 0;top: 0;overflow: auto;position: fixed;white-space: nowrap;width: 100%;z-index: 1002;display:none;-webkit-overflow-scrolling:touch;overflow-x: hidden;text-align: center;}
+		.box-layer .inner-layer{ background: #fff;border-radius: 2px;display: inline-block;margin: 20px;max-width: 100%;padding: 40px;position: relative;vertical-align: middle;white-space: normal;}
+		.box-layer .gap{text-align: left;max-width: 500px;}
+		.box-layer .verticalAlign{display: inline-block;height: 100%;vertical-align: middle;}
+		[data-event="layerClose"]{border-radius: 4px;border:1px solid #ccc;padding:3px 5px;}
+	</style>
+
+	<ul>
+		<li>- 브라우저 높이보다 레이어 콘텐츠가 크면 자동으로 스크롤 생성.</li>
+		<li>- Dim 영역 click Layer hide.</li>
+		<li>- ESC keydown Layer hide.</li>
+	</ul>
+
+	<br>
+	<button data-event="layerOpen" data-layerId="ly-1">1. Click</button>
+	<br>
+	<button data-event="layerOpen" data-layerId="ly-2">2. Click</button>
+
+	<!-- box-layer -->
+	<div class="box-layer" id="ly-1">
+    <div class="inner-layer" tabindex="0">
+			<div class="gap"><!-- max-width 설정 -->
+				<strong>1. Layer popup</strong><br>
+				--------<br>
+				<p style="text-align:center;">
+					<button data-event="layerClose">확인</button>
+					<button data-event="layerClose">닫기</button>
+				</p>
+			</div>
+    </div>
+    <div class="verticalAlign"></div>
+	</div>
+	<!-- //box-layer -->
+
+	<!-- box-layer -->
+	<div class="box-layer" id="ly-2">
+    <div class="inner-layer" tabindex="0">
+			<div class="gap"><!-- max-width 설정 -->
+				<strong>2. Layer popup</strong><br>
+				--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
+				<p style="text-align:center;">
+					<button data-event="layerClose">확인</button>
+					<button data-event="layerClose">닫기</button>
+				</p>
+			</div>
+    </div>
+    <div class="verticalAlign"></div>
+	</div>
+	<!-- //box-layer -->
+
+	<script src="static/js/front.js"></script>
+
+	<script>
+		layerPopup.initialize();
+	</script>
+	
+</body>
+</html>

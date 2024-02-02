@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title></title>
+	<link rel="stylesheet" href="static/css/style.css"><!-- 공통 css -->
+</head>
+<body>
+
+	<div class="box">
+		<a href="#none" class="btn btn-1">btn 1</a><br>
+		<a href="#none" class="btn btn-2">btn 2</a><br>
+		<a href="#none" class="btn btn-3">btn 3</a><br>
+		<a href="#none" class="replace focus">replace class</a><br>
+		<a href="#none" class="btn eventNo">클릭 금지</a>
+	</div>
+
+	<script src="static/js/jquery-3.7.0.js"></script>
+
+	<script>
+		
+		/**
+		 * 참고 URL
+		 * https://mono9.tistory.com/1
+		 * https://zero-gravity.tistory.com/321
+		*/
+
+		//------------------------------------------------ 엘리먼트 선택 ------------------------------------------------
+
+		/**
+		 * 엘리먼트 선택
+		*/
+			// jQuery: 모든 .element 인스턴스 선택
+			$(".el");
+			// .element 첫번째 요소만 선택
+			document.querySelector(".element");
+			// .element 모든 요소 선택
+			document.querySelectorAll(".element");
+
+		/**
+		 * 선택된 요소에 함수 실행
+		*/
+			// jQuery에서 모든 요소 안보이게 하기
+			$('.el').hide;
+
+			// VanillaJS에서는 .element 엘리먼트 배열의 각 원소마다 함수를 호출
+			document.querySelectorAll('.el').forEach(e => {
+				e.style.display = 'none';
+			});
+
+		/**
+		 * 선택된 엘리먼트 배열에서 특정 요소 찾기
+		*/
+			// jQuery에서 .container 엘리먼트들중 .element의 첫 번째 엘리먼트 가져오기
+			const container = $(".container");
+			container.find(".element");
+
+			// VanillaJS에서 동일한 기능 수행
+			const box = document.querySelector('.box');
+			box.querySelectorAll('.btn-2');
+
+		/**
+		 * 엘리먼트 트리 구조 탐색
+		*/
+			// jQuery
+			$(".element").next();
+			$(".element").prev();
+			$(".element").parent();
+
+			// VanillaJS
+			const npp = document.querySelector('.btn-2'),
+						nppNext = npp.nextElementSibling,
+						nppPrev = npp.previousElementSibling,
+						nppParent = npp.parentElement;
+
+		//------------------------------------------------ 이벤트 ------------------------------------------------
+
+		/**
+		 * 이벤트
+		*/
+			// jQuery
+			$(".element").click(function(e) { /* 클릭 이벤트 처리 */ });
+			$(".element").mouseenter(function(e) { /* 클릭 이벤트 처리 */ });
+			$(document).keyup(function(e) { /* 키 입력 이벤트 처리 */ });
+
+			// vanillaJS
+			document.querySelector('.btn-2').addEventListener("click", (e) => { console.log(11); });
+			document.querySelector('.btn-2').addEventListener("mouseenter", (e) => { /* */ });
+			document.querySelector('.btn-2').addEventListener("keyup", (e) => { /* */ });
+
+		/**
+		 * 2개 이상 엘리먼트 item click
+		*/
+			const btns = document.querySelectorAll('.btn'); // querySelectorAll 배열로 반환. 단, querySelector 사용시 배열이 아니기때문에 스크립트 오류 발생.
+
+			for( const btn of btns ){ // btns 배열을 btn에 담기
+				btn.onclick = (e) => {
+					e.target.classList.toggle("show");
+				}
+			}
+
+		/**
+		 * 동적으로 추가되는 엘리먼트에 이벤트 등록
+		*/
+
+			// VanillaJS
+			// 엘리먼트를 생성하고 DOM에 추가
+			let list = document.createElement("div");
+			document.querySelector('.box').appendChild(list);
+			// 엘리먼트에 이벤트 등록
+			list.addEventListener("click", (e) => { /* */ });
+
+		/**
+		 * 커스텀 이벤트 생성과 실행
+		 * 이벤트를 수동으로 실행시키는 trigger()는 dispatchEvent()로 대체될 수 있습니다.
+		*/
+			// jQuery
+			// document와 .element에서 customEvent 실행
+			$(document).trigger("customEvent");
+			$(".element에서").trigger("customEvent");
+
+			// vanillaJS
+			// customEvent 생성과 실행
+			document.dispatchEvent(new Event("customEvent"));
+			document.querySelector('.box').dispatchEvent(new Event("customEvent"));
+
+		//------------------------------------------------ 스타일 적용 ------------------------------------------------
+
+		/**
+		 * 스타일 적용
+		*/
+			// jQuery
+			// .element 를 선택하고 텍스트 색상을 검정으로 변경
+			$(".element").css("color", "#000");
+
+			// vanillaJS
+			// .element 에 해당하는 첫번째 엘리먼트를 선택하고 텍스트 색상을 검정으로 변경
+			document.querySelector('.btn').style.color = "red"; // 1개
+			document.querySelectorAll('.btn').forEach( e => { // 모든 class="btn"
+				e.style.color = "red"
+			});
+
+			// jQuery
+			// 여러개의 스타일 적용
+			$(".element").css({
+					"color": "#000",
+					"Background-color": "red"
+			});
+
+			// vanillaJS
+			// 스타일을 한번에 적용 (그러나 이 엘리먼트에 있던 모든 CSS가 사라지고 이것으로 대체된다)
+			document.querySelector('.btn').style.cssText = "color: #000; background-color: red";
+			document.querySelectorAll('.btn').forEach( e => { // 모든 class="btn"
+				e.style.cssText = "color:#fff;background:red;"
+			});
+
+		//------------------------------------------------ Document 로딩 완료 이벤트 ------------------------------------------------
+
+		/**
+		 * Document 로딩 완료 이벤트
+		*/
+			// jQuery
+			$(document).ready(function() {
+					/* DOM이 완전히 로드된 후에 할 일들 */
+			});
+
+			// vanillaJS
+			// 메소드를 정의하고 그것을 호출한다
+			var ready = (callback) => {
+					if (document.readyState != "loading") callback();
+					else document.addEventListener("DOMContentLoaded", callback);
+			}
+
+			ready(() => {
+					/* DOM이 완전히 로드된 후에 할 일들 */
+			});
+
+		//------------------------------------------------ class 등록과 삭제 ------------------------------------------------
+
+		/**
+		 * class 등록과 삭제
+		*/
+			// jQuery
+			// focus 클래스의 추가, 제거, 적용/비적용
+			$(".element").addClass("focus");
+			$(".element").removeClass("focus");
+			$(".element").toggleClass("focus");
+		
+			// vanillaJS
+			// focus 클래스의 추가, 제거, 적용/비적용
+			const item = document.querySelector('.btn');
+			item.classList.add('add');
+			item.classList.remove('remove');
+			item.classList.toggle('toggle');
+
+			document.querySelectorAll('.btn').forEach( e => {
+				e.classList.add('add', 'add2');
+				e.classList.remove('remove', 'remove2');
+			});
+
+			// focus클래스를 제거하고 blurred클래스를 추가
+			document.querySelector(".replace").classList.replace("focus", "blurred");
+
+			// jQuery
+			// "focus" 클래스가 적용 되어있는지에 따라 작업 수행
+			if ($(".element").hasClass("focus")) {
+					// 작업 수행
+			}
+
+			// vanillaJS
+			// "focus" 클래스가 적용 되어있는지에 따라 작업 수행
+			document.querySelectorAll('.btn').forEach( e => {
+				e.addEventListener("click", event => {
+					if( document.querySelector('.eventNo').contains(event.target) ){
+						console.log("클릭 금지.");
+					}else{
+						console.log("클릭 금지 아님.");
+					}
+				});
+			});
+
+		//------------------------------------------------ DOM 제어 ------------------------------------------------
+
+		/**
+		 * 새로운 엘리먼트의 생성과 추가는 appendChild()를 사용합니다.
+		*/
+			// jQuery: div을 생성하고 .container에 붙인다
+			$(".container").append($("<div/>"));
+
+			// VanillaJS: div을 생성하고 .container에 붙인다
+			document.querySelector('.box').appendChild(document.createElement("div"));
+	</script>
+
+</body>
+</html>

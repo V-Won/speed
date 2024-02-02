@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Scroll Effect</title>
+
+  <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    body {
+      color: #fff;
+      font-family: "NexonLv1Gothic";
+      font-weight: 300;
+      background-color: #333;
+    }
+
+    #parallax__title {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      z-index: 1000;
+    }
+
+    #parallax__title h1 {
+      font-size: 30px;
+      border-bottom: 1px dashed #fff;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      font-weight: 400;
+      display: inline-block;
+    }
+
+    #parallax__title p {
+      font-size: 16px;
+    }
+
+    #parallax__title ul {
+      margin-top: 10px;
+    }
+
+    #parallax__title li {
+      display: inline;
+    }
+
+    #parallax__title li a {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px dashed #fff;
+      display: inline-block;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+    }
+
+    #parallax__title li.active a {
+      background: #fff;
+      color: #000;
+    }
+
+    /* parallax__cont */
+    .parallax__item {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parallax__item__num {
+      font-size: 5vw;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-family: "Lato";
+      font-weight: 100;
+      z-index: 100;
+    }
+
+    .parallax__item__imgWrap {
+      width: 30%;
+      padding-bottom: 18%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .parallax__item__img {
+      position: absolute;
+      left: -5%;
+      top: -5%;
+      width: 110%;
+      height: 110%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      filter: saturate(0%);
+      transition: all 1s;
+    }
+
+    .parallax__item__img:hover {
+      filter: saturate(100%);
+      transform: scale(1.025);
+    }
+
+    #section1 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images01@2.jpg);
+    }
+
+    #section2 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images02@2.jpg);
+    }
+
+    #section3 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images03@2.jpg);
+    }
+
+    #section4 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images04@2.jpg);
+    }
+
+    #section5 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images05@2.jpg);
+    }
+
+    #section6 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images06@2.jpg);
+    }
+
+    #section7 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images07@2.jpg);
+    }
+
+    #section8 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images08@2.jpg);
+    }
+
+    #section9 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images09@2.jpg);
+    }
+
+    #section10 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images01@2.jpg);
+    }
+
+    #section11 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images02@2.jpg);
+    }
+
+    #section12 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images02@2.jpg);
+    }
+
+    #section13 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images02@2.jpg);
+    }
+
+    #section14 .parallax__item__img {
+      background-image: url(https://webstoryboy.github.io/gsap2023/assets/img/images02@2.jpg);
+    }
+
+    #section1,
+    #section3,
+    #section5,
+    #section7,
+    #section9 {
+      background-color: #111;
+    }
+
+    #section3,
+    #section5,
+    #section7{background: transparent;}
+
+    /* option */
+    #parallax__cont {
+      overflow: hidden;
+    }
+
+    #horizontal,
+    #horizontal2 {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 500vw;
+      position: relative;
+      z-index: 10;
+    }
+
+    #horizontal>section,
+    #horizontal2>section {
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .img-1 {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .img-1 img {
+      transform: scale(0.5);
+      position: relative;
+    }
+
+    /* .parallax__item__img{z-index: 2;} */
+  </style>
+</head>
+
+<body>
+  <header id="parallax__title">
+    <h1>GSAP Parallax Effect13</h1>
+    <p>GSAP scrollTrigger - 가로/세로 효과</p>
+    <ul>
+      <li><a href="gsap01.html">1</a></li>
+      <li><a href="gsap02.html">2</a></li>
+      <li><a href="gsap03.html">3</a></li>
+      <li><a href="gsap03_2.html">3-2</a></li>
+      <li><a href="gsap04.html">4</a></li>
+      <li><a href="gsap05.html">5</a></li>
+      <li><a href="gsap06.html">6</a></li>
+      <li><a href="gsap07.html">7</a></li>
+      <li><a href="gsap08.html">8</a></li>
+      <li><a href="gsap09.html">9</a></li>
+      <li><a href="gsap10.html">10</a></li>
+      <li><a href="gsap11.html">11</a></li>
+      <li><a href="gsap12.html">12</a></li>
+      <li class="active"><a href="gsap13.html">13</a></li>
+      <li><a href="gsap14.html">14</a></li>
+      <li><a href="gsap15.html">15</a></li>
+    </ul>
+  </header>
+  <!-- //parallax__title  -->
+
+  <main id="parallax__cont">
+    <section id="section1" class="parallax__item">
+      <span class="parallax__item__num">01</span>
+      <figure class="parallax__item__imgWrap">
+        <div class="parallax__item__img"></div>
+      </figure>
+    </section>
+    <!-- //section1 -->
+
+    <section id="section2" class="parallax__item">
+      <span class="parallax__item__num">02</span>
+      <figure class="parallax__item__imgWrap">
+        <div class="parallax__item__img"></div>
+      </figure>
+    </section>
+    <!-- //section2 -->
+
+    <section class="img-1">
+      <img src="static/images/1.jpg" alt="">
+    </section>
+
+    <main id="horizontal">
+      <section id="section3" class="parallax__item">
+        <span class="parallax__item__num">03</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section3 -->
+
+      <section id="section4" class="parallax__item">
+        <span class="parallax__item__num">04</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section4 -->
+
+      <section id="section5" class="parallax__item">
+        <span class="parallax__item__num">05</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section5 -->
+
+      <section id="section6" class="parallax__item">
+        <span class="parallax__item__num">06</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section6 -->
+
+      <section id="section7" class="parallax__item">
+        <span class="parallax__item__num">07</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section7 -->
+    </main>
+
+    <main id="horizontal2">
+      <section id="section8" class="parallax__item">
+        <span class="parallax__item__num">08</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section3 -->
+
+      <section id="section9" class="parallax__item">
+        <span class="parallax__item__num">09</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section4 -->
+
+      <section id="section10" class="parallax__item">
+        <span class="parallax__item__num">10</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section5 -->
+
+      <section id="section11" class="parallax__item">
+        <span class="parallax__item__num">11</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section6 -->
+
+      <section id="section12" class="parallax__item">
+        <span class="parallax__item__num">12</span>
+        <figure class="parallax__item__imgWrap">
+          <div class="parallax__item__img"></div>
+        </figure>
+      </section>
+      <!-- //section7 -->
+    </main>
+
+    <section id="section13" class="parallax__item">
+      <span class="parallax__item__num">13</span>
+      <figure class="parallax__item__imgWrap">
+        <div class="parallax__item__img"></div>
+      </figure>
+    </section>
+    <!-- //section8 -->
+
+    <section id="section14" class="parallax__item">
+      <span class="parallax__item__num">14</span>
+      <figure class="parallax__item__imgWrap">
+        <div class="parallax__item__img"></div>
+      </figure>
+    </section>
+    <!-- //section9 -->
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+
+  <script>
+    const lenis = new Lenis()
+
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+    // horizontal
+    const horizontal = document.querySelector("#horizontal");
+    const sections = gsap.utils.toArray("#horizontal > section");
+
+    let scrollTween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1), // 마지막 요소를 제외한 모든 요소들을 왼쪽으로 100%만큼 이동
+      ease: "none", // 이징 효과를 적용하지 않는 것
+      scrollTrigger: {
+        trigger: horizontal,
+        start: "top top",
+        end: () => "+=" + (horizontal.offsetWidth - innerWidth), // 애니메이션이 끝나는 시점을 지정하는 옵션
+        pin: true,
+        scrub: 1,
+        // snap: {
+        //   snapTo: 1 / (sections.length - 1), // 스크롤 위치를 요소들의 위치에 스냅하는 옵션
+        //   inertia: true, // 스냅 시의 관성 효과를 비활성
+        //   duration: { min: 0.1, max: 0.1 }, // 애니메이션의 최소 및 최대 지속 시간을 설정
+        // },
+        invalidateOnRefresh: true, // 페이지 새로고침 시 스크롤 트리거 위치를 재계산
+        anticipatePin: 1 // 스크롤 트리거 요소의 위치를 예측하여 부드럽게 고정하는 옵션
+      }
+    });
+
+    // horizontal 2
+    const horizontal2 = document.querySelector("#horizontal2");
+    const sections2 = gsap.utils.toArray("#horizontal2 > section");
+
+    gsap.from(sections2, {
+      xPercent: -100 * (sections2.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: horizontal2,
+        start: "top top",
+        end: () => "+=" + (horizontal2.offsetWidth - innerWidth),
+        pin: true,
+        scrub: 1,
+        // snap: {
+        //   snapTo: 1 / (sections2.length - 1),
+        //   inertia: false,
+        //   duration: { min: 0.1, max: 0.1 },
+        // },
+        invalidateOnRefresh: true,
+        anticipatePin: 1
+      }
+    });
+
+    // 이미지 애니메이션 주기
+    const ani1 = gsap.timeline();
+
+    ani1.to(".img-1 img", { rotation: 720, scale: 0.3, borderRadius: 200, "margin-top":"-50vh" }, '+=1')
+        .to(".img-1 img", { "filter":"hue-rotate(1rad)", "margin-top":"50vh" }, '+=1')
+        .to(".img-1 img", { "filter":"hue-rotate(1rad)", "margin-top":"-50vh" }, '+=1')
+        .to(".img-1 img", { "filter":"hue-rotate(50rad)", "margin-top":"-50vh" }, '+=1')
+        .to(".img-1 img", { "filter":"hue-rotate(100rad)", "margin-top":"0", "opacity":"0" }, '+=1')
+        .to(".img-1 img", { "filter":"hue-rotate(100rad)", "margin-top":"-50vh", "opacity":"0" }, '+=1')
+
+    ScrollTrigger.create({
+      animation: ani1,
+      trigger: ".img-1",
+      start: "top top",
+      end: () => "+=" + (horizontal.offsetWidth - innerWidth) * 1.5,
+      scrub: 3,
+      pin: true,
+      pinSpacing: false,
+      anticipatePin: 1,
+      markers: true
+    });
+  </script>
+</body>
+
+</html>
