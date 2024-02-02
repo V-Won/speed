@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+<script type="text/javascript" src="/resources/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var isIPHONE = (navigator.userAgent.match('iPhone') != null || navigator.userAgent.match('iPod') != null);
+var isIPAD = (navigator.userAgent.match('iPad') != null);
+var isANDROID = (navigator.userAgent.match('Android') != null);
+ 
+var _APP_INSTALL_URL_IOS = "http://itunes.apple.com/kr/app/id393499958?mt=8";
+var _APP_INSTALL_URL_ANDROID = "http://m.androidapp.naver.com/naverapp";
+var _APP_INSTALL_CONFIRM = "네이버앱을 설치하거나\n업데이트하시면\n이용할 수 있습니다.\n설치 하시겠습니까?";
+ 
+function executeApp(url) {
+        installApp();
+        if (isIPHONE || isIPAD) {
+                window.location.href = url;
+        } else if (isANDROID) {
+                $('applinkDiv').innerHTML = '<iframe src="' + url + '" width="0" height="0" frameborder="0"></iframe>';
+                setTimeout(function(){
+                        var b = $('applinkDiv');
+                        var c = b.getElementsByTagName('iframe');
+                        if (c.length > 0) { b.removeChild(c[0]); }
+                }, 1000);
+        }
+}
+ 
+function installApp() {
+        var b = new Date();
+        setTimeout(function(){
+                if (new Date() - b < 1500) {
+                        if (isIPHONE || isIPAD) {
+                                if (confirm(_APP_INSTALL_CONFIRM)) { window.location.href = _APP_INSTALL_URL_IOS; }
+                        } else if (isANDROID) {
+                                if (confirm(_APP_INSTALL_CONFIRM)) { window.location.href = _APP_INSTALL_URL_ADROID; }
+                        }
+                }
+        }, 500);
+}
+//]]>
+</script>
+</head>
+<body>
+ 
+<a href="naversearchapp://" onclick="executeApp(this.href);return false;">네이버앱 실행</a><br />
+ 
+<div id="applinkDiv"></div>
+ 
+</body>
+</html>

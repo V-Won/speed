@@ -1,0 +1,2 @@
+<input type="text" value="Click here to make text disappear" onfocus="if (this.value == 'Click here to make text disappear') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Click here to make text disappear';}">
+

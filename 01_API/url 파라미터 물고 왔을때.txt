@@ -1,0 +1,32 @@
+var hrefV = $jQ(location).attr('href'),
+	hrefId = "",
+	idShow = "";			
+
+if(hrefV.indexOf('#')>0){
+	hrefId = hrefV.substr(hrefV.lastIndexOf('#')+1);
+}
+if(hrefId!=""){
+	idShow = $jQ('#' + hrefId);
+	
+	$jQ('.tab-seatmap .tab-memo').hide();
+		$jQ(idShow).parents('li').find('.tab-memo').show();
+		$jQ('.tab-seatmap .li-type-1').removeClass('on');
+		$jQ(idShow).parent().parent().addClass('on');
+}
+
+window.onload = function(){
+    var hrefV = $(location).attr('href'),
+        hrefId = "",
+        idShow = "";
+
+    if(hrefV.indexOf('#')>0){
+        hrefId = hrefV.substr(hrefV.lastIndexOf('#')+1);
+    }
+    if(hrefId!=""){
+        idShow = $('#' + hrefId);
+
+        var lastChar = hrefId.substr(hrefId.length - 1) - 1;
+        
+        $('#gnb .inner-main li:eq(' + lastChar + ') a').click();
+    }
+};

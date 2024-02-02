@@ -1,0 +1,12 @@
+$(function(){
+  var $contents = $('#contents');
+  $(window).on('scroll',function(){
+      var checkNumber = $contents.outerHeight() - $(this).height(); 
+      if(checkNumber <= $(this).scrollTop()){
+        $contents.css('background','green');
+      }else{
+        $contents.css('background','red');
+      }
+  });
+  
+});

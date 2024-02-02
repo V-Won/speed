@@ -1,0 +1,9 @@
+JS 개발관련 크롬확장 하나링크 투척합니다.
+
+이름: jQuery Audit 
+링크 : https://chrome.google.com/webstore/detail/jquery-audit/dhhnpbajdcgdmbbcoakfhmfgmemlncjg/
+용도 : jQuery를 사용한 웹사이트 개발에 있어 DOM 요소에 걸려있는 이벤트 핸들러의 내용을 확인.
+
+사용법 : 요소검사 -> Elements탭의 jQuery Audit 패널 -> Events (갯수) -> 밑에 handler: function() 찾아서 우클릭 -> Show function definition!
+
+자세한 사용법은 https://github.com/zertosh/jquery-audit 에 나와있습니다.
