@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>오시는길 | RESERVATION | ADEESSE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+
+		// 예약 지점 선택
+		var gallery = $('.contactus-gallery'),
+			thum = gallery.find('.thum a'),
+			image = gallery.find('.image img');
+
+		image.eq(0).show();
+
+		thum.on('click', function(){
+			var $this = $(this),
+				idx = thum.index($this);
+
+			image.hide();
+			image.eq(idx).fadeIn();
+
+			return false;
+		});
+
+	});
+//]]>
+</script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>RESERVATION</span>
+				<span>오시는길</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title04.png" alt="RESERVATION" /></a></h2>
+			<div class="sub-menu">
+				<ul>
+					<li><a href=""><span>온라인상담<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>온라인예약<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href="" class="on"><span>오시는길<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody" class="contactus">
+		
+		<h3><span><img src="../images/common/top_title04_03.png" alt="CONTACT US" /></span></h3>
+		
+		<h4><img src="../images/reservation/contactus_tit.png" alt="ADEESSE GALLERY" /></h4>
+		<p class="text01">
+			아디에스의 공간은 프랑스의 가장 아름다웠던 <br />
+			벨 에포크시대의 아르누보 양식을 담아 아디에스 본연의 우아함을 표현하였습니다. <br />
+			아디에스의 공간에서는 주얼리 큐페이터의 품격 높은 서비스를 통해 진정한 우아함을 경험하실 수 있습니다. <br />
+			아디에스의 주얼리 큐레이터는 판매자가 아닌 주얼리의 감정, 전시, 보존, 상담 등을 <br />
+			체계적으로 교육받은 토탈 주얼리 전문가입니다.
+		</p>
+		
+		<!-- contactus-gallery -->
+		<div class="contactus-gallery">
+			<h5><img src="../images/reservation/contactus_gallery_tit01.png" alt="ADEESSE 부산점" /></h5>
+			<ul class="thum">
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum01.gif" alt="" /></a></li>
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum02.gif" alt="" /></a></li>
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum03.gif" alt="" /></a></li>
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum04.gif" alt="" /></a></li>
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum05.gif" alt="" /></a></li>
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum06.gif" alt="" /></a></li>
+				<li><a href=""><img src="../images/reservation/contactus_gallery01_thum07.gif" alt="" /></a></li>
+			</ul>
+			<div class="image">
+				<img src="../images/reservation/contactus_gallery01_img01.jpg" alt="" />
+				<img src="../images/reservation/contactus_gallery01_img02.jpg" alt="" />
+				<img src="../images/reservation/contactus_gallery01_img03.jpg" alt="" />
+				<img src="../images/reservation/contactus_gallery01_img04.jpg" alt="" />
+				<img src="../images/reservation/contactus_gallery01_img05.jpg" alt="" />
+				<img src="../images/reservation/contactus_gallery01_img06.jpg" alt="" />
+				<img src="../images/reservation/contactus_gallery01_img07.jpg" alt="" />
+			</div>
+		</div>
+		<!-- //contactus-gallery -->
+		
+		<!-- contactus-map -->
+		<div class="contactus-map">
+			<img src="../images/reservation/contactus_map01.jpg" alt="" />
+			<p class="txt01"><img src="../images/reservation/contactus_txt01.png" alt="Contact" /></p>
+			<p class="txt02">
+				부산시 진구 범천동 887-1 광일빌딩 1,2층 <br />
+				범일역 9번 출구에서 범내골역 방향 10m 이내 위치
+				<span>051_637_2599</span>
+				<a href=""><img src="../images/reservation/contactus_btn_map.gif" alt="네이버 지도 보기" /></a>
+			</p>
+		</div>
+		<!-- //contactus-map -->
+
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<span style="color:#fff;">하단공통영역</span>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

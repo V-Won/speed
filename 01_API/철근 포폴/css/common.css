@@ -1,0 +1,178 @@
+@charset "euc-kr";
+
+/* X축 스크롤 보이지 않게 하기 */
+html {overflow-x:hidden}
+
+/* flaot clear */
+.clfix:after {content:"."; display:block; height:0px; clear:both; visibility:hidden}
+.clfix {display:inline-block}
+.clfix {display:block}
+* html .clfix {height:1%} /* Hides from IE-mac */
+.clfix {zoom:1} /*for IE 5.5-7*/
+
+/* hidden */
+.hidden {height:0; text-indent:100%; overflow:hidden; white-space:nowrap}
+
+/* position */
+.rel {position:relative; z-index:100}
+.fix {position:fixed; z-index:1000}
+
+/* font */
+.ft15 {height:15px; line-height:20px; font-size:15px; font-weight:bold; color:#dcdcdc}
+.ft20 {height:20px; line-height:20px; font-size:20px; font-weight:bold; color:#dcdcdc}
+.ft30 {height:30px; line-height:30px; font-size:30px; font-weight:bold; color:#dcdcdc}
+.ft50 {height:20px; line-height:50px; font-size:50px; font-weight:bold; color:#dcdcdc}
+
+/* color */
+.dark {color:#333333; border-color:#333333}
+.gray {color:#dcdcdc; border-color:#dcdcdc}
+
+/* test */
+#test {position:absolute; top:0; right:0; font-size:20px}
+
+/* div layout */
+#wrap {width:100%}
+#headerWrap {top:0; left:0; width:100%; height:100px; background:#000000; opacity:0.8}
+#contentWrap {width:100%; height:100%}
+#footerWrap {bottom:0; left:0; width:100%; height:90px; background:#000000; opacity:0.8}
+#header, #footer {width:980px; margin:0 auto}
+
+/* header */
+#header {padding-top:20px; height:80px}
+#header h1 {float:left; height:48px; padding-right:30px; margin:0 30px; border-right:1px solid #dcdcdc}
+#header .gnb {float:left}
+#header .gnb li {float:left; width:70px; margin-right:30px; text-align:center}
+#header .gnb li a {display:block; height:48px; text-decoration:none}
+#header .gnb li a img {vertical-align:top}
+#header .gnb li a span.txt_menu {display:block; margin-top:5px; font-size:15px; color:#dcdcdc; opacity:0.2}
+#header .gnb li a:hover span.txt_menu {opacity:1 !important}
+#header .gnb li.last {margin-right:0}
+#header .date {float:left; height:48px; padding-left:30px; margin-left:30px; border-left:1px solid #dcdcdc; color:#dcdcdc; font-size:15px}
+#header .date img {margin-right:30px; vertical-align:middle}
+
+/* content */
+#contentWrap > div {height:800px; padding:100px 0 90px 0}
+#contentWrap > div > div {width:980px; margin:0 auto; padding-top:50px}
+#contentWrap h2 {float:left; width:256px; padding-top:276px; margin-right:64px; text-align:center}
+#contentWrap #layout_Home {background:#ffffff}
+#contentWrap #layout_About {background:#632523}
+#contentWrap #layout_Portfolio {background:#984807}
+#contentWrap #layout_Skills {background:#ffc000}
+#contentWrap #layout_Study {background:#4f6228}
+#contentWrap #layout_Contact {background:#254061}
+#contentWrap #layout_Test {background:#403152} 
+#contentWrap .content {float:left; width:660px}
+#contentWrap .content .title {padding-bottom:5px; border-bottom:1px solid}
+#contentWrap .content .title em {font-weight:bold}
+
+/* content : h2 */
+.home h2 {background:url(../image/icon/common/h2_home.png) no-repeat; color:#333333}
+.about h2 {background:url(../image/icon/common/h2_about.png) no-repeat}
+.portfolio h2 {background:url(../image/icon/common/h2_portfolio.png) no-repeat}
+.skills h2 {background:url(../image/icon/common/h2_skills.png) no-repeat; color:#333333}
+.study h2 {background:url(../image/icon/common/h2_study.png) no-repeat}
+.contact h2 {background:url(../image/icon/common/h2_contact.png) no-repeat}
+.test h2 {background:url(../image/icon/common/h2_test.png) no-repeat}
+
+/* content : Home */
+.home .content .title em {color:#0070c0}
+.home .content {color:#333}
+.home .screen {text-align:center; width:650px; height:200px; line-height:200px; margin:20px 0; border:5px solid #333333; border-radius:5px 5px 5px 5px; box-shadow:0 5px 5px -2px rgba(0, 0, 0, 0.4)}
+.home .screen span {height:200px; line-height:200px; color:#333333}
+.home .screen em {color:#333333}
+.home ul.keyboard {margin-top:11px}
+.home ul.keyboard li {float:left; text-align:center; background:#666666; color:#fff; width:50px; height:50px; line-height:50px; margin-right:11px; font-size:20px; border-radius:5px 5px 5px 5px; box-shadow:0 5px 5px -2px rgba(0, 0, 0, 0.4); cursor:pointer}
+.home ul.keyboard li:hover {background:#333333}
+.home ul.keyboard li:active {color:#ffc000}
+.home ul.keyboard li.last {margin-right:0}
+
+/* content : About */
+.about .content .title em {color:#ffc000}
+
+/* content : Portfolio */
+.portfolio .content .title em {color:#ffc000}
+.portfolio .year_move {position:absolute; top:428px; left:0}
+.portfolio .year_move p {float:left;}
+.portfolio .year_move p.prev {margin-left:73px}
+.portfolio .year_move p.prev a {padding-right:20px; border-right:1px solid #dcdcdc}
+.portfolio .year_move p.next a {margin-left:20px}
+.portfolio .year_move p a {display:block; width:34px; height:60px}
+.portfolio .year_move p span.year {position:absolute; top:17px; color:#ffc000}
+.portfolio .year_move p.prev span.year {left:0}
+.portfolio .year_move p.next span.year {right:-73px}
+
+/* content : Skills */
+.skills .content .title em {color:#0070c0}
+
+/* content : Study */
+.study .content .title em {color:#ffc000}
+
+/* content : Contact */
+.contact .content .title em {color:#ffc000}
+
+/* content : Test */
+.test .content .title em {color:#ffc000}
+
+/* box layout : Common */
+.line {padding-top:20px}
+.line .block {float:left; margin-right:20px; width:150px; background:#ffffff; border-radius:5px 5px 5px 5px; box-shadow:0 5px 5px -2px rgba(0, 0, 0, 0.4)}
+.line .block.last {margin-right:0}
+.line .block li.logo {display:block}
+.line .block li.logo a {display:block; padding:25px}
+.line .block li.desc {overflow:hidden; height:0px; background:#dcdcdc}
+.line .block li.desc ul {width:120px; margin:10px 15px}
+.line .block li.name {height:35px; line-height:20px; padding:5px; background:#dcdcdc; text-align:center; color:#333333; font-size:15px; font-weight:bold; border-top:1px solid #999999; border-radius:0 0 5px 5px}
+.line .block li.name .name_desc {font-size:9px; font-weight:normal; color:#999999}
+
+/* accordion : About */
+.about ul.accordion {width:660px; height:500px; overflow:hidden; border-radius:5px 5px 5px 5px; box-shadow:0 5px 5px -2px rgba(0, 0, 0, 0.4)}
+.about ul.accordion > li {float:left; width:128px; height:464px; margin-right:2px; padding:18px; background:#ffffff; box-shadow:0 5px 5px -2px rgba(0, 0, 0, 0.4)}
+.about ul.accordion > li.on {background:#ffc000}
+.about ul.accordion > li p {text-align:center}
+.about ul.accordion > li p.about_title {color:#0070c0; margin-top:50px}
+.about ul.accordion > li.first {width:292px; border-radius:5px 0px 0px 5px}
+.about ul.accordion > li.last {margin-right:0; border-radius:0px 5px 5px 0px}
+.about ul.accordion ul.about_detail {margin-top:50px}
+.about ul.accordion ul.about_detail li {height:25px; line-height:25px; overflow:hidden; color:#333333; border-bottom:1px solid #333333}
+.about ul.accordion ul.about_detail li:hover {color:#0070c0}
+.about ul.accordion ul.about_detail li em {float:right; display:none}
+.about ul.accordion li.on ul.about_detail li em {display:block}
+
+/* box layout : Portfolio */
+.portfolio .line .block li.desc ul li {height:20px; line-height:20px; border-bottom:1px solid #999999; background:#dcdcdc}
+.portfolio .line .block li.desc ul li.last {border:none}
+.portfolio .line .block li.desc ul li:hover {color:#0070c0}
+.portfolio .line .block li.desc ul li em {float:right}
+.portfolio .line .block li.desc ul li em a {text-decoration:none; color:#cc0066}
+
+/* box layout : Skills */
+.skills .line .block li.desc ul li {text-align:center; height:20px; line-height:20px; border-bottom:1px solid #999999; background:#dcdcdc}
+.skills .line .block li.desc ul li.percent {height:40px; line-height:40px; border:none; font-size:30px; color:#0070c0}
+.skills .line .block li.desc ul li.per_box {border-bottom:none}
+.skills .line .block li.desc ul li.per_box span {float:left; margin-right:5px; margin-bottom:5px; width:18px; height:18px; background:#0070c0; border:1px solid #333333; text-indent:100%; overflow:hidden; white-space:nowrap}
+.skills .line .block li.desc ul li.per_box span.white {background-color:#ffffff}
+.skills .line .block li.desc ul li.per_box span.per_last {margin-right:0}
+
+/* box layout : Study */
+.study .line .block li.desc ul li {text-align:center; height:20px; line-height:20px; border-bottom:1px solid #999999; background:#dcdcdc}
+.study .line .block li.desc ul li.percent {height:40px; line-height:40px; border:none; font-size:30px; color:#0070c0}
+.study .line .block li.desc ul li.per_box {border-bottom:none}
+.study .line .block li.desc ul li.per_box span {float:left; margin-right:5px; margin-bottom:5px; width:18px; height:18px; background:#0070c0; border:1px solid #333333; text-indent:100%; overflow:hidden; white-space:nowrap}
+.study .line .block li.desc ul li.per_box span.white {background-color:#ffffff}
+.study .line .block li.desc ul li.per_box span.per_last {margin-right:0}
+
+/* box layout : Contact */
+.contact .line .mid_slide {float:left; width:320px; margin-right:20px}
+.contact .line .mid_slide li {height:75px; padding:0 10px; background:#ffffff; font-size:20px; font-color:#ffc000; text-align:center}
+.contact .line .mid_slide li a {text-decoration:none; color:#cc0066}
+.contact .line .mid_slide li.top img {margin-top:11px}
+.contact .line .mid_slide li.top {border-radius:5px 5px 0px 0px}
+.contact .line .mid_slide li.mid {height:0px; line-height:45px; overflow:hidden; color:#0070C0; background:#ffffff; text-align:center;}
+.contact .line .mid_slide li.bottom {border-radius:0px 0px 5px 5px; box-shadow:0 5px 5px -2px rgba(0, 0, 0, 0.4)}
+.contact .line .last {margin-right:0}
+
+/* FOOTER AREA */
+#footer {text-align:center}
+#footer .copyright {margin-top:35px}
+
+

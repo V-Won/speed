@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+@import url("common.css");
+
+/*Sub Layout */
+*
+{
+	margin: 0;
+	padding: 0;
+/*	border:1px solid #000000; */
+}
+
+
+/*  공통 css */
+.no_mg {margin:0 !important;}
+.no_bg {background:none !important;}
+.no_pd {padding:0 !important;}
+.no_bd {border-bottom:none !important;}
+.no_br {border-right:none !important;}
+.no_bl {border-left:none !important;}
+.nofield {display:none;}
+.paddingB5 {padding-bottom:5px;}
+.paddingB10 {padding-bottom:10px;}
+.paddingB15 {padding-bottom:15px;}
+.paddingB20 {padding-bottom:20px;}
+.paddingT5 {padding-top:5px;}
+.paddingT10 {padding-top:10px;}
+.paddingT15 {padding-top:15px;}
+.paddingT20 {padding-top:20px;}
+.marginB5 {margin-bottom:5px;}
+.marginB10 {margin-bottom:10px;}
+.marginB15 {margin-bottom:15px;}
+.marginB20 {margin-bottom:20px;}
+.marginT5 {margin-top:5px;}
+.marginT10 {margin-top:10px;}
+.marginT15 {margin-top:15px;}
+.marginT20 {margin-top:20px;}
+.MAR0 {margin-right:0 !important;}
+
+
+/* header top */
+.headertop {width:100%; height:25px; position:relative; border-bottom:1px solid #cccccc; background-color:#eeeeee; margin-bottom:39px;}
+.headercnt {width:900px; margin:0 auto; position:relative; z-index:1000;}
+.headertop div.hIn {width:900px; height:25px; margin:0 auto; position:relative; }
+.headertop div.hIn ul.joint {margin-top:5px;}
+.headertop div.hIn ul.joint li {float:left; margin-right:12px;}
+.headertop div.hIn span.pos_logo {position:absolute; left:49px; top:79px;}
+
+.searchWrap {width:370px; height:75px; float:left; position:relative; margin-left:275px;}
+.searchWrap span.blue_window {width:298px; height:36px; border:2px solid #0eacea; display:inline-block; float:left;}
+.searchWrap span.blue_window input {width:270px; height:16px; margin:10px 0 0 3px;}
+.searchWrap span.blue_window a.compli {margin-top:3px; display:inline-block; width:10px; height:10px; position:absolute; right:80px; top:15px;}
+.searchWrap ul.search_txt {margin-top:5px; width:372px; float:left; overflow:hidden;}
+.searchWrap ul.search_txt li {display:inline; margin-right:3px; font-size:11px; color:#0085b9; letter-spacing:-1px;}
+.searchWrap ul.search_txt li a {color:#999;}
+
+
+/* gnb */
+#gnb {float:left; position:relative; width:900px;}
+.gnbSection {width:900px; height:34px; float:left; position:relative; border-bottom:1px solid #006699;}
+.gnbSection li {float:left; margin-right:4px;}
+.gnbSection li div.TopSubMenu {width:900px; height:34px; background-color:#0095b9; position:absolute; left:0px; top:35px;}
+.gnbSection li div.TopSubMenu ul {margin:12px 0 0 12px;}
+.gnbSection li div.TopSubMenu ul li {float:left; margin-right:15px;}
+.whole_menu {position:absolute; top:15px; right:2px;}
+
+
+.whole_menu_view {position:absolute; top:35px; left:0; width:869px; height:188px; padding:30px 0 0 31px; background:#0085b9;}
+.whole_menu_view dl {float:left; width:110px; margin-right:14px;}
+.whole_menu_view dl dt {margin-bottom:12px; padding-bottom:5px; border-bottom:1px solid #79bfda;}
+.whole_menu_view dl dd ul li {height:18px;}
+.whole_menu_view .close {position:absolute; bottom:13px; right:13px;}
+
+/* footer */
+.footWrap {width:900px; height:33px; float:left; position:relative; }
+.footWrap ul {}
+.footWrap ul li {float:left; margin-right:17px;}
+.footWrap ul li.icon {margin-top:7px; }
+.footWrap ul li.another {margin-right:8px;}
+.adressWrap img {margin:4px 0 0 274px;}
+.footermark {position:absolute; right:0px; top:0px;}
+.footermark li {float:left; margin-right:3px;}
+.familybox {width:90px; height:15px; border:1px solid #088cc0; font-size:10px;}
+
+/*  dropdown menu */
+.serviceWrap {position:relative; z-index:150; float:left; margin-top:11px;}
+.serviceBox01 {width:69px;  height:13px; border:1px solid #088cc0; background-color:#fff;}
+.serviceBox01 a {display:block; line-height:13px; color:#0095cf; padding-left:2px; background:url(../images/layout/familysitebG.gif) 93% 50% no-repeat; font-size:10px; letter-spacing:-2px;}
+.serviceImg01 a {background:url(../images/combine/browse_icon.gif) 93% 50% no-repeat !important;}
+
+.press_drop01 {border-right:1px solid #088cc0; border-left:1px solid #088cc0; border-bottom:1px solid #088cc0; width:69px; padding:5px 0; display:none; position:absolute; left:0px; top:13px; background-color:#fff; z-index:300;}
+.press_drop01 li a {padding:2px 0 2px 2px; display:block; color:#0095cf; font-size:10px; letter-spacing:-2px;}
+
+.hidden {visibility:hidden;}
+.hidden2 {display:none;}
+
+#container {*z-index:-100px;}
+
+/* 이주의 복지 핫이슈 */
+
+.welfair_hotissue {clear:both; position:relative; width:840px; height:267px; margin:0 auto; padding:26px 0 0; border-bottom:1px solid #0085b9;}
+.welfair_hotissue h2 {display:block;}
+.welfair_hotissue h3 {position:absolute; top:65px; left:0; width:170px; height:21px; padding-top:3px; background:#e1e1e1; text-align:center;}
+.welfair_hotissue h3 img {vertical-align:middle;}
+.welfair_hotissue h4 {position:absolute; font-size:12px;}
+.welfair_hotissue h4 a {display:inline-block; color:#333; border:1px solid #e1e1e1; border-width:1px 0;}
+.welfair_hotissue h4 a:hover {color:#fff; background:#0085b9;}
+.welfair_hotissue h4 a.on {color:#fff; background:#0085b9;}
+.welfair_hotissue h4.month_whole {top:101px; left:5px;}
+.welfair_hotissue h4.month_whole a {border:none;}
+.welfair_hotissue h4.month01 {top:117px; left:5px;}
+.welfair_hotissue h4.month01 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month02 {top:117px; left:46px;}
+.welfair_hotissue h4.month02 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month03 {top:117px; left:87px;}
+.welfair_hotissue h4.month03 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month04 {top:117px; left:128px;}
+.welfair_hotissue h4.month04 a {padding:10px 9px 8px 11px; border-width:1px 0;}
+.welfair_hotissue h4.month05 {top:148px; left:5px;}
+.welfair_hotissue h4.month05 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month06 {top:148px; left:46px;}
+.welfair_hotissue h4.month06 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month07 {top:148px; left:87px;}
+.welfair_hotissue h4.month07 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month08 {top:148px; left:128px;}
+.welfair_hotissue h4.month08 a {padding:10px 9px 8px 11px; border-width:1px 0;}
+.welfair_hotissue h4.month09 {top:179px; left:5px;}
+.welfair_hotissue h4.month09 a {padding:10px 9px 8px 11px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month10 {top:179px; left:46px;}
+.welfair_hotissue h4.month10 a {padding:10px 6px 8px 7px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month11 {top:179px; left:87px;}
+.welfair_hotissue h4.month11 a {padding:10px 6px 8px 7px; border-width:1px 1px 1px 0;}
+.welfair_hotissue h4.month12 {top:179px; left:128px;}
+.welfair_hotissue h4.month12 a {padding:10px 6px 8px 7px; border-width:1px 0;}
+
+.welfair_hotissue h5 {position:absolute; font-size:11px; font-weight:normal;}
+.welfair_hotissue h5 a {display:inline-block; width:117px; height:45px; padding:0 13px 0 40px; line-height:15px; background:#e1e1e1 url('../images/welnews/bg_weekend.gif') no-repeat;}
+.welfair_hotissue h5 a:hover {color:#fff; background:#0085b9 url('../images/welnews/bg_weekend.gif') no-repeat;}
+.welfair_hotissue h5 a.on {color:#fff; background:#0085b9 url('../images/welnews/bg_weekend.gif') no-repeat;}
+.welfair_hotissue h5.week01 {top:24px; left:220px;}
+.welfair_hotissue h5.week01 a {height:38px; padding-top:7px; background-position:14px 11px;}
+.welfair_hotissue h5.week01 a:hover {background-position:14px -26px;}
+.welfair_hotissue h5.week01 a.on {background-position:14px -26px;}
+.welfair_hotissue h5.week02 {top:70px; left:220px;}
+.welfair_hotissue h5.week02 a {height:38px; padding-top:7px; background-position:14px -62px;}
+.welfair_hotissue h5.week02 a:hover {background-position:14px -99px;}
+.welfair_hotissue h5.week02 a.on {background-position:14px -99px;}
+.welfair_hotissue h5.week03 {top:116px; left:220px;}
+.welfair_hotissue h5.week03 a {height:38px; padding-top:7px; background-position:14px -136px;}
+.welfair_hotissue h5.week03 a:hover {background-position:14px -173px;}
+.welfair_hotissue h5.week03 a.on {background-position:14px -173px;}
+.welfair_hotissue h5.week04 {top:162px; left:220px;}
+.welfair_hotissue h5.week04 a {height:38px; padding-top:7px; background-position:14px -210px;}
+.welfair_hotissue h5.week04 a:hover {background-position:14px -247px;}
+.welfair_hotissue h5.week04 a.on {background-position:14px -247px;}
+.welfair_hotissue h5.week05 {top:208px; left:220px;}
+.welfair_hotissue h5.week05 a {height:38px; padding-top:7px; background-position:14px -284px;}
+.welfair_hotissue h5.week05 a:hover {background-position:14px -321px;}
+.welfair_hotissue h5.week05 a.on {background-position:14px -321px;}
+
+.week_hotissue {position:absolute; top:28px; left:421px; width:420px;}
+.week_hotissue h6 {padding-bottom:6px; font-size:14px; color:#333; border-bottom:1px solid #e1e1e1;}
+.week_hotissue p {font-size:11px; line-height:18px;}
+.week_hotissue p img {vertical-align:middle;}
+.week_hotissue p.date {margin:14px 0 2px; color:#0085b9;}
+
+/* 복지뉴스 */
+
+.welfair_news {clear:both; position:relative; width:840px; height:176px; margin:0 auto; padding:27px 0 0; border-bottom:1px solid #0085b9;}
+.welfair_news h2 {display:block;}
+
+.welfair_news h3 {position:absolute; font-size:12px;}
+.welfair_news h3 a {display:inline-block; padding:10px 24px 8px 25px; color:#333; border:1px solid #e1e1e1; border-width:1px 0;}
+.welfair_news h3 a:hover {color:#fff; background:#0085b9;}
+.welfair_news h3 a.on {color:#fff; background:#0085b9;}
+.welfair_news h3.whole_view {top:63px; left:5px;}
+.welfair_news h3.whole_view a {padding:0; border:none;}
+.welfair_news h3.welfair {top:79px; left:5px;}
+.welfair_news h3.welfair a {border-width:1px 1px 1px 0;}
+.welfair_news h3.education {top:79px; left:86px;}
+.welfair_news h3.education a {border-width:1px 0;}
+.welfair_news h3.employ {top:110px; left:5px;}
+.welfair_news h3.employ a {border-width:1px 1px 1px 0;}
+.welfair_news h3.dwelling {top:110px; left:86px;}
+.welfair_news h3.dwelling a {border-width:1px 0;}
+.welfair_news h3.health {top:141px; left:5px;}
+.welfair_news h3.health a {border-width:1px 1px 1px 0;}
+
+.news_list {position:absolute; top:27px; left:221px; width:158px; height:136px; padding:9px 6px 0; background:#e1e1e1;}
+.news_list h4 {height:28px; font-size:11px; font-weight:normal;}
+.news_list h4 a {padding-left:8px; color:#444; background:url('../images/welnews/bg_news_list.gif') no-repeat 0 3px;}
+.news_list h4 a:hover {color:#0085b9; background-position:0 -14px;}
+.news_list h4 a.on {color:#0085b9; background-position:0 -14px;}
+
+.news_content {position:absolute; top:2px; left:199px; width:420px;}
+.news_content h5 {padding-bottom:9px; font-size:14px; color:#333; border-bottom:1px solid #e1e1e1;}
+.news_content p {height:100px; margin-top:19px; font-size:11px; line-height:17px; overflow:hidden;}
+.news_content p .thumb {float:left; margin-right:14px; border:1px solid #666;}
+.news_content p span {display:block; color:#0085b9;}
+.news_content p a img {vertical-align:middle;}
+
+/* 이용자별 뉴스 */
+
+.user_news {clear:both; position:relative; width:840px; height:110px; margin:0 auto; padding:26px 0 0; border-bottom:1px solid #0085b9;}
+.user_news h2 {display:block;}
+.user_news .user_news_list {}
+.user_news .user_news_list ul.each_user {position:absolute; top:26px; left:220px; width:621px; overflow:hidden;}
+.user_news .user_news_list ul.each_user li {float:left; width:207px;}
+.user_news .user_news_list ul.each_user li ul {margin-top:9px; font-size:11px;}
+.user_news .user_news_list ul.each_user li ul li {height:20px;}
+.user_news .user_news_list ul.each_user li ul li a {padding-left:8px; color:#444; background:url('../images/welnews/bg_news_list.gif') no-repeat 0 3px;}
+.user_news .user_news_list ul.each_user li ul li a:hover {color:#0085b9; background-position:0 -14px;}
+.user_news .user_news_list .prev {position:absolute; top:30px; left:204px;}
+.user_news .user_news_list .next {position:absolute; top:30px; left:851px;}
+
+/* 뉴스레터 */
+
+.newsletter {clear:both; position:relative; width:840px; height:211px; margin:0 auto; padding:29px 0 0;}
+.newsletter h2 {display:block;}
+.newsletter p {margin:8px 0 0 3px;}
+
+.newsletter h3 a {display:inline-block; padding:8px; *padding:6px 8px 5px; font-size:12px; font-weight:normal; color:#333; border:1px solid #aeaeae; border-width:1px 1px 0; background:none;}
+.newsletter h3 a:hover {color:#fff; border:1px solid #aeaeae; border-width:1px 1px 0; background:#0085b9;}
+.newsletter h3 a.on {color:#fff; border:1px solid #aeaeae; border-width:1px 1px 0; background:#0085b9;}
+.newsletter h3.daily_newsletter {position:absolute; top:22px; left:217px;}
+.newsletter h3.weekly_newsletter {position:absolute; top:22px; left:310px;}
+
+.newsletter_view {position:absolute; top:53px; left:217px; width:620px; padding-top:13px; border-top:1px solid #e1e1e1;}
+.newsletter_view h4 {width:609px; padding:0 0 9px 11px; font-size:14px; color:#333; border-bottom:1px solid #e1e1e1;}
+.newsletter_view p {height:100px; margin-top:19px; padding-right:10px; line-height:17px; overflow:hidden;}
+.newsletter_view p .thumb {float:left; margin-right:14px; border:1px solid #666;}
+.newsletter_view p span {display:block; color:#0085b9;}
+.newsletter_view p a img {vertical-align:middle;}

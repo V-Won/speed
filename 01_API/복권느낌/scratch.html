@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복권긁기</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+	
+	$( document ).ready( function( event ) {
+		
+		var $coverCanvas;
+		var $coverImg;
+		var coverContext;
+		var isWin;
+		var lineStartX, lineStartY;
+		var resultArea;
+		
+		loadCover();
+		
+		function loadCover(){
+			$coverImg = $( "<img></img>")
+			$coverImg.attr( "src", "img/cover.png" );
+			$coverImg.bind( "load", startup );
+		}
+		
+		function startup(){
+			$coverCanvas = $( "#coverCanvas" );
+			coverContext = $coverCanvas[ 0 ].getContext( "2d" );
+			coverContext.drawImage( $coverImg[ 0 ], 0, 0 );
+			coverContext.lineWidth = "20";
+			coverContext.lineCap = "round";
+			
+			isWin = Math.round( Math.random() );
+			var resultURL = ( isWin == 1 ) ? "img/result_win.png" : "img/result_lose.png";
+			$( "#resultImg" ).attr( "src", resultURL );
+			
+			$coverCanvas.bind( "mousedown", startDraw );
+			
+			resultArea = { x:0, y:110, width:500, height:85 };
+		}
+		
+		function startDraw( event ){
+			lineStartX = event.clientX;
+			lineStartY = event.clientY;
+			$coverCanvas.bind( "mousemove", draw );
+			$coverCanvas.bind( "mouseup", stopDraw );
+		}
+		
+		function draw( event ){
+			var x = event.clientX;
+			var y = event.clientY;
+			coverContext.globalCompositeOperation = "destination-out";
+			coverContext.beginPath();
+			coverContext.moveTo( lineStartX, lineStartY );
+			coverContext.lineTo( x, y );
+			coverContext.stroke();
+			coverContext.closePath();
+			lineStartX = x;
+			lineStartY = y;
+			
+			if( checkClearResultArea() ){
+				end();
+			}
+		}
+		
+		function stopDraw(){
+			$coverCanvas.unbind( "mousemove", draw );
+			$coverCanvas.unbind( "mouseup", stopDraw );
+		}
+		
+		function end(){
+			stopDraw();
+			$coverCanvas.unbind( "mousedown", startDraw );
+			var msg = ( isWin == 1 ) ? "축하합니다!! 이벤트에 당첨됐습니다." : "아쉽지만 다음 기회를 이용해 주세요";
+			alert( msg );
+		}
+		
+		function checkClearResultArea(){
+			var imageData = coverContext.getImageData( resultArea.x, resultArea.y, resultArea.width, resultArea.height );
+			for( var i=3, count=imageData.data.length ; i < count ; i+=4){
+				if( imageData.data[ i ] != 0 ) return false;
+			}
+			return true;
+		}
+    });
+    
+</script>
+<style type="text/css">
+
+*{ margin:0; padding:0; position: absolute; }
+
+</style>
+</head>
+<body>
+	<div>
+		<img width="500" height="300" id="resultImg"/>
+		<canvas width="500" height="300" id="coverCanvas"></canvas>
+    </div>
+</body>
+</html>

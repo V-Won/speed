@@ -1,0 +1,1 @@
+여러파일에서 찾기 win: ctrl+shift+f, mac: cmd+shift+f

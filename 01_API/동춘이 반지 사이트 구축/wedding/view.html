@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>WEDDING | ADEESSE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+
+		//sub menu
+		$('.sub-menu').stop().css({'display':'block', 'opacity':1});
+		$('.sub-menu').on('mouseleave', function(){
+			$('.sub-menu').stop().css({'display':'block', 'opacity':1});
+			$('.sub-menu a').stop().css({'display':'block', 'opacity':1});
+		});
+
+
+		//case select
+		$('.case-box > div > div > a').on('click', function(){
+			var $this = $(this),
+				$next = $this.next();
+
+			$next.slideToggle(250);
+			return false;
+		});
+
+
+		//detail view
+		var $img_detail = $('.img-box .detail');
+		var pointX, pointY, imgPosX, imgPosY;
+
+		$('.img-box > img').on('mousemove', function(event){
+			//큰이미지 뷰 박스 위치 set
+			pointX = event.pageX - $(this).offset().left;
+			pointY = event.pageY - $(this).offset().top;
+			$(this).css('cursor','crosshair');
+			$img_detail.show();
+
+			//큰이미지 위치 set
+			imgPosX = parseInt($img_detail.css('left'));
+			imgPosY = parseInt($img_detail.css('top'));
+			$img_detail.find('img').css({ 'top' : (pointY*-0.5), 'left' : (pointX*-1.15) });
+		});
+
+		$('.img-box > img').on('mouseleave', function(event){
+			$(this).css('cursor','atuo');
+			$img_detail.hide();
+		});
+
+
+		//product set
+		var $prosetBox = $('.pro-set ul');
+		var $setMenu = $('.pro-set .set-menu');
+		var prosetLen = $prosetBox.find('li').length;
+		var posY = $prosetBox.find('li').height();
+
+		for(var i=0; i<prosetLen; i++){
+			$setMenu.append('<a href="">' + (i+1) + '</a> ');
+		}
+
+		$setMenu.find('a').each(function(index){
+
+			if(index==0) $(this).addClass('on');
+
+			$(this).click(function(){
+				$setMenu.find('a').removeClass('on');
+				$(this).addClass('on');
+				$prosetBox.stop().animate({marginTop: index * -posY}, {duration:1200, easing:'easeInOutExpo'}); //easeOutCirc easeInOutExpo
+				return false;
+			});
+
+		});
+
+	});
+//]]>
+</script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>WEDDING</span>
+				<span>WEDDING RING</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title01.png" alt="WEDDING" /></a></h2>
+			<div class="sub-menu">
+				<ul>
+					<li><a href="" class="on"><span>Wedding Ring<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>Wedding Set<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>Wedding Band<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+
+		<!-- case-box -->
+		<div class="case-box">
+			<div class="case01">
+				<div>
+					<a href="">
+						<span class="invisible">WEDDING Jewelry Case</span>
+						<span class="num"><img src="../images/common/case_num04.png" alt="4" /></span>
+					</a>
+					<ul>
+						<li>
+							<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+							<span class="txt">
+								Wedding Ring <br />
+								인피니티러브
+							</span>
+							<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+						</li>
+						<li>
+							<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+							<span class="txt">
+								Wedding Ring <br />
+								인피니티러브
+							</span>
+							<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+						</li>
+						<li>
+							<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+							<span class="txt">
+								Wedding Ring <br />
+								인피니티러브
+							</span>
+							<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="case02">
+				<div>
+					<a href="">
+						<span class="invisible">WEDDING Jewelry Case</span>
+						<span class="num"><img src="../images/common/case_num03.png" alt="3" /></span>
+					</a>
+					<ul>
+						<li>
+							<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+							<span class="txt">
+								Wedding Ring <br />
+								인피니티러브
+							</span>
+							<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+						</li>
+						<li>
+							<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+							<span class="txt">
+								Wedding Ring <br />
+								인피니티러브
+							</span>
+							<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+						</li>
+						<li>
+							<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+							<span class="txt">
+								Wedding Ring <br />
+								인피니티러브
+							</span>
+							<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- //case-box -->
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody">
+		
+		<h3><span class="invisible">Wedding Ring</span></h3>
+		
+		<!-- product-view -->
+		<div class="product-view">			
+			<div class="pro-detail">
+				<div class="img-box">
+					<img src="../images/tmp/@img_view01.jpg" alt="" />
+					<p class="detail">
+						<img src="../images/tmp/@img_view01_detail.jpg" alt="" />
+					</p>
+				</div>
+				<ul>
+					<li><a href=""><img src="../images/tmp/@img_view_thum01.jpg" alt="" /></a></li>
+					<li><a href=""><img src="../images/tmp/@img_view_thum02.jpg" alt="" /></a></li>
+					<li><a href=""><img src="../images/tmp/@img_view_thum03.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+			<a href="" class="btn-back"><img src="../images/btn/btn_back.gif" alt="이전 페이지로 이동" /></a>
+			<div class="pro-info">
+				<h4>해와달을 닮은 반지 <span>Resemblance</span></h4>
+				<ul class="color-code">
+					<li><span>COLOR :</span>  White Gold / Pink Gold</li>
+					<li><span>CODE &nbsp;:</span> CGOQ1216707 / CGOQ1216708</li>
+				</ul>
+				<p>
+					꾸미지 않아도 서로 닮아 가는 두분의 모습을 담아 표현한 디자인 서로 닮아 가는 두분의 모습을 담아 표현한 디자인
+				</p>
+				<ul class="btn">
+					<li><a href=""><img src="../images/icon/ico_product_btn01.gif" alt="" /> 페이스북 공유하기</a></li>
+					<li><a href=""><img src="../images/icon/ico_product_btn02.gif" alt="" /> 담기</a></li>
+					<li><a href=""><img src="../images/icon/ico_product_btn03.gif" alt="" /> 좋아요 <span>4571 <img src="../images/icon/ico_product_bubble.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+			<div class="pro-set">
+				<h4>ADEESSE <br />SET ITEM</h4>
+				<div>
+					<ul>
+						<li>
+							<a href="">
+								<img src="../images/tmp/@img_235x235.jpg" alt="" />
+								해와달을 닮은 이어링1
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="../images/tmp/@img_235x235.jpg" alt="" />
+								해와달을 닮은 이어링2
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="../images/tmp/@img_235x235.jpg" alt="" />
+								해와달을 닮은 이어링3
+							</a>
+						</li>
+					</ul>
+				</div>
+				<p class="set-menu">
+				</p>
+			</div>
+		</div>
+		<!-- //product-view -->
+
+		<div class="btn-type01">
+			<a href="" class="btn-reservation01">상담예약</a>
+			<a href="" class="btn-reservation02">견적문의</a>
+			<a href="" class="btn-style01 btn01">목록</a>
+		</div>
+		
+		<!-- reply-con -->
+		<div class="reply-con">
+			<h4>댓글 등록 <span>542 <img src="../images/icon/ico_bubble_arrow.gif" alt="" /></span></h4>
+			<!-- reply-write -->
+			<div class="reply-write">
+				<label for="pu-write" class="invisible">댓글 입력</label>
+				<textarea id="pu-write" cols="30" rows="10">로그인 후 댓글 작성이 가능합니다.</textarea>
+				<input type="image" src="../images/btn/btn_input.gif" alt="입력" />
+			</div>
+			<!-- //reply-write -->
+			<!-- reply-list -->
+			<div class="reply-list">
+				<ul>
+					<li>
+						<p class="tit">달나라 뀨냥 <span class="date">2014.06.23</span></p>
+						<p class="con">
+							<img src="../images/tmp/@img_profile.jpg" alt="" />
+							크리스는 SM엔터테인먼트 측에 15일 전속계약 무효 소송을 제기했다. 특히 데뷔 후 첫 단독콘서트를 일주일여 앞둔 시점에 벌어진 일이라 팬들은 큰 충격에 빠졌다. 앞서 엑소 크리스는 15일 서울중앙지방법원에 소속사 SM엔터테인먼트를 상대로 전속계약 효력 부존재 확인소송을 제기한 바 있다.
+						</p>
+						<a href="" class="del">삭제</a>
+					</li>
+					<li class="another01">
+						<p class="tit">달나라 뀨냥 <span class="date">2014.06.23</span></p>
+						<p class="con">
+							<img src="../images/tmp/@img_profile.jpg" alt="" />
+							크리스는 SM엔터테인먼트 측에 15일 전속계약 무효 소송을 제기했다. 특히 데뷔 후 첫 단독콘서트를 일주일여 앞둔 시점에 벌어진 일이라 팬들은 큰 충격에 빠졌다. 앞서 엑소 크리스는 15일 서울중앙지방법원에 소속사 SM엔터테인먼트를 상대로 전속계약 효력 부존재 확인소송을 제기한 바 있다.
+						</p>
+						<a href="" class="del">삭제</a>
+					</li>
+					<li>
+						<p class="tit">달나라 뀨냥 <span class="date">2014.06.23</span></p>
+						<p class="con">
+							<img src="../images/tmp/@img_profile.jpg" alt="" />
+							크리스는 SM엔터테인먼트 측에 15일 전속계약 무효 소송을 제기했다. 특히 데뷔 후 첫 단독콘서트를 일주일여 앞둔 시점에 벌어진 일이라 팬들은 큰 충격에 빠졌다.
+						</p>
+						<a href="" class="del">삭제</a>
+					</li>
+					<li class="another01">
+						<p class="tit">달나라 뀨냥 <span class="date">2014.06.23</span></p>
+						<p class="con">
+							<img src="../images/common/reply_profile.jpg" alt="" /><!-- 20140704 -->
+							크리스는 SM엔터테인먼트 측에 15일 전속계약 무효 소송을 제기했다.
+						</p>
+						<a href="" class="del">삭제</a>
+					</li>
+				</ul>
+				<div class="btn">
+					<a href="">더 보기</a>
+				</div>
+			</div>
+			<!-- //reply-list -->
+		</div>
+		<!-- //reply-con -->
+
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<div id="dFootArea">
+			<div class="copy-address">
+				<a href="">개인정보취급방침</a>
+				<address>서울시 종로구 종로3가 117-1</address>
+				<span>문의: 1688-0887</span>
+				<span>팩스: 02)741-5159</span>
+				<span>COPYRIGHT © ADEESSE ALL RIGHTS RESERVED.</span>
+			</div>
+
+			<!-- sitemap -->
+			<ul class="sitemap">
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap01.png" alt="Wedding" /></a>
+					<ul>
+						<li><a href="">Wedding Ring</a></li>
+						<li><a href="">Wedding Set</a></li>
+						<li><a href="">Wedding Band</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap02.png" alt="Gift" /></a>
+					<ul>
+						<li><a href="">Propose</a></li>
+						<li><a href="">Anniversary</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap03.png" alt="Community" /></a>
+					<ul>
+						<li><a href="">공지사항</a></li>
+						<li><a href="">이벤트</a></li>
+						<li><a href="">고객후기</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap04.png" alt="Reservation" /></a>
+					<ul>
+						<li><a href="">온라인 상담</a></li>
+						<li><a href="">온라인 예약</a></li>
+						<li><a href="">예약조회/수정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap05.png" alt="My page" /></a>
+					<ul>
+						<li><a href="">개인정보</a></li>
+						<li><a href="">JEWELRY CASE</a></li>
+						<li><a href="">상담내역</a></li>
+						<li><a href="">예약조회/수정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap06.png" alt="Member" /></a>
+					<ul>
+						<li><a href="">회원가입</a></li>
+						<li><a href="">로그인</a></li>
+						<li><a href="">English</a></li>
+					</ul>
+				</li>
+			</ul>
+			<!-- //sitemap -->
+		</div>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+/* 공통요소 CSS */
+
+body
+{ 
+	margin:0; 
+	padding:0; 
+	color:#666666; 
+	background-color:#ffffff; 
+	font-size:12px;
+	font-family:"돋움", "굴림", "맑은 고딕",sans-serif; 
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+}
+
+a:link { color:#666666; text-decoration:none; }
+a:visited { color:#666666; text-decoration:none; }
+a:hover {  color:#0085b9; text-decoration:none; }
+a:active {  color:#0085b9; text-decoration:none; }
+
+.path:link { color:#bababa; text-decoration:none; font-size:11px; }
+.path:visited { color:#bababa; text-decoration:none; font-size:11px; }
+.path:hover { color:#000000; text-decoration:none; font-size:11px; }
+.path:active { color:#000000; text-decoration:none; font-size:11px; }
+
+input.type-image
+{
+	border:none; 
+	padding:0; 
+	margin:0; 
+}
+
+ol, ul, li 
+{
+	list-style:none;
+}
+
+img 
+{
+	border:0; 
+}
+
+form, ul, ol, li, dt, dd, p
+{
+	margin:0;
+	padding:0; 
+}
+
+input 
+{
+	border:0;
+	vertical-align:middle; 
+}
+
+textarea
+{
+	border:1px solid #bbbbbb; 
+}
+
+h1, h2, hr, legend, caption
+{
+	display: none; 
+}
+
+h3
+{
+	line-height:100%;
+	margin:0;
+	padding:0;
+}
+
+h4
+{
+	line-height:100%;
+	margin:0;
+	padding:0;
+}
+
+h5
+{
+	font-size:1.1em;
+	margin:0;
+	padding:0;
+}
+
+h6
+{
+	font-size:1em;
+	margin:0;
+	padding:0;
+}
+
+fieldset 
+{
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+
+
+
+textarea
+{
+	border:1px solid #969696;
+	font-family:"돋움", "굴림", "맑은 고딕",sans-serif; 
+}
+
+
+
+
+
+
+
+/* 스킵내비게이션 CSS */
+
+.sknavi
+{
+	position:absolute;
+	top:-500px;
+}
+
+.sknavi:focus, .sknavi:active
+{
+	top:1px;
+	display:block;
+
+	width:200px;
+	height:20px;
+	padding:3px;
+	margin-left:5px;
+	text-align:center;
+	font-size:100%;
+	font-weight:bold;
+	background-color:#fff;
+	border:1px solid #135;
+	text-decoration:none;
+	line-height:20px;
+	z-index:3000;
+}
+
+/* 블록요소 CSS */
+
+.clear
+{
+	display:block;
+	float:none;
+	clear:both;
+	height:0;
+	width:100%;
+	font-size:0 !important;
+	line-height:0 !important;
+	overflow:hidden;
+	margin:0 !important;
+	padding:0 !important;
+}
+
+.blind 
+{
+	left:0;
+	overflow:hidden; 
+	visibility:hidden; 
+	position:absolute; 
+	left:-5000px;
+} 
+
+/* admin 공통 css */
+.aLeft {text-align:left}
+.aRight {text-align:right}
+.txtBold {font-weight:bold}
+.fl {float:left}
+.fr {float:right}
+.mt {margin-top:-1px}
+.fcolor {color:#ff3f00;}
+.txtc {text-align:center;}
+.txtr {text-align:right;}
+.vt {vertical-align:middle;}
+
+/*  공통 css */
+.no_mg {margin:0 !important;}
+.no_bg {background:none !important;}
+.no_pd {padding:0 !important;}
+.no_bd {border-bottom:none !important;}
+.no_br {border-right:none !important;}
+.no_bl {border-left:none !important;}
+.nofield {display:none;}
+.paddingB5 {padding-bottom:5px;}
+.paddingB10 {padding-bottom:10px;}
+.paddingB15 {padding-bottom:15px;}
+.paddingB20 {padding-bottom:20px;}
+.paddingT5 {padding-top:5px;}
+.paddingT10 {padding-top:10px;}
+.paddingT15 {padding-top:15px;}
+.paddingT20 {padding-top:20px;}
+.marginB5 {margin-bottom:5px;}
+.marginB10 {margin-bottom:10px;}
+.marginB15 {margin-bottom:15px;}
+.marginB20 {margin-bottom:20px;}
+.marginT5 {margin-top:5px;}
+.marginR5 {margin-right:5px;}
+.marginR5 {margin-right:5px;}
+.marginT10 {margin-top:10px;}
+.marginT15 {margin-top:15px;}
+.marginT20 {margin-top:20px;}
+.marginT30 {margin-top:30px;}
+
+	

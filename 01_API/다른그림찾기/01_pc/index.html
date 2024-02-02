@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+    <title>다른 그림 찾기</title>
+    <style type="text/css">
+    	*{padding:0;margin:0;}
+        body{padding:10px;}
+    	.box{position:relative;*zoom:1;}
+        .box:after{content:'';display:block;clear:both;}
+        .box-imgList .box-posi{float:left;position:relative;overflow:hidden;}
+    	.img{cursor:pointer;}
+    	.btn{text-decoration:underline;font-size:20px;font-weight:bold;padding:10px 0;}
+    	.btn a{color:red;}
+    	.text{margin-top:10px;}
+		.ck{position:absolute;display:none;}
+        .type-1{left: 144px;top: 166px;}
+        .type-2{left: 294px;top: 69px;}
+        .type-3{left: 40px;top: 329px;}
+        .type-4{left: 31px;top: 492px;}
+        .type-5{left: 36px;top: 435px;}
+        .type-6{left: 177px;top: 375px;}
+		.box-timer{border:1px solid #ccc;width:500px;height:30px;position:relative;overflow:hidden;}
+		.box-timer .inner-timer{background:red;width:500px;display:block;height:100%;position:absolute;left:100%;top:0;}
+		.box-bg{background:#000;opacity: 0.3;-ms-filter:alpha(opacity=30);filter:alpha(opacity=30);position:fixed;top:0;height:100%;width:100%;z-index:9998;display:none;}
+        .pointer{position:absolute;top:0;left:0;display:none;width:50px;height:50px;}
+        .present{display:inline-block;padding:15px 0 0 0;*display:inline;*zoom:1;}
+        .x{position:absolute;top:0;left:0;display:none;}
+        .score{margin-top:8px;}
+        .hidden{clear: both;height: 0;line-height: 0;visibility: hidden;width: 0;}
+    </style>
+</head>
+<body>
+	
+    <a href="#none" class="hidden">다른 그림 찾기서비스는 웹접근성을 준수하지 않고 있으므로 클릭하시면 건너뛸 수 있습니다.</a> <!-- 구축시 id값 연결 필요 -->
+
+	<div class="box">
+        <!-- 다른 그림 찾기 이미지 -->
+        <div class="box-imgList">
+            <div class="box-posi img-a">
+                <img src="1.jpg" alt="" border="0" usemap="#Map" class="img img-blur">
+                <!-- 정답 표시 -->
+                <span class="box-ok">
+                    <img src="o.png" alt="" class="ck type-1">
+                    <img src="o.png" alt="" class="ck type-2">
+                    <img src="o.png" alt="" class="ck type-3">
+                    <img src="o.png" alt="" class="ck type-4">
+                    <img src="o.png" alt="" class="ck type-5">
+                    <img src="o.png" alt="" class="ck type-6">
+                </span>
+                <!-- //정답 표시 -->
+                <img src="pointer.png" alt="" class="pointer">
+            </div>
+            <div class="box-posi img-b">
+                <img src="2.jpg" alt="" border="0" usemap="#Map" class="img img-blur">
+                <!-- 정답 표시 -->
+                <span class="box-ok">
+                    <img src="o.png" alt="" class="ck type-1">
+                    <img src="o.png" alt="" class="ck type-2">
+                    <img src="o.png" alt="" class="ck type-3">
+                    <img src="o.png" alt="" class="ck type-4">
+                    <img src="o.png" alt="" class="ck type-5">
+                    <img src="o.png" alt="" class="ck type-6">
+                </span>
+                <!-- //정답 표시 -->
+                <img src="pointer.png" alt="" class="pointer">
+            </div>
+        </div>
+        <!-- //다른그림 찾기 이미지 -->
+
+        <img src="x.png" alt="" class="x"><!-- 다른부분 클릭시 -->
+
+	    <!-- 정답 좌표 -->
+		<map name="Map">
+			<area shape="rect" coords="167,111,199,298" href="#none" class="map-ok">
+			<area shape="rect" coords="309,77,335,136" href="#none" class="map-ok">
+            <area shape="rect" coords="56,339,85,376" href="#none" class="map-ok">
+            <area shape="rect" coords="42,505,73,535" href="#none" class="map-ok">
+            <area shape="rect" coords="51,457,81,475" href="#none" class="map-ok">
+            <area shape="rect" coords="194,378,223,432" href="#none" class="map-ok">
+        </map>
+		<!-- //정답 좌표 -->
+	</div>
+
+    <div class="present"></div><!-- 다른 부분 개수 표시 -->
+
+    <span style="position:relative;top:-6px;">&lt;&lt; 찾은 개수 표시</span>
+
+    <div class="score">점수 : <span>0</span> 점</div>
+
+    <p class="btn"><a href="#none" onClick="play();">PLAY</a></p>
+    <div class="box-timer"><span class="inner-timer"></span></div>
+
+	<div class="box-bg"></div><!-- timer 완료시 -->
+
+    <!-- 기능 -->
+    <style type="text/css">
+        .box-function{position:absolute;top:10px;right:10px;width:430px;background:#fff;padding:10px 10px 20px 10px;border:2px solid #ccc;}
+        .box-function .title{padding:10px 0;color:#333;}
+        .box-function ul{padding-bottom:30px;}
+        .box-function li{list-style:none;}
+    </style> 
+    <div class="box-function">
+        <p class="title">------ 다른 그림 찾기 기능 ------</p>
+        <ul>
+            <li>- 정답 click시 O표시 및 하단에 표시됨</li>
+            <li>- 오답 click시 X표시</li>
+            <li>- TIMER 기능(PLAY 버튼 클릭), TIMER 시간 변경 가능</li>
+            <li>- 시작 전에 이미지 blur(흐리게) 강도 조절 기능</li>
+            <li>- 가상 커서 기능</li>
+            <li>- 점수 기능 (정답시 +20점, 오답시 -20점)</li>
+        </ul>
+        <p class="title">------ 운영시 퍼블리셔 작업 ------</p>
+        <ul style="padding-bottom:0;">
+            <li>- 정답 부분에 이미지맵 처리, O이미지(정답) absolute 위치 처리</li>
+        </ul>
+    </div>
+    <!-- //기능 -->
+
+    <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
+    <script src="blur.js"></script>
+    <script type="text/javascript">
+    var score = 0; // 점수 카운터
+    var baseScore = 20; // 기본 점수
+    var eventTime = 20000; // 타이머 시간
+    var pt = $('.pointer'); // pointer
+    var x = $('.x'); // 오답 이미지
+    var pointerHeight = $('.pointer').height() / 0.7; // pointer top 위치 (포인터 이미지 변경시 변경 필요)
+    var pointerWidth = $('.pointer').width() / 2.5 // pointer left 위치 (포인터 이미지 변경시 변경 필요)
+    var lefImg = $('.img-a .img').width() // 우측 이미지 포인터 위치
+    var xSizeWidth,
+    xSizeHeight;
+
+    $(function(){
+        xSizeWidth = x.width(); // x 이미지 size
+        xSizeHeight = x.height(); // x 이미지 size
+
+        blurCnt(3); // 숫자가 커질수록 blur 효과 증가
+
+        // 다른 개수 total 표시
+        for( var i = 0; i < $('.img-a .ck').length ; i++ ){
+            $('.present').append('<img src="cnt_off.jpg" alt="">');
+        }
+
+        pt.css({"margin-top" : - pointerHeight, "margin-left" : - pointerWidth});
+    })
+
+    // play btn
+    function play(){
+        var cnt = 0; // 정답 카운터
+
+        $('.inner-timer').animate({"left":"0"}, eventTime, function(){
+            $('.box-bg').show();
+            alert("시간 초과! 땡!!");
+            location.reload();
+        });
+
+        $('.btn').html('다른그림 찾기 gogo!');
+
+        blurCnt(0); // 블러
+
+        // 정답 click
+        $('.map-ok').on('click', function(){
+            var tgIndex = $(this).index(); // 이미지 맵 위치
+
+            $(this).attr('coords','0,0,0,0'); // 정답시 이미지맵 숨김
+            $('.img-a .box-ok img:eq(' + tgIndex + '), .img-b .box-ok img:eq(' + tgIndex + ')').fadeIn(function(){
+                cnt ++;
+
+                if( $('.box-ok .ck').length == cnt ){
+                    alert("다른 그림을 전부 찾았습니다! 점수는 " + $('.score span').html() + " 점 입니다.");
+                    location.reload();
+                }
+            });
+            score = score + baseScore;
+            $('.score span').html(score);
+
+            presentCnt(cnt / 2);
+            return false;
+        });
+
+        mouseMove();
+
+        // 오답 click
+        $('.img').click(function(e){
+            x.css({"top" : e.pageY - xSizeHeight, "left" : e.pageX - xSizeWidth / 1.7}); // 이미지 변경시 변경 필요
+            x.show();
+            x.fadeOut('slow');
+
+            if( $('.score span').html() > 0 ){
+                score = score - baseScore / 2;
+                $('.score span').html(score);
+            }
+            return false;
+        });
+    }
+
+    // 다른그림찾기 이미지 블러
+    function blurCnt(cnt){
+        $('.img-blur').blurjs({radius: cnt});
+    }
+
+    // 마우스 커서
+    function mouseMove(){
+        $('.img-a, map').mousemove(function(e){
+            $('.img-b .pointer').show();
+            $('.img-b .pointer').css({"top" : e.pageY , "left" : e.pageX});
+        });
+         $('.img-b, map').mousemove(function(e){
+            $('.img-a .pointer').show();
+            $('.img-a .pointer').css({"top" : e.pageY , "left" : e.pageX - lefImg});
+        });
+        $('.img-a, .img-b').mouseleave(function(e){
+            pt.hide();
+        });
+    }
+
+    // 정답부분이 맞다면 체크
+    function presentCnt(cnt){
+        var presentImg = $('.present img:eq(' + cnt + ')').attr('src');
+        presentImg = presentImg.replace('off', 'on');
+
+        $('.present img:eq(' + cnt + ')').attr('src', presentImg);
+    }
+    </script>
+
+</body>
+</html>

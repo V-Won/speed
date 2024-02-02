@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>MY RESERVATION | MY PAGE | ADEESSE</title>	
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+
+		// 예약 지점 선택
+		var reserBox = $('.reservation-box'),
+			branch = reserBox.find('.branch a');
+
+		branch.on('click', function(){
+			var $this = $(this);
+
+			branch.removeClass('on');
+			$this.addClass('on');
+			return false;
+		});
+
+		// 예약 가능시간 선택
+		var timeBox = $('.time-box'),
+			timeHalf = timeBox.find('>.time > ul > li > a');
+
+		timeHalf.on('click', function(){
+			var $this = $(this);
+
+			timeHalf.parent().removeClass('on');
+			$this.parent().addClass('on');
+			return false;
+		});
+
+	});
+//]]>
+</script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>마이 페이지</span>
+				<span>예약/조회 수정</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title07.png" alt="MY PAGE" /></a></h2>
+			<div class="sub-menu">
+				<ul>
+					<li><a href=""><span>내정보<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>고객후기<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>쥬얼리 케이스<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href="" class="on"><span>예약조회/수정<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody">
+		
+		<h3><span><img src="../images/common/top_title07_04.png" alt="MY RESERVATION" /></span></h3>
+		
+		<p class="text-coment01">* 상담을 위해 아래 내용들은 모두 작성해주셔야 합니다.</p>
+
+		<!-- write-tb -->
+		<table class="write-tb" summary="상담유형 비밀번호, 작성자, 휴대폰, 이메일, 성별, 제목, 내용 등을 입력하는 표입니다.">
+			<caption>온라인 상담 작성표</caption>
+			<colgroup>
+				<col width="11%" />
+				<col width="*" />
+				<col width="11%" />
+				<col width="35%" />
+			</colgroup>
+			<tbody>
+				<tr class="proinfo">
+					<th scope="row">제품정보</th>
+					<td colspan="3">
+						<div>
+							<p class="image"><img src="../images/tmp/@img_198x108.jpg" alt="" /></p>
+							<p class="tit">
+								해와달을 닮은 반지
+								<span>Resemblance</span>
+							</p>
+							<p class="txt">
+								꾸미지 않아도 서로 닮아 가는 두분의 모습을 담아 표현한 디자인 <br />
+								서로 닮아 가는 두분의 모습을 담아 표현한 디자인
+							</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- //write-tb -->
+		
+		<!-- reservation-box -->
+		<div class="reservation-box">
+			
+			<!-- detail -->
+			<div class="detail">
+				<table class="write-tb" summary="상담유형 비밀번호, 작성자, 휴대폰, 이메일, 성별, 제목, 내용 등을 입력하는 표입니다.">
+					<caption>온라인 상담 작성표</caption>
+					<colgroup>
+						<col width="14%" />
+						<col width="*" />
+						<col width="14%" />
+						<col width="36%" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row"><label for="pu-name">이름</label></th>
+							<td colspan="3">
+								<input type="text" id="pu-name" style="width:245px;" />
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-phon">휴대폰</label></th>
+							<td colspan="3">
+								<select id="pu-phon" class="select" style="width:74px;" title="휴대폰 앞자리">
+									<option value="" selected="selected">010</option>
+									<option value="">011</option>
+								</select> -
+								<input type="text" style="width:88px;" title="휴대폰 중간자리" /> -
+								<input type="text" style="width:88px;" title="휴대폰 뒷자리" />
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-pw">비밀번호</label></th>
+							<td>
+								<input type="password" id="pu-pw" style="width:245px;" />
+							</td>
+							<th scope="row"><label for="pu-pwRe">비밀번호 확인</label></th>
+							<td>
+								<input type="password" id="pu-pwRe" style="width:245px;" />
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-email">이메일</label></th>
+							<td colspan="3">
+								<input type="text" id="pu-email" style="width:108px;" title="이메일 아이디" /> @
+								<input type="text" style="width:108px;" title="이메일 도메인" /> &nbsp;
+								<select class="select" style="width:111px;" title="이메일 도메인 선택">
+									<option value="" selected="selected">메일선택</option>
+									<option value="">naver.com</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-dday">예식일</label></th>
+							<td colspan="3">
+								<select id="pu-dday" class="select" style="width:74px;" title="예식일 연도">
+									<option value="" selected="selected">2014</option>
+									<option value="">2015</option>
+								</select> 년 &nbsp;
+								<select class="select" style="width:74px;" title="예식일 월">
+									<option value="" selected="selected">05</option>
+									<option value="">06</option>
+								</select> 월 &nbsp;
+								<select class="select" style="width:74px;" title="예식일 일">
+									<option value="" selected="selected">05</option>
+									<option value="">06</option>
+								</select> 일
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-dday">원하는 구성상품</label></th>
+							<td colspan="3">
+								<dl class="check-dl">
+									<dt class="first">신랑님</dt>
+									<dd class="first">
+										<ul class="list01">
+											<li>
+												<input type="checkbox" id="pu-check0101" />
+												<label for="pu-check0101">신랑반지</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0102" />
+												<label for="pu-check0102">커플링</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0103" />
+												<label for="pu-check0103">순금</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0104" />
+												<label for="pu-check0104">기타</label>
+											</li>
+										</ul>
+									</dd>
+									<dt>신부님</dt>
+									<dd>
+										<ul class="list01">
+											<li>
+												<input type="checkbox" id="pu-check0201" />
+												<label for="pu-check0201">신부SET</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0202" />
+												<label for="pu-check0202">진주SET</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0203" />
+												<label for="pu-check0203">커플링</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0204" />
+												<label for="pu-check0204">순금</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0205" />
+												<label for="pu-check0205">기타</label>
+											</li>
+										</ul>
+									</dd>
+									<dt>기타</dt>
+									<dd>
+										<ul class="list01">
+											<li>
+												<input type="checkbox" id="pu-check0301" />
+												<label for="pu-check0301">프로포즈</label>
+											</li>
+											<li>
+												<input type="checkbox" id="pu-check0302" />
+												<label for="pu-check0302">부모님</label>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">예산 금액</th>
+							<td colspan="3">
+								<ul class="list01">
+									<li>
+										<input type="checkbox" id="pu-check0401" />
+										<label for="pu-check0401">100~200만원</label>
+									</li>
+									<li>
+										<input type="checkbox" id="pu-check0402" />
+										<label for="pu-check0402">200~300만원</label>
+									</li>
+									<li>
+										<input type="checkbox" id="pu-check0403" />
+										<label for="pu-check0403">300~500만원</label>
+									</li>
+									<li>
+										<input type="checkbox" id="pu-check0404" />
+										<label for="pu-check0404">500만원 이상</label>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-memo">예약 메모</label></th>
+							<td colspan="3">
+								<textarea id="pu-memo" cols="30" rows="30" style="width:97.2%; height:120px;"></textarea>								
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="pu-answer">답변</label></th>
+							<td colspan="3">
+								<textarea id="pu-answer" cols="30" rows="30" style="width:97.2%; height:120px;"></textarea>								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- //write-tb -->
+				
+				<!-- agree-btn01 -->
+				<div class="btn-type01">
+					<a href="" class="btn-style02">목록</a>
+					<p class="btn01">
+						<a href="" class="btn-style02">예약 취소</a>
+						<a href="" class="btn-style02">예약 수정</a>
+					</p>
+				</div>
+				<!-- //agree-btn01 -->
+
+			</div>
+			<!-- //detail -->
+			
+			<!-- info -->
+			<div class="info">
+				<h4><img src="../images/reservation/reservation_info_tit.gif" alt="Reservation My information" /></h4>
+				<ul>
+					<li>
+						<strong>예약 지점</strong>
+						부산 남포동
+					</li>
+					<li>
+						<strong>예약 날짜</strong>
+						2014년 07월 22일 (목)
+					</li>
+					<li>
+						<strong>예약 시간</strong>
+						15:00
+					</li>
+				</ul>
+			</div>
+			<!-- //info -->
+
+		</div>
+		<!-- //reservation-box -->
+
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<span style="color:#fff;">하단공통영역</span>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

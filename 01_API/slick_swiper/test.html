@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slick Playground</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<!-- <link rel="stylesheet" type="text/css" href="./slick/slick.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"> -->
+	<style type="text/css">
+		*{margin:0;padding:0}
+		ul,li{list-style:none}
+
+		/* Slider */
+		.slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent;}
+		.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0;}
+		.slick-list:focus{outline:none;}
+		.slick-list.dragging{cursor:pointer;cursor:hand;}
+		.slick-slider .slick-track,.slick-slider .slick-list{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+		.slick-track{position:relative;top:0;left:0;display:block;}
+		.slick-track:before,.slick-track:after{display:table;content:'';}
+		.slick-track:after{clear:both;}
+		.slick-loading .slick-track{visibility:hidden;}
+		.slick-slide{display:none;float:left;height:100%;min-height:1px;}
+		[dir='rtl'] .slick-slide{float:right;}
+		.slick-slide img{display:block;}
+		.slick-slide.slick-loading img{display:none;}
+		.slick-slide.dragging img{pointer-events:none;}
+		.slick-initialized .slick-slide{display:block;}
+		.slick-loading .slick-slide{visibility:hidden;}
+		.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent;}
+		.slick-arrow.slick-hidden{display:none;}
+		
+		.box-slick{height:500px;}
+		.box-slick .slide-wrap{width:100%;height:500px;border:1px solid red;background:#eee;}
+		.box-slick .slick-dots{position:absolute;top:50%;right:30px;transform:translate(0, -50%);z-index:100;}
+		.box-slick .slick-dots .slick-active button{background:red;}
+		.box-slick .slick-next{position:absolute;bottom:20px;left:50%;transform:translate(-50%, 0);z-index:100;}
+		.box-slick .slick-prev{position:absolute;top:20px;left:50%;transform:translate(-50%, 0);z-index:100;}
+	</style>
+</head>
+<body>
+	<div class="box-slick">
+		<div class="slide-wrap">1</div>
+		<div class="slide-wrap">2</div>
+		<div class="slide-wrap">3</div>
+		<div class="slide-wrap">4</div>
+		<div class="slide-wrap">5</div>
+	</div>
+
+
+	
+
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+	<script src="slick.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			mainVisualBnrFull();
+
+			$('.box-slick').slick({
+				infinite: false,
+				vertical: true,
+				verticalSwiping: true,
+				dots:true
+			});
+
+			
+			$('html .box-slick').on( 'DOMMouseScroll mousewheel', function ( event ) {
+				if( event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
+					//scroll down
+					console.log('down');
+					$('.box-slick').slick('slickNext');
+				} else {
+					//scroll up
+					console.log('up');
+					$('.box-slick').slick('slickPrev');
+				}
+			});
+
+			$(window).on('load resize',function(){
+				mainVisualBnrFull();
+				$('.box-slick').slick('setPosition');
+			});
+
+			function mainVisualBnrFull(){
+				var wH = $(window).height();
+				var $boxSlickSlide = $('.box-slick .slide-wrap');
+
+				$boxSlickSlide.css({'height': wH + 'px','min-height':'auto'});
+			}
+		});
+
+	</script>
+
+</body>
+</html>

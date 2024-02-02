@@ -1,0 +1,26 @@
+@charset "euc-kr";
+
+@font-face {font-family:'BEBAS___-webfont';src:url('../font/BEBAS___-webfont.eot');src:local('?'),url('../font/BEBAS___-webfont.woff') format('woff')}
+@font-face {font-family:'BEBAS___-webfont';src:url('../font/BEBAS___-webfont.ttf') format('truetype')}
+@font-face {font-family:'NanumGothic';src:url('../font/NanumGothic.eot');src:local('?'),url('../font/NanumGothic.woff') format('woff')}
+@font-face {font-family:'NanumGothicBold';src:url('../font/NanumGothicBold.eot');src:local('?'),url('../font/NanumGothicBold.woff') format('woff')}
+
+/* Reset */
+html,body {width:100%;height:100%}
+html {overflow-y:scroll}
+body {*word-break:break-all;-ms-word-break:break-all}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}
+fieldset,img {border:0 none}
+dl,ul,ol,menu,li {list-style:none}
+blockquote, q {quotes:none}
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+input,select,textarea,button {vertical-align:middle}
+button {border:0 none;background-color:transparent;cursor:pointer}
+body {background:#fff}
+body,th,td,input,select,textarea,button {font-size:12px;line-height:1.5;font-family:BEBAS___-webfont,'굴림',gulim,'돋움',dotum,sans-serif,helvetica;color:#676767;vertical-align:top} /* color값은 디자인가이드에 맞게사용 */
+a {color:#676767;text-decoration:none}
+a:active, a:hover {text-decoration:underline}
+table {border-collapse:collapse;border-spacing:0}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+summary, caption, legend, hr {width:0;height:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden;border:0none;position:absolute;left:-1000em}
+caption {position:static}

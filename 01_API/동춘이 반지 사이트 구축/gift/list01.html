@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>GIFT | ADEESSE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+
+		//sub menu
+		$('.sub-menu').stop().css({'display':'block', 'opacity':1});
+		$('.sub-menu').on('mouseleave', function(){
+			$('.sub-menu').stop().css({'display':'block', 'opacity':1});
+			$('.sub-menu a').stop().css({'display':'block', 'opacity':1});
+		});
+
+		// var $container = $('.product-list');
+		// $container.imagesLoaded( function(){
+		// 	$container.masonry({
+		// 		itemSelector : '.product-list li'
+		// 	});
+		// });
+
+		// $('.product-list').masonry({
+		// 	itemSelector: '.product-list li'
+		// });
+
+		//case select
+		$('.case-box > div > div > a').on('click', function(){
+			var $this = $(this),
+				$next = $this.next();
+
+			$next.slideToggle(250);
+			return false;
+		});
+
+		var proList = $('.product-list > li > a');
+		var proLayer = $('.pro-layer');
+
+		//layer height
+
+		proList.on('mouseenter', function(){
+			var $this = $(this),
+				$next = $this.next('div');
+
+			$next.children().height($(this).find('img').height()-18);
+
+			$next.stop().fadeIn(200);
+		});
+		proLayer.on('mouseleave', function(){
+
+			proLayer.stop().fadeOut(200);
+		});
+		$('.product-list, .product-list li').on('mouseleave', function(){
+
+			proLayer.stop().fadeOut(200);
+		});
+
+
+	});
+//]]>
+</script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>GIFT</span>
+				<span>PROPESE</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title02.png" alt="GIFT" /></a></h2>
+			<div class="sub-menu">
+				<ul>
+					<li><a href="" class="on"><span>Propose<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>Anniversary<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+			
+			<!-- case-box -->
+			<div class="case-box">
+				<div class="case01">
+					<div>
+						<a href="">
+							<span class="invisible">WEDDING Jewelry Case</span>
+							<span class="num"><img src="../images/common/case_num04.png" alt="4" /></span>
+						</a>
+						<ul>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="case02">
+					<div>
+						<a href="">
+							<span class="invisible">WEDDING Jewelry Case</span>
+							<span class="num"><img src="../images/common/case_num03.png" alt="3" /></span>
+						</a>
+						<ul>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- //case-box -->
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody">
+		
+		<h3><span class="invisible">Wedding Ring</span></h3>
+		
+		<!-- product-list -->
+		<ul class="product-list">
+			<li>
+				<a href=""><img src="../images/product/Propose_01.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>베이직 1</h4>
+						<p class="txt">
+							<strong>Basic 1</strong>
+							Pink Gold <br />
+							Code RJFQ1417358 / RJFQ1417359
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Propose_02.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>에탈</h4>
+						<p class="txt">
+							<strong>Etang</strong>
+							White Gold / Pink Gold <br />
+							Code RNLDQ1317128 / RNLDQ1317129
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Propose_03.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>영원한 햇빛</h4>
+						<p class="txt">
+							<strong>Eternel Sunshine</strong>
+							White Gold <br />
+							Code RJFH1417784
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Propose_04.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>라고</h4>
+						<p class="txt">
+							<strong>Lago</strong>
+							White Gold <br />
+							Code RIGH1417636
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Propose_05.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>여왕</h4>
+						<p class="txt">
+							<strong>Queen</strong>
+							White Gold <br />
+							Code RPSH1417263 / RPSH1417264
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- //product-list -->
+
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<div id="dFootArea">
+			<div class="copy-address">
+				<a href="">개인정보취급방침</a>
+				<address>서울시 종로구 종로3가 117-1</address>
+				<span>문의: 1688-0887</span>
+				<span>팩스: 02)741-5159</span>
+				<span>COPYRIGHT © ADEESSE ALL RIGHTS RESERVED.</span>
+			</div>
+
+			<!-- sitemap -->
+			<ul class="sitemap">
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap01.png" alt="Wedding" /></a>
+					<ul>
+						<li><a href="">Wedding Ring</a></li>
+						<li><a href="">Wedding Set</a></li>
+						<li><a href="">Wedding Band</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap02.png" alt="Gift" /></a>
+					<ul>
+						<li><a href="">Propose</a></li>
+						<li><a href="">Anniversary</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap03.png" alt="Community" /></a>
+					<ul>
+						<li><a href="">공지사항</a></li>
+						<li><a href="">이벤트</a></li>
+						<li><a href="">고객후기</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap04.png" alt="Reservation" /></a>
+					<ul>
+						<li><a href="">온라인 상담</a></li>
+						<li><a href="">온라인 예약</a></li>
+						<li><a href="">예약조회/수정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap05.png" alt="My page" /></a>
+					<ul>
+						<li><a href="">개인정보</a></li>
+						<li><a href="">JEWELRY CASE</a></li>
+						<li><a href="">상담내역</a></li>
+						<li><a href="">예약조회/수정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap06.png" alt="Member" /></a>
+					<ul>
+						<li><a href="">회원가입</a></li>
+						<li><a href="">로그인</a></li>
+						<li><a href="">English</a></li>
+					</ul>
+				</li>
+			</ul>
+			<!-- //sitemap -->
+		</div>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

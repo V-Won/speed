@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+@import url("common.css");
+
+/*Sub Layout */
+*
+{
+	margin: 0;
+	padding: 0;
+/*	border:1px solid #000000; */
+}
+
+
+/*  공통 css */
+.no_mg {margin:0 !important;}
+.no_bg {background:none !important;}
+.no_pd {padding:0 !important;}
+.no_bd {border-bottom:none !important;}
+.no_br {border-right:none !important;}
+.no_bl {border-left:none !important;}
+.nofield {display:none;}
+.paddingB5 {padding-bottom:5px;}
+.paddingB10 {padding-bottom:10px;}
+.paddingB15 {padding-bottom:15px;}
+.paddingB20 {padding-bottom:20px;}
+.paddingT5 {padding-top:5px;}
+.paddingT10 {padding-top:10px;}
+.paddingT15 {padding-top:15px;}
+.paddingT20 {padding-top:20px;}
+.marginB5 {margin-bottom:5px;}
+.marginB10 {margin-bottom:10px;}
+.marginB15 {margin-bottom:15px;}
+.marginB20 {margin-bottom:20px;}
+.marginT5 {margin-top:5px;}
+.marginT10 {margin-top:10px;}
+.marginT15 {margin-top:15px;}
+.marginT20 {margin-top:20px;}
+.MAR0 {margin-right:0 !important;}
+
+
+/* header top */
+.headertop {width:100%; height:25px; position:relative; border-bottom:1px solid #cccccc; background-color:#eeeeee; margin-bottom:39px;}
+.headercnt {width:900px; margin:0 auto; position:relative; z-index:1000;}
+.headertop div.hIn {width:900px; height:25px; margin:0 auto; position:relative; }
+.headertop div.hIn ul.joint {margin-top:5px;}
+.headertop div.hIn ul.joint li {float:left; margin-right:12px;}
+.headertop div.hIn span.pos_logo {position:absolute; left:49px; top:79px;}
+
+.searchWrap {width:370px; height:75px; float:left; position:relative; margin-left:275px;}
+.searchWrap span.blue_window {width:298px; height:36px; border:2px solid #0eacea; display:inline-block; float:left;}
+.searchWrap span.blue_window input {width:270px; height:16px; margin:10px 0 0 3px;}
+.searchWrap span.blue_window a.compli {margin-top:3px; display:inline-block; width:10px; height:10px; position:absolute; right:80px; top:15px;}
+.searchWrap ul.search_txt {margin-top:5px; width:372px; float:left; overflow:hidden;}
+.searchWrap ul.search_txt li {display:inline; margin-right:3px; font-size:11px; color:#0085b9; letter-spacing:-1px;}
+.searchWrap ul.search_txt li a {color:#999;}
+
+
+/* gnb */
+#gnb {float:left; position:relative; width:900px;}
+.gnbSection {width:900px; height:34px; float:left; position:relative; border-bottom:1px solid #006699;}
+.gnbSection li {float:left; margin-right:4px;}
+.gnbSection li div.TopSubMenu {width:900px; height:34px; background-color:#0095b9; position:absolute; left:0px; top:35px;}
+.gnbSection li div.TopSubMenu ul {margin:12px 0 0 12px;}
+.gnbSection li div.TopSubMenu ul li {float:left; margin-right:15px;}
+.whole_menu {position:absolute; top:15px; right:2px;}
+
+
+.whole_menu_view {position:absolute; top:35px; left:0; width:869px; height:188px; padding:30px 0 0 31px; background:#0085b9;}
+.whole_menu_view dl {float:left; width:110px; margin-right:14px;}
+.whole_menu_view dl dt {margin-bottom:12px; padding-bottom:5px; border-bottom:1px solid #79bfda;}
+.whole_menu_view dl dd ul li {height:18px;}
+.whole_menu_view .close {position:absolute; bottom:13px; right:13px;}
+
+/* footer */
+.footWrap {width:900px; height:33px; float:left; position:relative; }
+.footWrap ul {}
+.footWrap ul li {float:left; margin-right:17px;}
+.footWrap ul li.icon {margin-top:7px; }
+.footWrap ul li.another {margin-right:8px;}
+.adressWrap img {margin:4px 0 0 274px;}
+.footermark {position:absolute; right:0px; top:0px;}
+.footermark li {float:left; margin-right:3px;}
+.familybox {width:90px; height:15px; border:1px solid #088cc0; font-size:10px;}
+
+.hidden {visibility:hidden;}
+
+#container {*z-index:-1px;}
+
+/* 복지서비스 찾기 */
+
+.welfair_service_search {clear:both; position:relative; width:840px; height:328px; margin:0 auto; padding:25px 0 0; border-bottom:1px solid #0085b9;}
+.welfair_service_search h4 {font-size:11px;}
+.welfair_service_search h4 a {display:inline-block; padding:12px 26px 8px; border:1px solid #e1e1e1; border-width:1px 0;}
+.welfair_service_search h4 a:hover {color:#fff; background:#0085b9;}
+.welfair_service_search h4 a.on {color:#fff; background:#0085b9;}
+
+.welfair_service_search h4.livelihood {position:absolute; top:72px; left:0;}
+.welfair_service_search h4.medical {position:absolute; top:72px; left:81px;}
+.welfair_service_search h4.medical a {border-left:1px solid #e1e1e1;}
+.welfair_service_search h4.dwelling {position:absolute; top:104px; left:0;}
+.welfair_service_search h4.education {position:absolute; top:104px; left:81px;}
+.welfair_service_search h4.education a {border-left:1px solid #e1e1e1;}
+.welfair_service_search h4.childcare {position:absolute; top:136px; left:0;}
+.welfair_service_search h4.society {position:absolute; top:136px; left:81px;}
+.welfair_service_search h4.society a {border-left:1px solid #e1e1e1;}
+.welfair_service_search h4.childbirth_funeral {position:absolute; top:168px; left:0;}
+.welfair_service_search h4.childbirth_funeral a {padding:12px 9px 8px;}
+.welfair_service_search h4.indemnification {position:absolute; top:168px; left:81px;}
+.welfair_service_search h4.indemnification a {padding:12px 6px 8px; border-left:1px solid #e1e1e1;}
+
+.search_content {position:absolute; top:24px; left:220px;}
+.search_content h5 {padding:6px 0 7px 2px; border:1px solid #0085b9; border-width:1px 0;}
+.popular_service {float:left; width:295px; margin-right:30px;}
+.popular_service ul {margin-top:15px;}
+.popular_service ul li {margin-bottom:6px; font-size:11px;}
+.popular_service ul li img {vertical-align:middle;}
+
+.speed_search {float:left; width:295px;}
+.speed_search h6 {margin-top:16px;}
+.speed_search ul {margin-top:12px;}
+.speed_search ul li {float:left; width:94px; margin-bottom:8px; *margin-bottom:2px;}
+.speed_search ul li input {vertical-align:middle;}
+.speed_search ul li.long {width:190px;}
+
+.interest {clear:both;}
+.interest h6 {margin-top:5px;}
+.interest ul {margin-top:10px;}
+
+.service_name {clear:both;}
+.service_name p {margin:15px 0 0 13px;}
+.service_name input, .service_name img {vertical-align:middle;}
+.service_name input {width:175px; height:14px; padding:2px; border:1px solid #ddd;}
+
+/* 서비스별 모의계산 */
+
+.sham_calculate {clear:both; width:840px; height:173px;margin:0 auto; padding:30px 0 0; border-bottom:1px solid #0085b9;}
+.sham_calculate_sum {float:left; margin-right:58px;}
+.sham_calculate_sum p {margin:19px 0 0 2px;}
+.sham_calculate ul {float:left; width:620px;}
+.sham_calculate ul li {float:left;}
+
+/* 공감 복지만화 */
+
+.welfair_cartoon {clear:both; position:relative; width:840px; height:151px;margin:0 auto; padding:30px 0 0; border-bottom:1px solid #0085b9;}
+.cartoon_list {position:absolute; top:30px; left:220px; width:620px; height:120px; overflow:hidden;}
+.cartoon_list ul {}
+.cartoon_list ul li {float:left;}
+.cartoon_list ul li span {display:block; margin-top:8px; font-size:11px; text-align:center; line-height:17px;}
+.cartoon_list ul li.prev {margin:30px 9px 0 0;}
+.cartoon_list ul li.next {margin:30px 0 0 9px;}
+.cartoon_list ul li.thumb {width:110px; margin-right:10px;}
+.cartoon_list ul li.thumb a {color:#666;}
+.cartoon_list ul li.thumb a img {border:1px solid #666;}
+.cartoon_list ul li.thumb a:hover {color:#0085b9;}
+.cartoon_list ul li.thumb a:hover img {border:1px solid #0085b9;}
+.welfair_cartoon .more {position:absolute; top:58px; left:0;}
+
+/* 달라지는 복지제도 */
+
+.change_welfair {clear:both; position:relative; width:840px; height:151px;margin:0 auto; padding:30px 0 0;}
+
+.welfair_system {float:left; width:270px; height:135px; margin-right:31px;}
+.welfair_system h4 a {display:inline-block; padding:5px 6px 4px; font-size:11px; font-weight:normal; color:#333; border:1px solid #aeaeae; border-width:1px 1px 0; background:none;}
+.welfair_system h4 a:hover {color:#fff; border:1px solid #aeaeae; border-width:1px 1px 0; background:#0085b9;}
+.welfair_system h4 a.on {color:#fff; border:1px solid #aeaeae; border-width:1px 1px 0; background:#0085b9;}
+.welfair_system h4.welfair_health_title {position:absolute; top:29px; left:217px; *top:25px;}
+.welfair_system h4.employ_title {position:absolute; top:29px; left:278px; *top:25px;}
+
+.welfair_system_list {position:absolute; top:51px; left:217px; width:620px; padding-top:14px; border-top:1px solid #e1e1e1;}
+@-moz-document url-prefix() { .welfair_system_list {top:52px;} }
+.welfair_system_list li {margin-bottom:12px; padding-bottom:11px; border-bottom:1px solid #e1e1e1;}
+.welfair_system_list li a {display:inline-block; width:555px; padding-left:10px; font-weight:bold; color:#333;}
+.welfair_system_list li span {color:#0085b9;}
+.welfair_system_list .more {position:absolute; top:6px; left:-218px; *top:7px; margin:0; border:none;}
+.welfair_system_list .more a {width:36px; padding:0; background:none;}
+
+/*  dropdown menu */
+.serviceWrap {position:relative; z-index:150; float:left; margin-top:11px;}
+.serviceBox01 {width:69px;  height:13px; border:1px solid #088cc0; background-color:#fff;}
+.serviceBox01 a {display:block; line-height:13px; color:#0095cf; padding-left:2px; background:url(../images/layout/familysitebG.gif) 93% 50% no-repeat; font-size:10px; letter-spacing:-2px;}
+.serviceImg01 a {background:url(../images/combine/browse_icon.gif) 93% 50% no-repeat !important;}
+
+.press_drop01 {border-right:1px solid #088cc0; border-left:1px solid #088cc0; border-bottom:1px solid #088cc0; width:69px; padding:5px 0; display:none; position:absolute; left:0px; top:13px; background-color:#fff; z-index:300;}
+.press_drop01 li a {padding:2px 0 2px 2px; display:block; color:#0095cf; font-size:10px; letter-spacing:-2px;}

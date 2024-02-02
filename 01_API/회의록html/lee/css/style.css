@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {margin:0; padding:0;}
+html, body{width:100%; height:100%;}
+body,input,textarea,select,table,button{font: 12px/170% dotum,helvetica,sans-serif;}
+body{position:relative;color:#000;}
+caption, legend, #accessibility, .hidden{font-size: 0;line-height: 0;text-indent: -5000px;}
+img, fieldset, iframe{border:0 none;vertical-align:top;}
+fieldset{font-size:0;}
+ul,ol{list-style:none;}
+a{color:#000;text-decoration:none;cursor:pointer;}
+em,address{font-style:normal;}
+table{border-collapse:collapse;}
+hr{display:none;}
+
+/* common */
+.left{text-align:left !important;}
+
+/* table_css */
+.tableWrap{width:900px;margin:40px auto;border:1px solid #999;}
+.tableWrap .minutes{font-size:32px;font-weight:bold;color:#333;}
+.tableWrap th, .tableWrap td{padding:8px;text-align:center;}
+.tableWrap th{color:#333;background:#f1f1f4;border:1px solid #d2d2d2;}
+.tableWrap td{color:#666;border:1px solid #d2d2d2;}
+.tableWrap .memo{text-align:left;}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>WEDDING | ADEESSE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+
+		//sub menu
+		$('.sub-menu').stop().css({'display':'block', 'opacity':1});
+		$('.sub-menu').on('mouseleave', function(){
+			$('.sub-menu').stop().css({'display':'block', 'opacity':1});
+			$('.sub-menu a').stop().css({'display':'block', 'opacity':1});
+		});
+
+		// var $container = $('.product-list');
+		// $container.imagesLoaded( function(){
+		// 	$container.masonry({
+		// 		itemSelector : '.product-list li'
+		// 	});
+		// });
+
+		// $('.product-list').masonry({
+		// 	itemSelector: '.product-list li'
+		// });
+
+		//case select
+		$('.case-box > div > div > a').on('click', function(){
+			var $this = $(this),
+				$next = $this.next();
+
+			$next.slideToggle(250);
+			return false;
+		});
+
+		var proList = $('.product-list > li > a');
+		var proLayer = $('.pro-layer');
+
+		//layer height
+
+		proList.on('mouseenter', function(){
+			var $this = $(this),
+				$next = $this.next('div');
+
+			$next.children().height($(this).find('img').height()-18);
+
+			$next.stop().fadeIn(200);
+		});
+		proLayer.on('mouseleave', function(){
+
+			proLayer.stop().fadeOut(200);
+		});
+		$('.product-list, .product-list li').on('mouseleave', function(){
+
+			proLayer.stop().fadeOut(200);
+		});
+
+
+	});
+//]]>
+</script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>WEDDING</span>
+				<span>WEDDING RING</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title01.png" alt="WEDDING" /></a></h2>
+			<div class="sub-menu">
+				<ul>
+					<li><a href=""><span>Wedding Ring<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href="" class="on"><span>Wedding Band<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>Wedding Set<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+
+			<!-- case-box -->
+			<div class="case-box">
+				<div class="case01">
+					<div>
+						<a href="">
+							<span class="invisible">WEDDING Jewelry Case</span>
+							<span class="num"><img src="../images/common/case_num04.png" alt="4" /></span>
+						</a>
+						<ul>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="case02">
+					<div>
+						<a href="">
+							<span class="invisible">WEDDING Jewelry Case</span>
+							<span class="num"><img src="../images/common/case_num03.png" alt="3" /></span>
+						</a>
+						<ul>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+							<li>
+								<span class="image"><img src="../images/tmp/@img_case01.png" alt="" /></span>
+								<span class="txt">
+									Wedding Ring <br />
+									인피니티러브
+								</span>
+								<a href="" class="btn-del"><img src="../images/common/case_list_x.png" alt="삭제" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- //case-box -->
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody">
+		
+		<h3><span class="invisible">Wedding Ring</span></h3>
+		
+		<!-- product-list -->
+		<ul class="product-list">
+			<li>
+				<a href=""><img src="../images/product/Band_01.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>리플렉션</h4>
+                        <p class="txt">
+                            <strong>Reflexion</strong>
+							WHITE GOLD / PINK GOLD <br />
+							Code CIGG1417621 / CIGQ1417622
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_02.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>트레조르</h4>
+                        <p class="txt">
+                            <strong>Tresor</strong>
+                            WHITE GOLD / PINK GOLD <br />
+                            Code CJFH1417699 / CJFH1417700
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_03.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>미뇽</h4>
+                        <p class="txt">
+                            <strong>Mignon</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CJFH1417701 / CJFH1417702
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_04.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>제르메</h4>
+                        <p class="txt">
+                            <strong>Germe</strong>
+                            WHITE GOLD <br />
+                            Code CLDH1417663 / CLDH1417664
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_05.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>홀드</h4>
+                        <p class="txt">
+                            <strong>Hold</strong>
+                            WHITE GOLD <br />
+                            Code CLDH1417665 / CLDH1417666
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_06.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>커넥션</h4>
+                        <p class="txt">
+                            <strong>Connection</strong>
+                            YELLOW GOLD <br />
+                            Code CLDQ1417645 / CLDQ1417646
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_07.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>리본</h4>
+                        <p class="txt">
+                            <strong>Ribbon</strong>
+                            WHITE GOLD / PINK GOLD <br />
+                            Code CLDQ1417667 / CLDQ1417668
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_08.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>투게더</h4>
+                        <p class="txt">
+                            <strong>Together</strong>
+                            WHITE GOLD / PINK GOLD <br />
+                            Code CSUG1417765 / CSUQ17766
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_09.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>비톤토</h4>
+                        <p class="txt">
+                            <strong>Bitonto</strong>
+                            WHITE GOLD <br />
+                            Code CHMQ1417881 / CHMQ1417882
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_10.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>일레귤러_G</h4>
+                        <p class="txt">
+                            <strong>IRREGULAR_G</strong>
+                            YELLOW GOLD <br />
+                            Code CHM71317067_G / CHM71317068_G
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_11.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>일레귤러</h4>
+                        <p class="txt">
+                            <strong>IRREGULAR</strong>
+                            WHITE GOLD <br />
+                            Code CHM71317067_W / CHM71317068_W
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_12.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>피카소</h4>
+                        <p class="txt">
+                            <strong>PICASSO</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CHM71317069 / CHM71317070
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_13.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>팬스</h4>
+                        <p class="txt">
+                            <strong>FENCE</strong>
+                            WHITE GOLD / PINK GOLD <br />
+                            Code CHM71317079 / CHM71317080
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_14.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>라르벨</h4>
+                        <p class="txt">
+                            <strong>Larvel</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CHM71317081 / CHM71317082
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_15.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>글래셔</h4>
+                        <p class="txt">
+                            <strong>Glacier</strong>
+                            YELLOW GOLD <br />
+                            Code CHM71417421 / CHM71417422
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_16.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>피카소 2</h4>
+                        <p class="txt">
+                            <strong>PICASSO 2</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CHM71417597 / CHM71417598
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_17.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>더 라스트 러브</h4>
+                        <p class="txt">
+                            <strong>The Last Love</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CHM71417817 / CHM71417818
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_18.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>럭셔리</h4>
+                        <p class="txt">
+                            <strong>LUXURY</strong>
+                            WHITE GOLD <br />
+                            Code CHMQ1417269 / CHMQ1417270
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_19.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>메인</h4>
+                        <p class="txt">
+                            <strong>MINE</strong>
+                            WHITE GOLD <br />
+                            Code CHMQ1417577 / CHMQ1417578
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_20.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>유니온</h4>
+                        <p class="txt">
+                            <strong>UNION</strong>
+                            WHITE GOLD <br />
+                            Code CHMQ1417585 / CHMQ1417586
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_21.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>투게더</h4>
+                        <p class="txt">
+                            <strong>Together</strong>
+                            WHITE GOLD / PINK GOLD <br />
+                            Code CHMQ1417639 / CHMQ1417640
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_22.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>더 이브스</h4>
+                        <p class="txt">
+                            <strong>The Eaves</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CHMQ1417865 / CHMQ1417866
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_23.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>스톤월 웨크웨이</h4>
+                        <p class="txt">
+                            <strong>Stonewall Walkway</strong>
+                            WHITE GOLD / PINK GOLD / YELLOW GOLD <br />
+                            Code CHMQ1417885 / CHMQ1417886
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_24.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>유앤미</h4>
+                        <p class="txt">
+                            <strong> YOU &amp; ME</strong>
+                            WHITE GOLD <br />
+                            Code CHMZ1417583 / CHMZ1417584
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_25.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>탱고</h4>
+                        <p class="txt">
+                            <strong>Tango</strong>
+                            WHITE GOLD <br />
+                            Code CIGQ1417331 / CIGQ1417332
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_26.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>플레슈</h4>
+                        <p class="txt">
+                            <strong>Fleche </strong>
+                            WHITE GOLD <br />
+                            Code CJFQ1417483 / CJFQ1417484
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href=""><img src="../images/product/Band_27.jpg" alt="" /></a>
+				<div class="pro-layer">
+					<div>
+						<h4>자르댕</h4>
+                        <p class="txt">
+                            <strong>Jardin</strong>
+                            WHITE GOLD<br />
+                            Code CJFQ1417569 / CJFQ1417570
+						</p>
+						<p class="btn">
+							<a href="">담기</a>
+							<a href="">상세보기</a>
+							<a href="">654</a>
+						</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- //product-list -->
+
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<div id="dFootArea">
+			<div class="copy-address">
+				<a href="">개인정보취급방침</a>
+				<address>서울시 종로구 종로3가 117-1</address>
+				<span>문의: 1688-0887</span>
+				<span>팩스: 02)741-5159</span>
+				<span>COPYRIGHT © ADEESSE ALL RIGHTS RESERVED.</span>
+			</div>
+
+			<!-- sitemap -->
+			<ul class="sitemap">
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap01.png" alt="Wedding" /></a>
+					<ul>
+						<li><a href="">Wedding Ring</a></li>
+						<li><a href="">Wedding Set</a></li>
+						<li><a href="">Wedding Band</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap02.png" alt="Gift" /></a>
+					<ul>
+						<li><a href="">Propose</a></li>
+						<li><a href="">Anniversary</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap03.png" alt="Community" /></a>
+					<ul>
+						<li><a href="">공지사항</a></li>
+						<li><a href="">이벤트</a></li>
+						<li><a href="">고객후기</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap04.png" alt="Reservation" /></a>
+					<ul>
+						<li><a href="">온라인 상담</a></li>
+						<li><a href="">온라인 예약</a></li>
+						<li><a href="">예약조회/수정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap05.png" alt="My page" /></a>
+					<ul>
+						<li><a href="">개인정보</a></li>
+						<li><a href="">JEWELRY CASE</a></li>
+						<li><a href="">상담내역</a></li>
+						<li><a href="">예약조회/수정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href=""><img src="../images/common/foot_sitemap06.png" alt="Member" /></a>
+					<ul>
+						<li><a href="">회원가입</a></li>
+						<li><a href="">로그인</a></li>
+						<li><a href="">English</a></li>
+					</ul>
+				</li>
+			</ul>
+			<!-- //sitemap -->
+		</div>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

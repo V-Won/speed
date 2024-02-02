@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>MEMEBERS | ADEESSE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>COMMUNITY</span>
+				<span>공지사항</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title05.png" alt="MEMBERS" /></a></h2>	
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody">
+		
+		<h3><img src="../images/common/top_title05_01.png" alt="MEMBERS" /></h3>
+
+		<ul class="join-tab">
+			<li class="on"><strong>회원정보입력</strong><span>Step1</span></li>
+			<li><strong>회원가입완료</strong><span>Step2</span></li>
+		</ul>
+
+		<div class="login-type">
+			<p class="sns">
+				<!-- 
+					페이스북 : join_type01_s.gif
+					카카오톡 : join_type02_s.gif
+				-->
+				<img src="../images/common/join_type01_s.gif" alt="페이스북" />
+			</p>
+			<p class="info">
+				<img src="../images/tmp/@img_sns_profile.jpg" alt="페이스북 프로필 사진" />
+				<strong>문덕식 님의 facebook과 연결되었습니다.</strong>
+				혹시 본인이 아니시라고요?<br />
+				그렇다면 facebook에 방문하셔서 로그아웃하고<br />
+				다시 ADEESSE 회원가입 페이지에 ‘facebook로 회원가입’ 하시기 바랍니다.<br />
+			</p>
+		</div>
+
+		<table class="join-tb" summary="이베일, 비밀번호, 이름, 생년월일, 휴대폰, 성별에 관한 정보입력입니다.">
+			<caption>회원정보 입력표</caption>
+			<colgroup>
+				<col width="11.5%" />
+				<col width="32.5%" />
+				<col width="11.5%" />
+				<col width="*" />
+			</colgroup>		
+			<tbody>
+				<tr>
+					<th><label for="pu-email">이메일</label></th>
+					<td colspan="3"><input type="text" id="pu-email" /></td>
+				</tr>
+				<tr>
+					<th><label for="pu-pw">비밀번호</label></th>
+					<td><input type="password" id="pu-pw" /></td>
+					<th><label for="pu-repw">비밀번호 확인</label></th>
+					<td><input type="password" id="pu-repw" /></td>
+				</tr>
+				<tr>
+					<th><label for="pu-name">이름</label></th>
+					<td colspan="3"><input type="text" id="pu-name" /></td>
+				</tr>
+				<tr>
+					<th><label for="pu-birthday">생년월일</label></th>
+					<td colspan="3">
+						<select name="" id="pu-birthday" title="생년">
+							<option value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
+						</select>년
+						<select name="" title="생월">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+						</select>월
+						<select name="" title="생일">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+						</select>일
+						<em class="note">* 생년월일과 성별은 이메일/비밀번호를 분실하였을 경우 본인 확인을 위해 꼭 필요합니다.</em>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="pu-phone">휴대폰</label></th>
+					<td colspan="3">
+						<select name="" id="pu-phone" title="휴대폰 앞자리">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+						</select>
+						 - <input type="text" title="휴대폰 가운데자리" />
+						 - <input type="text" title="휴대폰 끝자리" />
+					</td>
+				</tr>
+				<tr>
+					<th>성별</th>
+					<td colspan="3">
+						<input type="radio" id="pu-mail" name="sax" /><label for="pu-mail">남성</label>
+						<input type="radio" id="pu-femail" name="sax" /><label for="pu-femail">여성</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="agree">
+			<input type="checkbox" id="pu-agree01" /><label for="pu-agree01">이용약관에 동의</label><a href=""><img src="../images/btn/btn_terms.gif" alt="이용약관 보기" /></a>
+			<input type="checkbox" id="pu-agree02" style="margin-left:110px;" /><label for="pu-agree02">개인정보 취급방침에 동의</label><a href=""><img src="../images/btn/btn_personalinfo.gif" alt="개인정보 취급방침 보기" /></a>
+		</p>
+		<p class="btn-type03"><a href=""><img src="../images/btn/btn_join.gif" alt="회원가입 하기" /></a></p>
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<span style="color:#fff;">하단공통영역</span>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

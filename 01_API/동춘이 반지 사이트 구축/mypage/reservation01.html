@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>MY RESERVATION | MY PAGE | ADEESSE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/contents.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
+<script type="text/javascript" src="../js/front_js.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	$(function(){
+
+		// 예약 지점 선택
+		var reserBox = $('.reservation-box'),
+			branch = reserBox.find('.branch a');
+
+		branch.on('click', function(){
+			var $this = $(this);
+
+			branch.removeClass('on');
+			$this.addClass('on');
+			return false;
+		});
+
+		// 예약 가능시간 선택
+		var timeBox = $('.time-box'),
+			timeHalf = timeBox.find('>.time > ul > li > a');
+
+		timeHalf.on('click', function(){
+			var $this = $(this);
+
+			timeHalf.parent().removeClass('on');
+			$this.parent().addClass('on');
+			return false;
+		});
+
+	});
+//]]>
+</script>
+</head>
+<body>
+<a href="#dBody" id="skipNavi">본문 바로가기</a>
+<hr />
+
+<!-- wrap -->
+<div id="wrap">
+	
+	<!-- gnb 공통 -->
+	<div id="gnb">
+		<span style="color:#fff;">gnb 공통</span>
+	</div>
+	<hr />
+	<!-- //gnb 공통 -->
+	
+	<!-- 상단영역 -->
+	<div id="dHead">
+		<div id="dHeadArea">
+			<p class="logo"><img src="../images/common/top_logo.png" alt="ADEESSE" /></p>
+			<p class="top-location">
+				<span>HOME</span>
+				<span>마이 페이지</span>
+				<span>예약/조회 수정</span>
+			</p>
+			<ul class="top-utill">
+				<li><a href="">LOGIN</a></li>
+				<li><a href="">MEMBERS</a></li>
+				<li><a href="">MY PAGE</a></li>
+				<li><a href="">ENGLISH</a></li>
+			</ul>
+			<h2><a href=""><img src="../images/common/top_title07.png" alt="MY PAGE" /></a></h2>
+			<div class="sub-menu">
+				<ul>
+					<li><a href=""><span>내정보<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>고객후기<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href=""><span>쥬얼리 케이스<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+					<li><a href="" class="on"><span>예약조회/수정<img src="../images/common/top_sub_arrow.gif" alt="" /></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<!-- //상단영역 -->
+
+	<!-- dBody -->
+	<div id="dBody">
+		
+		<h3><span><img src="../images/common/top_title07_04.png" alt="MY RESERVATION" /></span></h3>
+		
+		<p class="text-coment01">* 상담을 위해 아래 내용들은 모두 작성해주셔야 합니다.</p>
+
+		<!-- write-tb -->
+		<table class="write-tb" summary="상담유형 비밀번호, 작성자, 휴대폰, 이메일, 성별, 제목, 내용 등을 입력하는 표입니다.">
+			<caption>온라인 상담 작성표</caption>
+			<colgroup>
+				<col width="11%" />
+				<col width="*" />
+				<col width="11%" />
+				<col width="35%" />
+			</colgroup>
+			<tbody>
+				<tr class="proinfo default-bor">
+					<th scope="row">제품정보</th>
+					<td colspan="3">
+						<div>
+							<p class="image"><img src="../images/tmp/@img_198x108.jpg" alt="" /></p>
+							<p class="tit">
+								해와달을 닮은 반지
+								<span>Resemblance</span>
+							</p>
+							<p class="txt">
+								꾸미지 않아도 서로 닮아 가는 두분의 모습을 담아 표현한 디자인 <br />
+								서로 닮아 가는 두분의 모습을 담아 표현한 디자인
+							</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- //write-tb -->
+		
+		<!-- reservation-box -->
+		<div class="reservation-box">
+			
+			<!-- choice -->
+			<div class="choice">
+				<div class="branch">
+					<h4>예약 지점</h4>
+					<ul>
+						<li><a href="" class="on">종로(본점)</a></li>
+						<li><a href="">서대문</a></li>
+						<li><a href="">부산 남포동</a></li>
+					</ul>
+				</div>
+			
+				<!-- calendar-box -->
+				<div class="calendar-box">
+					<div class="calendar">
+						<h4>예약 날짜</h4>
+						<div class="year-month">
+							<a href=""><img src="../images/reservation/reservation_calendar_btn_lef.gif" alt="이전 달" /></a>
+							<p>2014.07</p>
+							<a href=""><img src="../images/reservation/reservation_calendar_btn_rig.gif" alt="다음 달" /></a>
+						</div>	
+						<!-- calendar-tb -->
+						<table class="calendar-tb" summary="월별 달렵 입니다.">
+							<caption>월별 달력</caption>
+							<colgroup>
+								<col width="14%" />
+								<col width="14%" />
+								<col width="14%" />
+								<col width="*" />
+								<col width="14%" />
+								<col width="14%" />
+								<col width="14%" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">일</th>
+									<th scope="col">월</th>
+									<th scope="col">화</th>
+									<th scope="col">수</th>
+									<th scope="col">목</th>
+									<th scope="col">금</th>
+									<th scope="col">토</th>
+								</tr>
+							</thead>
+							<tbody><!-- class="possi" 는 예약 가능한 날짜 | class="sel" 은 선택한날  -->
+								<tr>
+									<td class="sun">&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>1</td>
+									<td>2</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td class="sun">4</td>
+									<td>5</td>
+									<td>6</td>
+									<td>7</td>
+									<td>8</td>
+									<td>9</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td class="sun">11</td>
+									<td>12</td>
+									<td>13</td>
+									<td class="possi"><a href="">14</a></td>
+									<td class="possi"><a href="">15</a></td>
+									<td class="possi"><a href="">16</a></td>
+									<td class="possi"><a href="">17</a></td>
+								</tr>
+								<tr>
+									<td class="sun possi"><a href="">18</a></td>
+									<td class="possi"><a href="">19</a></td>
+									<td class="possi"><a href="">20</a></td>
+									<td class="possi"><a href="">21</a></td>
+									<td class="sel"><a href="">22</a></td>
+									<td class="possi"><a href="">23</a></td>
+									<td class="possi"><a href="">24</a></td>
+								</tr>
+								<tr>
+									<td class="sun possi"><a href="">25</a></td>
+									<td class="possi"><a href="">26</a></td>
+									<td class="possi"><a href="">27</a></td>
+									<td class="possi"><a href="">28</a></td>
+									<td class="possi"><a href="">29</a></td>
+									<td class="possi"><a href="">30</a></td>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- //calendar-tb -->
+					</div>
+					<p class="text01">* 노란색 배경 날짜는 예약 가능 날짜입니다.</p>
+				</div>
+				<!-- //calendar-box -->
+				
+				<!-- time-box -->
+				<div class="time-box">
+					<div class="time">
+						<h4>예약 가능시간 선택</h4>
+						<ul>
+							<li class="on">
+								<a href="" class="am">오전</a>
+								<ul>
+									<li><a href="" class="possi">09:00</a></li>
+									<li><a href="">09:30</a></li>
+									<li><a href="" class="sel">10:00</a></li>
+									<li><a href="" class="possi">10:30</a></li>
+									<li><a href="" class="possi">11:00</a></li>
+									<li><a href="" class="possi">11:30</a></li>
+									<li><a href="" class="possi">12:00</a></li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+									<li>&nbsp;</li>
+								</ul>
+							</li>
+							<li>
+								<a href="" class="pm">오후</a>
+								<ul>
+									<li><a href="" class="possi">12:00</a></li>
+									<li><a href="" class="possi">12:30</a></li>
+									<li><a href="" class="possi">13:00</a></li>
+									<li><a href="" class="possi">13:30</a></li>
+									<li><a href="" class="possi">14:00</a></li>
+									<li><a href="">14:30</a></li>
+									<li><a href="" class="possi">15:00</a></li>
+									<li><a href="">15:30</a></li>
+									<li><a href="" class="possi">16:00</a></li>
+									<li><a href="">16:30</a></li>
+									<li><a href="" class="sel">17:00</a></li>
+									<li><a href="" class="possi">17:30</a></li>
+									<li><a href="" class="possi">18:00</a></li>
+									<li><a href="" class="possi">18:30</a></li>
+									<li><a href="">19:00</a></li>
+									<li><a href="" class="possi">19:30</a></li>
+									<li><a href="" class="possi">20:00</a></li>
+									<li>&nbsp;</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<p class="text01">* 시간 목록이 클릭이 되지 않을 경우, 휴무일입니다</p>
+				</div>
+				<!-- //time-box -->
+
+			</div>
+			<!-- //choice -->
+			
+			<!-- info -->
+			<div class="info">
+				<h4><img src="../images/reservation/reservation_info_tit.gif" alt="Reservation My information" /></h4>
+				<ul>
+					<li>
+						<strong>예약 지점</strong>
+						부산 남포동
+					</li>
+					<li>
+						<strong>예약 날짜</strong>
+						2014년 07월 22일 (목)
+					</li>
+					<li>
+						<strong>예약 시간</strong>
+						15:00
+					</li>
+				</ul>
+			</div>
+			<!-- //info -->
+
+		</div>
+		<!-- //reservation-box -->
+
+		<a href="" class="btn-more">다음 단계 넘어가기</a>
+
+	</div>
+	<hr />
+	<!-- //dBody -->
+
+	<!-- 하단공통 -->
+	<div id="dFoot">
+		<span style="color:#fff;">하단공통영역</span>
+	</div>
+	<!-- //하단공통 -->
+</div>
+<!-- //wrap -->
+
+</body>
+</html>

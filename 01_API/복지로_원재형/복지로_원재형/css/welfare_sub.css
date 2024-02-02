@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/*Sub Layout */
+*
+{
+	margin: 0;
+	padding: 0;
+/*	border:1px solid #000000; */
+}
+
+
+
+
+
+/* admin BBS paging */
+.pageArea {text-align:center; vertical-align:top; position:relative; margin:0 auto; font-size:11px;}
+.pageArea li {display:inline; line-height:0; padding:0 5px;}
+.pageArea li a img {margin:0; padding:0;}
+.pageArea li a { font-weight:bold;}
+.pageArea li a:link { font-weight:bold; color:#9d9d9d;}
+.pageArea li a:visited { font-weight:bold; color:#9d9d9d;}
+.pageArea li a:hover { font-weight:bold; color:#9d9d9d;}
+.pageArea li a:active { font-weight:bold; color:#9d9d9d;}
+.pageArea li a img {vertical-align:middle;}
+.pageArea li a.selected {color:#0085b9; font-weight:bold;}
+
+
+
+/*  장애인 이용자별 서비스 */
+.welfarebox {width:775px; height:46px; float:left; background:url(../images/facilities/welserivebG.gif) no-repeat; margin-top:30px; padding:23px 0 0 45px;}
+.welfarebox span.blue_window {width:596px; height:17px; border:2px solid #51a6d3; background-color:#fff; display:inline-block; margin:0 3px 0 2px;}
+.welfarebox select.select1 {height:20px; vertical-align:middle;}
+
+.welfareLIst {float:left; position:relative; background:url(../images/facilities/welfareLIst_topbg.gif) no-repeat; width:100%;}
+.welfareLIst li.sn {float:left; width:763px; border-bottom:1px solid #b6b6b6; padding:10px 0; margin-left:29px; position:relative;}
+.welfareLIst li.sn dl {float:left; position:relative;}
+.welfareLIst li.sn dt {width:100%; float:left; font-size:13px; color:#14459e; font-weight:bold; margin-bottom:15px; position:relative; clear:both;}
+.welfareLIst li.sn dd {float:left; width:100%; clear:both;}
+.welfareLIst li.sn span.pos_date {position:absolute; right:20px; top:23px; font-size:13px;}
+.cntline {width:100%; height:2px; background-color:#0085b9; clear:both; margin:30px 0 25px 0; float:left;}
+.sumtxt {float:left; margin-bottom:5px;}
+.welfareLIst li.sn div.list1 {width:375px; float:left; position:relative; overflow:hidden;}
+.welfareLIst li.sn div.list1 span {color:#6f6f6f; margin-bottom:8px; font-weight:bold; display:block;}
+.welfareLIst li.sn div.list1 ul {float:left; margin-left:10px;}
+.welfareLIst li.sn div.list1 ul li {padding-left:8px; background:url(../images/news/grey_tiny_icon.gif) left 50% no-repeat; margin-bottom:5px;} 
+.welfareLIst li.sn div.list1 a.pos_location {position:absolute; right:25px; bottom:0px;}
+
+/*  뉴스의 러브레터보기 */
+.social {float:left; width:100%;}
+.social li {float:left; margin-right:5px;}
+.preListBox {width:100%; float:left; border-top:1px solid #b6b6b6; clear:both;}
+.preListBox li {float:left; width:805px; height:19px; border-bottom:1px solid #b6b6b6;  padding:6px 0 0 15px; color:#6d6d6d; font-size:11px;}
+.preListBox li strong {margin-right:25px;}
+.preListBox li span {margin:0 9px 0 6px;}
+.preListBox li a {color:#6d6d6d;}
+.titleLIstBox {width:100%; float:left; border-top:2px solid #b6b6b6;}
+.titleLIstBox li {float:left; width:100%; height:28px; border-bottom:1px solid #b6b6b6; line-height:28px; }
+.titleLIstBox li span.title {width:113px; height:28px; background-color:#f3f3f3; display:block; float:left; margin-right:12px;padding-left:10px; font-weight:bold;}
+div.listcnt {width:800px; float:left; position:relative; padding:20px 0 40px 20px; clear:both;}
+
+.satisfaction {clear:both; width:100%; height:19px; margin-bottom:13px;}
+.satisfaction span {margin-right:23px;}
+.satisfaction label {margin-right:15px;}
+.commentWrap {width:820px; height:82px; float:left; }
+.commentWrap span {margin-right:23px;}
+.comment {width:600px; height:80px; border:1px solid #cccccc; margin-right:3px; background:url(../images/apl/comment_img.gif) #f0f0f0 no-repeat;} 
+
+/* icon center */
+.pravicycnl {display:block; clear:both;}
+.pravicycnl li {display:inline;}
+.command {width:100%; float:left; height:1500px; clear:both; background-color:#404040; color:#fff; font-size:16px;}
+.sp_icon {float:left; width:100%; padding-left:12px; background:url(../images/layout/sp_icon_tiny.gif) left 50% no-repeat; clear:both;}
+.widths {width:820px; clear:both;}
+
+/*  주간뉴스레터 */
+.newsdayWrap {width:401px; float:left; position:relative; overflow:hidden; margin-right:17px;}
+.newsdayWrap h4 {width:401px; height:25px; float:left; border-bottom:1px solid #999999;}
+.newsdayWrap ul {float:left; width:400px; margin-top:15px;}
+.newsdayWrap ul li {float:left; width:390px; padding-left:10px; background:url(../images/apl/tiny_icon.gif) left 50% no-repeat; margin-bottom:5px;}
+.newsdayWrap span.pos_more {position:absolute; right:0px; top:2px;}

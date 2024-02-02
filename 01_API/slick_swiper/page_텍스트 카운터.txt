@@ -1,0 +1,5 @@
+$boxSlider.on('beforeChange', function(event, slick, direction, currentSlide){
+		cnt = currentSlide + 1;
+
+		$('#m-img-wrap').find('.img-cnt').attr('src', '/lonelyplanet/photocontest/pc/static/images/text/nb_bn_' + cnt + '.png');
+	});

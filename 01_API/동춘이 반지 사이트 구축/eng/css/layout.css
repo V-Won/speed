@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body {
+	background-color:#f3f8fb;
+}
+
+/* wrap */
+#wrap {
+	min-width:980px;
+	min-height:776px;
+	padding:0 0 0 70px;
+}
+
+/* gnb */
+#gnb {
+	position:fixed; top:0; left:0;
+	width:70px;
+	height:100%;
+	background-color:#1f1f22;
+	overflow:hidden;
+	z-index:4;
+	*zoom:1;
+}
+#gnb .menu {position:absolute; top:50%; left:25px; margin-top:-10px;}
+#gnb .top-area {height:130px; margin-bottom:161px; background-color:#7e2980; text-align:center;}
+#gnb .top-area h1 {height:74px; padding:37px 0 0 0;}
+#gnb .top-area ul {display:none; margin:0 auto; overflow:hidden; text-align:center;}
+#gnb .top-area ul li {display:inline-block; font-size:0; line-height:0;}
+#gnb .gnb-bg {display:none; position:absolute; bottom:0; left:150px; width:130px; background:#2a2a2d;}
+#gnb .gnb-menu {display:none; padding:0 20px 0 20px;}
+#gnb .gnb-menu > li {position:relative; width:130px;}
+#gnb .gnb-menu > li a {display:block; width:130px; height:50px;}
+#gnb .gnb-menu > li a span {display:block; opacity:0.5; filter:alpha(opacity=50); *zoom:1;}
+#gnb .gnb-menu > li ul {display:none; position:absolute; top:0; left:130px;}
+#gnb .gnb-menu > li ul li {height:51px; margin-bottom:-1px; background:url("../images/common/gnb_bg.png") no-repeat 22px bottom;}
+#gnb .gnb-menu > li:hover > a,
+#gnb .gnb-menu > li:focus > a,
+#gnb .gnb-menu > li.on > a {background-color:#2a2a2d;}
+#gnb .gnb-menu > li:hover > a > span,
+#gnb .gnb-menu > li:focus > a > span,
+#gnb .gnb-menu > li.on > a > span {opacity:1; filter:alpha(opacity=100);}
+#gnb .gnb-menu li li > a:hover > span,
+#gnb .gnb-menu li li > a:focus > span,
+#gnb .gnb-menu li li > a.on > span {opacity:1; filter:alpha(opacity=100);}
+
+/* dHead */
+#dHead {
+	position:fixed; top:0; left:0;
+	width:100%;
+	height:135px;
+	background:url("../images/common/top_bg.png") repeat-x 0 bottom;
+	z-index:3;
+}
+#dHeadArea {
+	position:relative; left:35px;
+	width:980px;
+	margin:0 auto;
+}
+#dHeadArea .logo {margin-bottom:-9px; padding-top:20px; text-align:center;}
+#dHeadArea .top-location {position:absolute; top:56px; left:0;}
+#dHeadArea .top-location span {padding:0 3px 0 7px; color:#a3a3a3; font-family:'nanum'; font-size:11px; line-height:13px; background:url("../images/common/top_location_bg.png") no-repeat 0 4px;}
+#dHeadArea .top-location span:first-child {padding-left:0; background:none;}
+#dHeadArea h2 {width:409px; margin:0 auto;}
+#dHeadArea .sub-menu {display:none; position:relative; width:409px; height:95px; margin:-130px auto 30px; padding-top:130px; background:url("../images/common/top_sub_bg.png") no-repeat 0 130px; opacity:0; filter:alpha(opacity=0);}
+#dHeadArea .sub-menu ul {text-align:center;}
+#dHeadArea .sub-menu ul li {display:inline-block; padding:0 13px; *display:inline; *zoom:1;}
+#dHeadArea .sub-menu ul li a {display:block; position:relative;}
+#dHeadArea .sub-menu ul li a span {color:#898989; font-family:'nanumBold'; font-size:15px; line-height:62px;}
+#dHeadArea .sub-menu ul li a img {display:none; position:absolute; top:0; left:50%; margin-left:-8px;}
+#dHeadArea .sub-menu ul li a:hover span,
+#dHeadArea .sub-menu ul li a:focus span,
+#dHeadArea .sub-menu ul li a.on span {color:#fff;}
+#dHeadArea .sub-menu ul li a:hover img,
+#dHeadArea .sub-menu ul li a:focus img,
+#dHeadArea .sub-menu ul li a.on img {display:block;}
+
+/* dBody */
+#dBody {
+	position:relative;
+	width:980px;
+	margin:0 auto;
+	padding:128px 0 60px 0;
+	zoom:1;
+}
+#dBody:after {content:''; display:block; clear:both;}
+#dBody h3 {width:409px; height:63px; margin:0 auto; padding:31px 0 0 0; text-align:center;}
+
+/* dFoot */
+#dFoot {
+	height:50px;
+	background:#242424;
+}
+#dFootArea {
+	width:980px;
+	margin:0 auto;
+	text-align:center;
+}
+#dFoot .copy-address {height:49px;}
+#dFoot .copy-address > * {margin-left:9px; color:#bcbcbc; font-family:'nanumBold'; font-size:10.5px; line-height:49px;}
+#dFoot .copy-address a+span {display:inline; margin-left:7px; padding-left:11px; background:url("../images/common/foot_bar.gif") no-repeat 0 center;}
+#dFoot .copy-address address {display:inline; padding-left:0; background:none;}

@@ -1,0 +1,49 @@
+﻿- TortoiseSVN 사용법.docx 정독 필수.
+
+- svn 절차.
+1. TortoiseSVN Repository Brower 실행
+
+2. URL 에 svn://61.73.39.244/ 입력
+
+3. \\61.73.39.244
+	svn://61.73.39.244
+	agsvndev3
+	agsvn3@ag.co.kr
+
+4. svn://61.73.39.244/publisher
+	여기가 퍼블리셔 공간
+
+5. 폴더 만들고 내려 받기(폴더는 비어 있는 상태)
+   /flyasiana/
+   /CW/
+   /IW/
+   /mflyasiana/
+   /CM/
+   /IM/
+
+예> /flyasiana/
+    폴더에서 마우스 우측 클릭 - > svn 체크아웃 클릭 - > 
+    저장소 URL에는
+    svn://61.73.39.244/publisher/아시아나항공PC/flyasiana
+    입력
+    체크아웃 받을 디렉토리에는
+    내려 받을 경로
+    D:\project\flyasiana
+    - > 확인 클릭 - > 체크아웃 클릭 - > 다운 전부 받으면 "확인" 클릭
+
+    이런식으로 
+    /flyasiana/
+    /CW/
+    /IW/
+    /mflyasiana/
+    /CM/
+    /IM/
+    전부 작업 한다.
+
+
+- 주의사항
+> 작업시 실서버와 비교 필수
+> evnet, email, 별도 구축 경로 변경 안했음
+> event 폴더는 가지고 있다가 커밋 하면 다른사람이 받기.
+
+

@@ -1,0 +1,7 @@
+
+
+
+Preferences -> Settings
+여기에 추가
+
+"draw_white_space": "all",

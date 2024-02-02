@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+    <title>틀린 그림 찾기</title>
+    <style type="text/css">
+    	*{padding:0;margin:0;}
+        body{padding:10px;}
+        /* mobile */
+    	.box{position:relative;*zoom:1;}
+        .box:after{content:'';display:block;clear:both;}
+        .box-imgList .box-posi{float:left;position:relative;overflow:hidden;}
+    	.img{cursor:pointer;}
+    	.btn{text-decoration:underline;font-size:20px;font-weight:bold;padding:10px 0;}
+    	.btn a{color:red;}
+    	.text{margin-top:10px;}
+		.ck{position:absolute;display:none;}
+		.type-1{left: 100px;top: 175px;}
+		.type-2{left: 300px;top: 321px;}
+		.type-3{left: 343px;top: 27px;}
+		.box-timer{border:1px solid #ccc;width:500px;height:30px;position:relative;overflow:hidden;}
+		.box-timer .inner-timer{background:red;width:500px;display:block;height:100%;position:absolute;left:100%;top:0;}
+		.box-bg{background:#000;opacity: 0.3;-ms-filter:alpha(opacity=30);filter:alpha(opacity=30);position:fixed;top:0;height:100%;width:100%;z-index:9998;display:none;}
+        .pointer{position:absolute;top:0;left:0;display:none;width:50px;height:50px;}
+        .present{display:inline-block;padding:15px 0 0 0;*display:inline;*zoom:1;}
+        .x{position:absolute;top:0;left:0;display:none;}
+        .score{margin-top:8px;}
+
+        /* pc */
+        @media all and (max-width:980px){
+            body{background:red;}
+            .img{width:100%;}
+            .box-function{display:none;}
+            .btn{position:absolute;top:5%;left:5%;background:#eee;font-size:20px;}
+            .btn.mobile{display:none;}
+            .type-1{left: 20%;top: 28%;}
+            .type-2{   left: 71%;top: 58%;}
+            .type-3{ left: 77%;top: 0}
+            .box-imgList .box-posi{float:none;}
+        }
+    </style>
+</head>
+<body>
+	
+    <a href="#none" style="display:none;">틀린 그림 찾기서비스는 웹접근성을 준수하지 않고 있으므로 클릭하시면 건너뛸 수 있습니다.</a>
+
+	<div class="box">
+        <!-- 틀린 그림 찾기 이미지 -->
+        <div class="box-imgList">
+            <div class="box-posi img-a">
+                <img src="1.jpg" alt="" border="0" usemap="#Map" class="img img-blur">
+                <!-- 정답 표시 -->
+                <span class="box-ok">
+                    <img src="o.png" alt="" class="ck type-1">
+                    <img src="o.png" alt="" class="ck type-2">
+                    <img src="o.png" alt="" class="ck type-3">
+                </span>
+                <!-- //정답 표시 -->
+                <img src="pointer.png" alt="" class="pointer">
+            </div>
+            <div class="box-posi img-b">
+                <img src="2.jpg" alt="" border="0" usemap="#Map" class="img img-blur">
+                <!-- 정답 표시 -->
+                <span class="box-ok">
+                    <img src="o.png" alt="" class="ck type-1">
+                    <img src="o.png" alt="" class="ck type-2">
+                    <img src="o.png" alt="" class="ck type-3">
+                </span>
+                <!-- //정답 표시 -->
+                <img src="pointer.png" alt="" class="pointer">
+            </div>
+        </div>
+        <!-- //틀린그림 찾기 이미지 -->
+
+        <img src="x.png" alt="" class="x"><!-- 틀린부분 클릭시 -->
+
+	    <!-- 정답 좌표 -->
+		<map name="Map">
+			<area shape="rect" coords="103,176,146,224" href="#none" class="map-ok ok-1">
+			<area shape="rect" coords="301,303,332,403" href="#none" class="map-ok ok-2">
+			<area shape="rect" coords="358,5,395,92" href="#none" class="map-ok ok-3">
+		</map>
+		<!-- //정답 좌표 -->
+	</div>
+
+    <div class="present"></div><!-- 틀린 부분 개수 표시 -->
+
+    <span style="position:relative;top:-6px;">&lt;&lt; 찾은 개수 표시</span>
+
+    <div class="score">점수 : <span>0</span> 점</div>
+
+    <p class="btn"><a href="#none" onclick="play();">PLAY</a></p>
+    <div class="box-timer"><span class="inner-timer"></span></div>
+
+	<div class="box-bg"></div><!-- timer 완료시 -->
+
+    <!-- 기능 -->
+    <style type="text/css">
+        .box-function{position:absolute;top:10px;right:10px;width:430px;background:#fff;padding:10px 10px 20px 10px;border:2px solid #ccc;}
+        .box-function .title{padding:10px 0;color:#333;}
+        .box-function ul{padding-bottom:30px;}
+        .box-function li{list-style:none;}
+    </style> 
+    <div class="box-function">
+        <p class="title">------ 틀린 그림 찾기 기능 ------</p>
+        <ul>
+            <li>- 정답 click시 O표시 및 하단에 표시됨</li>
+            <li>- 오답 click시 X표시</li>
+            <li>- TIMER 기능(PLAY 버튼 클릭), TIMER 시간 변경 가능</li>
+            <li>- 시작 전에 이미지 blur(흐리게) 강도 조절 기능</li>
+            <li>- 가상 커서 기능</li>
+            <li>- 점수 기능 (정답시 +20점, 오답시 -20점)</li>
+        </ul>
+        <p class="title">------ 운영시 퍼블리셔 작업 ------</p>
+        <ul style="padding-bottom:0;">
+            <li>- 정답 부분에 이미지맵 처리, O이미지(정답) absolute 위치 처리</li>
+        </ul>
+    </div>
+    <!-- //기능 -->
+
+    <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
+    <script src="jquery.rwdImageMaps.min.js"></script>
+    <script src="blur.js"></script>
+    <script type="text/javascript">
+    var score = 0; // 점수 카운터
+    var xSizeWidth,
+    xSizeHeight;
+
+    $(function(){
+        xSizeWidth = $('.x').width(); // x 이미지 size
+        xSizeHeight = $('.x').height(); // x 이미지 size
+
+        blurCnt(3); // 숫자가 커질수록 blur 효과 증가
+
+        // 틀린 개수 total 표시
+        for( var i = 0; i < $('.img-a .ck').length ; i++ ){
+            $('.present').append('<img src="cnt_off.jpg" alt="">');
+        }
+
+        // 반응형 img map
+        $('img[usemap]').rwdImageMaps();
+    })
+
+    // play btn
+    function play(){
+        var cnt = 0; // 정답 카운터
+
+        $('.inner-timer').animate({"left":"0"}, 200000, function(){
+            $('.box-bg').show();
+            alert("시간 초과! 땡!!");
+            location.reload();
+        });
+
+        $('.btn').addClass('mobile').html('틀린그림 찾기 gogo!');
+
+        blurCnt(0); // 블러
+
+        // 정답 click
+        $('map area').on('click', function(){
+            var tgIndex = $(this).index(); // 이미지 맵 위치
+            $('.img-a .box-ok img:eq(' + tgIndex + '), .img-b .box-ok img:eq(' + tgIndex + ')').fadeIn(function(){
+                cnt ++;
+
+                if( $('.box-ok .ck').length == cnt ){
+                    alert("틀린 그림을 전부 찾았습니다! 점수는 " + $('.score span').html() + " 점 입니다.");
+                    location.reload();
+                }
+            });
+            score = score + 20;
+            $('.score span').html(score);
+
+            presentCnt(cnt / 2);
+        });
+
+        mouseMove();
+
+        // 오답 click
+        $('.img').click(function(e){
+            $('.x').css({"top" : e.pageY - xSizeHeight / 2, "left" : e.pageX - xSizeWidth / 2});
+            $('.x').fadeIn();
+            setTimeout(function(){
+                $('.x').fadeOut();
+            },500);
+
+            if( $('.score span').html() > 0 ){
+                score = score - 20 / 2;
+                $('.score span').html(score);
+            }
+        });
+    }
+
+    // 틀린그림찾기 이미지 블러
+    function blurCnt(cnt){
+        $('.img-blur').blurjs({radius: cnt});
+    }
+
+    // 마우스 커서
+    function mouseMove(){
+        $('.img-a, map').mousemove(function(e){
+            $('.img-b .pointer').show();
+            $('.img-b .pointer').css({"top" : e.pageY - 55 ,"left" : e.pageX  - 15}); // 포인터 이미지 size 변동 되기때문에 (55,15)값은 일단 고정
+        });
+         $('.img-b, map').mousemove(function(e){
+            $('.img-a .pointer').show();
+            $('.img-a .pointer').css({"top" : e.pageY - 65,"left" : e.pageX - 426}); // 포인터 이미지 size 변동 되기때문에 (65,426)값은 일단 고정
+        });
+        $('.img-a, .img-b').mouseleave(function(e){
+            $('.pointer').hide();
+        });
+    }
+
+    // 정답부분이 맞다면 체크
+    function presentCnt(cnt){
+        var presentImg = $('.present img:eq(' + cnt + ')').attr('src');
+        presentImg = presentImg.replace('off', 'on');
+
+        $('.present img:eq(' + cnt + ')').attr('src', presentImg);
+    }
+    </script>
+
+</body>
+</html>

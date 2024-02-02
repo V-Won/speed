@@ -1,0 +1,14 @@
+1. 스크롤시 끝쪽 bg 사라짐 (과장님이 언급하셨던..)
+
+2. 이미지의 화질 저하
+
+3.ie zoom 버그
+(http://mayak.ivyro.net/zbxe/501)
+
+4. zoom 속성은 파이어폭스 미지원
+(http://bbcodingnote.blogspot.kr/2015/06/blog-post_23.html)
+
+
+
+*파이어폭스 지원소스
+http://blog.acronym.co.kr/592

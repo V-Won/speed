@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <!--[if lt IE 9]>
+	<script>
+		document.createElement('figure');
+		document.createElement('figcaption');
+	</script>
+	<![endif]-->
+	<link href="timeTo.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <!-- day 뿌려주는곳 -->
+    <div id="countdown"></div>
+
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery.timeTo.min.js"></script>
+    <script>
+        $('#countdown').timeTo({ //October
+            timeTo: new Date('October 3 2015 00:00:00'), // d-day 날짜
+            displayDays: 2, // day 자리수
+            theme: "black", // theme
+            displayCaptions: true, // 숫자 하단 text 표시
+            fontSize: 48,
+            captionSize: 14,
+            callback: function(){alert('축제 시작~!')} // d-day 끝나면 callback function (필요할지 모르겠습니다...)
+        });
+    </script>
+</body>
+</html>
