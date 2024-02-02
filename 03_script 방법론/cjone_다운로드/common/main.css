@@ -1,0 +1,700 @@
+@charset "utf-8";
+/************************************************************************
+ * filename : main.css
+ * description :메인 CSS
+ * date : 2016.7.11
+************************************************************************/
+body {height:100%;}
+
+.main_wrap {min-width:1024px; max-width:1920px; margin:0 auto; overflow:hidden;}
+
+/* 프로모션 */
+.promotion_wrap {height:550px; overflow:hidden;}
+.promotion_wrap .slider_wrap {position:relative; height:550px; margin:0 auto; overflow:hidden;}
+.promotion_wrap .slider_wrap .slider {height:550px; overflow:hidden;}
+.promotion_wrap .slider_wrap .pro_item {position:relative; float:left; width:100%; height:550px; color:#fff; overflow:hidden;}
+.promotion_wrap .slider_wrap .pro_item .txt_container {position:absolute; top:100px; left:50%; width:1020px; margin-left:-510px; z-index:2;}
+.promotion_wrap .slider_wrap .pro_item .log_wrap {padding-bottom:15px;}
+.promotion_wrap .slider_wrap .pro_item .log_wrap img {display:block; max-width:100%;}
+.promotion_wrap .slider_wrap .pro_item .tit_wrap {width:600px; font-size:50px; font-family:'cj_onlyone_medium'; line-height:60px;}
+.promotion_wrap .slider_wrap .pro_item .h_desc {width:500px; padding-top:20px; font-size:16px; line-height:26px;}
+.promotion_wrap .slider_wrap .pro_item .btn_wrap {padding-top:40px;}
+.promotion_wrap .slider_wrap .pro_item .btn_wrap .btn {margin:0; background-color:transparent; border-color:#fff; color:#fff; cursor:pointer;}
+.promotion_wrap .slider_wrap .pro_item .btn_wrap .btn.hover,
+.promotion_wrap .slider_wrap .pro_item .btn_wrap .btn.focus {background-color:rgba(255,255,255, .2); border-color:transparent; color:#fff;}
+.ie7 .promotion_wrap .slider_wrap .pro_item .btn_wrap .btn.hover,
+.ie7 .promotion_wrap .slider_wrap .pro_item .btn_wrap .btn.focus,
+.ie8 .promotion_wrap .slider_wrap .pro_item .btn_wrap .btn.hover,
+.ie8 .promotion_wrap .slider_wrap .pro_item .btn_wrap .btn.focus {background-color:#fff; color:#222;}
+
+.promotion_wrap .slider_wrap .pro_item .img_wrap {position:absolute; top:0; right:0; bottom:0; left:0; background-image:none; background-repeat:no-repeat; background-position:top center; background-size:cover; overflow:hidden; z-index:1;}
+.promotion_wrap .slider_wrap .pro_item .img_wrap img {display:none;}
+
+.promotion_wrap .slider_wrap .bx-controls {position:absolute; bottom:30px; left:0; width:100%; text-align:center; z-index:3;}
+.promotion_wrap .slider_wrap .bx-controls a {text-indent:-999em;}
+
+.promotion_wrap .slider_wrap .bx-controls .bx-controls-direction {z-index:3;}
+.promotion_wrap .slider_wrap .bx-controls .bx-controls-direction a {position:absolute; top:-250px; width:46px; height:50px; background:url('http://www.cjone.com/cjmweb/images/main/btn_banner.png') no-repeat;}
+.promotion_wrap .slider_wrap .bx-controls .bx-controls-direction .bx-prev {left:20px;}
+.promotion_wrap .slider_wrap .bx-controls .bx-controls-direction .bx-next {right:20px; background-position:-46px 0;}
+
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap {display:inline-block; position:relative; height:30px; padding-left:30px; line-height:30px; *display:inline; zoom:1;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-pager-item {display:inline-block; width:22px; height:30px; *display:inline; zoom:1;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-pager-item a {display:block; height:30px; background:url('http://www.cjone.com/cjmweb/images/main/btn_banner.png') no-repeat -132px 0;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-pager-item a.active {background-position:-132px -30px;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-controls-auto {position:absolute; top:0; left:0; width:30px; height:30px;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-controls-auto a {display:block; width:30px; height:30px; background:url('http://www.cjone.com/cjmweb/images/main/btn_banner.png') no-repeat -102px 0;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-controls-auto a.active {display:none;}
+.promotion_wrap .slider_wrap .bx-controls .pager_wrap .bx-controls-auto .bx-stop {background-position:-102px -30px;}
+
+/* 검은색 버전 */
+.promotion_wrap .slider_wrap .pro_item.black {color:#000;}
+.promotion_wrap .slider_wrap .pro_item.black .btn_wrap .btn {border-color:#000; color:#000;}
+.promotion_wrap .slider_wrap .pro_item.black .btn_wrap .btn.hover,
+.promotion_wrap .slider_wrap .pro_item.black .btn_wrap .btn.focus {border-color:transparent; color:#000;}
+
+.promotion_wrap .slider_wrap.black .bx-controls .bx-controls-direction a {background:url('http://www.cjone.com/cjmweb/images/main/btn_banner_black.png') no-repeat;}
+.promotion_wrap .slider_wrap.black .bx-controls .bx-controls-direction .bx-next {background-position:-46px 0;}
+
+.promotion_wrap .slider_wrap.black .bx-controls .pager_wrap .bx-pager-item a {display:block; height:30px; background:url('http://www.cjone.com/cjmweb/images/main/btn_banner_black.png') no-repeat -132px 0;}
+.promotion_wrap .slider_wrap.black .bx-controls .pager_wrap .bx-pager-item a.active {background-position:-132px -30px;}
+.promotion_wrap .slider_wrap.black .bx-controls .pager_wrap .bx-controls-auto a {background:url('http://www.cjone.com/cjmweb/images/main/btn_banner_black.png') no-repeat -102px 0;}
+.promotion_wrap .slider_wrap.black .bx-controls .pager_wrap .bx-controls-auto .bx-stop {background-position:-102px -30px;}
+
+/* 현재 일 때 */
+.promotion_wrap .slider_wrap .col1.on .pro_item .btn_wrap .btn {display:inline-block;}
+.promotion_wrap .slider_wrap .pro_item.on {display:block;}
+.promotion_wrap .slider_wrap .pro_item.on .btn_wrap .btn {display:inline-block;}
+.promotion_wrap .slider_wrap .pro_item.on .img_wrap img {transform:scale(1.05);}
+.promotion_wrap .slider_wrap .pro_item.on .img_wrap {-webkit-transition:transform 6000ms linear 0ms; -webkit-transform:scale(1.1); -webkit-transform-origin: 50% 50%;, transition:transform 6000ms linear 0ms; transform:scale(1.1); transform-origin: 50% 50%;}
+
+/* 배너 2개 */
+.promotion_wrap .slider_wrap .col2 .pro_item {width:50%; text-align:center;}
+.promotion_wrap .slider_wrap .col2 a {display:block; height:550px; color:#fff; cursor:pointer;}
+.promotion_wrap .slider_wrap .col2 .btn {margin:0; padding:0; border:0 none; border-radius:0; }
+.promotion_wrap .slider_wrap .col2 .pro_item.black a {color:#222;}
+.promotion_wrap .slider_wrap .col2 .pro_item .log_wrap img {margin:0 auto;}
+.promotion_wrap .slider_wrap .col2 .pro_item .txt_container {top:50px; left:0; right:0; width:auto; margin:0;}
+.promotion_wrap .slider_wrap .col2 .pro_item .tit_wrap {width:auto; padding:0 10px; font-size:38px; line-height:48px;}
+.promotion_wrap .slider_wrap .col2 .pro_item .h_desc {width:auto; padding-top:5px;}
+.promotion_wrap .slider_wrap .col2 .pro_item .img_wrap {position:static; width:100%; height:550px;}
+.ie7 .promotion_wrap .slider_wrap .col2 .pro_item .img_wrap {background:none !important;}
+.ie8 .promotion_wrap .slider_wrap .col2 .pro_item .img_wrap {background:none !important;}
+.ie7 .promotion_wrap .slider_wrap .col2 .pro_item .img_wrap img {display:block; width:100%; height:550px; margin:0 auto; transition:transform .8s;}
+.ie8 .promotion_wrap .slider_wrap .col2 .pro_item .img_wrap img {display:block; width:100%; height:550px; margin:0 auto; transition:transform .8s;}
+
+/* 배너 3개 */
+.promotion_wrap .slider_wrap .col3 .pro_item {width:33%; text-align:center;}
+.promotion_wrap .slider_wrap .col3 a {display:block; height:550px; color:#fff; cursor:pointer;}
+.promotion_wrap .slider_wrap .col3 .btn {margin:0; padding:0; border:0 none; border-radius:0; }
+.promotion_wrap .slider_wrap .col3 .pro_item.black a {color:#222;}
+.promotion_wrap .slider_wrap .col3 .pro_item.first {width:34%;}
+.promotion_wrap .slider_wrap .col3 .pro_item .log_wrap img {margin:0 auto;}
+.promotion_wrap .slider_wrap .col3 .pro_item .txt_container {top:50px; left:0; right:0; width:auto; margin:0;}
+.promotion_wrap .slider_wrap .col3 .pro_item .tit_wrap {width:auto; padding:0 10px; font-size:38px; line-height:48px;}
+.promotion_wrap .slider_wrap .col3 .pro_item .h_desc {width:auto; padding-top:5px;}
+.promotion_wrap .slider_wrap .col3 .pro_item .img_wrap {position:static; width:100%; height:550px;}
+.ie7 .promotion_wrap .slider_wrap .col3 .pro_item .img_wrap {background:none !important;}
+.ie8 .promotion_wrap .slider_wrap .col3 .pro_item .img_wrap {background:none !important;}
+.ie7 .promotion_wrap .slider_wrap .col3 .pro_item .img_wrap img {display:block; width:100%; height:550px; margin:0 auto; transition:transform .8s;}
+.ie8 .promotion_wrap .slider_wrap .col3 .pro_item .img_wrap img {display:block; width:100%; height:550px; margin:0 auto; transition:transform .8s;}
+
+/* 추천서비스 */
+.recommend_wrap {max-height:0; background-color:#e1f3f1; transition:max-height 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000); overflow:hidden;}
+.recommend_wrap.on {max-height:842px;}
+.recommend_wrap .top_info {min-height:195px; padding-top:50px;}
+.recommend_wrap .header {text-align:center;}
+.recommend_wrap .h2_tit {color:#888; font-size:16px; font-family:arial;}
+.recommend_wrap .h3_tit {font-size:30px; font-family:cj_onlyone_medium; line-height:60px;}
+.recommend_wrap .member_info {margin-top:15px; text-align:center;}
+.recommend_wrap .info_wrap {display:inline-block; position:relative; max-width:1280px; height:94px; margin:0 auto; border-radius:47px; background-color:#fff; text-align:left;}
+.ie7 .recommend_wrap .info_wrap {display:inline; zoom:1;}
+.recommend_wrap .info_wrap .inner {height:69px; padding:20px 50px 0 30px;}
+.recommend_wrap .info_wrap .grade_info,
+.recommend_wrap .info_wrap .now_point,
+.recommend_wrap .info_wrap .coupon_info,
+.recommend_wrap .info_wrap .stamp_info,
+.recommend_wrap .info_wrap .bonus_info,
+.recommend_wrap .info_wrap .btn_wrap {position:relative; float:left; padding:0 20px; z-index:2;}
+.recommend_wrap .info_wrap .info {text-align:center;}
+.recommend_wrap .info_wrap .info dt {padding-bottom:3px; color:#222; font-size:14px;}
+.recommend_wrap .info_wrap .info dd,
+.recommend_wrap .info_wrap .info dd a {color:#ee6900; font-size:26px;}
+.recommend_wrap .info_wrap .info dd.max,
+.recommend_wrap .info_wrap .info dd.max a {font-size:22px;}
+.recommend_wrap .info_wrap .info dd.max .txt {font-size:16px;}
+.recommend_wrap .info_wrap .info .count {vertical-align:top;}
+.recommend_wrap .info_wrap .info .txt {font-size:18px; vertical-align:top;}
+.ie7 .recommend_wrap .info_wrap .info .count {vertical-align:middle;}
+.ie7 .recommend_wrap .info_wrap .info .txt {vertical-align:middle;}
+
+.recommend_wrap .info_wrap .grade_info {width:59px; height:60px; margin:-2px 0 0 0; padding:0;}
+.recommend_wrap .info_wrap .grade_info .ico {display:block; width:59px; height:60px; background:url('http://www.cjone.com/cjmweb/images/main/ico_grade.png') no-repeat; zoom:1;}
+.recommend_wrap .info_wrap .grade_info.vip .ico {background-position:0 0;}
+.recommend_wrap .info_wrap .grade_info.vvip .ico {background-position:0 -60px;}
+.recommend_wrap .info_wrap .grade_info.svip .ico {background-position:0 -120px;}
+
+.recommend_wrap .info_wrap .now_point .info .txt {font-size:20px;}
+.recommend_wrap .info_wrap .bonus_info .info {float:left; }
+.recommend_wrap .info_wrap .bonus_info .info dd {position:relative; font-size:14px;}
+.recommend_wrap .info_wrap .bonus_info .info dd a {font-size:14px; line-height:3px;}
+.recommend_wrap .info_wrap .bonus_info .info .count,
+.recommend_wrap .info_wrap .bonus_info .info .count {font-size:26px; vertical-align:-4px;}
+.recommend_wrap .info_wrap .bonus_info .info .txt {vertical-align:baseline;}
+.recommend_wrap .info_wrap .bonus_info .tip_wrap {float:right; min-width:100px; max-width:190px; min-height:44px; margin-top:5px; padding:7px 15px 0 30px; border-radius:3px; background:url('http://www.cjone.com/cjmweb/images/main/bg_bonus_info_tip.png') no-repeat left center; color:#fff; line-height:18px;}
+.ie7 .recommend_wrap .info_wrap .bonus_info .tip_wrap,
+.ie8 .recommend_wrap .info_wrap .bonus_info .tip_wrap {float:left; background:url('http://www.cjone.com/cjmweb/images/main/bg_bonus_info_tip01.png') no-repeat left center;}
+
+.recommend_wrap .info_wrap .info dd.max,
+.recommend_wrap .info_wrap .info dd.max a {font-size:14px;}
+.recommend_wrap .info_wrap .info dd.max .count {font-size:22px; vertical-align:top;}
+.recommend_wrap .info_wrap .info dd.max .txt {font-size:16px; vertical-align:middle;}
+
+.recommend_wrap .info_wrap .btn_wrap {padding:0 0 0 20px; text-align:center;}
+.recommend_wrap .info_wrap .btn_wrap a {color:#ee6900; font-size:16px;}
+.recommend_wrap .info_wrap .btn_wrap .arr {display:inline-block; width:auto; height:11px; background:url('http://www.cjone.com/cjmweb/images/main/n/ico_btn_arrow_org.png') no-repeat top right; vertical-align:middle;}
+.recommend_wrap .info_wrap .btn_wrap a.hover {text-decoration:underline;}
+.recommend_wrap .info_wrap .line {position:absolute; top:50%; right:0; width:1px; height:43px; margin-top:-22px; background-color:#e5e5e5;}
+.recommend_wrap .info_wrap .onestar {position:absolute; top:-10px; left:-20px; width:46px; height:110px; background:url('http://www.cjone.com/cjmweb/images/main/ico_onestar.png') no-repeat; z-index:2;}
+
+.recommend_wrap .info_wrap .ani_left,
+.recommend_wrap .info_wrap .ani_right {position:absolute; top:-20px; bottom:-20px; width:52%; background:#e1f3f1; z-index:3; transition:all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);}
+.recommend_wrap .info_wrap .ani_left {left:-20px;}
+.recommend_wrap .info_wrap .ani_right {right:0;}
+
+.recommend_wrap .info_wrap.on .ani_left {width:0;}
+.recommend_wrap .info_wrap.on .ani_right {width:0;}
+
+.ie7 .recommend_wrap .info_wrap,
+.ie8 .recommend_wrap .info_wrap {background-color:transparent;}
+.ie7 .recommend_wrap .info_wrap .bg_left,
+.ie8 .recommend_wrap .info_wrap .bg_left {position:absolute; bottom:0; left:0; width:50px; height:94px; background:url('http://www.cjone.com/cjmweb/images/main/bg_member_info_left.png') no-repeat;}
+.ie7 .recommend_wrap .info_wrap .bg_right,
+.ie8 .recommend_wrap .info_wrap .bg_right {position:absolute; bottom:0; right:0; left:50px; height:94px; background:url('http://www.cjone.com/cjmweb/images/main/bg_member_info_right.png') no-repeat top right;}
+
+/* 추천서비스 - 슬라이드 */
+.recommend_slide {padding-top:30px;}
+.recommend_slide .slide_wrap {position:relative; height:597px; overflow:hidden;}
+.recommend_slide .list_wrap {margin-left:120px; height:597px; z-index:1; overflow:hidden;}
+.recommend_slide .btn_more {float:left; position:relative; width:332px; height:382px;}
+.recommend_slide .btn_more .txt {position:absolute; top:90px; right:0; left:0; color:#222; font-size:20px; text-align:center; line-height:30px;}
+.recommend_slide .btn_more a {display:block; width:332px; height:382px; background:url('http://www.cjone.com/cjmweb/images/main/btn_more_recommend.png') no-repeat;}
+
+.recommend_slide .btn_arrow {position:relative; z-index:3;}
+.recommend_slide .btn_arrow .btn_prev,
+.recommend_slide .btn_arrow .btn_next {position:absolute; top:215px; width:65px; height:65px; background:url('http://www.cjone.com/cjmweb/images/main/btn_recomm.png') no-repeat; z-index:3;}
+.recommend_slide .btn_arrow .btn_prev {left:30px;}
+.recommend_slide .btn_arrow .btn_next {right:30px; background-position:-65px 0;}
+
+/* 추천서비스 - 아이템 공통 */
+.recommend_slide .recom_item {position:relative; float:left; width:322px; margin-right:9px; padding-bottom:30px; overflow:hidden;}
+.recommend_slide .recom_item.even {margin-top:20px;}
+.recommend_slide .recom_item .item_wrap {position:relative; margin:7px 21px 25px 11px; text-align:center; z-index:2;}
+.recommend_slide .recom_item .summary_info {padding:0 10px;}
+.recommend_slide .recom_item .logo_wrap img {display:block; height:40px; margin:0 auto;}
+.recommend_slide .recom_item .img_wrap {display:block;}
+.recommend_slide .recom_item .img_wrap img {display:block;}
+.recommend_slide .recom_item dd {padding-top:12px;}
+.recommend_slide .recom_item .date {padding-top:5px; color:#888;}
+.recommend_slide .recom_item .link_txt {border-bottom:1px solid transparent; color:#222;}
+.recommend_slide .recom_item .link_txt.hover,
+.recommend_slide .recom_item .link_txt.focus {border-bottom:1px solid #222;}
+.recommend_slide .recom_item .btn {min-width:0; height:auto; border:0 none; background:none; line-height:24px;}
+.recommend_slide .recom_item .btn .out {padding-right:20px; background:url('http://www.cjone.com/cjmweb/images/main/n/ico_out_link_big.png') no-repeat right center;}
+.recommend_slide .recom_item .bg_shadow {position:absolute; top:0; right:0; bottom:0; left:0;}
+.recommend_slide .recom_item .bg_shadow .top {position:absolute; top:0; right:0; left:0; height:50px; background:url('http://www.cjone.com/cjmweb/images/main/bg_recomm_event.png') no-repeat;}
+.recommend_slide .recom_item .bg_shadow .btm {position:absolute; top:50px; right:0; bottom:0; left:0; background:url('http://www.cjone.com/cjmweb/images/main/bg_recomm_event.png') no-repeat left bottom;}
+
+.recom_item .fisrt_come {position:absolute; top:10px; right:10px; width:64px; height:64px; border-radius:50%; background-color:#555; color:#fff; text-align:center; line-height:64px;}
+
+.ie7 .recom_item .fisrt_come,
+.ie8 .recom_item .fisrt_come {background:url('http://www.cjone.com/cjmweb/images/main/bg_first_come.png') no-repeat;}
+
+/* 아이템 - 쿠폰 */
+.recom_item.coupon {width:321px; min-height:445px; padding-bottom:0;}
+.recom_item.coupon .logo_wrap {width:186px; height:58px; margin:0 auto; padding:40px 0 0 0; background:url('http://www.cjone.com/cjmweb/images/main/n/bg_dotline03.png') repeat-x left bottom;}
+.recom_item.coupon dt {padding-top:30px; color:#222; font-size:34px; line-height:34px;}
+.recom_item.coupon dt.won {font-size:38px;}
+.recom_item.coupon dt.won .unit {font-size:24px; vertical-align:middle;}
+.recom_item.coupon dt.point .unit {font-size:30px; vertical-align:middle;}
+.recom_item.coupon dt.percent .unit {font-size:30px; vertical-align:top;}
+.recom_item.coupon dt.percent .unit .txt {padding-left:5px; font-size:24px; vertical-align:top;}
+.recom_item.coupon dd.date .end {color:#ee6900;}
+.recom_item.coupon dd .length {display:inline-block; height:26px; margin-left:2px; padding:0 8px; border-radius:13px; background-color:#ee6900; color:#fff; font-size:14px; line-height:26px;}
+.recom_item.coupon dd .status {display:inline-block; margin-left:4px; padding-left:8px; border-left:1px solid #ddd; color:#ee6900; line-height:10px;}
+.ie7 .recom_item.coupon dd .length {display:inline; zoom:1;}
+.recom_item.coupon .btn_wrap {padding-top:30px;}
+.recom_item.coupon .bg_shadow .top {background:url('http://www.cjone.com/cjmweb/images/main/bg_recomm_coupon.png') no-repeat;}
+.recom_item.coupon .bg_shadow .btm {background:url('http://www.cjone.com/cjmweb/images/main/bg_recomm_coupon.png') no-repeat left bottom;}
+
+/* 아이템 - 이벤트 */
+.recom_item.event {min-height:403px;}
+.recom_item.event .img_wrap img {width:290px; height:244px;}
+.recom_item.event dt {color:#222; font-size:16px; line-height:26px;}
+.recom_item.event .logo_wrap {height:45px; padding-top:15px;}
+.recom_item.event .btn_wrap {padding-top:20px;}
+
+/* 아이템 - 스탬프 */
+.recom_item.stamp {min-height:427px; padding-bottom:0;}
+.recom_item.stamp .img_wrap img {width:290px; height:395px;}
+.recom_item.stamp .summary_info {position:absolute; top:30px; left:30px; color:#fff; text-align:left;}
+.recom_item.stamp dt {padding-top:0; color:#fff; font-size:22px; line-height:26px;}
+.recom_item.stamp .btn_wrap {padding-top:30px;}
+.recom_item.stamp .btn_wrap .link_txt {color:#fff;}
+.recom_item.stamp .btn_wrap .link_txt .arr {background:url('http://www.cjone.com/cjmweb/images/main/n/ico_btn_arrow_white.png') no-repeat right 50%;}
+.recom_item.stamp .btn_wrap .link_txt.hover,
+.recom_item.stamp .btn_wrap .link_txt.focus {border-color:#fff;}
+
+.recom_item.stamp .summary_info.black {color:#222;}
+.recom_item.stamp .summary_info.black dt {color:#222;}
+.recom_item.stamp .summary_info.black .btn_wrap .link_txt {color:#222;}
+.recom_item.stamp .summary_info.black .btn_wrap .link_txt .arr {background:url('http://www.cjone.com/cjmweb/images/main/n/ico_btn_arrow.png') no-repeat right 50%;}
+.recom_item.stamp .summary_info.black .btn_wrap .link_txt.hover,
+.recom_item.stamp .summary_info.black .btn_wrap .link_txt.focus {border-color:#222;}
+
+/* 아이템 - 온마트 */
+.recom_item.onmart {min-height:461px; padding-bottom:30px; color:#222;}
+.recom_item.onmart .img_wrap img {width:290px; height:290px;}
+.recom_item.onmart dt {color:#222; font-size:16px; line-height:26px;}
+.recom_item.onmart .special {padding:15px 0 10px; text-align:center;}
+.recom_item.onmart .special span {display:block; width:101px; height:25px; margin:0 auto; border-radius:3px; background-color:#ee6900; color:#fff; font-size:14px; line-height:25px;}
+.recom_item.onmart .logo_wrap {height:45px; padding-top:15px;}
+.recom_item.onmart dd {padding-top:5px;}
+.recom_item.onmart .ori_price {color:#888; font-size:12px; vertical-align:middle;}
+.recom_item.onmart .ori_price del {text-decoration:line-through;}
+.recom_item.onmart .btn_wrap {padding-top:20px;}
+
+/* 원콘 */
+.recom_item.onecon .logo_wrap {height:45px; padding-top:15px;}
+.recom_item.onecon .btn_wrap {padding-top:20px;}
+
+/* 아이템 - 쇼핑 */
+.recom_item.shopping {min-height:427px; padding-bottom:0;}
+.recom_item.shopping .img_wrap img {width:290px; height:395px;}
+.recom_item.shopping .summary_info {position:absolute; top:30px; left:30px; color:#fff; text-align:left;}
+.recom_item.shopping dt {width:130px; padding-top:0; color:#fff; font-size:16px; line-height:26px;}
+.recom_item.shopping .logo_wrap img {margin-left:0;}
+.recom_item.shopping dd {padding-top:18px;}
+.recom_item.shopping .btn_wrap {padding-top:30px;}
+.recom_item.shopping .btn_wrap .link_txt {color:#fff;}
+.recom_item.shopping .btn_wrap .link_txt .arr {background:url('http://www.cjone.com/cjmweb/images/main/n/ico_btn_arrow_white.png') no-repeat right 50%;}
+.recom_item.shopping .btn_wrap .link_txt.hover,
+.recom_item.shopping .btn_wrap .link_txt.focus {border-color:#fff;}
+
+.recom_item.shopping .summary_info.black {color:#222;}
+.recom_item.shopping .summary_info.black dt {color:#222;}
+.recom_item.shopping .summary_info.black .btn_wrap .link_txt {color:#222;}
+.recom_item.shopping .summary_info.black .btn_wrap .link_txt .arr {background:url('http://www.cjone.com/cjmweb/images/main/n/ico_btn_arrow.png') no-repeat right 50%;}
+.recom_item.shopping .summary_info.black .btn_wrap .link_txt.hover,
+.recom_item.shopping .summary_info.black .btn_wrap .link_txt.focus {border-color:#222;}
+
+/* 브랜드 정보 */
+.recom_item.brand_info {padding-bottom:0;}
+.recom_item.brand_info a {display:block;}
+.recom_item.brand_info .summary_info {position:absolute; top:-999em;}
+.recom_item.brand_info  img {width:290px; height:395px;}
+
+/* 퀵 링크 */
+.quick_wrap {width:1060px; min-height:175px; padding:16px 0 40px 0; margin:0 auto; background-color:#fff;}
+.quick_wrap .quick_lick {position:relative; float:left; min-height:182px; width:269px; text-align:center;}
+.quick_wrap .quick_lick .line {position:absolute; top:20px; right:0; width:1px; height:151px; background-color:#ddd;}
+.quick_wrap .quick_lick.card {width:260px; border-left:0 none;}
+.quick_wrap .quick_lick.coupon {width:259px;}
+.quick_wrap .quick_lick a {display:block; min-height:182px; color:#222; cursor:pointer;}
+.quick_wrap .quick_lick .img {position:relative; display:block; width:150px; height:130px; margin:0 auto;}
+.quick_wrap .quick_lick.add_point .img {margin-left:80px;}
+.quick_wrap .quick_lick .img img {position:absolute; top:0; left:0; width:150px; height:130px;}
+.quick_wrap .quick_lick dt {font-size:18px;}
+.quick_wrap .quick_lick dd {padding-top:5px; color:#555;}
+.quick_wrap .quick_lick .link_txt {padding-top:10px;}
+.quick_wrap .quick_lick .link_txt .arr {position:relative; display:inline-block; padding-right:10px; color:#222; line-height:1.3}
+.ie7 .quick_wrap .quick_lick .link_txt .arr {display:inline; border-bottom:1px solid transparent; zoom:1;}
+
+.quick_wrap .quick_lick .link_txt .arr:after {content:''; position:absolute; right:0; bottom:-2px; left:0; border-bottom:1px solid #222; transform:scaleX(0); transition:transform .5s cubic-bezier(0.785,.135,.15,.86); -ms-transition:transform .5s cubic-bezier(0.785,.135,.15,.86);}
+.ie7 .quick_wrap .quick_lick .link_txt .arr:after {display:none;}
+.ie8 .quick_wrap .quick_lick .link_txt .arr:after {border-bottom:1px solid transparent;}
+
+.quick_wrap .quick_lick a.hover .link_txt .arr:after,
+.quick_wrap .quick_lick a.focus .link_txt .arr:after {transform:scaleX(1); -ms-transform:scaleX(1);}
+
+.ie7 .quick_wrap .quick_lick a.hover .link_txt .arr,
+.ie7 .quick_wrap .quick_lick a.focus .link_txt .arr {border-bottom-color:#222;}
+.ie8 .quick_wrap .quick_lick a.hover .link_txt .arr:after,
+.ie8 .quick_wrap .quick_lick a.focus .link_txt .arr:after {border-bottom-color:#222;}
+
+/* HOT! ITEM & CONTENTS */
+.hot_wrap {background:#faf1e0 url('http://www.cjone.com/cjmweb/images/main/bg_hotcontent02.png') repeat-x bottom left}
+.hot_wrap .content_wrap {position:relative; padding-top:70px; background:url('http://www.cjone.com/cjmweb/images/main/bg_hotcontent.png') no-repeat bottom left; z-index:2;}
+.hot_wrap .h2_tit {position:relative; color:#222; font-size:34px; font-family:'cj_onlyone_medium'; line-height:44px; text-align:center; z-index:2;}
+.hot_wrap .hot_content {position:relative; max-width:1280px; min-height:1800px; margin:0 auto; padding:30px 0 70px 0; z-index:3;}
+@media screen and (min-width:1025px) {
+	.hot_wrap .hot_content {left:86px;}
+}
+@media screen and (max-width:1024px) {
+	.hot_wrap .hot_content {left:0;}
+}
+
+/* 아이템 공통 */
+.hot_wrap .hot_item {float:left; position:relative; width:532px; margin:20px 0 0 20px; overflow:hidden;}
+.hot_wrap .hot_item .item_wrap {position:relative; margin:7px 21px 25px 11px; overflow:hidden; z-index:2;}
+.hot_wrap .hot_item .item_link {position:relative; display:block; background-color:#fff; cursor:pointer; z-index:2;}
+.hot_wrap .hot_item .img_wrap {display:block; position:relative; width:500px; height:500px; overflow:hidden;}
+.hot_wrap .hot_item .img_wrap img {display:block; width:500px; height:500px;}
+.hot_wrap .hot_item .summary_info {padding:0 15px 30px 15px; background-color:#fff; text-align:center; transition:opacity 200ms cubic-bezier(0.770, 0.000, 0.175, 1.000)}
+
+.hot_wrap .hot_item .txt_wrap {padding-top:10px;}
+.hot_wrap .hot_item .logo_wrap {padding-top:10px;}
+.hot_wrap .hot_item .logo_wrap img {display:block; height:35px; margin:0 auto;}
+
+.hot_wrap .hot_item .bg_shadow {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;}
+.hot_wrap .hot_item .bg_shadow .top {position:absolute; top:0; right:0; left:0; height:50px;}
+.hot_wrap .hot_item .bg_shadow .btm {position:absolute; top:50px; right:0; bottom:0; left:0;}
+
+.hot_wrap .hot_item .item_detail {position:absolute; height:100%; padding:0 15px; background-color:#fff; text-align:center; opacity:1; z-index:-1; -ms-transition:all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000); transition:all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);}
+.ie7 .hot_wrap .hot_item .item_detail,
+.ie8 .hot_wrap .hot_item .item_detail {display:none}
+.hot_wrap .hot_item .item_detail .detail_wrap {position:absolute; top:50%; right:15px; left:15px;}
+.hot_wrap .hot_item .item_detail .detail_wrap .logo_wrap {padding-top:0;}
+.hot_wrap .hot_item .item_detail.on {opacity:1; z-index:3;}
+.ie7 .hot_wrap .hot_item .item_detail.on,
+.ie8 .hot_wrap .hot_item .item_detail.on {display:block;}
+
+.hot_wrap .hot_item .summary_info .title,
+.hot_wrap .hot_item .item_detail .title {color:#222; font-size:16px;}
+.hot_wrap .hot_item .item_detail .btn_wrap {display:none;}
+.hot_wrap .hot_item .item_detail.on .btn_wrap {display:block;}
+.hot_wrap .hot_item .item_detail .btn_sm {border-color:#222; color:#222;}
+.hot_wrap .hot_item .item_detail .btn_sm .out {padding-right:20px; background:url('http://www.cjone.com/cjmweb/images/main/n/ico_out_link04.png') no-repeat right center;}
+
+/* 아이템 공통 - 마우스 오버 */
+.hot_wrap .hot_item .item_link.hover .summary_info,
+.hot_wrap .hot_item .item_link.focus .summary_info {opacity:0;}
+
+/* 기본 - 정사각형 */
+.hot_wrap .hot_item.big .bg_shadow .top {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_big_top.png') no-repeat;}
+.hot_wrap .hot_item.big .bg_shadow .btm {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_big_btm.png') no-repeat left bottom;}
+.hot_wrap .hot_item.big .item_detail {top:100%; bottom:0; right:0; left:0;}
+.hot_wrap .hot_item.big .item_detail .title {padding-bottom:20px;}
+.hot_wrap .hot_item.big .item_detail .btn_wrap {padding-top:30px;}
+.hot_wrap .hot_item.big .item_detail.on {top:0;}
+
+/* 기본 - 정사각형(small) */
+.hot_wrap .hot_item.small {/*top:686px; left:19px;*/ width:332px; height:332px;}
+.hot_wrap .hot_item.small .img_wrap {width:300px; height:300px;}
+.hot_wrap .hot_item.small .img_wrap img {width:300px; height:300px;}
+.hot_wrap .hot_item.small .bg_shadow .top {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_small_top.png') no-repeat;}
+.hot_wrap .hot_item.small .bg_shadow .btm {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_small_btm.png') no-repeat left bottom;}
+.hot_wrap .hot_item.small .item_detail {top:100%; bottom:0; right:0; left:0;}
+.hot_wrap .hot_item.small .item_detail .btn_wrap {padding-top:30px;}
+.hot_wrap .hot_item.small .item_detail.on {top:0;}
+
+/* 세로형 - 기본 */
+.hot_wrap .hot_item.row {width:252px;}
+.hot_wrap .hot_item.row .img_wrap {width:220px; height:220px;}
+.hot_wrap .hot_item.row .img_wrap img {width:220px; height:220px;}
+.hot_wrap .hot_item.row .bg_shadow .top {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_row_top.png') no-repeat;}
+.hot_wrap .hot_item.row .bg_shadow .btm {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_row_btm.png') no-repeat left bottom;}
+.hot_wrap .hot_item.row .item_detail {top:100%; bottom:0; right:0; left:0;}
+.hot_wrap .hot_item.row .item_detail .logo_wrap img {height:40px;}
+.hot_wrap .hot_item.row .item_detail .txt_wrap .title {padding-bottom:10px;}
+.hot_wrap .hot_item.row .item_detail .btn_wrap {padding-top:30px;}
+.hot_wrap .hot_item.row .item_detail.on {top:0;}
+
+.hot_wrap .hot_item.row.posi01 {top:1043px; left:99px;}
+.hot_wrap .hot_item.row.posi02 {top:1042px; left:379px;}
+
+/* CGV 공통 */
+.hot_wrap .hot_item.cgv .grade {display:inline-block; width:15px; height:15px; margin:0 3px 0 0; border:1px solid #369a0a; border-radius:50%; color:#369a0a; font-size:10px; font-family:arial; text-align:center; line-height:15px; vertical-align:middle;}
+.hot_wrap .hot_item.cgv .grade.grade12 {border-color:#006cc7; color:#006cc7;}
+.hot_wrap .hot_item.cgv .grade.grade15 {border-color:#ee6900; color:#ee6900;}
+.hot_wrap .hot_item.cgv .grade.grade18 {border-color:#e41b13; color:#e41b13;}
+.hot_wrap .hot_item.cgv .grade.unsettled {width:28px; border-color:#555; border-radius:8px; color:#555;}
+.hot_wrap .hot_item.cgv .reserve_info {padding-top:12px;}
+.hot_wrap .hot_item.cgv .reserve {margin-right:4px; padding-right:8px; color:#888; background:url('http://www.cjone.com/cjmweb/images/main/n/bg_vline.png') no-repeat right center; line-height:18px; vertical-align:bottom;}
+.hot_wrap .hot_item.cgv .starRating {display:inline-block; position:relative; width:102px; height:18px; background:url('http://www.cjone.com/cjmweb/images/main//ico_movie.png') no-repeat 0 -54px; vertical-align:bottom;}
+.hot_wrap .hot_item.cgv .starRating .star {position:absolute; top:0; left:0; height:18px; background:url('http://www.cjone.com/cjmweb/images/main//ico_movie.png') no-repeat 0 -36px;}
+.hot_wrap .hot_item.cgv .item_detail .btn_wrap {padding-top:25px;}
+
+/* 세로형 - CGV */
+.hot_wrap .hot_item.row.cgv {width:332px; height:599px;}
+.hot_wrap .hot_item.row.cgv .img_wrap {width:300px; height:428px;}
+.hot_wrap .hot_item.row.cgv .img_wrap img {width:300px; height:428px;}
+.hot_wrap .hot_item.row.cgv .bg_shadow {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_cgv.png') no-repeat;}
+.hot_wrap .hot_item.row.cgv .item_detail {bottom:100%; height:567px;}
+.hot_wrap .hot_item.row.cgv .item_detail .logo_wrap {padding-top:0;}
+.hot_wrap .hot_item.row.cgv .item_detail.on {bottom:25px;}
+
+/* 가로형 - 기본 */
+.hot_wrap .hot_item.col {width:532px; height:252px;}
+.hot_wrap .hot_item.col .inner {height:220px; background-color:#fff;}
+.hot_wrap .hot_item.col .img_wrap {float:right; width:220px; height:220px;}
+.hot_wrap .hot_item.col .img_wrap img {width:220px; height:220px;}
+.hot_wrap .hot_item.col .summary_info {position:absolute; top:50%; width:250px; padding-bottom:0;}
+.hot_wrap .hot_item.col .summary_info .logo_wrap {padding-top:0;}
+.hot_wrap .hot_item.col .txt_wrap .title {padding-bottom:10px;}
+.hot_wrap .hot_item.col .item_detail {top:0; width:470px; height:220px; left:-209px;}
+.hot_wrap .hot_item.col .item_detail .btn_wrap {padding-top:15px;}
+.ie7 .hot_wrap .hot_item.col .item_detail {filter:alpha(opacity=0);}
+.ie8 .hot_wrap .hot_item.col .item_detail {filter:alpha(opacity=0);}
+.hot_wrap .hot_item.col .item_detail .logo_wrap img {height:40px;}
+.hot_wrap .hot_item.col .item_detail.on {left:0;}
+.ie7 .hot_wrap .hot_item.col .item_detail.on {filter: alpha(opacity=100);}
+.ie8 .hot_wrap .hot_item.col .item_detail.on {filter: alpha(opacity=100);}
+.hot_wrap .hot_item.col .bg_shadow {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_col.png') no-repeat;}
+
+/* 가로형 - CGV */
+.hot_wrap .hot_item.col.cgv {/*top:280px; right:49px;*/ width:532px; height:346px;}
+.hot_wrap .hot_item.col.cgv .inner {height:314px; background-color:#fff;}
+.hot_wrap .hot_item.col.cgv .img_wrap {float:right; width:220px; height:314px;}
+.hot_wrap .hot_item.col.cgv .img_wrap img {width:220px; height:314px;}
+.hot_wrap .hot_item.col.cgv .bg_shadow {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_cgv_col.png') no-repeat;}
+.hot_wrap .hot_item.col.cgv .item_detail {width:500px; height:314px; padding:0;}
+.hot_wrap .hot_item.col.cgv .item_detail .logo_wrap {padding-top:0;}
+
+/* 엠넷 */
+.hot_wrap .hot_item.mnet .text_desc {color:#888;}
+.hot_wrap .hot_item.mnet .text_desc span {margin-right:2px; padding-right:8px; color:#888; background:url('http://www.cjone.com/cjmweb/images/main/n/bg_vline.png') no-repeat right center; line-height:18px; vertical-align:top;}
+.hot_wrap .hot_item.mnet .text_desc .rate {position:relative; display:inline-block; padding-left:12px; line-height:18px; vertical-align:top;}
+.ie7 .hot_wrap .hot_item.mnet .text_desc .rate {display:inline; zoom:1;}
+.hot_wrap .hot_item.mnet .text_desc .rate .ico {position:absolute; top:50%; left:0; width:9px; height:11px; margin:-6px 0 0 0; padding:0; background:url('http://www.cjone.com/cjmweb/images/main/ico_ment.png') no-repeat; line-height:11px; text-indent:-999em;}
+.hot_wrap .hot_item.mnet .text_desc .rate .ico.up {background-position:0 0}
+.hot_wrap .hot_item.mnet .text_desc .rate .ico.same {background-position:-9px 0}
+.hot_wrap .hot_item.mnet .text_desc .rate .ico.down {background-position:-18px 0}
+
+/* 블로그 */
+.hot_wrap .hot_item.row.blog {width:220px;}
+.hot_wrap .hot_item.row.blog .item_wrap {margin:0;}
+.hot_wrap .hot_item.row.blog .item_link {margin:0;}
+.hot_wrap .hot_item.row.blog .summary_info .title,
+.hot_wrap .hot_item.row.blog .item_detail .title {padding:10px 0 0 0; line-height:26px;}
+.hot_wrap .hot_item.row.blog .summary_info .text_desc,
+.hot_wrap .hot_item.row.blog .item_detail .text_desc {font-size:12px; font-family:arial;}
+.hot_wrap .hot_item.row.blog .summary_info {padding-top:23px; background-color:#439d34; color:#fff;}
+.hot_wrap .hot_item.row.blog .summary_info .logo_wrap {width:44px; height:20px; margin:0 auto; padding-top:0; background:url('http://www.cjone.com/cjmweb/images/main/img_logo_blog.png') no-repeat;}
+.hot_wrap .hot_item.row.blog .summary_info .title {color:#fff;}
+.hot_wrap .hot_item.row.blog .summary_info .text_desc {padding-top:10px;}
+.hot_wrap .hot_item.row.blog .item_detail {left:0; right:0; bottom:0; height:100%; color:#439d34;}
+.hot_wrap .hot_item.row.blog .item_detail .logo_wrap {width:44px; height:20px; margin:0 auto; background:url('http://www.cjone.com/cjmweb/images/main/img_logo_blog.png') no-repeat 0 -20px;}
+.hot_wrap .hot_item.row.blog .item_detail .title {color:#439d34;}
+.hot_wrap .hot_item.row.blog .item_detail .btn {border-color:#439d34; color:#439d34;}
+.hot_wrap .hot_item.row.blog .item_detail .btn .out {padding-right:20px; background:url('http://www.cjone.com/cjmweb/images/main/n/ico_out_link02.png') no-repeat right center;}
+.hot_wrap .hot_item.row.blog .bg_shadow {display:none;}
+.hot_wrap .hot_item.row.blog .item_detail.on {top:0;}
+.hot_wrap .hot_item.row.blog .item_link.hover .summary_info,
+.hot_wrap .hot_item.row.blog .item_link.focus .summary_info {opacity:1;}
+
+/* 페이스북 */
+.hot_wrap .hot_item.row.facebook {width:220px; background-color:#3b5998;}
+.hot_wrap .hot_item.row.facebook .item_wrap {margin:0;}
+.hot_wrap .hot_item.row.facebook .item_link {margin:0; padding-bottom:27px; background-color:#3b5998;}
+.hot_wrap .hot_item.row.facebook .summary_info .title,
+.hot_wrap .hot_item.row.facebook .item_detail .title {padding:10px 20px 0 20px; line-height:26px;}
+.hot_wrap .hot_item.row.facebook .summary_info .text_desc,
+.hot_wrap .hot_item.row.facebook .item_detail .text_desc {font-size:12px; font-family:arial;}
+
+.hot_wrap .hot_item.row.facebook .summary_info {padding:40px 0 57px 0; background-color:#3b5998; color:#fff;}
+.hot_wrap .hot_item.row.facebook .summary_info .logo_wrap {width:71px; height:14px; margin:0 auto 50px auto; padding-top:0; background:url('http://www.cjone.com/cjmweb/images/main/img_logo_facebook.png') no-repeat;}
+.hot_wrap .hot_item.row.facebook .summary_info .txt_wrap {padding-bottom:30px; background:url('http://www.cjone.com/cjmweb/images/main/ico_quotes02.png') no-repeat bottom center;}
+.hot_wrap .hot_item.row.facebook .summary_info .title {padding-top:30px; color:#fff; background:url('http://www.cjone.com/cjmweb/images/main/ico_quotes01.png') no-repeat top center;}
+.hot_wrap .hot_item.row.facebook .item_detail {left:0; right:0; bottom:0; height:100%; color:#3b5998;}
+.hot_wrap .hot_item.row.facebook .item_detail .logo_wrap {width:71px; height:14px; margin:0 auto 30px auto; background:url('http://www.cjone.com/cjmweb/images/main/img_logo_facebook.png') no-repeat 0 -14px;}
+.hot_wrap .hot_item.row.facebook .item_detail .txt_wrap {padding-bottom:30px; background:url('http://www.cjone.com/cjmweb/images/main/ico_quotes02_on.png') no-repeat bottom center;}
+.hot_wrap .hot_item.row.facebook .item_detail .title {padding-top:30px; color:#3b5998; background:url('http://www.cjone.com/cjmweb/images/main/ico_quotes01_on.png') no-repeat top center;}
+.hot_wrap .hot_item.row.facebook .item_detail .btn_wrap {padding-top:25px;}
+.hot_wrap .hot_item.row.facebook .item_detail .btn {border-color:#3b5998; color:#3b5998;}
+.hot_wrap .hot_item.row.facebook .item_detail .btn .out {padding-right:20px; background:url('http://www.cjone.com/cjmweb/images/main/n/ico_out_link03.png') no-repeat right center;}
+
+.hot_wrap .hot_item.row.facebook .bg_shadow {display:none;}
+.hot_wrap .hot_item.row.facebook .item_detail.on {top:0; bottom:0;}
+
+.hot_wrap .hot_item.row.facebook .item_link.hover .summary_info,
+.hot_wrap .hot_item.row.facebook .item_link.focus .summary_info {opacity:1;}
+
+/* 쇼핑 */
+.hot_wrap .hot_item.shopping .txt_wrap {color:#222;}
+.hot_wrap .hot_item.shopping .ori_price {color:#888; font-size:12px; vertical-align:middle;}
+.hot_wrap .hot_item.shopping .ori_price del {text-decoration:line-through;}
+.hot_wrap .hot_item.shopping .price {margin-left:5px; vertical-align:middle;}
+
+/* 로고만 노출 */
+.hot_wrap .hot_item.logo_only .summary_info {position:absolute; right:auto; left:0; bottom:0; min-height:0; height:35px; padding:0;}
+.hot_wrap .hot_item.logo_only .summary_info .logo_wrap {padding:0 10px;}
+.hot_wrap .hot_item.logo_only .summary_info .logo_wrap img {height:35px;}
+.ie7 .hot_wrap .hot_item.logo_only .summary_info .logo_wrap img {display:inline;}
+
+.ie7 .hot_wrap .hot_item.logo_only .item_link.hover .summary_info,
+.ie7 .hot_wrap .hot_item.logo_only .item_link.focus .summary_info,
+.ie8 .hot_wrap .hot_item.logo_only .item_link.hover .summary_info,
+.ie8 .hot_wrap .hot_item.logo_only .item_link.focus .summary_info {display:none}
+
+.hot_wrap .hot_item.logo_only .item_detail .txt_wrap .title {padding-bottom:10px;}
+
+.hot_wrap .hot_item.big.logo_only {height:532px}
+.hot_wrap .hot_item.big.logo_only .item_link {background-color:transparent;}
+.hot_wrap .hot_item.big.logo_only .bg_shadow .top {top:61px;}
+.hot_wrap .hot_item.big.logo_only .bg_shadow .btm {top:111px;}
+.hot_wrap .hot_item.big.logo_only .item_detail {bottom:-100%; height:500px;}
+.hot_wrap .hot_item.big.logo_only .item_detail.on {bottom:0;}
+
+.hot_wrap .hot_item.row.logo_only .summary_info {height:141px;}
+.hot_wrap .hot_item.col.logo_only .summary_info {width:250px; padding:0 15px;}
+
+/* 레시피 */
+.hot_wrap .hot_item.recipe .img_wrap {position:relative;}
+.hot_wrap .hot_item.recipe .img_wrap img {position:absolute; top:50%; left:0; height:auto;}
+.hot_wrap .hot_item.big.recipe .img_wrap img {margin-top:-317px;}
+.hot_wrap .hot_item.col.recipe .img_wrap img {margin-top:-143px;}
+.hot_wrap .hot_item.row.recipe .img_wrap img {margin-top:-143px;}
+.hot_item.small.logo_only.recipe .img_wrap img {margin-top:-195px;}
+
+/* 무빙 원 */
+.hot_wrap .circle_wrap {position:absolute; top:0; right:0; bottom:0; left:0; overflow:hidden; z-index:1;}
+.hot_wrap .circle_wrap .circle {position:absolute;}
+.hot_wrap .circle_wrap .doughnut_l {top:71px; left:59px; width:210px; height:209px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle_doughnut01.png') no-repeat; -webkit-animation:circle_move 5s infinite; animation:circle_move 5s infinite;}
+.hot_wrap .circle_wrap .combine_l {top:796px; left:62px; width:162px; height:162px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle02.png') no-repeat; -webkit-animation:circle_move 5s infinite; animation:circle_move 5s infinite;}
+.hot_wrap .circle_wrap .doughnut_r {top:-300px; right:29px; width:210px; height:209px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle_doughnut02.png') no-repeat;}
+.hot_wrap .circle_wrap .combine_r {top:947px; right:31px; width:206px; height:206px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle05.png') no-repeat;}
+.hot_wrap .circle_wrap .posi1 {top:365px; right:58px; width:135px; height:135px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle01.png') no-repeat; -webkit-animation:circle_move 5s infinite; animation:circle_move 5s infinite;}
+.hot_wrap .circle_wrap .posi2 {top:722px; left:914px; width:119px; height:119px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle03.png') no-repeat;}
+.hot_wrap .circle_wrap .posi3 {top:991px; left:50%; width:206px; height:206px; margin-left:-103px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle04.png') no-repeat;}
+.hot_wrap .circle_wrap .posi4 {left:20px; bottom:-90px; width:508px; height:508px; background:url('http://www.cjone.com/cjmweb/images/main/bg_circle06.png') no-repeat; -webkit-animation:circle_move 5s infinite; animation:circle_move 5s infinite;}
+
+/* 제휴 브랜드 */
+.alliance_wrap {padding:70px 0 80px 0; background-color:#fff;}
+.alliance_wrap .h2_tit {font-size:34px; font-family:'cj_onlyone_medium'; text-align:center; line-height:60px;}
+.alliance_wrap .global_tab {padding-top:30px;text-align:center;}
+.alliance_wrap .global_tab li {display:inline; margin-left:12px; padding-left:14px; border-left:1px solid #ddd;}
+.alliance_wrap .global_tab li.all {margin-left:0; padding-left:0; border-left:0 none;}
+.alliance_wrap .global_tab a {color:#888; font-size:16px; line-height:16px;}
+.alliance_wrap .global_tab a.hover,
+.alliance_wrap .global_tab a.focus {color:#222; text-decoration:underline;}
+.alliance_wrap .global_tab .on a {color:#222; text-decoration:underline;}
+.alliance_wrap .alliance_list {max-width:1060px; margin:0 auto; padding-top:30px; overflow:hidden;}
+.alliance_wrap .alliance_item {position:relative; float:left; width:176px; height:80px;}
+.alliance_wrap .alliance_item .item_link {position:relative; display:block; height:59px; padding-top:19px; border:1px solid #fff;}
+.alliance_wrap .alliance_item .event {position:absolute; top:8px; right:8px; width:38px; height:16px; border-radius:3px; background-color:#ee6900; color:#fff; font-size:12px; font-family:arial; text-align:center; line-height:16px; z-index:1;}
+.alliance_wrap .alliance_item .logo_wrap img {display:block; height:41px; margin:auto;}
+.alliance_wrap .alliance_item .logo_wrap .on {display:none;}
+.alliance_wrap .alliance_item .detail_info {display:block; position:absolute; top:0; left:0; width:176px; height:80px; background-color:#f2f2f2; font-size:16px; text-align:center; opacity:0; z-index:-1;}
+.alliance_wrap .alliance_item .detail_info p {display:table-cell; width:156px; height:80px; padding:0 10px; vertical-align:middle;}
+.alliance_wrap .alliance_item .detail_info .em {color:#555; font-weight:bold;}
+.ie7 .alliance_wrap .alliance_item .detail_info p {height:65px; padding-top:15px;}
+.alliance_wrap .alliance_item .detail_info .ico {position:absolute; top:50%; left:-1px; width:10px; height:16px; margin-top:-8px; background:url('http://www.cjone.com/cjmweb/images/main/ico_alliance_arrow01.png') no-repeat;}
+.alliance_wrap .alliance_item.pc .detail_info {left:auto; right:176px;}
+.alliance_wrap .alliance_item.pc .detail_info .ico {left:auto; right:-1px; background:url('http://www.cjone.com/cjmweb/images/main/ico_alliance_arrow.png') no-repeat;}
+
+.alliance_wrap .alliance_item.on {z-index:2;}
+.alliance_wrap .alliance_item.on .item_link {border:1px solid #ee6900;}
+.alliance_wrap .alliance_item.on .detail_info {display:block; opacity:1; left:176px; z-index:3;}
+
+@media screen and (max-width:1024px) {
+	/* 프로모션 */
+	.promotion_wrap .slider_wrap .pro_item .txt_container {top:100px; width:944px; margin-left:-472px;}
+	.promotion_wrap .slider_wrap .pro_item .tit_wrap,
+	.promotion_wrap .slider_wrap .col2 .pro_item .tit_wrap,
+	.promotion_wrap .slider_wrap .col3 .pro_item .tit_wrap {width:500px; font-size:25px; line-height:30px;}
+	.promotion_wrap .slider_wrap .col2 .pro_item .tit_wrap {width:auto;}
+	.promotion_wrap .slider_wrap .col3 .pro_item .tit_wrap {width:auto;}
+	.promotion_wrap .slider_wrap .pro_item .img_wrap {background-position:top center;}
+	.promotion_wrap .slider_wrap .pro_item .img_wrap img {display:none;}
+
+	.promotion_wrap .slider_wrap .bx-controls .bx-controls-direction {display:none;}
+	.promotion_wrap .slider_wrap .bx-controls .bx-controls-direction a {top:-100px;}
+
+	/* 퀵 링크 */
+	.quick_wrap {width:984px; margin:0 auto;}
+	.quick_wrap .quick_lick {width:251px;}
+	.quick_wrap .quick_lick.add_point .img {margin-left:70px;}
+	.quick_wrap .quick_lick.card {width:240px;}
+	.quick_wrap .quick_lick.coupon {width:239px;}
+
+	/* 추천 아이템 */
+	.recommend_wrap .info_wrap {min-width:964px; max-width:964px;}
+	.recommend_wrap .info_wrap .grade_info,
+	.recommend_wrap .info_wrap .now_point,
+	.recommend_wrap .info_wrap .coupon_info,
+	.recommend_wrap .info_wrap .stamp_info,
+	.recommend_wrap .info_wrap .bonus_info,
+	.recommend_wrap .info_wrap .btn_wrap {padding:0 10px;}
+
+	.recommend_wrap .info_wrap .inner {padding-right:20px;}
+	.recommend_wrap .info_wrap .grade_info {position:static; margin:-2px 0 0 0; padding:0;}
+
+	.recommend_wrap .info_wrap .bonus_info .tip_wrap {margin-top:0;}
+	.recommend_wrap .info_wrap .btn_wrap {width:93px; padding-right:0;}
+	.recommend_wrap .info_wrap .btn_wrap a {font-size:14px;}
+
+	.recommend_slide .list_wrap {margin-left:40px;}
+
+	/* HOT! ITEM & CONTENTS */
+	.hot_wrap .hot_item {top:auto !important; left:auto !important;}
+	.hot_wrap .hot_item {width:432px;}
+	.hot_wrap .hot_item .img_wrap {width:400px; height:400px;}
+	.hot_wrap .hot_item .img_wrap img {width:400px; height:400px;}
+
+	.hot_wrap .hot_item.big .bg_shadow .top {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_big_top_768.png') no-repeat;}
+	.hot_wrap .hot_item.big .bg_shadow .btm {background:url('http://www.cjone.com/cjmweb/images/main/bg_shadow_big_btm_768.png') no-repeat left bottom;}
+
+	.hot_wrap .hot_item.big.logo_only {height:432px;}
+
+	/* 제휴 브랜드 */
+	.alliance_wrap .alliance_list {max-width:984px;}
+	.alliance_wrap .alliance_item {width:164px;}
+	.alliance_wrap .alliance_item .detail_info {width:164px; left:164px;}
+
+	.alliance_wrap .alliance_item.right .detail_info {left:auto; right:164px;}
+	.alliance_wrap .alliance_item.right .detail_info .ico {left:auto; right:-9px; background:url('http://www.cjone.com/cjmweb/images/main/ico_alliance_arrow01.png') no-repeat;}
+}
+
+@media screen and (max-width:768px) {
+	.main_wrap {min-width:768px;}
+	/* 프로모션 */
+	.promotion_wrap .slider_wrap .pro_item .txt_container {width:788px; margin-left:-344px;}
+	.promotion_wrap .slider_wrap .pro_item .tit_wrap {width:300px;}
+
+	/* 퀵 링크 */
+	.quick_wrap {max-width:728px; width:auto; min-height:353px; margin:0 auto;}
+	.quick_wrap .quick_lick {width:363px;}
+	.quick_wrap .quick_lick.card {width:364px;}
+	.quick_wrap .quick_lick.add_point .img {margin-left:125px;}
+	.quick_wrap .quick_lick.add_point .line {display:none}
+	.quick_wrap .quick_lick.point {width:364px; border-left:0 none;}
+	.quick_wrap .quick_lick.coupon {width:363px;}
+
+	/* 추천 아이템 */
+	.recommend_wrap .info_wrap {min-width:664px; max-width:664px; height:170px; border-radius:85px;}
+	.recommend_wrap .info_wrap .inner {padding-top:20px; text-align:center;}
+
+	.recommend_wrap .info_wrap .grade_info,
+	.recommend_wrap .info_wrap .now_point,
+	.recommend_wrap .info_wrap .coupon_info,
+	.recommend_wrap .info_wrap .stamp_info,
+	.recommend_wrap .info_wrap .bonus_info,
+	.recommend_wrap .info_wrap .btn_wrap {float:none; display:inline-block; vertical-align:middle;}
+
+	.recommend_wrap .info_wrap .grade_info {position:static; margin:2px 0 0 0;}
+	.recommend_wrap .info_wrap .now_point {margin-left:0;}
+
+	.recommend_wrap .info_wrap .stamp_info .line {display:none;}
+	.recommend_wrap .info_wrap .bonus_info {margin-top:15px; padding-left:0;}
+	.recommend_wrap .info_wrap .btn_wrap {margin-top:15px;}
+
+	.recommend_wrap .info_wrap .onestar {position:absolute; top:20px; left:-20px; width:58px; height:138px; background:url('http://www.cjone.com/cjmweb/images/main/ico_onestar02.png') no-repeat; z-index:2;}
+
+	.recommend_wrap.on {max-height:1090px;}
+
+	/* HOT! ITEM & CONTENTS */
+	.hot_wrap .hot_content {text-align:center;}
+	.hot_wrap .hot_item {float:none; display:inline-block; top:auto !important; left:auto !important;}
+
+	/* 제휴 브랜드 */
+	.alliance_wrap .h2_tit .break_word {display:block;}
+	.alliance_wrap .alliance_list {max-width:656px; margin:0 auto;}
+
+	.alliance_wrap .alliance_item.tablet .detail_info {left:-176px;}
+	.alliance_wrap .alliance_item.tablet .detail_info .ico {left:auto; right:-1px; background:url('http://www.cjone.com/cjmweb/images/main/ico_alliance_arrow.png') no-repeat;}
+	.alliance_wrap .alliance_item.pc .detail_info {left:176px;}
+	.alliance_wrap .alliance_item.pc .detail_info .ico {left:-1px; background:url('http://www.cjone.com/cjmweb/images/main/ico_alliance_arrow01.png') no-repeat;}
+	.alliance_wrap .alliance_item.pc.tablet .detail_info {left:auto; right:176px;}
+	.alliance_wrap .alliance_item.pc.tablet .detail_info .ico {left:auto; right:-1px; background:url('http://www.cjone.com/cjmweb/images/main/ico_alliance_arrow.png') no-repeat;}
+}

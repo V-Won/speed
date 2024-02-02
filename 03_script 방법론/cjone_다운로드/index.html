@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://www.cjone.com/cjmweb/main.do -->
+<html lang="ko" class="js" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>메인│CJ ONE</title>
+	<meta name="Description" content="CJ ONE 이란 문화, 외식, 쇼핑, 엔터테인먼트 등 CJ의 30여개 라이프스타일 브랜드에서 사용하실 수 있는 통합멤버십카드입니다. CJ ONE은 한 장의 카드로 최대 10% 포인트 적립 , 최대 10% 할인,  그리고 다양한 문화 공연헤택을 한번에 즐기실 수 있으며, ONE BOX(원박스), ONE TICKET(원티켓) 등 추첨이벤트에 참여하실 수 있습니다.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge ,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	
+	<link rel="alternate" href="https://m.cjone.com:8443/cjmmobile/main.do">
+	<script async="" src="common/analytics.js"></script><script type="text/javascript">
+		var contextPath = '/cjmweb';
+	</script>
+	<script src="common/jquery-1.11.3.min.js"></script>
+	<script src="common/common.js"></script>
+	<script src="common/form.validate.js"></script>
+	
+	 
+	<link rel="stylesheet" href="common/base.css">
+	<link rel="stylesheet" href="common/main.css"> 
+
+	
+	
+		
+			<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			  ga('create', 'UA-17703059-2', 'auto');
+			  ga('send', 'pageview');
+			</script>
+		
+		
+	
+	
+	
+</head>
+ 
+
+<body>
+<!--skip navigation-->
+<div class="skipNavi">
+    <a href="http://www.cjone.com/cjmweb/main.do#contentsWrap">본문으로 바로가기</a>
+</div>
+<!--//skip navigation-->
+<div id="bodyWrap">
+
+    <!--header-->
+    
+
+
+
+
+
+
+<script type="text/javascript">
+
+function search(){
+	var search_keyword = $("#search_keyword").val();
+   	if($(".tSearch").hasClass("on")) {
+   		
+   		if(search_keyword.trim().length == 0) {
+   			alert("검색어를 입력해주세요.");
+			$("#search_keyword").focus();
+			return false;   			
+   		}
+   		
+   		if(search_keyword.trim().length > 20) {
+			alert("검색어는 최대 20자까지 검색 가능합니다.");
+			$("#search_keyword").focus();
+			return false;
+		}
+
+   		ga('send', 'event', 'Header 영역', '통합검색', '통합검색');
+		//$("#h_search_keyword").val(encodeURIComponent(search_keyword));
+		//$("#headerFrm").attr("action", "http://www.cjone.com/cjmweb/search.do?h_search_keyword=" + encodeURIComponent(search_keyword));
+		$("#h_search_keyword").val(search_keyword);
+		$("#headerFrm").attr("action", "http://www.cjone.com/cjmweb/search.do?h_search_keyword=" + search_keyword);
+		$("#headerFrm").submit();
+    }	
+};
+
+function goStore() {
+	cjone.openModal('/cjmweb/layer/store/search.do');
+}
+
+
+//DashBoard 관련 function 
+var isFirstDashOpen = false;
+$(function () {
+   /**
+    * 대시보드 열기/ 닫기:
+    **/
+    $('[data-control="personalInfo"]').on({
+        'click': function (e) {
+            e.preventDefault();
+            personalInfoAction();
+        }
+    });
+    
+	// ie8에서 trim()함수 오류로 인한 정의
+    if(typeof String.prototype.trim !== 'function') {
+    	String.prototype.trim = function() {
+    	    return this.replace(/^\s+|\s+$/g, ''); 
+    	};
+    }
+    
+});
+
+
+//DashBoard html 불러오기
+function personalInfoAction() {
+	if(loginCheck() == true){
+		if(isFirstDashOpen == false){
+			var $appendArea = $('#personalInfo');
+			var t = new Date().getTime();
+			$.ajax({
+				url: '/cjmweb/common/layer/dash-board-action.do?t='+t
+	        }).done(function (html) {
+	            var $html = $(html).find('div:eq(0)').parent();
+	            $appendArea.html($html).show();
+	            isFirstDashOpen = true;
+	    		var $this = $('[data-control="personalInfo"]');
+	    	    $this.triggerHandler('toggle');
+	    		ga('send', 'event', 'Header 영역', 'NOW', 'NOW');
+	    		
+	    	    $("#noticeList_box").scroll( function() {
+	   	    	  	var elem = $("#noticeList_box");
+	   	    	  	if ( elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()){
+	   	    		  notifyMessageAction();
+	   	    	  	}
+	    	    });
+	    	    $('[data-control="randomNum"]').charMotion('runUp');
+	    	    $('[data-control="tooltip"]').tooltip();
+	    	    $('[data-control="scrollView"]').scrollview();	    	    
+	    	    
+	        });
+		}else{
+			var $this = $('[data-control="personalInfo"]');
+		    $this.triggerHandler('toggle');
+			ga('send', 'event', 'Header 영역', 'NOW', 'NOW');	
+		}    
+	}else{
+		linkLogin();
+	}
+}
+
+
+//알림정보 추가 조회
+var noti_page_num = 1 ;
+var readProcessResult = false;
+function notifyMessageAction(page_num){
+	if(noti_page_num == 99) return; //더이상 조회할건 없음.
+	
+	noti_page_num = noti_page_num + 1;
+	
+	$.ajax({
+        url : '/cjmweb/layer/notify/notify-list.do',
+        dataType : 'json',
+        data : 'page_num='+noti_page_num,
+        async : true,
+        type : 'POST',
+        error : function(err) { 
+        },
+        success : function(response, statusText) {
+        	if (response.notifylist != undefined && response.notifylist != null && response.notifylist.length > 0) {
+        		makeList(response.notifylist);
+        		if(response.notifylist < 10){
+        			noti_page_num = 99; //추가조회 없음
+        		}
+        	}else{
+        		noti_page_num = 99; //추가조회 없음
+        	}
+        }
+	});
+}
+
+//알림 리스트 생성
+function makeList (jsonList) {
+	if (jsonList != undefined && jsonList != null && jsonList.length > 0){ 
+		$(jsonList).each(function(index,data) {				
+			 html ="";
+			 html += '<li>';
+			 if(data.read_yn == "Y"){
+				 html +='<a class="visited" href="javascript:goNotifyAction('+ data.notify_seq +','+ data.notify_link_url +')">';
+			 }else{
+				 html +='<a href="javascript:goNotifyAction('+ data.notify_seq +','+ data.notify_link_url +')">';
+			 }
+			 html += '	<p>['+ data.notify_section_name +'] '+ data.notify_msg +'</p>';
+			 html += '	<span class="date">' + data.aprv_fr_dy +' ' + data.reg_time + '</span>';
+			 html += '</a>';
+			 html += '</li>';
+
+			 $("#noticeList").append(html);
+		});
+	}
+}
+
+//알림 상세로 이동
+function goNotifyAction(notify_seq,link_url){
+	if(readNotifyAction(notify_seq) == true ){
+		ga('send', 'event', 'MY Dash Board 영역', '알림메세지', '알림메세지');		
+		$(location).attr("href",link_url);
+	}
+}
+
+//알림 읽음처리
+function readNotifyAction(notify_seq){
+	$.ajax({
+        url : '/cjmweb/layer/notify/notify-read.do',
+        dataType : 'json',
+        data : 'notify_seq='+notify_seq,
+        async : false,
+        type : 'POST',
+        error : function(err) { 
+        	readProcessResult = false;
+        },
+        success : function(response, statusText) {
+        	if(statusText == 'success'){
+        		readProcessResult = true;
+        	}else{
+        		readProcessResult = false;
+        	}
+        }
+	});
+	return readProcessResult;
+}
+	
+function linkLogin() {
+	var current = location.href;
+	var rtn = '';
+	if(current.indexOf('/cjmweb/main.do')> -1) {
+		rtn = 'http://www.cjone.com/cjmweb/main.do?s=m';
+		rtn = '?return_url='+encodeURI(rtn);
+	}
+	location.href = 'https://www.cjone.com/cjmweb/login.do'+rtn;
+}
+
+function linkCardMng() {
+	if( !loginCheck() ) {
+		if(confirm('카드 등록을 위해 로그인이 필요합니다.\n계속 진행하시겠습니까?')) {
+			location.href='https://www.cjone.com/cjmweb/my-one/card.do';
+			return false;
+		}
+	} else {
+		location.href='https://www.cjone.com/cjmweb/my-one/card.do';
+		return false;
+	}
+	return false;
+}
+
+</script>
+<form id="headerFrm" method="get">
+	<input type="hidden" name="h_search_keyword" id="h_search_keyword">
+</form>
+	<!-- 참여사 관련 판단 로직 변경 2016-06-20 pjh0416 -->
+    
+	<div id="headerWrap">
+	<!-- on시 height:313px 로 해주세요. css 에 넣어서 important 를 넣을 경우 animation 이 안일어납니다.-->
+		<!--header inner-->
+		<div class="header_wrap">
+			<h1>
+				
+				
+				
+					
+						
+					
+					
+				
+				
+				<a href="http://www.cjone.com/cjmweb/main.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;BI&#39;, &#39;MAIN BI&#39;, &#39;MAIN BI&#39;);">
+					<img src="common/logo_cjone.png" alt="CJ ONE">
+				</a>
+			</h1>
+			<!-- 20160315 -->
+			<div class="bg_dim">
+			<!-- //20160315 -->
+				<div id="navi" class="hide">
+					<!-- 20160315 -->
+					<h2 class="mobile">메뉴 전체보기</h2>
+					<!-- //20160315 -->
+					<!-- 20160315 -->
+					<div class="menu_scroll">
+					<!-- //20160315 -->						
+						<dl class="util">
+							<dt class="haze">유틸메뉴</dt>
+							
+							<dd class="logIn"><a href="http://www.cjone.com/cjmweb/main.do#" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;로그인&#39;, &#39;로그인&#39;);linkLogin();"><span>로그인</span></a></dd>
+							<dd class="join"><a href="https://www.cjone.com/cjmweb/join.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;회원가입&#39;, &#39;회원가입&#39;);"><span>회원가입</span></a></dd>
+							
+							
+							<dd class="mobile"><a href="http://www.cjone.com/cjmweb/vip.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;VIP라운지&#39;, &#39;VIP라운지&#39;);"><span>VIP라운지</span></a></dd>
+							<dd class="store"><a href="http://www.cjone.com/cjmweb/find-store.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;매장찾기&#39;, &#39;매장찾기&#39;);"><span>매장찾기</span></a></dd>
+							<dd class="go_cscenter mobile"><a href="http://www.cjone.com/cjmweb/main.do#go_cscenter" data-control="toggleGnb" title="고객센터 열기" class="link" data-open-text="고객센터 닫기" data-close-text="고객센터 열기"><span>고객센터</span></a>
+								<ul id="go_cscenter" class="hide">
+									<li><a href="http://www.cjone.com/cjmweb/customer/faq.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;고객센터&#39;, &#39;자주 찾는 질문&#39;);"><span>자주 찾는 질문</span></a></li>
+									<li><a href="https://www.cjone.com/cjmweb/customer/counseling/apply.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;고객센터&#39;, &#39;1:1상담&#39;);"><span>1:1상담</span></a></li>
+									<li><a href="http://www.cjone.com/cjmweb/customer/news-notice.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;고객센터&#39;, &#39;뉴스&amp;공지&#39;);"><span>뉴스&amp;공지</span></a></li>
+								</ul>
+							</dd>
+							<dd class="card">
+								<a href="http://www.cjone.com/cjmweb/main.do#" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Header 영역&#39;, &#39;카드등록&#39;, &#39;카드등록&#39;);linkCardMng();"><span>카드등록</span></a>
+							</dd>
+						</dl>
+		                
+						
+						<div id="gnb">
+							<ul class="gnb_1depth" data-control="accordionGnb">
+								<li class="depth1"><a href="http://www.cjone.com/cjmweb/about-cjone.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;CJ ONE소개&#39;, &#39;CJ ONE소개&#39;);" class="link_1depth">CJ ONE 소개</a></li>
+								<li class="depth1"><a href="http://www.cjone.com/cjmweb/point-card/guide.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;포인트/카드&#39;);" class="link_1depth">포인트/카드</a>
+									<ul class="gnb_2depth" data-event="gnb" style="display: none;">
+										<li><a href="http://www.cjone.com/cjmweb/point-card/guide.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;포인트 적립/사용&#39;);" class="link_2depth"><span>포인트 적립/사용</span></a></li>
+										<li><a href="http://www.cjone.com/cjmweb/point-card/brand.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;제휴 브랜드&#39;);" class="link_2depth"><span>제휴 브랜드</span></a></li>
+										<li><a href="http://www.cjone.com/cjmweb/point-card/bonus-point.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;보너스포인트&#39;);" class="link_2depth"><span>보너스포인트</span></a></li>
+										
+											<li><a href="http://www.cjone.com/cjmweb/point-card/point-gift.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;포인트 선물&#39;);" class="link_2depth"><span>포인트 선물</span></a></li>
+										
+										<li><a href="http://www.cjone.com/cjmweb/point-card/point-conversion.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;포인트 전환&#39;);" class="link_2depth"><span>포인트 전환</span></a></li>
+										<li><a href="http://www.cjone.com/cjmweb/point-card/gift-point.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;기프트포인트 등록&#39;);" class="link_2depth"><span>기프트포인트 등록</span></a></li>
+										<li><a href="http://www.cjone.com/cjmweb/point-card/branded-card.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;포인트/카드&#39;, &#39;제휴 신용카드 안내&#39;);" class="link_2depth"><span>제휴 신용카드 안내</span></a></li>
+									</ul>
+								</li>
+								<li class="depth1"><a href="http://www.cjone.com/cjmweb/event-coupon/event.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;이벤트/쿠폰&#39;, &#39;이벤트/쿠폰&#39;);" class="link_1depth">이벤트/쿠폰</a>
+									<ul class="gnb_2depth" data-event="gnb" style="display: none;">
+										<li><a href="http://www.cjone.com/cjmweb/event-coupon/event.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;이벤트/쿠폰&#39;, &#39;이벤트&#39;);" class="link_2depth"><span>이벤트</span></a></li>
+										<li><a href="http://www.cjone.com/cjmweb/event-coupon/coupon.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;이벤트/쿠폰&#39;, &#39;쿠폰&#39;);" class="link_2depth"><span>쿠폰</span></a></li>
+										<li><a href="http://www.cjone.com/cjmweb/event-coupon/stamp/list.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;이벤트/쿠폰&#39;, &#39;득템프&#39;);" class="link_2depth"><span>득템프</span></a></li>
+									</ul>
+								</li>
+								<li class="depth1"><a href="http://www.cjone.com/cjmweb/shopping/list.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;ONE콘&#39;, &#39;ONE콘&#39;);" class="link_1depth">ONE콘</a></li>
+								<li class="depth1 last"><a href="https://www.cjone.com/cjmweb/my-one/recommend.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;나의 ONE&#39;);" class="link_1depth">나의 ONE</a>
+									<ul class="gnb_2depth" data-event="gnb" style="display: none;">
+										<li><a href="https://www.cjone.com/cjmweb/my-one/recommend.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;나의 ONE&#39;);" class="link_2depth"><span>나의 ONE</span></a></li>
+										<li><a href="https://www.cjone.com/cjmweb/my-one/point.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;나의 포인트&#39;);" class="link_2depth"><span>나의 포인트</span></a></li>
+										<li><a href="https://www.cjone.com/cjmweb/my-one/card.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;카드 관리/변경&#39;);linkCardMng();return false;" class="link_2depth"><span>카드 관리/변경</span></a></li>
+										<li><a href="https://www.cjone.com/cjmweb/my-one/coupon.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;나의 쿠폰&#39;);" class="link_2depth"><span>나의 쿠폰</span></a></li>
+										<li><a href="https://www.cjone.com/cjmweb/my-one/event.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;응모한 이벤트&#39;);" class="link_2depth"><span>응모한 이벤트</span></a></li>
+										<li><a href="https://www.cjone.com/cjmweb/my-one/shopping.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;ONE콘 구매내역&#39;);" class="link_2depth"><span>ONE콘 구매내역</span></a></li>
+										<li><a href="https://www.cjone.com/cjmweb/my-one/counseling.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GNB 영역&#39;, &#39;나의 ONE&#39;, &#39;나의 상담내역&#39;);" class="link_2depth"><span>나의 상담내역</span></a></li>
+									</ul>
+								</li>
+							</ul>
+							<!--<button type="button" class="close" data-event="gnb_close">전체메뉴닫기</button>-->
+							<button type="button" class="close" data-control="gnbClose" style="display: none;">전체메뉴닫기</button>
+						</div>
+						
+					<!-- 20160315 -->
+					</div>
+					<!-- //20160315 -->				
+				</div>
+			<!-- 20160315 -->
+			</div>
+			<!-- //20160315 -->
+			<dl class="myInfo">
+				<dt class="haze">개인화 컨텐츠</dt>
+				<dd class="viewNavi"><a href="http://www.cjone.com/cjmweb/main.do#navi" data-control="smallGnbButton"><img src="common/btn_gnb_open.png" alt="메뉴보기" data-handler="toggleText"></a></dd>
+				<dd class="tSearch" data-handler="searchTag"><!-- 클릭 시, 클래스 on 추가 -->
+					<span class="btn_open"><a href="http://www.cjone.com/cjmweb/main.do#global_search" class="open" data-control="toggleSearch" data-submit-text="검색입력서식 보내기" data-close-text="검색입력서식 열기" data-open-text="검색입력서식 닫기" title="검색입력서식 열기">검색입력서식 열기</a></span>
+				</dd>
+				<dd class="onester">
+					<span class="btn_open">
+						<a href="http://www.cjone.com/cjmweb/main.do#personalInfo" data-control="personalInfo" data-close-text="나의정보 열기" data-open-text="나의정보 닫기">
+                            <!-- 최초 진입 시 -->
+                            <span class="img_wrap nowload hide" data-file-url="/cjmweb/images/common/onester/appear_[number].png" data-start-num="00000" data-end-num="00056" data-motion-status="sequenceReady"><img src="common/appear_00000.png" alt="" class="hide"><img src="common/appear_00001.png" alt="" class="hide"><img src="common/appear_00002.png" alt="" class="hide"><img src="common/appear_00003.png" alt="" class="hide"><img src="common/appear_00004.png" alt="" class="hide"><img src="common/appear_00005.png" alt="" class="hide"><img src="common/appear_00006.png" alt="" class="hide"><img src="common/appear_00007.png" alt="" class="hide"><img src="common/appear_00008.png" alt="" class="hide"><img src="common/appear_00009.png" alt="" class="hide"><img src="common/appear_00010.png" alt="" class="hide"><img src="common/appear_00011.png" alt="" class="hide"><img src="common/appear_00012.png" alt="" class="hide"><img src="common/appear_00013.png" alt="" class="hide"><img src="common/appear_00014.png" alt="" class="hide"><img src="common/appear_00015.png" alt="" class="hide"><img src="common/appear_00016.png" alt="" class="hide"><img src="common/appear_00017.png" alt="" class="hide"><img src="common/appear_00018.png" alt="" class="hide"><img src="common/appear_00019.png" alt="" class="hide"><img src="common/appear_00020.png" alt="" class="hide"><img src="common/appear_00021.png" alt="" class="hide"><img src="common/appear_00022.png" alt="" class="hide"><img src="common/appear_00023.png" alt="" class="hide"><img src="common/appear_00024.png" alt="" class="hide"><img src="common/appear_00025.png" alt="" class="hide"><img src="common/appear_00026.png" alt="" class="hide"><img src="common/appear_00027.png" alt="" class="hide"><img src="common/appear_00028.png" alt="" class="hide"><img src="common/appear_00029.png" alt="" class="hide"><img src="common/appear_00030.png" alt="" class="hide"><img src="common/appear_00031.png" alt="" class="hide"><img src="common/appear_00032.png" alt="" class="hide"><img src="common/appear_00033.png" alt="" class="hide"><img src="common/appear_00034.png" alt="" class="hide"><img src="common/appear_00035.png" alt="" class="hide"><img src="common/appear_00036.png" alt="" class="hide"><img src="common/appear_00037.png" alt="" class="hide"><img src="common/appear_00038.png" alt="" class="hide"><img src="common/appear_00039.png" alt="" class="hide"><img src="common/appear_00040.png" alt="" class="hide"><img src="common/appear_00041.png" alt="" class="hide"><img src="common/appear_00042.png" alt="" class="hide"><img src="common/appear_00043.png" alt="" class="hide"><img src="common/appear_00044.png" alt="" class="hide"><img src="common/appear_00045.png" alt="" class="hide"><img src="common/appear_00046.png" alt="" class="hide"><img src="common/appear_00047.png" alt="" class="hide"><img src="common/appear_00048.png" alt="" class="hide"><img src="common/appear_00049.png" alt="" class="hide"><img src="common/appear_00050.png" alt="" class="hide"><img src="common/appear_00051.png" alt="" class="hide"><img src="common/appear_00052.png" alt="" class="hide"><img src="common/appear_00053.png" alt="" class="hide"><img src="common/appear_00054.png" alt="" class="hide"><img src="common/appear_00055.png" alt="" class="hide"><img src="common/appear_00056.png" alt="" class=""></span>
+                            <!-- 평상 시 -->
+                            <span class="img_wrap normal" data-file-url="/cjmweb/images/common/onester/loop_[number].png" data-start-num="00000" data-end-num="00081"><img src="common/loop_00000.png" alt="" class="hide"><img src="common/loop_00001.png" alt="" class="hide"><img src="common/loop_00002.png" alt="" class="hide"><img src="common/loop_00003.png" alt="" class="hide"><img src="common/loop_00004.png" alt="" class="hide"><img src="common/loop_00005.png" alt="" class="hide"><img src="common/loop_00006.png" alt="" class="hide"><img src="common/loop_00007.png" alt="" class="hide"><img src="common/loop_00008.png" alt="" class="hide"><img src="common/loop_00009.png" alt="" class="hide"><img src="common/loop_00010.png" alt="" class="hide"><img src="common/loop_00011.png" alt="" class="hide"><img src="common/loop_00012.png" alt="" class="hide"><img src="common/loop_00013.png" alt="" class="hide"><img src="common/loop_00014.png" alt="" class="hide"><img src="common/loop_00015.png" alt="" class="hide"><img src="common/loop_00016.png" alt="" class="hide"><img src="common/loop_00017.png" alt="" class="hide"><img src="common/loop_00018.png" alt="" class="hide"><img src="common/loop_00019.png" alt="" class="hide"><img src="common/loop_00020.png" alt="" class="hide"><img src="common/loop_00021.png" alt="" class="hide"><img src="common/loop_00022.png" alt="" class="hide"><img src="common/loop_00023.png" alt="" class="hide"><img src="common/loop_00024.png" alt="" class="hide"><img src="common/loop_00025.png" alt="" class="hide"><img src="common/loop_00026.png" alt="" class="hide"><img src="common/loop_00027.png" alt="" class="hide"><img src="common/loop_00028.png" alt="" class="hide"><img src="common/loop_00029.png" alt="" class="hide"><img src="common/loop_00030.png" alt="" class="hide"><img src="common/loop_00031.png" alt="" class=""><img src="common/loop_00032.png" alt="" class="hide"><img src="common/loop_00033.png" alt="" class="hide"><img src="common/loop_00034.png" alt="" class="hide"><img src="common/loop_00035.png" alt="" class="hide"><img src="common/loop_00036.png" alt="" class="hide"><img src="common/loop_00037.png" alt="" class="hide"><img src="common/loop_00038.png" alt="" class="hide"><img src="common/loop_00039.png" alt="" class="hide"><img src="common/loop_00040.png" alt="" class="hide"><img src="common/loop_00041.png" alt="" class="hide"><img src="common/loop_00042.png" alt="" class="hide"><img src="common/loop_00043.png" alt="" class="hide"><img src="common/loop_00044.png" alt="" class="hide"><img src="common/loop_00045.png" alt="" class="hide"><img src="common/loop_00046.png" alt="" class="hide"><img src="common/loop_00047.png" alt="" class="hide"><img src="common/loop_00048.png" alt="" class="hide"><img src="common/loop_00049.png" alt="" class="hide"><img src="common/loop_00050.png" alt="" class="hide"><img src="common/loop_00051.png" alt="" class="hide"><img src="common/loop_00052.png" alt="" class="hide"><img src="common/loop_00053.png" alt="" class="hide"><img src="common/loop_00054.png" alt="" class="hide"><img src="common/loop_00055.png" alt="" class="hide"><img src="common/loop_00056.png" alt="" class="hide"><img src="common/loop_00057.png" alt="" class="hide"><img src="common/loop_00058.png" alt="" class="hide"><img src="common/loop_00059.png" alt="" class="hide"><img src="common/loop_00060.png" alt="" class="hide"><img src="common/loop_00061.png" alt="" class="hide"><img src="common/loop_00062.png" alt="" class="hide"><img src="common/loop_00063.png" alt="" class="hide"><img src="common/loop_00064.png" alt="" class="hide"><img src="common/loop_00065.png" alt="" class="hide"><img src="common/loop_00066.png" alt="" class="hide"><img src="common/loop_00067.png" alt="" class="hide"><img src="common/loop_00068.png" alt="" class="hide"><img src="common/loop_00069.png" alt="" class="hide"><img src="common/loop_00070.png" alt="" class="hide"><img src="common/loop_00071.png" alt="" class="hide"><img src="common/loop_00072.png" alt="" class="hide"><img src="common/loop_00073.png" alt="" class="hide"><img src="common/loop_00074.png" alt="" class="hide"><img src="common/loop_00075.png" alt="" class="hide"><img src="common/loop_00076.png" alt="" class="hide"><img src="common/loop_00077.png" alt="" class="hide"><img src="common/loop_00078.png" alt="" class="hide"><img src="common/loop_00079.png" alt="" class="hide"><img src="common/loop_00080.png" alt="" class="hide"><img src="common/loop_00081.png" alt="" class="hide"></span>
+                            <!-- 대시보드 오픈 시 -->
+                            <span class="img_wrap dash_open hide" data-file-url="/cjmweb/images/common/onester/myIn_[number].png" data-start-num="00000" data-end-num="00016" data-motion-status="sequenceReady"><img src="common/myIn_00000.png" alt="" class=""><img src="common/myIn_00001.png" alt="" class="hide"><img src="common/myIn_00002.png" alt="" class="hide"><img src="common/myIn_00003.png" alt="" class="hide"><img src="common/myIn_00004.png" alt="" class="hide"><img src="common/myIn_00005.png" alt="" class="hide"><img src="common/myIn_00006.png" alt="" class="hide"><img src="common/myIn_00007.png" alt="" class="hide"><img src="common/myIn_00008.png" alt="" class="hide"><img src="common/myIn_00009.png" alt="" class="hide"><img src="common/myIn_00010.png" alt="" class="hide"><img src="common/myIn_00011.png" alt="" class="hide"><img src="common/myIn_00012.png" alt="" class="hide"><img src="common/myIn_00013.png" alt="" class="hide"><img src="common/myIn_00014.png" alt="" class="hide"><img src="common/myIn_00015.png" alt="" class="hide"><img src="common/myIn_00016.png" alt="" class="hide"></span>
+                            <!-- 대시보드 닫기 시 -->
+                            <span class="img_wrap dash_close hide" data-file-url="/cjmweb/images/common/onester/myOut_[number].png" data-start-num="00000" data-end-num="00015" data-motion-status="sequenceReady"><img src="common/myOut_00000.png" alt="" class=""><img src="common/myOut_00001.png" alt="" class="hide"><img src="common/myOut_00002.png" alt="" class="hide"><img src="common/myOut_00003.png" alt="" class="hide"><img src="common/myOut_00004.png" alt="" class="hide"><img src="common/myOut_00005.png" alt="" class="hide"><img src="common/myOut_00006.png" alt="" class="hide"><img src="common/myOut_00007.png" alt="" class="hide"><img src="common/myOut_00008.png" alt="" class="hide"><img src="common/myOut_00009.png" alt="" class="hide"><img src="common/myOut_00010.png" alt="" class="hide"><img src="common/myOut_00011.png" alt="" class="hide"><img src="common/myOut_00012.png" alt="" class="hide"><img src="common/myOut_00013.png" alt="" class="hide"><img src="common/myOut_00014.png" alt="" class="hide"><img src="common/myOut_00015.png" alt="" class="hide"></span>
+							<span class="haze">나의정보 열기</span>
+						</a>
+					</span>
+				</dd>
+			</dl>
+		</div>
+		<!--//header inner-->
+		<!-- global search -->
+		<div id="global_search" class="global_search"><!-- 활성화 시, 클래스 on 추가 -->
+			<div class="search_sec">
+				<div class="search_box">
+					<span class="input_txt"><input type="text" id="search_keyword" maxlength="200" class="text" value="" name="search_keyword" title="검색어 입력란" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode==13){ search(); return false; };"></span>
+					<button type="button" class="btn btn_search" onclick="search();"><span>검색</span></button>
+				</div>
+			</div>
+		</div>		
+		<!-- //global search -->
+		
+		<!-- personal + alarm notice -->
+		<div id="personalInfo" name="personalInfo" class="personalInfo" style="">
+			<h2 class="haze">나의 정보</h2>
+		</div>
+		<!-- //personal + alarm notice -->
+		
+	</div>
+
+
+    <!--//header-->
+    
+    <form id="frm" name="frm" action="http://www.cjone.com/cjmweb/point-card/brand/detail.do" method="post">
+        <input type="hidden" id="coopco_cd" name="coopco_cd"> 
+        <input type="hidden" id="brnd_cd" name="brnd_cd"> 
+        <input type="hidden" id="mcht_no" name="mcht_no">
+        <input type="hidden" id="cat_cd" name="cat_cd">
+        <input type="hidden" id="cat_nm" name="cat_nm">
+    </form>
+    
+    <input type="hidden" id="s" name="s" value=""> 
+    
+    <!-- contents : dummy -->
+    <div id="contentsWrap">
+        <h1 class="haze">CJ ONE, 메인</h1>
+
+        
+        <div class="main_wrap">
+            <!-- 프로모션 -->
+            <div class="promotion_wrap" data-control="promotion" data-indicator-color="black, black, black, black, white, white"><!-- 허용클래스: [white/black], li갯수만큼 white/black이 있어야 합니다.-->
+            
+                <div class="slider_wrap black"><!-- 기본색상일 때 : white, 검은색일 때 : black -->
+                    <div class="bx-wrapper" style="max-width: 1663px;"><div class="bx-controls bx-has-pager bx-has-controls-direction bx-has-controls-auto"><div class="pager_wrap"><div class="bx-controls-auto"><div class="bx-controls-auto-item"><a class="bx-start active" href="http://www.cjone.com/cjmweb/main.do">재생</a></div><div class="bx-controls-auto-item"><a class="bx-stop" href="http://www.cjone.com/cjmweb/main.do">정지</a></div></div><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="http://www.cjone.com/cjmweb/main.do" data-slide-index="0" class="bx-pager-link">1</a></div><div class="bx-pager-item"><a href="http://www.cjone.com/cjmweb/main.do" data-slide-index="1" class="bx-pager-link">2</a></div><div class="bx-pager-item"><a href="http://www.cjone.com/cjmweb/main.do" data-slide-index="2" class="bx-pager-link active">3</a></div><div class="bx-pager-item"><a href="http://www.cjone.com/cjmweb/main.do" data-slide-index="3" class="bx-pager-link">4</a></div><div class="bx-pager-item"><a href="http://www.cjone.com/cjmweb/main.do" data-slide-index="4" class="bx-pager-link">5</a></div><div class="bx-pager-item"><a href="http://www.cjone.com/cjmweb/main.do" data-slide-index="5" class="bx-pager-link">6</a></div></div></div><div class="bx-controls-direction"><a class="bx-prev" href="http://www.cjone.com/cjmweb/main.do">이전</a><a class="bx-next" href="http://www.cjone.com/cjmweb/main.do">다음</a></div></div><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 550px;"><div class="slider" data-handler="banner" style="width: 815%; position: relative; transition-duration: 1.5s; transform: translate3d(-4989px, 0px, 0px) scale(1);"><div class="col1 bx-clone" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item white"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161005_1152481.png" alt="CJ ONE"></p>
+                                    <p class="tit_wrap">씨티카드 &amp; CJ ONE<br>CJ ONE 5만 포인트 EVENT!</p>
+                                    <p class="h_desc"></p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=843&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;6&#39;);" class="btn" target="_self" tabindex="-1"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                                <div class="img_wrap">
+                                     <img src="common/20161027_1053291.jpg" alt="CJ ONE 5만 포인트 쿠폰 EVENT">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- 1개의 영역 시작 -->
+                        <div class="col1" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item black"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161122_1814581.png" alt="CJ ONE"></p>
+                                    <p class="tit_wrap">미리 준비하는<br>원.더.풀 포인트데이</p>
+                                    <p class="h_desc">지금  받으면<br>CJ ONE 포인트데이를 위한 1,000P가 쏙!</p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=867&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;1&#39;);" class="btn" target="_self"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1개의 영역 끝 -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- 1개의 영역 시작 -->
+                        <div class="col1" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item black"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161121_1346231.png" alt="CJ오쇼핑"></p>
+                                    <p class="tit_wrap">셀렙샵 에디션 런칭 기념<br>선물 증정 + 10%할인!</p>
+                                    <p class="h_desc">셀렙샵 에디션 주문하고 덧글로 기대평을 남겨주세요!<br>100명에게 '에센셜set'를 드립니다.</p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=866&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;2&#39;);" class="btn" target="_self"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1개의 영역 끝 -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- 1개의 영역 시작 -->
+                        <div class="col1 on" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item black"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161116_1125211.png" alt="H.O.P.E"></p>
+                                    <p class="tit_wrap">제품 속 나눔코드로<br>포인트 쌓고, 희망 나누고!</p>
+                                    <p class="h_desc">HOPE 희망나눔 제품 속 나눔코드 등록하면 <br>적립된 ONE 포인트만큼 HOPE가 난치병 어린이 후원금을 기부합니다.</p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=864&amp;evt_func_seq=1&amp;evt_cd=5" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;3&#39;);" class="btn hover" target="_self"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- 1개의 영역 끝 -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- 1개의 영역 시작 -->
+                        <div class="col1" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item black"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161115_1728111.png" alt="이너비 마스크팩 출시기념 이벤트"></p>
+                                    <p class="tit_wrap">CJ ONE 회원 단독<br>이너비 마스크팩 출시기념<br>특가 상품 &amp; 단독 쿠폰!</p>
+                                    <p class="h_desc"></p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=865&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;4&#39;);" class="btn" target="_self"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- 1개의 영역 끝 -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- 1개의 영역 시작 -->
+                        <div class="col1" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item white"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161024_1819171.png" alt="cgv"></p>
+                                    <p class="tit_wrap">CGV에서 3천P 사용하고 <br>3천원 추가 할인 받으세요!</p>
+                                    <p class="h_desc">CJ ONE 회원은 누구나 CGV주중/주말 2D 일반영화 현장 예매 시 <br>3천 포인트 사용하면 3천원 추가 할인 혜택을 드립니다. </p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=855&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;5&#39;);" class="btn" target="_self"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- 1개의 영역 끝 -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- 1개의 영역 시작 -->
+                        <div class="col1" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item white"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161005_1152481.png" alt="CJ ONE"></p>
+                                    <p class="tit_wrap">씨티카드 &amp; CJ ONE<br>CJ ONE 5만 포인트 EVENT!</p>
+                                    <p class="h_desc"></p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=843&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;6&#39;);" class="btn" target="_self"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                                <div class="img_wrap">
+                                     <img src="common/20161027_1053291.jpg" alt="CJ ONE 5만 포인트 쿠폰 EVENT">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1개의 영역 끝 -->
+                        
+                        
+                        
+                        
+                    <div class="col1 bx-clone" style="float: left; list-style: none; position: relative; width: 1663px;">
+                            <div class="pro_item black"><!-- 현재일 때 on 클래스 추가 -->
+                                <div class="txt_container">
+                                    <p class="log_wrap"><img src="common/20161122_1814581.png" alt="CJ ONE"></p>
+                                    <p class="tit_wrap">미리 준비하는<br>원.더.풀 포인트데이</p>
+                                    <p class="h_desc">지금  받으면<br>CJ ONE 포인트데이를 위한 1,000P가 쏙!</p>
+                                    <div class="btn_wrap">
+                                        <a href="http://www.cjone.com/cjmweb/event-coupon/event/detail.do?evt_seq=867&amp;evt_func_seq=1&amp;evt_cd=3" onclick="gaAction(&#39;MB001&#39;,&#39;1&#39;,&#39;1&#39;);" class="btn" target="_self" tabindex="-1"><span>자세히보기</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></div></div></div>
+                </div>
+            
+            </div>
+            <!-- //프로모션 -->
+
+
+
+
+
+            <!-- 퀵 링크 -->
+            <div class="quick_wrap" data-control="quick">
+                <h2 class="haze" data-scroll-callback="type:motion">CJ ONE 서비스 바로가기</h2>
+                <div class="quick_lick card">
+                    <a href="http://www.cjone.com/cjmweb/main.do#" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 빅배너&#39;, &#39;빅배너 영역&#39;, &#39;카드등록 안내&#39;);linkCardMng();">
+                        <span class="img" data-file-url="/cjmweb/images/main/sequence/quick01_[number].png" data-start-num="00000" data-end-num="00019">
+                            <img src="common/quick01_00000.png" alt=""><!-- quick01_00000 ~ quick01_00019 -->
+                        </span>
+                        <dl>
+                            <dt>카드등록 안내</dt>
+                            <dd>발급받은 ONE 카드 등록하세요</dd>
+                        </dl>
+                    </a>
+                    <span class="line"></span>
+                </div>
+                <div class="quick_lick add_point">
+                    <a href="http://www.cjone.com/cjmweb/point-card/brand.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 빅배너&#39;, &#39;빅배너 영역&#39;, &#39;포인트 적립 안내&#39;);">
+                        <span class="img" data-file-url="/cjmweb/images/main/sequence/quick02_[number].png" data-start-num="00000" data-end-num="00019">
+                            <img src="common/quick02_00000.png" alt=""><!-- quick02_00000 ~ quick02_00019 -->
+                        </span>
+                        <dl>
+                            <dt>포인트 적립처 안내</dt>
+							<dd>구매 시 ONE 포인트 꼭! 적립하세요</dd>
+                        </dl>
+                    </a>
+                    <span class="line"></span>
+                </div>
+                <div class="quick_lick point">
+                    <a href="http://www.cjone.com/cjmweb/point-card/bonus-point.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 빅배너&#39;, &#39;빅배너 영역&#39;, &#39;보너스포인트 안내&#39;);">
+                        <span class="img" data-file-url="/cjmweb/images/main/sequence/quick03_[number].png" data-start-num="00000" data-end-num="00019">
+                            <img src="common/quick03_00000.png" alt=""><!-- quick03_00000 ~ quick03_00019 -->
+                        </span>
+                        <dl>
+							<dt>보너스포인트 안내</dt>
+							<dd>추가 적립 포인트 혜택을 받으세요</dd>
+						</dl>
+                    </a>
+                    <span class="line"></span>
+                </div>
+                <div class="quick_lick coupon">
+                    <a href="http://www.cjone.com/cjmweb/event-coupon/coupon.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 빅배너&#39;, &#39;빅배너 영역&#39;, &#39;쿠폰혜택 안내&#39;);">
+                        <span class="img" data-file-url="/cjmweb/images/main/sequence/quick04_[number].png" data-start-num="00000" data-end-num="00019">
+                            <img src="common/quick04_00000.png" alt=""><!-- quick04_00000 ~ quick04_00019 -->
+                        </span>
+                        <dl>
+                            <dt>쿠폰혜택 안내</dt>
+                            <dd>다양한 할인 혜택을 받으세요</dd>
+                        </dl>
+                    </a>
+                </div>
+
+            </div>
+            <!-- //퀵 링크 -->
+            
+
+            <!-- HOT! ITEM & CONTENTS -->
+            <div class="hot_wrap" data-control="scrollAction">
+                <div class="content_wrap">
+                    <h2 class="h2_tit">가장 핫한 아이템과 컨텐츠를 <br>CJ ONE 포인트로 더욱 가볍게 즐기세요!</h2>
+
+                    <div class="hot_content" data-control="hotItem" style="height: 1903px;">
+                        <!-- 각 제휴사 마다 개별 class명 존재, 엠넷 : mnet, CGV : cgv, 1st LooK : logo_only, 쇼핑 : shopping -->
+                        
+                        
+                        <!-- 1 -->
+                        
+                        
+                        
+                        
+                        <!-- 기본 - 정사각형(쇼핑) -->
+                        <div class="hot_item big shopping" style="top: 30px; left: 0px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/41885843L.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap">
+                                                
+                                                
+                                                <img src="common/img_brand_1stlook.png" alt="1st Look">
+                                                
+                                            </p>
+                                            <div class="txt_wrap">
+                                                <p class="title">[LOVLOV] Unique-Form Coat_Camel 로브로브</p>
+                                                <p class="text_desc">
+                                                	
+                                                    <span class="ori_price">
+                                                        <span class="haze">정상가</span><del>720,000원</del>
+                                                    </span>
+                                                    
+                                                    <span class="price">
+                                                        <span class="haze">판매가</span>590,580원
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail"><!-- .item_link에 .hover, .focus가 적용되면 on클래스 추가 -->
+                                    <div class="detail_wrap" style="margin-top: -87px;"><!-- middle 정렬 필요, .detail_wrap높이값을 2로 나눈 값을 margin-top 음수값으로 적용 -->
+                                        <p class="logo_wrap">
+                                            
+                                            
+                                            <img src="common/img_brand_1stlook.png" alt="1st Look">
+                                            
+                                        </p>
+                                        <div class="txt_wrap">
+                                            <p class="title">[LOVLOV] Unique-Form Coat_Camel 로브로브</p>
+                                            <p class="text_desc">
+                                                
+                                                <span class="ori_price">
+                                                    <span class="haze">정상가</span><del>720,000원</del>
+                                                </span>
+                                                
+                                                <span class="price">
+                                                    <span class="haze">판매가</span>590,580원
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://shop.firstlook.co.kr/prd/detail_cate.jsp?item_cd=41885843&amp;chn_cd=0" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 1&#39;, &#39;1st Look_[LOVLOV] Unique-Form Coat_Camel 로브로브&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">구매하기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //기본 - 정사각형(쇼핑) -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- 2 -->  
+                                             
+                        
+                        
+                        <!-- 가로형(엠넷) -->
+                        <div class="hot_item col mnet" style="top: 30px; left: 552px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/1536204.jpg" alt=""></span>
+                                        <div class="summary_info" style="margin-top: -63.5px;">
+                                            <p class="logo_wrap"><img src="common/img_brand_mnet.png" alt="Mnet"></p>
+                                            <div class="txt_wrap">
+                                                <p class="title">나비잠 (Sweet Dream)</p>
+                                                <p class="text_desc">희철♩민경훈</p>
+                                                <div class="text_desc">
+                                                    <span>일간차트 1위</span>
+                                                    <p class="rate">
+                                                        <span class="ico same">변동없음</span>
+                                                        
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -76.5px;">
+                                        <p class="logo_wrap"><img src="common/img_brand_mnet.png" alt="Mnet"></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">나비잠 (Sweet Dream)</p>
+                                            <p class="text_desc">희철♩민경훈</p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.mnet.com/album/1536204" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 2&#39;, &#39;Mnet_나비잠 (Sweet Dream)&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">앨범 자세히 보기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow"></span>
+                        </div>
+                        <!-- //가로형(엠넷) -->
+                        
+                        
+                        
+                        
+                        
+                        <!-- 블로그 -->
+                        <div class="hot_item row blog" data-scroll-callback="type:vertical" data-limit-top="200" style="top: 302px; left: 552px; position: absolute;">
+                        
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/20161122_1004501.png" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap"><span class="haze">blog</span></p>
+                                            <div class="txt_wrap">
+                                                <p class="title">Day 22. 원스터 다이어리 - CJ 도너스캠프. 꿈꾸는 ...</p>
+                                                <p class="text_desc">2016.11.22</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -114px;">
+                                        <p class="logo_wrap"><span class="haze">blog</span></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">Day 22. 원스터 다이어리 - CJ 도너스캠프. 꿈꾸는 아이들을 위한 사랑 전하기! CJONE 포인트 기부 </p>
+                                            <p class="text_desc">2016.11.22</p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                        	<a href="http://blog.naver.com/PostList.nhn?blogId=cjone_blog&amp;from=postList&amp;categoryNo=16&amp;parentCategoryNo=16" onclick="gaAction(&#39;BLOG&#39;,&#39;&#39;,&#39;Day 22. 원스터 다이어리 - CJ 도너스캠프. 꿈꾸는 아이들을 위한 사랑 전하기! CJONE 포인트 기부 &#39;);" target="_blank" class="btn btn_sm"><span class="out">자세히 보기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                        
+                        
+                        </div>
+                        <!-- //블로그 -->
+
+                        <!-- 세로형(CGV) -->
+                        <div class="hot_item row cgv" style="top: 302px; left: 792px; position: absolute;">
+                        
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/79180_320.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap"><img src="common/img_brand_cgv.png" alt="CGV"></p>
+                                            <div class="txt_wrap">
+                                                <p class="title">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <span class="grade grade12">12<span class="haze">세 이상 관람가</span></span>
+                                                    
+                                                    
+                                                    신비한 동물사전
+                                                </p>
+                                                <div class="text_desc">
+                                                    <div class="reserve_info">
+                                                        <span class="reserve">예매율 1위</span>
+                                                        <div class="starRating">
+                                                            <span class="haze">별점</span>
+                                                            <p class="star" style="width:92%">
+                                                                <span class="haze">4.6/5</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -123.5px;">
+                                        <p class="logo_wrap"><img src="common/img_brand_cgv.png" alt="CGV"></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">
+                                                
+                                                
+                                                
+                                                
+                                                <span class="grade grade12">12<span class="haze">세 이상 관람가</span></span>
+                                                
+                                                
+                                                신비한 동물사전
+                                            </p>
+                                            <div class="text_desc">
+                                            	
+                                                <p class="info_txt">누적관객수 : 2,238,150명</p>
+                                                <p class="info_txt">감독 : 데이빗 예이츠</p>
+                                                <p class="info_txt">상영시간: 133분</p>
+                                                <div class="reserve_info">
+                                                    <span class="reserve">예매율 1위</span>
+                                                    <div class="starRating">
+                                                        <span class="haze">별점</span>
+                                                        <p class="star" style="width:92%">
+                                                            <span class="haze">4.6/5</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.cgv.co.kr/movies/detail-view/?midx=79180" onclick="gaAction(&#39;CGV&#39;,&#39;1&#39;,&#39;신비한 동물사전&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">예매하기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow"></span>
+                         
+                         
+                        </div>
+                        <!-- //세로형(CGV) -->
+
+
+
+
+                        <!-- 3 -->
+                        
+                        
+                        <!-- 기본 - 정사각형(작음, 로고만 보여진 레시피) -->
+                        <div class="hot_item small logo_only recipe " style="top: 716px; left: -100px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/0000002222.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap"><img src="common/img_brand_cjcheiljedang.png" alt="CJ 제일제당"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail"><!-- .item_link에 .hover, .focus가 적용되면 on클래스 추가 -->
+                                    <div class="detail_wrap" style="margin-top: -93.5px;"><!-- middle 정렬 필요, .detail_wrap높이값을 2로 나눈 값을 margin-top 음수값으로 적용 -->
+                                        <p class="logo_wrap"><img src="common/img_brand_cjcheiljedang.png" alt="CJ 제일제당"></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">감자 도너츠</p>
+                                            <p class="text_desc">조리법 : 빵/과자</p>
+                                            <p class="text_desc">난이도 : 중</p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.cj.co.kr/cj-kr/recipes/0000002222" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 3&#39;, &#39;CJ 제일제당_감자 도너츠&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">레시피 보기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //기본 - 정사각형(작음, 로고만 보여진 레시피) -->
+                        
+                        
+                        
+                        
+                        
+
+                        <!-- 페이스북 -->
+                        <div class="hot_item row facebook" style="top: 716px; left: 252px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <div class="summary_info">
+                                            <p class="logo_wrap"><span class="haze">facebook</span></p>
+                                            <div class="txt_wrap">
+                                                <p class="title">삐요삐요~ 뉴스속보!
+
+"12월 1일(목) 세상의 모든 CJ ONE 포인트가 
+사라...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -136.5px;">
+                                        <p class="logo_wrap"><span class="haze">facebook</span></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">삐요삐요~ 뉴스속보!
+
+"12월 1일(목) 세상의 모든 CJ ONE 포인트가 
+사라...</p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                        	<a href="https://www.facebook.com/161344933920283_1123670697687697" onclick="gaAction(&#39;FACEBOOK&#39;,&#39;&#39;,&#39;&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">자세히 보기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                                
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //페이스북 -->
+
+
+
+
+
+                        <!-- 4 -->
+                        
+                        
+                        
+                        <!-- 세로형(엠넷) -->
+                        <div class="hot_item row mnet " style="top: 1068px; left: 0px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/1536213.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap"><img src="common/img_brand_mnet.png" alt="Mnet"></p>
+                                            <div class="txt_wrap">
+                                                <p class="title">또 생각이 나서 (With 임 ...</p>
+                                                <p class="text_desc">알리(ALi)</p>
+                                                <div class="text_desc">
+                                                    <span>일간차트 2위</span>
+                                                    <p class="rate">
+                                                        <span class="ico up">상승</span>
+                                                        7
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail"><!-- .item_link에 .hover, .focus가 적용되면 on클래스 추가 -->
+                                    <div class="detail_wrap" style="margin-top: -84px;"><!-- middle 정렬 필요, .detail_wrap높이값을 2로 나눈 값을 margin-top 음수값으로 적용 -->
+                                        <p class="logo_wrap"><img src="common/img_brand_mnet.png" alt="Mnet"></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">또 생각이 나서 (With 임창정)</p>
+                                            <p class="text_desc">알리(ALi)</p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.mnet.com/album/1536213" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 4&#39;, &#39;Mnet_또 생각이 나서 (With 임창정)&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">앨범 자세히 보기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //세로형(엠넷) -->
+                        
+                        
+                        
+                        
+
+
+
+
+
+                        <!-- 5 -->
+                        
+                        
+                        
+                        
+                        <!-- 세로형(쇼핑) -->
+                        <div class="hot_item row shopping" style="top: 1072px; left: 272px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/42016858L.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap">
+                                                
+                                                <img src="common/img_brand_cjmall.png" alt="CJ mall">
+                                                
+                                                
+                                            </p>
+                                            <div class="txt_wrap">
+                                                <p class="title">로이룩 CJ몰 카탈로그 상품 특가전</p>
+                                                <p class="text_desc">
+                                                	
+                                                    <span class="price">
+                                                        <span class="haze">판매가</span>5,800원
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -96.5px;">
+                                        <p class="logo_wrap">
+                                            
+                                            <img src="common/img_brand_cjmall.png" alt="CJ mall">
+                                            
+                                            
+                                        </p>
+                                        <div class="txt_wrap">
+                                            <p class="title">로이룩 CJ몰 카탈로그 상품 특가전</p>
+                                            <p class="text_desc">
+                                            	
+                                                <span class="price">
+                                                    <span class="haze">판매가</span>5,800원
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.cjmall.com/prd/detail_cate.jsp?item_cd=42016858" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 5&#39;, &#39;CJ mall_로이룩 CJ몰 카탈로그 상품 특가전&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">구매하기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //세로형(쇼핑) -->
+                        
+                        
+                        
+                        
+                        
+
+                        <!-- 6 -->
+                        
+                        
+                        <!-- 기본 - 정사각형(로고만 보여진 레시피) -->
+                        <div class="hot_item big logo_only recipe " style="top: 921px; left: 544px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/0000002223.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap"><img src="common/img_brand_cjcheiljedang.png" alt="CJ 제일제당"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail"><!-- .item_link에 .hover, .focus가 적용되면 on클래스 추가 -->
+                                    <div class="detail_wrap" style="margin-top: -93.5px;"><!-- middle 정렬 필요, .detail_wrap높이값을 2로 나눈 값을 margin-top 음수값으로 적용 -->
+                                        <p class="logo_wrap"><img src="common/img_brand_cjcheiljedang.png" alt="CJ 제일제당"></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">알룰로스 펌킨 머핀</p>
+                                            <p class="text_desc">조리법 : 빵/과자</p>
+                                            <p class="text_desc">난이도 : 중</p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.cj.co.kr/cj-kr/recipes/0000002223" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 6&#39;, &#39;CJ 제일제당_알룰로스 펌킨 머핀&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">레시피 보기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //기본 - 정사각형(로고만 보여진 레시피) -->
+                        
+                        
+                        
+                        
+                        
+
+
+
+
+
+                        <!-- 가로형(CGV) -->
+                        <div class="hot_item col cgv" style="top: 1502px; left: 0px; position: absolute;">
+                        
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/79221_320.jpg" alt=""></span>
+                                        <div class="summary_info" style="margin-top: -57.5px;">
+                                            <p class="logo_wrap"><img src="common/img_brand_cgv.png" alt="CGV"></p>
+                                            <div class="txt_wrap">
+                                                <p class="title">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <span class="grade grade12">12<span class="haze">세 이상 관람가</span></span>
+                                                    
+                                                    
+                                                    형
+                                                </p>
+                                                <div class="text_desc">
+                                                    <div class="reserve_info">
+                                                        <span class="reserve">예매율 2위</span>
+                                                        <div class="starRating">
+                                                            <span class="haze">별점</span>
+                                                            <p class="star" style="width:93%">
+                                                                <span class="haze">4.65/5</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -118.5px;">
+                                        <p class="logo_wrap"><img src="common/img_brand_cgv.png" alt="CGV"></p>
+                                        <div class="txt_wrap">
+                                            <p class="title">
+                                                
+                                                
+                                                
+                                                
+                                                <span class="grade grade12">12<span class="haze">세 이상 관람가</span></span>
+                                                
+                                                
+                                                형
+                                            </p>
+                                            <div class="text_desc">
+                                                
+                                                <p class="info_txt">누적관객수 : 20,515명</p> 
+                                                <p class="info_txt">감독 : 권수경</p>
+                                                <p class="info_txt">상영시간: 110분</p>
+                                                <div class="reserve_info">
+                                                    <span class="reserve">예매율 2위</span>
+                                                    <div class="starRating">
+                                                        <span class="haze">별점</span>
+                                                        <p class="star" style="width:93%">
+                                                            <span class="haze">4.65/5</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.cgv.co.kr/movies/detail-view/?midx=79221" onclick="gaAction(&#39;CGV&#39;,&#39;2&#39;,&#39;형&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">예매하기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow"></span>
+                        
+                        
+                        </div>
+                        <!-- //가로형(CGV) -->
+
+
+
+
+                        
+                        <!-- 7 -->
+                        
+                        
+                        
+                        
+                        <!-- 세로형(쇼핑) -->
+                        <div class="hot_item row shopping" style="top: 1473px; left: 552px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/41823993L.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap">
+                                                
+                                                
+                                                <img src="common/img_brand_1stlook.png" alt="1st Look">
+                                                
+                                            </p>
+                                            <div class="txt_wrap">
+                                                <p class="title">[REPLAIN] Dark Navy Cashmere Blend 30 Lo...</p>
+                                                <p class="text_desc">
+                                                	
+                                                    <span class="ori_price">
+                                                        <span class="haze">정상가</span><del>725,000원</del>
+                                                    </span>
+                                                    
+                                                    <span class="price">
+                                                        <span class="haze">판매가</span>664,650원
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -108.5px;">
+                                        <p class="logo_wrap">
+                                            
+                                            
+                                            <img src="common/img_brand_1stlook.png" alt="1st Look">
+                                            
+                                        </p>
+                                        <div class="txt_wrap">
+                                            <p class="title">[REPLAIN] Dark Navy Cashmere Blend 30 Long Coat 리플레인</p>
+                                            <p class="text_desc">
+                                                <span class="ori_price">
+                                                    <span class="haze">정상가</span><del>725,000원</del>
+                                                </span>
+                                                <span class="price">
+                                                    <span class="haze">판매가</span>664,650원
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://shop.firstlook.co.kr/prd/detail_cate.jsp?item_cd=41823993&amp;chn_cd=0" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 7&#39;, &#39;1st Look_[REPLAIN] Dark Navy Cashmere Blend 30 Long Coat 리플레인&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">구매하기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //세로형(쇼핑) -->
+                        
+                        
+                        
+                        
+                        
+                        
+
+                        <!-- 8 -->
+                        
+                        
+                        
+                        
+                        <!-- 세로형(쇼핑) -->
+                        <div class="hot_item row shopping" style="top: 1473px; left: 824px; position: absolute;">
+                            <div class="item_wrap">
+                                <a href="javascript:void(0);" class="item_link">
+                                    <div class="inner">
+                                        <span class="img_wrap"><img src="common/41983443L.jpg" alt=""></span>
+                                        <div class="summary_info">
+                                            <p class="logo_wrap">
+                                                
+                                                <img src="common/img_brand_cjmall.png" alt="CJ mall">
+                                                
+                                                
+                                            </p>
+                                            <div class="txt_wrap">
+                                                <p class="title">[11/23~27] MISSHA 전 품목 1+1CJONE 2,000...</p>
+                                                <p class="text_desc">
+                                                	
+                                                    <span class="price">
+                                                        <span class="haze">판매가</span>9,800원
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- 상세 내용 -->
+                                <div class="item_detail">
+                                    <div class="detail_wrap" style="margin-top: -96.5px;">
+                                        <p class="logo_wrap">
+                                            
+                                            <img src="common/img_brand_cjmall.png" alt="CJ mall">
+                                            
+                                            
+                                        </p>
+                                        <div class="txt_wrap">
+                                            <p class="title">[11/23~27] MISSHA 전 품목 1+1CJONE 2,000P증정</p>
+                                            <p class="text_desc">
+                                            	
+                                                <span class="price">
+                                                    <span class="haze">판매가</span>9,800원
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <a href="http://www.cjmall.com/prd/detail_cate.jsp?item_cd=41983443" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;홈페이지 메인 _ 제휴 컨텐츠&#39;, &#39;컨텐츠 8&#39;, &#39;CJ mall_[11/23~27] MISSHA 전 품목 1+1CJONE 2,000P증정&#39;);" target="_blank" title="새창" class="btn btn_sm"><span class="out">구매하기</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //상세 내용 -->
+                            </div>
+                            <span class="bg_shadow">
+                                <span class="top"></span>
+                                <span class="btm"></span>
+                            </span>
+                        </div>
+                        <!-- //세로형(쇼핑) -->
+                        
+                        
+                        
+
+                        <span class="clfix"></span>
+                        
+                    </div>
+                    
+                    <!-- 움직이는 원 -->
+                    <div class="circle_wrap" data-control="circleMotion">
+                    <span class="circle doughnut_l" data-scroll-callback="type:circle" data-before="71"></span>
+                    <span class="circle combine_l" data-scroll-callback="type:circle" data-before="796"></span>
+                    <!-- doughnut_r과 combine_r이 합쳐지면 top값은 서로 같음. -->
+                    <span class="circle doughnut_r" data-scroll-callback="type:circle" data-before="-300"></span><!-- top:946px까지 이동 후 .combine_r와 같이 top가 이동됨. -->
+                    <span class="circle combine_r" data-scroll-callback="type:circle" data-before="947"></span>
+                    <span class="circle posi1" data-scroll-callback="type:circle" data-before="365"></span>
+                    <span class="circle posi2" data-scroll-callback="type:circle" data-before="722"></span>
+                    <span class="circle posi3" data-scroll-callback="type:circle" data-before="991"></span>
+                    <span class="circle posi4" data-scroll-callback="type:circle" data-before="1957"></span>
+                    </div>
+                    <!-- //움직이는 원 -->
+
+                </div>
+
+            </div>
+            <!-- //HOT! ITEM & CONTENTS -->
+
+            <!-- 제휴 브랜드 -->
+            <div class="alliance_wrap" data-control="alliance">
+                <h2 class="h2_tit">다양한 CJ 라이프스타일 <span class="break_word">브랜드에서 ONE하세요!</span></h2>
+                <div class="global_tab">
+                    <ul data-control="tab">
+                        <li class="all on"><a href="javascript:getAllianceList(&#39;&#39;,&#39;전체&#39;)"><span>전체</span><span class="haze">선택됨</span></a></li><!-- 선택 시 li에 on클래스 추가 및 <span class="haze">선택됨</span>추가  -->
+                        
+                        
+                        <li><a href="javascript:getAllianceList(&#39;01&#39;,&#39;엔터테인먼트&#39;)"><span>엔터테인먼트</span></a></li>
+                        
+                        
+                        
+                        <li><a href="javascript:getAllianceList(&#39;02&#39;,&#39;외식&#39;)"><span>외식</span></a></li>
+                        
+                        
+                        
+                        <li><a href="javascript:getAllianceList(&#39;03&#39;,&#39;쇼핑&#39;)"><span>쇼핑</span></a></li>
+                        
+                        
+                        
+                        <li><a href="javascript:getAllianceList(&#39;04&#39;,&#39;통신&#39;)"><span>통신</span></a></li>
+                        
+                        
+                        
+                        <li><a href="javascript:getAllianceList(&#39;05&#39;,&#39;여행&#39;)"><span>여행</span></a></li>
+                        
+                        
+                        
+                        <li><a href="javascript:getAllianceList(&#39;06&#39;,&#39;유통&#39;)"><span>유통</span></a></li>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="alliance_list" data-handler="allianceList">
+                    <!-- 4, 8, 12, 16, 20, 24, 28번째 아이템에 tablet클래스 추가,  6,12,18,24,30번째 아이템에 pc클래스 추가, 12,24에는 tablet과 pc모두 적용  -->
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7010&#39;, &#39;1000&#39;,&#39;1000&#39;, &#39;CGV&#39;)" class="item_link">
+                            
+                            <span class="event">event</span>
+                            
+                            <p class="logo_wrap"><img src="common/20160808_1934261.png" alt="CGV"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7040&#39;, &#39;4000&#39;,&#39;4000&#39;, &#39;Mnet&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0212431.png" alt="Mnet"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">2% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7040&#39;, &#39;4140&#39;,&#39;4140&#39;, &#39;tving&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0216141.png" alt="tving"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7040&#39;, &#39;4070&#39;,&#39;ITM017&#39;, &#39;포인트락커&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0247581.png" alt="포인트락커"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>참여 수준에 따라 <em class="em">1~100,000P 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7040&#39;, &#39;4070&#39;,&#39;4070&#39;, &#39;CJ E&amp;M&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0255211.png" alt="CJ E&amp;M"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item pc"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7150&#39;, &#39;1501&#39;,&#39;1501&#39;, &#39;CJ문화재단&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0258431.png" alt="CJ문화재단"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>젊은 창작문화를 움직이다 <em class="em">CJ문화재단</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2020&#39;,&#39;2020&#39;, &#39;투썸플레이스&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0148521.png" alt="투썸플레이스"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">2% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2040&#39;,&#39;2040&#39;, &#39;빕스&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0153111.png" alt="빕스"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">3% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2010&#39;,&#39;2010&#39;, &#39;뚜레쥬르&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160901_1058041.png" alt="뚜레쥬르"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2170&#39;,&#39;2170&#39;, &#39;계절밥상&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0202351.png" alt="계절밥상"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2120&#39;,&#39;2120&#39;, &#39;제일제면소&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0225051.png" alt="제일제면소"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet pc"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2100&#39;,&#39;2100&#39;, &#39;비비고&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0227391.png" alt="비비고"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2050&#39;,&#39;2050&#39;, &#39;차이나팩토리&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0230291.png" alt="차이나팩토리"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>10% 할인 + <em class="em">결제 금액의 0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2160&#39;,&#39;2160&#39;, &#39;차이나팩토리 딜라이트&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0233361.png" alt="차이나팩토리 딜라이트"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2090&#39;,&#39;2090&#39;, &#39;더플레이스&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0236231.png" alt="더플레이스"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2150&#39;,&#39;2150&#39;, &#39;더스테이크하우스&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0238561.png" alt="더스테이크하우스"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2140&#39;,&#39;2140&#39;, &#39;CJ푸드월드&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0241451.png" alt="CJ푸드월드"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item pc"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2130&#39;,&#39;2130&#39;, &#39;빕스버거&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0244571.png" alt="빕스버거"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7020&#39;, &#39;2180&#39;,&#39;2180&#39;, &#39;주스 솔루션&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0303391.png" alt="주스 솔루션"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">2% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7030&#39;, &#39;3000&#39;,&#39;3000&#39;, &#39;올리브영&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0144321.png" alt="올리브영"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.1% ~ 2% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7050&#39;, &#39;5000&#39;,&#39;30&#39;, &#39;CJmall&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0205501.png" alt="CJmall"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제시 <em class="em">0.1 ~ 1.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7050&#39;, &#39;5000&#39;,&#39;25&#39;, &#39;퍼스트룩&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0209481.png" alt="퍼스트룩"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제시 <em class="em">0.1% 기본 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7060&#39;, &#39;6010&#39;,&#39;6010&#39;, &#39;CJ온마트&#39;)" class="item_link">
+                            
+                            <span class="event">event</span>
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0222131.png" alt="CJ온마트"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet pc"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7060&#39;, &#39;6040&#39;,&#39;6040&#39;, &#39;CJ제일제당&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0249511.png" alt="CJ제일제당"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">0.2% 익일 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7050&#39;, &#39;5000&#39;,&#39;5000&#39;, &#39;CJ오쇼핑&#39;)" class="item_link">
+                            
+                            <span class="event">event</span>
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0251431.png" alt="CJ오쇼핑"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제시 <em class="em">0.3% ~ 1.5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7050&#39;, &#39;5010&#39;,&#39;5010&#39;, &#39;스타일온에어&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0302121.png" alt="스타일온에어"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제금액의 <em class="em">3% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7060&#39;, &#39;6070&#39;,&#39;6070&#39;, &#39;CJ Logoshop&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0300271.png" alt="CJ Logoshop"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">5% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item tablet"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7070&#39;, &#39;7020&#39;,&#39;7020&#39;, &#39;헬로모바일&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0219011.png" alt="헬로모바일"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>등급에 따라 <em class="em">1 ~ 10% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7120&#39;, &#39;1201&#39;,&#39;1201&#39;, &#39;CJ월디스&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0257101.png" alt="CJ월디스"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>결제 금액의 <em class="em">1 ~ 10% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="alliance_item pc"><!-- 선택 시 on클래스 추가 -->
+                        <a href="javascript:goDetail(&#39;7130&#39;, &#39;1301&#39;,&#39;1301&#39;, &#39;CJ대한통운&#39;)" class="item_link">
+                            
+                            <p class="logo_wrap"><img src="common/20160811_0253211.png" alt="CJ대한통운"></p>
+                        </a>
+                        <div class="detail_info">
+                            <p>택배운임의 <em class="em">2% 적립</em></p>
+                            <span class="ico"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <!-- //제휴 브랜드 -->
+
+        </div>
+    </div>
+    
+    <!-- //contents : dummy -->
+
+    <!-- footer -->
+    <div id="footer">
+        
+
+
+
+<script type="text/javascript">
+// footer 이벤트 선택 함수(1=이용약관,2=이전이용약관, 3=ARS 본인인증,4=법적고지, 5=이메일무단수집거부, 6=사이트맵, 그이외 개인정보취급)
+function goFooterMenu(type){
+	var pageUrl="";
+	if("1"==type){
+		pageUrl="http://www.cjone.com/cjmweb/terms.do?type="+type;
+		location.href=pageUrl;
+	}
+	else if("2"==type){
+		pageUrl="http://www.cjone.com/cjmweb/previous-terms.do?type="+type;
+		location.href=pageUrl;
+	}
+	else if("3"==type){
+		pageUrl="/cjmweb/layer/verify-account.do?type="+type;	
+		cjone.openModal(pageUrl);
+	}
+	else if("4"==type){
+		pageUrl="/cjmweb/layer/legal-notices.do?type="+type;	
+		cjone.openModal(pageUrl);
+	}
+	else if("5"==type){
+		pageUrl="/cjmweb/layer/email-security.do?type="+type;	
+		cjone.openModal(pageUrl);
+	}
+	else if("6"==type){
+		pageUrl="http://www.cjone.com/cjmweb/sitemap.do?type="+type;
+		location.href=pageUrl;
+	}
+	// 등록일 format(yyyymmdd)
+	else{
+		if(""==type){
+			pageUrl="http://www.cjone.com/cjmweb/privacy.do?privacyDate="+type+"&recent_yn=Y";
+
+			location.href=pageUrl;
+		}
+		else{
+			pageUrl="http://www.cjone.com/cjmweb/privacy.do?privacyDate="+type+"&recent_yn=N";
+			location.href=pageUrl;
+		}
+	}
+}
+</script>
+
+<div class="footer_wrap">			
+	
+	<div class="util_menu">
+		<ul>
+			<li><a href="javascript:goFooterMenu(&quot;1&quot;)" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;이용약관&#39;, &#39;이용약관&#39;);">이용약관</a></li>
+			<li><a href="javascript:goFooterMenu(&quot;&quot;)" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;개인정보취급방침&#39;, &#39;개인정보처리방침&#39;);"><em>개인정보처리방침</em></a></li>
+			<li><a href="javascript:goFooterMenu(&quot;3&quot;)" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;ARS 본인인증&#39;, &#39;ARS 본인인증&#39;);">ARS 본인인증</a></li>
+			<li><a href="javascript:goFooterMenu(&quot;4&quot;)" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;법적고지&#39;, &#39;법적고지&#39;);">법적고지</a></li>
+			<li><a href="javascript:goFooterMenu(&quot;5&quot;)" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;이메일무단수집거부&#39;, &#39;이메일무단수집거부&#39;);">이메일무단수집거부</a></li>
+			<li class="accessibility"><a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" target="_blank">웹접근성 우수사이트 인증</a></li>
+		</ul>
+	</div>
+	<div class="go_link">
+			<a href="http://www.cjone.com/cjmweb/about-cjone.do" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ ONE소개&#39;, &#39;CJ ONE소개&#39;);" class="cjone_info"><span>CJ ONE소개</span></a>
+			<a href="http://www.cjone.com/cjmweb/about-cjone.do#app_guide" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;APP 소개&#39;, &#39;APP 소개&#39;);" class="app_info"><span>APP 소개</span></a>
+			<a href="javascript:goFooterMenu(&quot;6&quot;)" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;사이트맵&#39;, &#39;사이트맵&#39;);" class="ars_certify"><span>사이트맵</span></a>
+			<a href="http://corp.cgv.co.kr/default.aspx" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;회사소개&#39;, &#39;회사소개&#39;);" class="company_info"><span>회사소개</span></a>
+		<div class="familySite">
+			<a href="http://www.cjone.com/cjmweb/main.do#familySite" data-control="toggleGnb" data-open-text="열기" data-close-text="닫기" title="열기" class="btn_open">CJ그룹 계열사 바로가기</a>
+			<ul id="familySite" class="site_list hide">
+				<li><p class="title">CJ그룹</p>
+					<ul class="list_2depth">
+						<li><a target="_blank" href="http://www.cj.net/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ주식회사&#39;);">CJ주식회사</a></li>
+					</ul>
+				</li>
+				<li><p class="title">엔터테인먼트 &amp; 미디어</p>
+					<ul class="list_2depth">
+						<li><a target="_blank" href="http://www.cjenm.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ E&amp;M&#39;);">CJ E&amp;M</a></li>
+						<li><a target="_blank" href="http://www.cgv.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ CGV&#39;);">CJ CGV</a></li>
+						<li><a target="_blank" href="http://www.cjhellovision.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ헬로비전&#39;);">CJ헬로비전</a></li>
+						<li><a target="_blank" href="http://www.cjpowercast.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ파워캐스트&#39;);">CJ파워캐스트</a></li>
+					</ul>
+				</li>
+				<li><p class="title">식품 &amp; 식품서비스</p>
+					<ul class="list_2depth">
+						<li><a target="_blank" href="http://www.cj.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ제일제당&#39;);">CJ제일제당</a></li>
+						<li><a target="_blank" href="http://www.cjfreshway.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ프레시웨이&#39;);">CJ프레시웨이</a></li>
+						<li><a target="_blank" href="http://www.cjfoodville.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ푸드빌&#39;);">CJ푸드빌</a></li>
+						<li><a target="_blank" href="http://www.md1.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ엠디원&#39;);">CJ엠디원</a></li>
+					</ul>
+				</li>
+				<li><p class="title">생명공학</p>
+					<ul class="list_2depth">
+						<li><a target="_blank" href="http://www.cj.co.kr/cj-kr/businesses/4/main" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ제일제당&#39;);">CJ제일제당</a></li>
+						<li><a target="_blank" href="http://www.cjp.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ헬스케어&#39;);">CJ헬스케어</a></li>
+					</ul>
+				</li>
+				<li><p class="title">신유통</p>
+					<ul class="list_2depth">
+						<li><a target="_blank" href="http://www.cjoshopping.com/index.asp" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ오쇼핑&#39;);">CJ오쇼핑</a></li>
+						<li><a target="_blank" href="http://www.cjkoreaexpress.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ대한통운&#39;);">CJ대한통운</a></li>
+						<li><a target="_blank" href="http://www.cjtelenix.com/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ텔레닉스&#39;);">CJ텔레닉스</a></li>
+						<li><a target="_blank" href="http://www.cjolivenetworks.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ올리브네트웍스&#39;);">CJ올리브네트웍스</a></li>
+					</ul>
+				</li>
+				<li><p class="title">인프라</p>
+					<ul class="list_2depth">
+						<li><a target="_blank" href="http://www.cjenc.co.kr/" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Footer 영역&#39;, &#39;CJ그룹 계열사 바로가기&#39;, &#39;CJ건설&#39;);">CJ건설</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="site_info">
+		<span class="ceo_info">대표이사 서정</span>
+		<address>주소 03922 서울특별시 마포구 월드컵북로 434, 상암IT타워(상암동) 9-10층</address>
+		<span class="customer_info">CJ ONE 고객센터 1577-8888</span>
+		<span class="license_num">사업자 등록번호 104-81-45690</span>
+		<span class="privacy_info">개인정보보호책임자 정종민</span>
+	</div>
+	<p class="copyright">
+		<span class="img"><img src="common/logo_cjcgv_footer.png" alt="CJ CGV"></span>
+		COPYRIGHT 2010-2016 CJ CGV. ALL RIGHTS RESERVED.
+	</p>
+	
+	<div class="fixedTop hide" data-control="goTop"><a href="http://www.cjone.com/cjmweb/main.do#headerWrap" title="페이지 처음으로 이동"><span class="haze">TOP</span></a></div>
+</div>
+
+    </div>
+    <!-- //footer -->
+</div>
+<!-- script 영역-->
+<script src="common/cjoneCore.js"></script>
+<script src="common/commonUi.js"></script>
+<script src="common/frontUi.js"></script>
+<script src="common/jquery.bxslider.js"></script>
+<script src="common/main.js"></script>
+<script type="text/javascript">
+$(function () {
+    
+});
+
+function getAllianceList(cat_cd, cat_nm) {
+
+    $("#cat_cd").val(cat_cd);
+    $("#cat_nm").val(cat_nm);
+	
+	ga('send', 'event', '홈페이지 메인 _ 제휴 브랜드', '카테고리', cat_nm); 
+	
+    $.ajax({
+        url : "/cjmweb/main/getAllianceList.do",
+        dataType : "json",
+        async : true,
+        type : "POST",
+        data : {"cat_cd":cat_cd},
+        cache : false,
+        success : function(objJson) {
+            $('.alliance_list').empty();
+            var list = objJson.brandList;
+            for(var i=0; i<list.length; i++) {
+                var item = list[i];
+                var cat_cd_nm ='';
+                var html = '';
+                html+='<div class="alliance_item'+ ((i+1)%4 == 0 ? ' tablet' : '') + ((i+1)%6 == 0 ? ' pc' : '') +'">';
+                html+=' <a href="javascript:goDetail(\''+item.coopco_cd+'\', \''+item.brnd_cd+'\', \''+item.mcht_no+'\', \''+item.brnd_nm+'\')" class="item_link">';
+                if(item.evt_cnt > 0) {
+                    html+='     <span class="event">event</span>';
+                }
+                html+='     <p class="logo_wrap"><img src="/cjmweb/upfile/'+item.brnd_bi_img11_mask+'" alt="'+item.brnd_bi_img11_memo+'"></p>';
+                html+=' </a>';
+                html+=' <div class="detail_info">';
+                html+='     <p>'+item.brnd_bnf_sum+'</p>';
+                html+='     <span class="ico"></span>';
+                html+=' </div>';
+                html+='</div>';
+                $('.alliance_list').append(html);
+            }
+            
+        },
+        error : function(objJson) {
+            alert("요청에 실패하였습니다.");
+        }
+    });
+    
+}
+
+
+function getOnmart(callback) {
+    $.ajax({
+        url : "/cjmweb/main/getOnmart.do",
+        dataType : "json",
+        async : true,
+        type : "POST",
+        data : {},
+        cache : false,
+        success : function(objJson) {
+            var item = JSON.parse(objJson.onmart);
+            if(item.RESULT_CODE == "0000") {
+                $('.onmart .img_wrap img').attr("src", item.P_IMG_URL);
+                $('#onmart_title').text(item.TITLE);
+                if(item.N_PRICE == item.C_PRICE){
+                    $('#onmart_ori_price').text("");    
+                }else{
+                    $('#onmart_ori_price').text(item.N_PRICE);
+                }
+                $('.onmart .price').text(item.C_PRICE);
+                $('.onmart .btn_wrap a').attr("href", item.P_URL);
+                if(item.LOGO_IMG != undefined) {
+                    $('.onmart .summary_info p img').attr("src", item.LOGO_IMG);    
+                }else{
+                    $('.onmart .summary_info p').empty();
+                }
+                
+                $('.stamp').empty().append($('.onmart').html());
+                $('.onmart').remove();
+                $('.stamp').addClass('onmart').removeClass('stamp');
+                
+                if(callback) {
+                	callback();
+                }
+            }
+        }
+    });
+    
+}
+
+// 제휴 브랜드 상세 이동
+function goDetail(coopco_cd, brnd_cd, mcht_no, brnd_nm) {
+    ga('send', 'event', '홈페이지 메인 _ 제휴 브랜드', $('#cat_nm').val(), brnd_nm); 
+    $("#coopco_cd").val(coopco_cd);
+    $("#brnd_cd").val(brnd_cd);
+    $("#mcht_no").val(mcht_no);
+    $("#frm").attr("action", "http://www.cjone.com/cjmweb/point-card/brand/detail.do");
+    $("#frm").submit();
+}
+
+
+function gaAction(gaType, part, idx){
+    var dt = new Date();
+    var month = dt.getMonth()+1;
+    if(month < 10){
+        month = "0"+ month;
+    }
+    var day = dt.getDate();
+    var year = ''+dt.getFullYear();
+    var dayStr = year + month + day;
+    
+    if(gaType == "MB001"){
+    	ga('send', 'event', '홈페이지 메인 _ 프로모션', idx+'_프로모션', dayStr+'_템플릿A_'+part);  
+    }else if(gaType == "MB002"){
+        ga('send', 'event', '홈페이지 메인 _ 프로모션', idx+'_프로모션', dayStr+'_템플릿B_'+part);
+    }else if(gaType == "MB013"){
+        ga('send', 'event', '홈페이지 메인 _ 프로모션', idx+'_프로모션', dayStr+'_템플릿C_'+part);
+    }else if(gaType == "CGV"){
+        ga('send', 'event', '홈페이지 메인 _ 제휴 컨텐츠', '컨텐츠 '+idx+'_CGV', '[CGV]_'+dayStr+'_'+part); //part:컨텐츠제목
+    }else if(gaType == "BLOG"){
+        ga('send', 'event', '홈페이지 메인 _ 제휴 컨텐츠', '컨텐츠_블로그', '[블로그]_'+dayStr+'_'+part); //part:컨텐츠제목
+    }else if(gaType == "FACEBOOK"){
+        ga('send', 'event', '홈페이지 메인 _ 제휴 컨텐츠', '컨텐츠_페이스북', '[페이스북]_'+dayStr+'_'+part); //part:컨텐츠제목
+    }
+}
+</script>
+
+
