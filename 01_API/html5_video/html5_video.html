@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+	<title></title>
+	<script type="text/javascript">
+
+	function init(){
+		var video = document.getElementById("myvideo");
+		var rewind = document.getElementById("rewind");
+		var fastforword = document.getElementById("fastforword");
+		 
+		rewind.onclick = function(){
+			video.playbackRate -= 1;
+		};
+		fastforword.onclick = function(){
+			video.playbackRate += 1;
+		};
+	}
+	
+	</script>
+</head>
+<body onload="init();">
+
+<!-- 
+	- video 가이드
+	controls : 영상 컨트로
+	autoplay : 자동 재생
+	preload : "auto"속성이 지정되면 페이지가 로딩된 후 자동으로 비디오를 다운
+	loop : 반복재생
+ -->
+
+ <video id="myvideo" width="640" height="368" autoplay preload controls> 
+    <source src="spring.ogv" type="video/ogg"> </source>
+    <source src="spring.mp4" type="video/mp4"> </source>
+    <source src="spring.webm" type="video/webm"> </source>
+ </video>
+
+ <a href="#none" id="rewind">- 배속</a>
+ <a href="#none" id="fastforword">+ 배속</a>
+
+</body>
+</html>

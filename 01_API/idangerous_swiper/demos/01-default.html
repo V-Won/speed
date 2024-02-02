@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+    <style>
+    /* Demo Syles */
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    .device {
+        width: 320px;
+        height: 422px;
+        margin: 30px auto;
+        position: relative;
+    }
+    .device .arrow-left {
+        background: url(img/arrows.png) no-repeat left top;
+        background-size:10px 35px;
+        position: absolute;
+        left: 10px;
+        bottom: 7px;
+        margin-top: -15px;
+        width: 10px;
+        height: 17px;
+        z-index:30;
+    }
+    .device .arrow-right {
+        background: url(img/arrows.png) no-repeat left bottom;
+        background-size:10px 35px;
+        position: absolute;
+        right: 10px;
+        bottom: 7px;
+        margin-top: -15px;
+        width: 10px;
+        height: 17px;
+        z-index:30;
+    }
+    .swiper-container {
+        height: 385px;
+        width: 320px;
+    }
+    .content-slide {padding:20px 0;background:#fff;}
+    .title {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    .pagination {
+        position: absolute;
+        left: 0;
+        text-align: center;
+        bottom:5px;
+        width: 100%;
+    }
+    .swiper-pagination-switch {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background: #999;
+        box-shadow: 0px 1px 2px #555 inset;
+        margin: 0 3px;
+        cursor: pointer;
+    }
+    .swiper-active-switch {
+        background: #fff;
+    }
+    .swiper-slide-visible{
+        position:relative;
+    }
+    .swiper-slide{z-index:10;}
+    .swiper-slide .a1,
+    .swiper-slide .a2,
+    .swiper-slide .a3{display:none;}
+    .swiper-slide-active{z-index:20 !important;}
+    .swiper-slide-active .a1,
+    .swiper-slide-active .a2,
+    .swiper-slide-active .a3{display:block;}
+    .a1,
+    .a2,
+    .a3{position:absolute;}
+    </style>
+</head>
+<body style="height:1000px;">
+    <div class="device">
+        <a class="arrow-left" href="#"></a>
+        <a class="arrow-right" href="#"></a>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content-slide">
+                        <p class="img-text a1"><img src="img/text_1.png" alt="마세코 핫케익 브런치 체험 이벤트1" style="width:250px;height:65px;"></p>
+                        <p class="img-text a2"><img src="img/pd_1.png" alt="핫케익 믹스" style="width:181px;height:148px;"></p>
+                        <p><img src="img/pd_2.jpg" alt="제품명" style="width:320px;height:325px;"></p>
+                        <p class="img-text a3"><a href="#none1"><img src="img/text_2.png" alt="백설 영양균형 핫케익믹스와 함께하는 쉽고 빠른 홈메이드 브런치 공개! 체험단 신청하기!" style="width:171px;height:128px;"></a></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content-slide">
+                        <p class="img-text a1"><img src="img/text_3.png" alt="마세코 핫케익 브런치 체험 이벤트2" style="width:250px;height:65px;"></p>
+                        <p class="img-text a2"><img src="img/pd_1.png" alt="핫케익 믹스" style="width:181px;height:148px;"></p>
+                        <p><img src="img/pd_2.jpg" alt="제품명" style="width:320px;height:325px;"></p>
+                        <p class="img-text a3"><a href="#none1"><img src="img/text_2.png" alt="백설 영양균형 핫케익믹스와 함께하는 쉽고 빠른 홈메이드 브런치 공개! 체험단 신청하기!" style="width:171px;height:128px;"></a></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content-slide">
+                        <p class="img-text a1"><img src="img/text_4.png" alt="마세코 핫케익 브런치 체험 이벤트3" style="width:250px;height:65px;"></p>
+                        <p class="img-text a2"><img src="img/pd_1.png" alt="핫케익 믹스" style="width:181px;height:148px;"></p>
+                        <p><img src="img/pd_2.jpg" alt="제품명" style="width:320px;height:325px;"></p>
+                        <p class="img-text a3"><a href="#none1"><img src="img/text_2.png" alt="백설 영양균형 핫케익믹스와 함께하는 쉽고 빠른 홈메이드 브런치 공개! 체험단 신청하기!" style="width:171px;height:128px;"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination"></div>
+    </div>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/idangerous.swiper-2.1.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script>
+    var mySwiper = new Swiper('.swiper-container',{
+        pagination: '.pagination',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true,
+        onSlideChangeStart: function(){
+            swipeChange();
+        },
+        onTouchMove:function(){
+            var itemA = $('.swiper-slide > .content-slide > .a1.img-text');
+            var itemB = $('.swiper-slide-active > .content-slide > .img-text');
+
+            itemA.hide();
+            itemB.show();
+        }
+    })
+    var arrowLeft = $('.arrow-left');
+    var arrowRight = $('.arrow-right');
+
+    arrowLeft.on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipePrev()
+    })
+    arrowRight.on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipeNext()
+    })
+
+    // 슬라이드 시작 실행
+    function swipeChange(){
+
+        var a1 = $('.swiper-slide .a1');
+        var a2 = $('.swiper-slide .a2');
+        var a3 = $('.swiper-slide .a3');
+        
+        a1.css({"top":"-12px","left":"-100%","display":"block"}).animate({
+            top:'-12px',
+            left:'15px'
+        }, 400, 'easeInOutCirc', {queue:false});
+        a2.css({"top":"218px","right":"-100%","display":"block"}).animate({
+            top:'218px',
+            right:'18px'
+        }, 400, 'easeInOutCirc', {queue:false});
+        a3.css({"top":"80px","left":"-100%","display":"block"}).animate({
+            top:'80px',
+            left:'68px'
+        }, 600, 'easeInOutCirc', {queue:false});
+
+    }
+
+    swipeChange();
+
+    </script>
+</body>
+</html>

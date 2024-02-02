@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<script type="text/javascript" src="modalLayer_files/jquery-1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+/*
+* @date : 2013-09-08
+* @func
+* @name : openModalLayer
+* @param : layerID = #LayerID (string)
+* 		   origin  = this	  (string)
+*/
+function openModalLayer(layerID,origin){
+
+	var $this = $(layerID),
+		focusable = [];
+
+	$this.find('*').each(function(i, val) {
+		if(val.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON/gim) && parseInt(val.getAttribute("tabIndex")) !== -1) {
+			focusable.push(val);
+		}
+		if((val.getAttribute("tabIndex") !== null) && (parseInt(val.getAttribute("tabIndex")) >= 0) && (val.getAttribute("tabIndex", 2) !== 32768)) {
+			focusable.push(val);
+		}
+	});
+
+	var el_firstFocus = focusable[0],
+		el_lastFocus = focusable[focusable.length-1];
+
+	$(document).on({
+		'keydown' : function(e){
+			var keyCode = e.keyCode || e.which;
+			if (keyCode == 27){ // ESC key
+				$this.find('.dialog-close').click();
+				$(document).off('keydown');
+			}
+		}
+	})
+
+	$(el_firstFocus).on({ // div class="dialog"
+		'keydown' : function(e){
+			if (e.target == this){
+				var keyCode = e.keyCode || e.which;
+				if (keyCode == 9){ // Tab + Shift key
+					if (e.shiftKey){
+						console.log(`${e.shiftKey} 쉬프트 맞아 + first`); // 마지막 버튼에서 호출 됨.
+						$(el_lastFocus).focus();
+						e.preventDefault();
+					}
+				}
+			}
+		}
+	});
+
+	$(el_lastFocus).on({ // 마지막 class="dialog-close"
+		'keydown' : function(e){
+			var keyCode = e.keyCode || e.which;
+			if (keyCode == 9){ // Tab key
+				if (!e.shiftKey){
+					console.log(`${e.shiftKey} 쉬프트 아니야 + last`); // 마지막 버튼에서 호출 됨.
+					$(el_firstFocus).focus();
+					e.preventDefault();
+				}
+			}
+		}
+	});
+
+	$this.find('.dialog-close').click(function(e){
+		$(origin).focus();
+		$this.hide();
+		e.preventDefault();
+	});
+
+	$this.show().find($(el_firstFocus)).focus();
+
+};
+//]]>
+</script>
+</head>
+<body>
+<style type="text/css">
+.underlayer {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4)}
+.dialog {position:absolute;top:50%;left:50%;width:500px;height:300px;margin:-150px 0 0 -250px;background:#fff;border:1px solid #000;}
+</style>
+<h1>[접근성] 레이어팝업</h1>
+<h2>사용법</h2>
+<ul>
+	<li>openModalLayer 함수 추가</li>
+	<li>레이어팝업의 콘텐츠를 감싸고 있는 div에 <strong>tabindex="0"</strong> 속성을 추가한다.</li>
+	<li>레이어 창을 닫는 기능을 포함한 버튼들에는 <strong>dialog-close</strong> 클래스를 추가한다</li>
+</ul>
+
+<hr>
+<ul id="list">
+	<li><a href="#ly-login">111111</a></li>
+	<li><a href="#ly-login">222222</a></li>
+	<li><a href="#ly-login">333333</a></li>
+	<li><a href="#ly-login">444444</a></li>
+</ul>
+
+<div id="ly-login" style="display:none">
+	<div class="underlayer">&nbsp;</div>
+	<div class="dialog" tabindex="0" role="dialog" aria-labelledby="dialog-title">
+		<h1 id="dialog-title">레이어 타이틀</h1>
+		<p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+		<button class="confirm dialog-close"><span>확인</span></button>
+		<button class="cancle dialog-close"><span>취소</span></button>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	$('#list').find('a').click(function(e){
+		var target = $(this).attr('href');
+		openModalLayer(target, this);
+		e.preventDefault();
+	});
+})
+//]]>
+</script>
+
+</body></html>

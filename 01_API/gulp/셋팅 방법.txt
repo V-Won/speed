@@ -1,0 +1,38 @@
+
+- 설명 잘나옴
+http://blog.naver.com/chilla/220731069370
+
+
+
+- node 설치
+http://sjpison.tistory.com/399
+
+- gulf 설치
+http://forgiveall.tistory.com/246
+
+- gulf 셋팅
+http://uxicode.tistory.com/285
+
+- node와 npm 설치
+http://programmingsummaries.tistory.com/374
+
+- 자세히 나왔음 순서대로 진행
+http://programmingsummaries.tistory.com/356
+
+- 셋팅 좋은 예시
+https://github.com/eu81273/gulp-step-by-step/tree/master/step08_browser_sync
+
+- 참고
+http://forgiveall.tistory.com/246
+
+- gulp ppt 설명 잘되어 있음.
+http://www.slideshare.net/meadunhansa/gulp-48608642
+
+- 품질 향상
+http://www.slideshare.net/rockdoli/adieu-springsprout2014
+
+- npm packege 검색
+https://www.npmjs.com/package/gulp-include
+
+- git-bash
+http://parkhyunjin.tistory.com/9
