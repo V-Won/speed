@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>cube.html</title>
+		<style>
+			* { margin:0; padding:0; }
+			
+			#cube {
+				width:100px; height:100px;
+				-webkit-perspective:1000px; 
+				-webkit-transform-style:preserve-3d;
+			}
+			#cube figure {
+				width:100%; height:100%; border:1px solid #ccc; position:absolute;
+				-webkit-backface-visibility:hidden;
+			}
+			#left {
+				-webkit-transform:rotateY(270deg) translateZ(50px);
+				background-color:red;
+			}
+			#right {
+				-webkit-transform: rotateY(90deg) translateZ(50px);
+				background-color:orange;
+			}
+			#top {
+				-webkit-transform:rotateX(270deg) translateZ(50px);
+				background-color:yellow;
+			}
+			#bottom {
+				-webkit-transform:rotateX(90deg) translateZ(50px);
+				background-color:green;
+			}
+			#back {
+				-webkit-transform:rotateY(180deg) translateZ(50px);
+				background-color:blue;
+			}
+			#front {
+				-webkit-transform:translateZ(50px);
+				background-color:violet;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			$(function(){
+				var cube = $('#cube');
+				
+				var tx = $(window).width() / 2 - cube.children().width() / 2;
+				var ty = $(window).height() / 2 - cube.children().height() / 2;
+				
+				cube.css({
+					transform:'translate(' + tx + 'px,' + ty +'px)'
+				});
+				
+				$(document).click(function(e){
+					var tx = e.offsetX - cube.children().width() / 2;
+					var ty = e.offsetY - cube.children().height() / 2;
+					
+					cube.css({
+						transition:'all 1s ease-out',
+						transform:'translate(' + tx + 'px,' + ty +'px) rotateY(' + tx + 'deg) rotateX('  + ty + 'deg)'
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<section id="wrapper">
+			<div id="cube">
+				<figure id="back">back</figure>
+				<figure id="bottom">bottom</figure>
+				<figure id="top">top</figure>
+				<figure id="left">left</figure>
+				<figure id="right">right</figure>
+				<figure id="front">front</figure>
+			</div>
+		</section>
+	</body>
+</html>

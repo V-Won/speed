@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>2014 서울세계불꽃축제, Hanwha Fireworks Festival 2014</title>
+    <meta name="keywords" content="2014 서울세계불꽃축제" />
+    <meta name="description" content="2014 한화와 함께 하는 서울세계불꽃축제에서 당신의 불꽃을 찾아보세요. http://www.hanwhafireworks.com" />
+    <meta property="og:url" content="http://www.hanwhafireworks.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="2014 서울세계불꽃축제" />
+    <meta property="og:description" content="2014 한화와 함께 하는 서울세계불꽃축제에서 당신의 불꽃을 찾아보세요. http://www.hanwhafireworks.com" />
+    <meta property="og:image" content="http://www.hanwhafireworks.com/images/Hanwha_Teaser.jpg" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="icon" href="http://cdn.hanwhafireworks.com/web/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="http://cdn.hanwhafireworks.com/web/images/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="http://cdn.hanwhafireworks.com/web/css/reset.css" />
+    <link rel="stylesheet" href="http://cdn.hanwhafireworks.com/web/css/main_141105.css" />
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/swfobject.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/min/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/min/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/spin.min.js"></script>
+	<script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/loading.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/main_141105.js"></script>
+    
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/min/CSSPlugin.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/min/EasePack.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/min/TweenLite.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/min/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/netfunnel.js"></script>
+    <script type="text/javascript" src="http://cdn.hanwhafireworks.com/web/js/fire_skin.js"></script>
+    <script language="javascript" src="http://cdn.hanwhafireworks.com/web/js/sdc_hanwhafireworks.com.js"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-53594521-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+	<script type="text/javascript">
+        var onSubLayer = false;
+        var iframeTitles = [
+            {val: "gallery.html", title: "불꽃공모전 수상작"},
+            {val: "about.html", title: "COLOR YOUR LIFE"},
+            {val: "festival.html", title: "서울세계불꽃축제"},
+            {val: "information.html", title: "불꽃연구소"},
+            {val: "/member/login.do", title: "로그인"},
+            {val: "/member/join.do", title: "회원가입"},
+            {val: "/member/mypage.do", title: "회원정보수정"},
+            {val: "info_protection_pageview.html", title: "개인정보취급방침"},
+            {val: "info_pageview.html", title: "이용약관"}
+        ];
+		function subpage( val ) {
+            var ititle = getIframeTitleName(val);
+            
+			$("#dimmed").fadeIn();
+			$("#sublayer").html('<iframe width="100%" height="100%" class="subframe" name="subpage" src="' + val + '" title="' + ititle + '" frameborder=0 allowtransparency="true"></iframe>').fadeIn();
+			$("body").css("overflow","hidden");
+            
+            setFocusIframe();
+            onSubLayer = true;
+		}
+        function setFocusIframe() {
+            setTimeout(function() {
+                var iframe = $("#sublayer > iframe")[0];
+                iframe.contentWindow.focus();
+            }, 100);
+        }
+        function getIframeTitleName(val) {
+            var len = iframeTitles.length;
+            for(var i=0; i<len; ++i){
+                if(val.indexOf(iframeTitles[i].val) != -1) {
+                    return iframeTitles[i].title;
+                }
+            }
+        }
+
+		function subpageclose() {
+			$("#dimmed").fadeOut();
+			$("#sublayer").html('').fadeOut();
+			$("body").css("overflow","auto");
+            
+            window.setTimeout(function(){
+                if($clickTag) $clickTag.focus();
+            },100);
+            onSubLayer = false;
+		}
+
+		function showLogin(){
+			$('.smenu1').show();
+			$('.smenu2').show();
+			$('.smenu5').hide();
+			$('.smenu6').hide();
+		}
+
+		function showLogout(){
+			$('.smenu1').hide();
+			$('.smenu2').hide();
+			$('.smenu5').show();
+			$('.smenu6').show();
+		}
+        
+        function showList(idx){
+            var trackNames = ["", "notice", "question", "direct"];
+            checkTrack(trackNames[idx]);
+            
+            var linkUrl = "/center/notice.do";
+            var actionId = "notice_list";
+            if( idx == 2){
+                linkUrl = "/center/qna.do";
+                actionId = "qna_list";
+            }else if(idx == 3){
+                linkUrl = "/center/qna.do?r=index";
+                actionId = "qna_view";
+            }
+            if( idx == 1 || idx == 3){
+                NetFunnel_Action({
+                    service_id : "service_1",
+                    action_id : actionId
+                },
+                linkUrl);
+            }else{
+                window.location.href=linkUrl;
+            }
+        }
+ 
+        function showNetFunnel(idx){
+            var linkUrl = "/member/login.do";
+            var actionId = "login";
+            if( idx == 2){
+                linkUrl = "/member/join.do";
+                actionId = "join";
+            }else if(idx == 3){
+                linkUrl = "/member/mypage.do";
+                actionId = "mypage";
+            }
+            NetFunnel_Action({
+                service_id : "service_1",
+                action_id : actionId
+            },
+            function(){
+                subpage(linkUrl);
+            });
+        }
+
+		$(function(){
+			$('.smenu1').hide();
+			$('.smenu2').hide();
+			$('.smenu5').hide();
+			$('.smenu6').hide();
+			<c:if test="${empty userId }">showLogin();</c:if>
+			<c:if test="${not empty userId }">showLogout();</c:if>
+		});
+	</script>
+</head>
+
+<body>
+    <div class="hidden"><a href="#contents">본문으로 바로가기</a></div>
+    <div id="spin"></div>
+    <div class="wrap">
+
+        <div class="header">
+            <div class = "navicon">
+                <div class ="navibar"></div>
+                <h1><a href="#"><img src="http://cdn.hanwhafireworks.com/web/images/main/logo.png" alt="Hanwha, 한화와 함께하는 2014서울세계불꽃축제 SEOUL INTERNATIONAL FIREWORKS FESTIVAL" /></a></h1>
+                <ul class="gnb" id="gnbtab">
+                    <li class="gnb1">
+                        <a href="#main" title="메인으로">
+                            <img class="gnb_bullet_off" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn_off.png" alt="불꽃 이미지" />
+                            <div class="gnb_bullet_on"><img src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn1_on.png" alt="불꽃 이미지" /></div>
+                            <img class="gnb_txt" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/btn_txt1.png" alt="메인으로" />
+                        </a>
+                    </li>
+                    <li class="gnb2">
+                        <a href="#coloryourlife" title="COLOR YOUR LIFE">
+                            <img class="gnb_bullet_off" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn_off.png" alt="불꽃 이미지" />
+                            <div class="gnb_bullet_on"><img src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn2_on.png" alt="불꽃 이미지" /></div>
+                            <img class="gnb_txt" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/btn_txt2.png" alt="COLOR YOUR LIFE" />
+                        </a>
+                    </li>
+                    <li class="gnb3">
+                        <a href="#fireworksfestival" title="불꽃축제">
+                            <img class="gnb_bullet_off" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn_off.png" alt="불꽃 이미지" />
+                            <div class="gnb_bullet_on"><img src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn3_on.png" alt="불꽃 이미지" /></div>
+                            <img class="gnb_txt" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/btn_txt3.png" alt="불꽃축제" />
+                        </a>
+                    </li>
+                    <li class="gnb4">
+                        <a href="#fireworkslab" title="불꽃연구소">
+                            <img class="gnb_bullet_off" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn_off.png" alt="불꽃 이미지" />
+                            <div class="gnb_bullet_on"><img src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn4_on.png" alt="불꽃 이미지" /></div>
+                            <img class="gnb_txt" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/btn_txt4.png" alt="불꽃연구소" />
+                        </a>
+                    </li>
+                    <li class="gnb5">
+                        <a href="#fireworksboard" title="불꽃게시판">
+                            <img class="gnb_bullet_off" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn_off.png" alt="불꽃 이미지" />
+                            <div class="gnb_bullet_on"><img src="http://cdn.hanwhafireworks.com/web/images/main/gnb/img_btn5_on.png" alt="불꽃 이미지" /></div>
+                            <img class="gnb_txt" src="http://cdn.hanwhafireworks.com/web/images/main/gnb/btn_txt5.png" alt="불꽃게시판" />
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="topMenu">
+                    <li class="ticket">
+                        <a href="gallery.html" target="_blank" title="불꽃공모전 수상작">불꽃공모전 수상작</a>
+                        <div class="linelight1"><img src="http://cdn.hanwhafireworks.com/web/images/main/yline1.png" alt="" /></div>
+                        <div class="linelight2"><img src="http://cdn.hanwhafireworks.com/web/images/main/yline1.png" alt="" /></div>
+                        <div class="linelight_y1"><img src="http://cdn.hanwhafireworks.com/web/images/main/yline2.png" alt="" /></div>
+                        <div class="linelight_y2"><img src="http://cdn.hanwhafireworks.com/web/images/main/yline2.png" alt="" /></div>
+                    </li>
+                    <li class="smenu1"><a href="javascript:showNetFunnel(1);" title="LOGIN">LOGIN</a></li>
+                    <li class="smenu2"><a href="javascript:showNetFunnel(2);" title="JOIN">JOIN</a></li>
+                    <li class="smenu5"><a href="/member/logout.do" title="LOGOUT">LOGOUT</a></li>
+                    <li class="smenu6"><a href="javascript:showNetFunnel(3);" title="MYPAGE">MYPAGE</a></li>
+                    <li class="smenu3" onclick="checkTrack('eng_gnb');"><a href="http://www.hanwhafireworks.com/eng/" target="_self" title="ENG" data-tab="-1">ENG</a></li>
+                    <li class="smenu4"><div class = "soundbtn" id ="SoundFlashBox"></div></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="content" id="contents">
+            <div class="bottombg" style="bottom:0">
+                <img src="http://cdn.hanwhafireworks.com/web/images/main/bot_bg.jpg" alt="" />
+            </div>
+            <div class="skipcon">
+                <div class= "mute">
+                    <div class = "mutebtn0"><a href="javascript:soundcontrol();" title="mute0" tabindex="0" autofocus="autofocus" ></a></div>
+                    <div class = "mutebtn1"><a href="javascript:soundcontrol();" title="mute1" autofocus="autofocus" ></a></div>
+                </div>
+                <div class = "skipbtn"><a href="javascript:introskip();" title="SKIP"></a></div>
+            </div>
+            <div class = "con">
+                
+                <div class="bg" style="top:0">
+                    <img src="http://cdn.hanwhafireworks.com/web/images/main/backbg.jpg" alt="" />
+                </div>
+                <div class="starcon">
+                    <div class="star">
+                        <div class ="star1"><img src="http://cdn.hanwhafireworks.com/web/images/main/star1.png" alt="" /></div>
+                        <div class ="star2"><img src="http://cdn.hanwhafireworks.com/web/images/main/star2.png" alt="" /></div>
+                    </div>
+                </div>
+
+                <div class = "line">
+                    <img src="http://cdn.hanwhafireworks.com/web/images/main/centerlight.png" alt="" />
+                </div>
+                
+                <div class="intro">
+                    <div class = "fire" id ="IntroFlashBox"></div>
+                </div>
+                
+                <div class = "main">
+                    
+                    <!-- 메인으로 -->
+                    <section class="section1">
+                        <div class="section_skip"><a href="#none" onclick="return false;">메인</a></div>
+                        <div class="ftype1"></div>
+                        <div class="ftype2"></div>
+                        <div class = "f1"><img src="http://cdn.hanwhafireworks.com/web/images/main/f1_1.png" alt="" /></div>
+                        <div class = "f2"><img src="http://cdn.hanwhafireworks.com/web/images/main/f1_2.png" alt="" /></div>
+                        <h1><img src="http://cdn.hanwhafireworks.com/web/images/main/title_main_1.png" alt="COLOR YOUR LIFE FIREWORKS FESTIVAL" /></h1>
+
+                        <div class = "firecon">
+                            <div class="flvwrap">
+                                <div class = "fire" id ="EvtFlashBox"></div>
+                            </div>
+                            <div class= "fireover"><img src="http://cdn.hanwhafireworks.com/web/images/main/phoOver.png" alt=""></div>
+                            <div class = "firetxt1"><a href="gallery.html" target="_blank"><img src="http://cdn.hanwhafireworks.com/web/images/main_141105/fire_txt1.png" alt="불꽃공모전 수상작"></a></div>
+                        </div>
+                        <div class = "date"><img src="http://cdn.hanwhafireworks.com/web/images/main/title_main_date.png" alt="2014년 서울세계불꽃축제에 오신 시민 여러분들께 감사의 말씀을 드립니다.곧 다가올 새로운 불꽃이벤트도 기대해주세요!" /></div>
+                        <div class = "scrolldown">
+                            <a href="#"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_down.png" alt="스크롤다운 버튼" /></a>
+                            <div class="ww1"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                            <div class="ww2"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                        </div>
+                        <div class="section_skip"><a class="gomenu" href="#none" data-tab="2">메인메뉴로 바로가기</a></div>
+                    </section>
+
+                    <!-- COLOR YOUR LIFE-->
+                    <section class="section2">
+                        <div class="section_skip"><a href="#none" onclick="return false;">COLOR YOUR LIFE</a></div>
+                        <div class="ftype1"></div>
+                        <div class="ftype2"></div>
+                        <div class="ftype3"></div>
+                        
+                        <!-- 라인모션-->
+                        <div class="linedown"></div>
+                        <div class="lineup"></div>
+                        
+                        <div class = "f1"><img src="http://cdn.hanwhafireworks.com/web/images/main/f2_1.png" alt="" /></div>
+                        <div class = "stitle">
+                            <div class = "st1"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_1.png" alt="COLOR YOUR LIFE" /></div>
+                            <div class = "st2"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_1_1.png" alt="당신의 불꽃은 무엇입니까?열정,꿈,희망,사랑 인생의 불꽃을 찾아드립니다." /></div>
+                        </div>
+                        <div class = "pictobox">
+                            <a href="javascript: ;" class = "pbox2">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub1_img_2.png" alt="캠페인 소개 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub1_menu2.png" alt="COLOR YOUR LIFE 여러분의 삶에 다채로운 색들을 입혀보세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="캠페인 소개 보기" /></div>
+                            </a>
+                            <a href="javascript: ;" class = "pbox3">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub1_img_3.png" alt="불꽃장인 소개 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub1_menu3.png" alt="한화 불꽃연구소와 평생을 함께한 불꽃장인의 불꽃스토리를 감상해 보세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="불꽃장인 소개 보기" /></div>
+                            </a>
+                        </div>
+                        <div class = "boxover">
+                            <div class = "box2">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_1_2.jpg" alt="캠페인 소개 보기 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt1_2_1.jpg" alt="COLOR YOUR LIFE캠페인과 함께 놀랍도록 다채로운 즐거운 순간들을 만들어 보세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt1_2_2.jpg" alt="캠페인 소개 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="캠페인 소개 보기 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            <div class = "box3">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_1_3.jpg" alt="불꽃장인 소개 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt1_3_1.jpg" alt="한화 불꽃연구소 불꽃장인의 흥미로운 불꽃 스토리를 감상해 보세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt1_3_2.jpg" alt="불꽃장인 소개 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="불꽃장인 소개 보기 버튼이미지" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "scrolldown">
+                            <div class="ww1"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                            <div class="ww2"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                        </div>
+                        <div class="section_skip"><a class="gomenu" href="#none" data-tab="3">메인메뉴로 바로가기</a></div>
+                    </section>
+                    
+                    <!-- 불꽃축제-->
+                    <section class="section3">
+                        <div class="section_skip"><a href="#none" onclick="return false;">불꽃축제</a></div>
+                        <div class="ftype1"></div>
+                        <div class="ftype2"></div>
+                        <div class="ftype3"></div>
+                        
+                        <!-- 라인모션-->
+                        <div class="linedown"></div>
+                        <div class="lineup"></div>
+
+                        <div class = "f1"><img src="http://cdn.hanwhafireworks.com/web/images/main/f3_1.png" alt="" /></div>
+                        <div class = "stitle">
+                            <div class = "st1"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_2.png" alt="서울세계불꽃축제" /></div>
+                            <div class = "st2"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_2_1.png" alt="하늘에서 피어나는 가장 화려한 예술,2000년부터 시작된 서울세계불꽃축제 더 아름답고 신비한 빛으로 여러분의 삶에 색을 더하겠습니다." /></div>
+                        </div>
+                        <div class = "pictobox">
+                            <a href="javascript: ;" class = "pbox1">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub3_img_1.png" alt="한화의 불꽃축제 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub3_menu1.png" alt="한국을 넘어 세계와 함께한 한화의 불꽃사업을 확인해 보세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="한화의 불꽃축제 보기" /></div>
+                            </a>
+                            <a href="javascript: ;" class = "pbox2">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main_141105/picto_sub3_img_3.png" alt="불꽃 매거진" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main_141105/sub3_menu3.png" alt="한화와 함께한 불꽃 이야기를 웹진으로 만나보세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="불꽃 매거진" /></div>
+                            </a>
+                            <a href="javascript: ;" class = "pbox3">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub3_img_2.png" alt="2014불꽃축제 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub3_menu2.png" alt="12회를 맞이한 2014서울세계불꽃축제의 정보를 확인해 보세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="2014불꽃축제 보기" /></div>
+                            </a>
+                        </div>
+                        <div class = "boxover">
+                            <div class = "box1">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_3_1.jpg" alt="한화의 불꽃축제 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt3_1_1.jpg" alt="1964년부터 시작한 한화의 불꽃프로모션사업을 확인해 보세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt3_1_2.jpg" alt="한화의 불꽃축제 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="한화의 불꽃축제 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            <div class = "box2">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main_141105/subpop/popimg_3_3.jpg" alt="불꽃 매거진" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main_141105/subpop/txt3_3_1.jpg" alt="한화와 함께한 불꽃 이야기를 웹진으로 만나보세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main_141105/subpop/txt3_3_2.jpg" alt="불꽃 매거진" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="불꽃 매거진 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            <div class = "box3">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_3_2.jpg" alt="2014불꽃축제 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt3_2_1.jpg" alt="12회를 맞이한 2014서울세계불꽃축제 정보를 확인해 보세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt3_2_2.jpg" alt="2014불꽃축제 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="2014불꽃축제 버튼이미지" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "scrolldown">
+                            <div class="ww1"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                            <div class="ww2"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                        </div>
+                        <div class="section_skip"><a class="gomenu" href="#none" data-tab="4">메인메뉴로 바로가기</a></div>
+                    </section>
+
+                    <!-- 불꽃연구소-->
+                    <section class="section4">
+                        <div class="section_skip"><a href="#none" onclick="return false;">불꽃연구소</a></div>
+                        <div class="ftype1"></div>
+                        <div class="ftype2"></div>
+                        <div class="ftype3"></div>
+                        
+                        <!-- 라인모션-->
+                        <div class="linedown"></div>
+                        <div class="lineup"></div>
+                        
+                        <div class = "f1"><img src="http://cdn.hanwhafireworks.com/web/images/main/f4_1.png" alt="" /></div>
+                        <div class = "stitle">
+                            <div class = "st1"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_3.png" alt="불꽃연구소" /></div>
+                            <div class = "st2"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_3_1.png" alt="밤하늘을 수놓는 불꽃에 숨겨진 과학과 다양한 디자인을 생생한 영상으로 보실 수 있습니다." /></div>
+                        </div>
+
+                        <div class = "pictobox">
+                            <a href="javascript: ;" class = "pbox1">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub2_img_1.png" alt="불꽃의 원리 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub2_menu1.png" alt="볼꽃축제에서 가장 광범위하게 사용되는 것으로 연화를 대표하는 타상연화에 대해 알려드립니다." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="불꽃의 원리 보기" /></div>
+                            </a>
+                            <a href="javascript: ;" class = "pbox2">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub2_img_2.png" alt="불꽃제조 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub2_menu2.png" alt="제작공정은 대부분이 수작업으로 이뤄지는데요. 제조과정은 크게 4가지로 나눌 수 있습니다." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="불꽃 제조과정 보기" /></div>
+                            </a>
+                           <a href="javascript: ;" class = "pbox3">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub2_img_3.png" alt="불꽃디자인 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub2_menu3.png" alt="과학이 발달하면서 표현되는 디자인도 다양해졌습니다. 영상으로 확인해보세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="불꽃디자인 보기" /></div>
+                            </a>
+                            
+                        </div>
+                        <div class = "boxover">
+                            <div class = "box1">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_2_1.jpg" alt="불꽃의 원리 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt2_1_1.jpg" alt="불꽃축제에서 가장 광범위하게 사용되는 것으로 연화를 대표하는 타상연화에 대해 알려드립니다." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt2_1_2.jpg" alt="불꽃의 원리 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="불꽃의 원리 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            
+                            <div class = "box2">
+                                 <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_2_2.jpg" alt="불꽃 제조과정 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt2_2_1.jpg" alt="제작공정은 대부분이 수작업으로 이뤄지는데요. 제조과정은 크게 4가지로 나눌 수 있습니다." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt2_2_2.jpg" alt="불꽃 제조과정 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="불꽃 제조과정 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            <div class = "box3">
+                                 <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_2_3.jpg" alt="불꽃 디자인 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt2_3_1.jpg" alt="과학이 발달하면서 표현되는 디자인도 다양해졌습니다. 영상으로 확인해보세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt2_3_2.jpg" alt="불꽃 디자인 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="불꽃 디자인 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class = "scrolldown">
+                            <div class="ww1"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                            <div class="ww2"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                        </div>
+                        <div class="section_skip"><a class="gomenu" href="#none" data-tab="5">메인메뉴로 바로가기</a></div>
+                    </section>
+
+                    <!-- 불꽃게시판-->
+                    <section class="section5">
+                        <div class="section_skip"><a href="#none" onclick="return false;">불꽃게시판</a></div>
+                        <div class="ftype1"></div>
+                        <div class="ftype2"></div>
+                        <div class="ftype3"></div>
+                        
+                        <!-- 라인모션-->
+                        <div class="linedown"></div>
+                        <div class="lineup"></div>
+                        
+                        <div class = "f1"><img src="http://cdn.hanwhafireworks.com/web/images/main/f5_1.png" alt="" /></div>
+                        <div class = "stitle">
+                             <div class = "st1"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_4.png" alt="불꽃게시판" /></div>
+                             <div class = "st2"><img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_4_1.png" alt="축제 관련 주요 공지와 FAQ를 통하여 궁금하신 사항을 안내해드립니다.자주하는 질문을 먼저 확인하세요." /></div>
+                        </div>
+
+                        <div class = "pictobox">
+                            <a href="javascript:showList(1);" class = "pbox1">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub4_img_1.png" alt="공지사항 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub4_menu1.png" alt="사이트 관련 유용한 정보와 주요 공지사항을 알려드립니다." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="공지사항 보기" /></div>
+                            </a>
+                            <a href="javascript:showList(2);" class = "pbox2">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub4_img_2.png" alt="FAQ 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub4_menu2.png" alt="그동안 사이트를 운영하면서 고객 분들이 가장 많이 질문해주신 문의사항을 정리하였습니다." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="FAQ 보기" /></div>
+                            </a>
+                           <a href="javascript:showList(3);" class = "pbox3">
+                                <div class = "icon"><img src="http://cdn.hanwhafireworks.com/web/images/main/picto_sub4_img_3.png" alt="이메일문의 이미지" /></div>
+                                <div class = "txt"><img src="http://cdn.hanwhafireworks.com/web/images/main/sub4_menu3.png" alt="회원가입을 한 회원분에 한해서 답변을 드립니다. FAQ를 먼저 확인해주세요." /></div>
+                                <div class = "btn"><img src="http://cdn.hanwhafireworks.com/web/images/main/plus.png" alt="이메일문의하기" /></div>
+                            </a>
+                        </div>
+                        <div class = "boxover">
+                            <div class = "box1" onclick="showList(1);">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_4_1.jpg" alt="공지사항 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt4_1_1.jpg" alt="축제 관련 유용한 정보와 주요 공지사항을 알려드립니다." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt4_1_2.jpg" alt="공지사항 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="공지사항 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            <div class = "box2" onclick="showList(2);">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_4_2.jpg" alt="FAQ 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt4_2_1.jpg" alt="그동안 축제를 준비하면서 고객 분들이 가장 많이 질문해주신 문의사항을 정리하였습니다." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt4_2_2.jpg" alt="FAQ 보기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="FAQ 버튼이미지" /></div>
+                                </div>
+                            </div>
+                            <div class = "box3" onclick="showList(3);">
+                                <div class="boxbg"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/ccimg.png" alt="" /></div>
+                                <div class = "boxcon">
+                                    <div class ="boxicon"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/popimg_4_3.jpg" alt="이메일문의하기 이미지" /></div>
+                                    <div class ="boxtxt1"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt4_3_1.jpg" alt="회원가입을 한 회원분에 한해서 답변을 드립니다.FAQ를 먼저 확인해주세요." /></div>
+                                    <div class ="boxtxt2"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/txt4_3_2.jpg" alt="이메일문의하기" /></div>
+                                    <div class ="boxplus"><img src="http://cdn.hanwhafireworks.com/web/images/main/subpop/overplus.png" alt="이메일문의하기 버튼이미지" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "scrolldown">
+                            <div class="ww1"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                            <div class="ww2"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img.png" alt="" /></div>
+                        </div>
+                        <div class="section_skip"><a class="gomenu" href="#none" data-tab="6">메인메뉴로 바로가기</a></div>
+                    </section>
+
+                    <!-- footer-->
+                    <section class="section6">
+                        <div class="section_skip"><a href="#none" onclick="return false;">footer</a></div>
+                        <div class="ftype1"></div>
+                        <div class="ftype2"></div>
+                        <div class="ftype3"></div>
+                        
+                        <!-- 라인모션-->
+                        <div class="linedown"></div>
+                        
+                        <div class = "stitle2">
+                            <img src = "http://cdn.hanwhafireworks.com/web/images/main/title_sub_5.png" alt="2014년 서울세계불꽃축제에 오신 시민 여러분들께 감사의 말씀을 드립니다.곧 다가올 새로운 불꽃이벤트도 기대해주세요!" />
+                        </div>
+
+                        <div class = "navi">
+                            <div class = "menu1">
+                                <div class = "menu"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_menu1.png" alt="COLOR YOUR LIFE" /></div>
+                                <div class = "botline"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_line.png" alt="" /></div>
+                                <div class = "bot1"><a href="javascript:subpage('about.html?page=1');" title="캠페인 소개">캠페인 소개</a></div>
+                                <div class = "bot2"><a href="javascript:subpage('about.html?page=2');" title="불꽃장인 소개">불꽃장인 소개</a></div>
+                            </div>
+                            <div class = "menu2">
+                                <div class = "menu"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_menu2.png" alt="불꽃축제" /></div>
+                                <div class = "botline"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_line.png" alt="" /></div>
+                                <div class = "bot1"><a href="javascript:subpage('festival.html?page=1');" title="한화의 불꽃축제">한화의 불꽃축제</a></div>
+                                <div class = "bot2"><a href="javascript:subpage('festival.html?page=2');" title="2014불꽃사진갤러리">불꽃 매거진</a></div>
+                                <div class = "bot3"><a href="javascript:subpage('festival.html?page=3');" title="2014불꽃축제">2014불꽃축제</a></div>
+                            </div>
+                            <div class = "menu3">
+                                <div class = "menu"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_menu3.png" alt="불꽃연구소" /></div>
+                                <div class = "botline"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_line.png" alt="" /></div>
+                                <div class = "bot1"><a href="javascript:subpage('information.html?page=1');" title="불꽃의 원리">불꽃의 원리</a></div>
+                                <div class = "bot2"><a href="javascript:subpage('information.html?page=2');" title="불꽃 제조과정">불꽃 제조과정</a></div>
+                                <div class = "bot3"><a href="javascript:subpage('information.html?page=3');" title="불꽃 디자인">불꽃 디자인</a></div>
+                            </div>
+                            <div class = "menu4">
+                                <div class = "menu"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_menu4.png" alt="불꽃게시판" /></div>
+                                <div class = "botline"><img src="http://cdn.hanwhafireworks.com/web/images/main/bot_line.png" alt="" /></div>
+                                <div class = "bot1"><a href="javascript:showList(1);" title="공지사항">공지사항</a></div>
+                                <div class = "bot2"><a href="javascript:showList(2);" title="FAQ">FAQ</a></div>
+                                <div class = "bot3"><a href="javascript:showList(3);" title="이메일문의">이메일문의</a></div>
+                            </div>
+                        </div>
+
+                        <div class = "scrollup">
+                            <a href="#"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_down.png" alt="스크롤업 버튼" /></a>
+                            <div class="ww1"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img2.png" alt="" /></div>
+                            <div class="ww2"><img src="http://cdn.hanwhafireworks.com/web/images/main/scroll_img2.png" alt="" /></div>
+                        </div>
+                        
+                        <div class = "footermenu">
+                            <div class = "fmenu">
+                                <div class="btn1">Hanwha days</div>
+                                <div class="btn2"><a href="https://www.facebook.com/hanwhadays" target="_blank" title="한화데이즈 페이스북">한화데이즈 페이스북</a></div>
+                                <div class="btn3"><a href="http://blog.hanwhadays.com/" target="_blank" title="한화데이즈 블로그">한화데이즈 블로그</a></div>
+                                <div class="ff1"><a href="javascript:subpage('info_protection_pageview.html');" title="개인정보취급방침">개인정보취급방침</a></div>
+                                <div class="ffline"><img src="http://cdn.hanwhafireworks.com/web/images/main/fmenu_line.png" alt=""></div>
+                                <div class="ff2"><a href="javascript:subpage('info_pageview.html');" title="이용약관">이용약관</a></div>
+                                <div class ="copyright"><img src="http://cdn.hanwhafireworks.com/web/images/main/copyright.png" alt="copyright (c) 2014 HanwhaFireworks. All Rights Reserved" /></div>
+                            </div>
+                           
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+	<div id="dimmed"></div>
+	<div id="sublayer"></div>
+    <div id="evtFlash" style="position:fixed; left:50%; top:50%; width:500px; height:300px; margin-left:-250px; margin-top:-150px; background-color:#fff; z-index:99999; display:none"></div>
+
+
+    <div class="hidden"><a href="#gnbtab">메뉴로 돌아가기</a></div>
+</body>
+
+</html>

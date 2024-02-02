@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{margin:0;padding:0}
+		body{font-family:'돋움',dotum,sans-serif}
+
+		.wrap{padding:20px}
+
+		.input-box{margin-bottom:50px}
+		.input-wrap{position:relative;padding:10px 12px;height:20px;background:#fff;border:1px solid #ccc}
+		.input-wrap.focus{border:1px dotted #000}
+		.input-wrap > input{position:relative;/* box-sizing:border-box; */width:100%;height:20px;padding:0;background:transparent url();border:0;font-family:'돋움',dotum,sans-serif;font-size:14px;line-height:20px;color:#333;vertical-align:top;z-index:3}
+		.input-wrap > input.bg-on{background:#fff url()}
+		.input-wrap > label{position:absolute;top:10px;left:12px;height:20px;font-size:14px;line-height:20px;color:#999;z-index:1}
+		
+		.check-box{margin-bottom:50px;*zoom:1}
+		.check-box:after{content:"";display:block;clear:both}
+		.check-wrap{float:left;position:relative;display:block;background:#fff}
+		.check-wrap > input[type="checkbox"]{position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;z-index:-1;overflow:hidden;opacity:0;vertical-align:top}
+		.check-wrap > label{position:relative;display:block;min-height:15px;padding-left:25px;border:1px solid transparent;background:url('img/icon_check2_off.png') no-repeat 0 50%;cursor:pointer;font-size:14px;line-height:18px;color:#666;vertical-align:top;z-index:1}		
+		.check-wrap > label.on{background:url('img/icon_check2_on.png') no-repeat 0 50%}
+		.check-wrap > label.focus{border:1px dotted #000}
+
+		.radio-box{margin-bottom:50px;*zoom:1}
+		.radio-box:after{content:"";display:block;clear:both}
+		.radio-wrap{float:left;position:relative;display:block;;background:#fff}
+		.radio-wrap > input[type="radio"]{position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;z-index:-1;overflow:hidden;opacity:0;vertical-align:top}
+		.radio-wrap > label{position:relative;display:block;min-height:16px;padding-left:20px;border:1px solid transparent;background:url('img/icon_radio_off.png') no-repeat 0 50%;cursor:pointer;font-size:12px;line-height:18px;color:#888;vertical-align:top;z-index:1}
+		.radio-wrap > label.on{background:url('img/icon_radio_on.png') no-repeat 0 50%}
+		.radio-wrap > label.focus{border:1px dotted #000}
+		
+		.select-box{margin-bottom:50px}
+		.select-wrap{position:relative;height:40px;line-height:40px;border:1px solid #dbdbdb;background:#fff}
+		.select-wrap.focus{border:1px dotted #000}
+		.select-wrap > .arrow{position:absolute;top:50%;right:12px;width:9px;height:5px;margin-top:-2px;background:url('img/icon_select_arrow_off.jpg') no-repeat 0 0;z-index: 0}
+		.select-wrap > label{position:absolute;top:10px;left:12px;font-size:14px;line-height:20px;color:#999;z-index: 0}
+		.select-wrap > .ipt-label{position:absolute;top:10px;left:0;width:100%;height:20px;border:0;background:transparent;font-family:'돋움',dotum,sans-serif;font-size:14px;line-height:20px;color:#999;text-indent:12px;z-index: 0}
+		.select-wrap > select{width:100%;height:40px;background:transparent;line-height:40px; border: 0;opacity: 0;position:relative;font-family:'돋움',dotum,sans-serif;vertical-align:top;z-index:3;
+			filter:alpha(opacity=0);  /* IE8 숨기기 */
+			-webkit-appearance: none; /* 네이티브 외형 감추기 */
+			-moz-appearance: none;
+			appearance: none}
+
+		.selectStyle{position:relative;z-index:1;height:30px;border-left:1px solid #999;*zoom:1;background:#fff;border:1px solid #999;}
+		.selectStyle:after{display:block;content:"";clear:both;}
+		.selectStyle *{vertical-align:top;}
+		.selectStyle select{height:24px;background:transparent;font-size:12px;*filter:alpha(opacity=0);*opacity:0;width:115%;border:none;padding:6px 0 0 0;
+			-webkit-appearance: none; /* 네이티브 외형 감추기 */
+			-moz-appearance: none;
+			appearance: none}
+		.selectStyle span{overflow:hidden;display:block;position:relative;width:100%;height:30px;}
+		.selectStyle span input[type="text"]{position:absolute;top:0px;left:0px;width:100%;background-color:transparent;height:30px;border:none;font-size:12px;color:#333;text-indent:-1500px;*text-indent:5px;z-index:-1;color:transparent;*color:#333;}
+		.selectStyle span .arrow{content:"";display:block;position:absolute;top:50%;right:10px;width:9px;height:5px;margin-top:-2px;background:url('img/icon_select_arrow_off.jpg') no-repeat 0 0;z-index: 0}
+
+		.file-box{position:relative;padding-right:100px}
+		.file-box .file-name{display:block;height:30px;padding:0 10px;border:1px solid #aaa;font-size:14px;line-height:30px}
+		.file-box .btn-file{position:absolute;top:0;right:0;width:101px;height:30px;background:#aaa;border:1px solid #aaa;color:#fff;font-size:14px;line-height:30px;text-align:center}
+		.file-box .btn-file.focus{border:1px dotted #000}
+		.file-box .ipt-file{position:absolute;top:0;right:0;width:101px;height:32px;opacity:0;filter:alpha(opacity=0);cursor:pointer;appearance:none;
+		-moz-appearance:none;
+		-webkit-appearance:none;}
+
+		
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	
+		$(document).ready(function(){
+			//인풋 placeholder 기능
+			var $inputVal,
+			$input = $('.input-wrap');
+			
+			$input.find('> input').each(function(){
+				if ($(this).val() != "")
+				{
+					$(this).addClass('bg-on');
+				}
+			});
+			$input.find('> input').focus(function(){
+				$inputVal = $(this).attr('value');
+				if($(this).val() == false){
+					$(this).addClass('bg-on');
+				}
+			}).blur(function(){
+				if($(this).val() == ""){
+					$(this).removeClass('bg-on');
+				}
+			});	
+			$input.focusin(function(){
+				$(this).addClass('focus');
+			});
+			$input.focusout(function(){
+				$(this).removeClass('focus');
+			});
+
+			//체크박스
+			var $check = $('.check-wrap');
+			$check.find('> input').on('change',function(){
+				if ($(this).prop("checked") ==  true)
+				{
+					$(this).siblings('label').addClass('on');
+				}else{
+					$(this).siblings('label').removeClass('on');
+				}
+			});
+			$check.find('> input').each(function(){
+				if ($(this).is(':checked'))
+				{
+					$(this).siblings('label').addClass('on');
+				}
+			});
+			$check.focusin(function(){
+				$(this).find('label').addClass('focus');
+			});
+			$check.focusout(function(){
+				$(this).find('label').removeClass('focus');
+			});
+
+			//체크박스 전부체크
+			$('.check-wrap.total').on('click',function(){
+				if ($(this).find('> input').prop("checked") ==  true)
+				{
+					$check.find('> input').each(function(){
+						$(this).siblings('label').addClass('on');
+						$(this).prop('checked', true);
+					});
+				}else{
+					$check.find('> input').each(function(){
+						$(this).siblings('label').removeClass('on');
+						$(this).prop('checked', false);
+					});
+				}
+			});
+
+			//라디오박스
+			var $radio = $('.radio-wrap');
+			$('.radio-box .radio-wrap > input').on('change',function(){
+				$('.radio-box .radio-wrap > input').each(function(){
+					$(this).siblings('label').removeClass('on');
+				})
+				if ($(this).prop("checked") ==  true)
+				{
+					$(this).siblings('label').addClass('on');
+				}else{
+					$(this).siblings('label').removeClass('on');
+				}
+			});
+			$radio.find('> input').each(function(){
+				if ($(this).is(':checked'))
+				{
+					$(this).siblings('label').addClass('on');
+				}else{
+					$(this).siblings('label').removeClass('on');
+				}
+			});
+			$radio.focusin(function(){
+				$(this).find('label').addClass('focus');
+			});
+			$radio.focusout(function(){
+				$(this).find('label').removeClass('focus');
+			});
+
+			//셀렉트박스
+			var $select = $('.select-wrap');
+			/*$(".select-wrap > select").change(function(){
+				var select_name = $(this).children("option:selected").text();
+				//$(this).siblings("label").text(select_name);
+				$(this).siblings(".ipt-label").val(select_name);
+			});*/
+			$select.find('> select').on('change keyup',function(){
+				var select_name = $(this).children("option:selected").text();
+				//$(this).siblings("label").text(select_name);
+				$(this).siblings(".ipt-label").val(select_name);
+			});
+			$select.find('> select').each(function(){
+				var selValue = $(this).find('option:selected').html();
+
+				if (selValue != "")
+				{
+					//$(this).siblings('label').text(selValue);
+					$(this).siblings(".ipt-label").val(selValue);
+				}
+			});
+			$select.focusin(function(){
+				$(this).addClass('focus');
+			});
+			$select.focusout(function(){
+				$(this).removeClass('focus');
+			});
+			
+			
+			//selectStyle height
+			$('.selectStyle').each(function(){
+				var selectHeight = $(this).css('height');
+				$(this).find('.span-select, input').css({"height":selectHeight});
+				$(this).find('input').css({"line-height":selectHeight});
+			});
+
+			//인풋파일
+			var $file = $('.file-box .ipt-file');
+			$file.on('change',function(){
+				var fileTmp = $(this).val();
+				$(this).siblings('.file-name').text(fileTmp);
+			});
+			$file.on('focusin',function(){
+				$(this).siblings('.btn-file').addClass('focus');
+			});
+			$file.on('focusout',function(){
+				$(this).siblings('.btn-file').removeClass('focus');
+			});
+			$file.each(function(){
+				if ($(this).val() != '')
+				{
+					var fileTmp = $(this).val();
+					$(this).siblings('.file-name').text(fileTmp);
+				}
+			});
+			
+		});
+		
+	</script>
+	
+</head>
+<body>
+	<div class="wrap">
+		<div class="input-box">
+			<div class="input-wrap">
+				<label for="email">이메일</label>
+				<input type="text" id="email" />
+			</div>
+		</div>
+		
+		<!-- checkbox-type-1 -->
+		<style type="text/css"></style>
+		<div class="check-box">
+			<div class="check-wrap">
+				<input type="checkbox" id="a" />
+				<label for="a">체크1</label>
+			</div>
+			<div class="check-wrap">
+				<input type="checkbox" id="b" />
+				<label for="b">체크2</label>
+			</div>
+			<div class="check-wrap">
+				<input type="checkbox" id="c" />
+				<label for="c">체크3</label>
+			</div>
+			
+			<div class="check-wrap total">
+				<input type="checkbox" id="d" />
+				<label for="d">전부체크</label>
+			</div>
+		</div>
+		<script type="text/javascript"></script>
+		<!-- //checkbox-type-1 -->
+		
+		
+		<div class="radio-box">
+			<div class="radio-wrap">
+				<input type="radio" id="male" name="gender" />
+				<label for="male">남자</label>
+			</div>
+			<div class="radio-wrap">
+				<input type="radio" id="female" name="gender" />
+				<label for="female">여자</label>
+			</div>
+		</div>
+
+		<!-- <div class="select-box">
+			<div class="select-wrap">
+				<span class="arrow"></span>
+				<label for="sel">선택</label>
+				<select id="sel" title="선택">
+					<option value="">선택</option>
+					<option value="1111">1111</option>
+					<option value="22222">22222</option>
+					<option value="333333" selected="selected">333333</option>
+				</select>		
+			</div>
+		</div> -->
+
+		<!-- label을 input으로 사용 -->
+		<div class="select-box">
+			<div class="select-wrap">
+				<span class="arrow"></span>				
+				<input type="text" class="ipt-label" value="선택" readonly="readonly" title="선택" tabindex="-1"/>
+				<select id="sel" title="선택">
+					<option value="">선택</option>
+					<option value="1111">1111</option>
+					<option value="22222">22222</option>
+					<option value="333333">333333</option>
+				</select>		
+			</div>
+		</div>
+
+		<!-- <div class="selectStyle" style="width:177px;height:30px;"> 개발에서는 이부분 style만 수정
+			<span class="span-select">
+				<span class="arrow"></span>
+				<input type="text" value="로스앤젤레스" id="ab" readonly="readonly" tabindex="-1" title="접근성 title">
+				<select style="" onchange="javascript:document.getElementById('ab').value=this.value" id="ab" title="접근성 title">
+					<option value="로스앤젤레스">로스앤젤레스</option>
+					<option value="샌프란시스코">샌프란시스코</option>
+					<option value="호놀룰루(호놀룰루(하와이))">호놀룰루(호놀룰루(하와이))</option>
+					<option value="뉴욕(뉴욕(JFK))">뉴욕(뉴욕(JFK))</option>
+					<option value="시카고(시카고(오헤어))">시카고(시카고(오헤어))</option>
+					<option value="시애틀" selected="selected">시애틀</option>
+				</select>
+			</span>
+		</div> -->
+
+		<div class="file-box">
+			<p class="file-name"></p>
+			<span class="btn-file">파일 선택</span>
+			<input type="file" class="ipt-file" />
+		</div>
+
+
+	</div>
+	
+</body>
+</html>

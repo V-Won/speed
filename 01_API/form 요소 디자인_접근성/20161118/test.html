@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0}
+        body{font-family:'돋움',dotum,sans-serif}
+        a{text-decoration:none;}
+
+        .wrap{padding:20px}
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+
+
+        <!-- input-placeholder -->
+        <style>
+            .input-box{margin-bottom:50px}
+            .input-wrap{position:relative;padding:10px 12px;height:20px;background:#fff;border:1px solid #ccc}
+            .input-wrap.focus{outline:1px dotted #000}
+            .input-wrap > input{position:relative;/* box-sizing:border-box; */width:100%;height:20px;padding:0;background:transparent url();border:0;font-family:'돋움',dotum,sans-serif;font-size:14px;line-height:20px;color:#333;vertical-align:top;z-index:3}
+            .input-wrap > input.bg-on{background:#fff url()}
+            .input-wrap > label{position:absolute;top:10px;left:12px;height:20px;font-size:14px;line-height:20px;color:#999;z-index:1}
+        </style>
+        <div class="input-box">
+            <div class="input-wrap">
+                <label for="email">이메일</label>
+                <input type="text" id="email" />
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                var $inputVal,
+                $input = $('.input-wrap');
+                
+                $input.find('> input').each(function(){
+                    if ($(this).val() != "")
+                    {
+                        $(this).addClass('bg-on');
+                    }
+                });
+                $input.find('> input').focus(function(){
+                    $inputVal = $(this).attr('value');
+                    if($(this).val() == false){
+                        $(this).addClass('bg-on');
+                    }
+                }).blur(function(){
+                    if($(this).val() == ""){
+                        $(this).removeClass('bg-on');
+                    }
+                }); 
+                $input.focusin(function(){
+                    $(this).addClass('focus');
+                });
+                $input.focusout(function(){
+                    $(this).removeClass('focus');
+                });
+            });
+        </script>
+        <!-- //input-placeholder -->
+
+
+        
+        <!-- checkbox -->       
+        <style>
+            .check-box{margin-bottom:50px;*zoom:1}
+            .check-box:after{content:"";display:block;clear:both}
+            .check-wrap{float:left;position:relative;display:block;margin-right:10px;background:#fff}
+            .check-wrap > input[type="checkbox"]{position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;z-index:-1;overflow:hidden;opacity:0;vertical-align:top}
+            .check-wrap > label{position:relative;display:block;min-height:15px;padding-left:25px;background:url('img/icon_check2_off.png') no-repeat 0 50%;cursor:pointer;font-size:14px;line-height:18px;color:#666;vertical-align:top;z-index:1}        
+            .check-wrap > label.on{background:url('img/icon_check2_on.png') no-repeat 0 50%}
+            .check-wrap > label.focus{outline:1px dotted #000}
+        </style>
+        <div class="check-box">
+            <div class="check-wrap">
+                <input type="checkbox" id="a" />
+                <label for="a">체크1</label>
+            </div>
+            <div class="check-wrap">
+                <input type="checkbox" id="b" />
+                <label for="b">체크2</label>
+            </div>
+            <div class="check-wrap">
+                <input type="checkbox" id="c" />
+                <label for="c">체크3</label>
+            </div>
+            
+            <div class="check-wrap total">
+                <input type="checkbox" id="d" />
+                <label for="d">전부체크</label>
+            </div>
+        </div>
+        <div class="check-box">
+            <div class="check-wrap">
+                <input type="checkbox" id="a2" />
+                <label for="a2">체크1</label>
+            </div>
+            <div class="check-wrap">
+                <input type="checkbox" id="b2" />
+                <label for="b2">체크2</label>
+            </div>
+            <div class="check-wrap">
+                <input type="checkbox" id="c3" />
+                <label for="c3">체크3</label>
+            </div>
+            
+            <div class="check-wrap total">
+                <input type="checkbox" id="d4" />
+                <label for="d4">전부체크</label>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                var $check = $('.check-wrap');
+                $check.find('> input').on('change',function(){
+                    if ($(this).prop("checked") ==  true)
+                    {
+                        $(this).siblings('label').addClass('on');
+                    }else{
+                        $(this).siblings('label').removeClass('on');
+                    }
+                });
+                $check.find('> input').each(function(){
+                    if ($(this).is(':checked'))
+                    {
+                        $(this).siblings('label').addClass('on');
+                    }
+                });
+                $check.focusin(function(){
+                    $(this).find('label').addClass('focus');
+                });
+                $check.focusout(function(){
+                    $(this).find('label').removeClass('focus');
+                });
+
+                //전부체크
+                // $('.check-wrap.total').on('click',function(){
+                //     if ($(this).find('> input').prop("checked") ==  true)
+                //     {
+                //         $(this).siblings('.check-wrap').find('> input').each(function(){
+                //             $(this).siblings('label').addClass('on');
+                //             $(this).prop('checked', true);
+                //         });
+                //     }else{
+                //         $(this).siblings('.check-wrap').find('> input').each(function(){
+                //             $(this).siblings('label').removeClass('on');
+                //             $(this).prop('checked', false);
+                //         });
+                //     }
+                // });
+
+                $('.check-wrap.total').on('click',function(){
+                    if ($(this).find('> input').prop("checked") ==  true)
+                    {
+                        $(this).siblings('.check-wrap:not(.total)').find('> input').each(function(){
+                            $(this).siblings('label').addClass('on');
+                            $(this).prop('checked', true);
+                        });
+                    }else{
+                        $(this).siblings('.check-wrap:not(.total)').find('> input').each(function(){
+                            $(this).siblings('label').removeClass('on');
+                            $(this).prop('checked', false);
+                        });
+                    }
+                });
+
+                $('.check-wrap:not(.total)').find('input').on('change',function(){
+                    if ($(this).parent().siblings('.check-wrap.total').find('input').prop("checked") ==  true) {
+                        $(this).parent().siblings('.check-wrap:not(.total)').find('input').each(function(){
+                            if ($(this).prop("checked") ==  true) {
+                                $(this).parent().siblings('.check-wrap.total').find('label').removeClass('on');
+                                $(this).parent().siblings('.check-wrap.total').find('input').prop('checked', false);
+                                return false;
+                            };
+                        });
+                    };
+                });
+                $('.check-wrap:not(.total)').find('input').on('change',function(){
+                var iptNum = $(this).parent().parent().find('.check-wrap:not(.total) > input').length;
+                var totalCheck = 0;
+                for (var i = 0; i < iptNum; i++) {
+                    if ($(this).parent().parent().find('.check-wrap:not(.total) > input').eq(i).prop("checked") !=  true) {
+                        return false;
+                    };
+                };
+                $(this).parent().parent().find('.check-wrap.total > label').addClass('on');
+                $(this).parent().parent().find('.check-wrap.total > input').prop('checked', true);
+            });
+                    
+            });
+        </script>
+        <!-- //checkbox -->
+        
+        
+        <!-- radio -->
+        <style>
+            .radio-box{margin-bottom:50px;*zoom:1}
+            .radio-box:after{content:"";display:block;clear:both}
+            .radio-wrap{float:left;position:relative;display:block;margin-right:10px;background:#fff}
+            .radio-wrap > input[type="radio"]{position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;z-index:-1;overflow:hidden;opacity:0;vertical-align:top}
+            .radio-wrap > label{position:relative;display:block;min-height:16px;padding-left:20px;background:url('img/icon_radio_off.png') no-repeat 0 50%;cursor:pointer;font-size:12px;line-height:18px;color:#888;vertical-align:top;z-index:1}
+            .radio-wrap > label.on{background:url('img/icon_radio_on.png') no-repeat 0 50%}
+            .radio-wrap > label.focus{outline:1px dotted #000}
+        </style>
+        <div class="radio-box">
+            <div class="radio-wrap">
+                <input type="radio" id="male" name="gender" />
+                <label for="male">남자</label>
+            </div>
+            <div class="radio-wrap">
+                <input type="radio" id="female" name="gender" />
+                <label for="female">여자</label>
+            </div>
+        </div>
+        <div class="radio-box">
+            <div class="radio-wrap">
+                <input type="radio" id="male2" name="gender2" />
+                <label for="male2">남자</label>
+            </div>
+            <div class="radio-wrap">
+                <input type="radio" id="female2" name="gender2" />
+                <label for="female2">여자</label>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                var $radio = $('.radio-wrap');
+                $radio.find('> input').on('change',function(){
+                    $(this).parent().parent().find('.radio-wrap > input').each(function(){
+                        $(this).siblings('label').removeClass('on');
+                    })
+                    if ($(this).prop("checked") ==  true)
+                    {
+                        $(this).siblings('label').addClass('on');
+                    }else{
+                        $(this).siblings('label').removeClass('on');
+                    }
+                });
+                $radio.find('> input').each(function(){
+                    if ($(this).is(':checked'))
+                    {
+                        $(this).siblings('label').addClass('on');
+                    }else{
+                        $(this).siblings('label').removeClass('on');
+                    }
+                });
+                $radio.focusin(function(){
+                    $(this).find('label').addClass('focus');
+                });
+                $radio.focusout(function(){
+                    $(this).find('label').removeClass('focus');
+                });
+            });
+        </script>
+        <!-- //radio -->
+
+
+        <!-- select -->
+        <style>
+            .select-box{margin-bottom:50px}
+            .select-wrap{position:relative;height:40px;line-height:40px;border:1px solid #dbdbdb;background:#fff}
+            .select-wrap.focus{outline:1px dotted #000}
+            .select-wrap > .arrow{position:absolute;top:50%;right:12px;width:9px;height:5px;margin-top:-2px;background:url('img/icon_select_arrow_off.jpg') no-repeat 0 0;z-index: 0}
+            .select-wrap > label{position:absolute;top:10px;left:12px;font-size:14px;line-height:20px;color:#999;z-index: 0}
+            .select-wrap > .ipt-label{position:absolute;top:10px;left:0;width:100%;height:20px;border:0;background:transparent;font-family:'돋움',dotum,sans-serif;font-size:14px;line-height:20px;color:#999;text-indent:12px;z-index: 0;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden}
+            .select-wrap > select{width:100%;height:40px;background:transparent;line-height:40px; border: 0;opacity: 0;position:relative;font-family:'돋움',dotum,sans-serif;vertical-align:top;z-index:3;
+                filter:alpha(opacity=0);  /* IE8 숨기기 */
+                -webkit-appearance: none; /* 네이티브 외형 감추기 */
+                -moz-appearance: none;
+                appearance: none}
+        </style>
+        <div class="select-box">
+            <div class="select-wrap">
+                <span class="arrow"></span>
+                <input type="text" class="ipt-label" value="선택" readonly="readonly" title="선택" tabindex="-1"/>
+                <select id="sel" title="선택">
+                    <option value="">선택</option>
+                    <option value="1111">1111</option>
+                    <option value="22222">22222</option>
+                    <option value="22222">22222</option>
+                    <option value="22222">22222</option>
+                    <option value="22222">22222</option>
+                    <option value="22222">22222</option>
+                    <option value="333333">333333</option>
+                </select>       
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                var $select = $('.select-wrap');
+                $select.find('> select').on('change keyup',function(){
+                    var select_name = $(this).children("option:selected").text();
+                    $(this).siblings(".ipt-label").val(select_name);
+                });
+                $select.find('> select').each(function(){
+                    var selValue = $(this).find('option:selected').text();
+
+                    if (selValue != "")
+                    {
+                        $(this).siblings(".ipt-label").val(selValue);
+                    }
+                });
+                $select.focusin(function(){
+                    $(this).addClass('focus');
+                });
+                $select.focusout(function(){
+                    $(this).removeClass('focus');
+                });
+            });
+        </script>
+        <!-- //select -->
+
+
+        <!-- input-file -->
+        <style>
+            .file-box{position:relative;padding-right:100px}
+            .file-box > .file-name{display:block;height:30px;padding:0 10px;border:1px solid #aaa;font-size:14px;line-height:30px;overflow:hidden;/*text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;*/}
+            .file-box > .btn-file{position:absolute;top:0;right:0;width:100px;height:32px;background:#aaa;color:#fff;font-size:14px;line-height:32px;text-align:center}
+            .file-box > .btn-file.focus{outline:1px dotted #000}
+            .file-box > .btn-file.del{display:none;z-index:10}
+            .file-box > .ipt-file{position:absolute;top:0;right:0;width:100px;height:32px;opacity:0;filter:alpha(opacity=0);cursor:pointer;appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;}
+            .btn-file-wrap{margin-top:10px;}
+            .btn-file-wrap > a{display:block;width:131px;height:30px;background:#aaa;border:1px solid #aaa;color:#fff;font-size:14px;line-height:30px;text-align:center;text-decoration:none}
+        </style>
+        <div class="file-box">
+            <p class="file-name">파일명 (용량)</p>
+            <span class="btn-file">파일 선택</span>
+            <a href="#none" class="btn-file del">파일 삭제</a>
+            <input type="file" class="ipt-file" />
+        </div>
+        <div class="btn-file-wrap"><a href="#none" id="btnFileDel">선택한파일삭제</a></div>
+        <script>
+            $(document).ready(function(){
+                var $file = $('.file-box .ipt-file');
+                $file.on('change',function(){
+                    var fileTmp = $(this).val();
+                    //var fileSize = (Math.round((this.files[0].size/1024/1024) * 100)) / 100; //MB
+                    var fileSize = Math.round((this.files[0].size/1024)); //KB
+                    if (fileSize < 2048) { // 2MB = 2048KB
+                        fileTmp = fileTmp + " (" + fileSize + "KB)";
+                        fileTmp = fileTmp.replace("C:\\fakepath\\", "");
+                        $(this).siblings('.file-name').text(fileTmp);
+                        $(this).siblings('.btn-file.del').show();
+                    }else{
+                        fileTmp = '';
+                        fileSize = '';
+                        alert('파일용량이 2048KB를 넘었습니다.');
+                    };                  
+
+                });
+                $file.on('focusin',function(){
+                    $(this).siblings('.btn-file').addClass('focus');
+                });
+                $file.on('focusout',function(){
+                    $(this).siblings('.btn-file').removeClass('focus');
+                });
+                $file.each(function(){
+                    if ($(this).val() != '')
+                    {   
+                        $(this).siblings('.btn-file.del').show();
+                        var fileTmp = $(this).val();
+                        // var fileSize = (Math.round((this.files[0].size/1024/1024) * 100)) / 100; //MB
+                        var fileSize = Math.round((this.files[0].size/1024/1024)); //KB
+                        if (fileSize < 2048) { // 2MB = 2048KB
+                            fileTmp = fileTmp + " (" + fileSize + "KB)";
+                            fileTmp = fileTmp.replace("C:\\fakepath\\", "");
+                            $(this).siblings('.file-name').text(fileTmp);
+                        }else{
+                            fileTmp = '';
+                            fileSize = '';
+                            alert('파일용량이 2048KB를 넘었습니다.');
+                        };
+
+                    }
+                });
+                //파일삭제
+                $file.siblings('.btn-file.del').on('click',function(){
+                    $(this).siblings('.ipt-file').val('');
+                    $(this).siblings('.file-name').text('파일명 (용량)');
+                    $(this).hide();
+                });
+                $('#btnFileDel').on('click',function(){
+                    $(this).parent().siblings('.file-box').find('.ipt-file').val('');
+                    $(this).parent().siblings('.file-box').find('.file-name').text('파일명 (용량)');
+                });
+            });
+        </script>
+        <!-- //input-file -->
+
+
+    </div>
+    
+</body>
+</html>

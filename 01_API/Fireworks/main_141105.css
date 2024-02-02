@@ -1,0 +1,607 @@
+﻿html,body { height: 100%; font-family: "나눔고딕","NanumGothic", sans-serif; font-size:12px; }
+.wrap { position: relative; width:100%; height:100%; margin: 0 auto; min-width: 1250px; min-height: 670px; background-color: #000000; overflow-x:hidden;}
+/*a {outline: none;}*/
+.hidden{display:none;}
+.section_skip {
+    position: absolute;
+    width: 1px; height: 1px;
+    text-indent: -9999px;
+}
+.section_menu {
+    width: 140px; height: 25px;
+    left: 50%; top: 90%;
+    margin-left: -70px;
+    background-color: white;
+    text-align: center;
+    line-height: 24px;
+    text-indent: 0px;
+}
+
+/* content */
+.content { position: absolute; width: 100%; height: 100%; margin: 0 auto; overflow:hidden; }
+.content .con { position:relative; width:100%; max-width: 1920px; min-width:1250px; margin: 0 auto; }
+.content .bottombg { position:absolute;  display:none;}
+.content .bottombg img { width:1920px; height:490px; bottom:0;}
+.content .con .bg { position:absolute; }
+.content .con .bg img { width:1920px; height:5880px; }
+
+.content .con .starcon { position:absolute; width:100%; height:100%; margin: 0 auto;  opacity:0; filter:alpha(opacity=0);}
+.content .con .starcon .star  { position:relative; width:100%; height:980px; margin: 0 auto; }
+.content .con .starcon .star .star1 { position:absolute;  width:1920px; height:980px; }
+.content .con .starcon .star .star2 { position:absolute;  width:1920px; height:980px; }
+
+.content .con .line { position:absolute; width: 100%; height: 100%;  margin: 576px auto; left: 496px; opacity:0; filter:alpha(opacity=0);}
+.content .con .line img { width:894px; height:4987px; }
+
+.content .con .intro {position: absolute; width: 1920px; margin: 0 auto; left:0; top:0; display:none;}
+
+.content .skipcon { position: absolute; width: 160px; height: 67px; right:80px; bottom:80px; }
+
+.content .skipcon .mute {display:none;  }
+.content .skipcon .mute .mutebtn0{display:block; }
+.content .skipcon .mute .mutebtn0 a{ position: absolute; float:left; padding-right: 10px;  width: 67px; height: 67px;  opacity:1; filter:alpha(opacity=100); background:url("http://cdn.hanwhafireworks.com/web/images/main/intromute.png") no-repeat; background-position: 0 0;  overflow:hidden; z-index: 100;}
+.content .skipcon .mute .mutebtn1{display:block; }
+.content .skipcon .mute .mutebtn1 a{position: relative; float:left; padding-right: 10px;  width: 67px; height: 67px;  opacity:0; filter:alpha(opacity=0); background:url("http://cdn.hanwhafireworks.com/web/images/main/intromute.png") no-repeat; background-position: 0 -67px;  overflow:hidden; z-index: 100;}
+/*.content .skipcon .mutebtn a:hover { background-position: 0 -67px; }*/
+
+.content .skipcon .skipbtn{display:none; }
+.content .skipcon .skipbtn a{position: relative; float:left;   width: 67px; height: 67px;  opacity:1; filter:alpha(opacity=100); background:url("http://cdn.hanwhafireworks.com/web/images/main/skip.png") no-repeat; background-position: 0 0;  overflow:hidden; z-index: 100;}
+.content .skipcon .skipbtn a:hover { background-position: 0 -67px; }
+
+
+.content .con .main {position: absolute; width: 1920px; margin: 0 auto; display: none;}
+.content .con .main section { position:absolute; width: 1920px;  margin: 0 auto;} 
+
+
+/* section 1*/
+.content .con .main .section1 { position: relative; width: 100%; height: 980px; }
+.content .con .main .section1 .f1 {position: absolute; right: -280px; top: -280px; } 
+.content .con .main .section1 .f1 img { width:996px; height:1139px; margin-right:50px; margin-top:50px; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section1 .f2 {position: absolute; left: 180px; top:360px; }
+.content .con .main .section1 .f2 img { width:421px; height:432px; margin-left:50px; margin-top:50px; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section1 h1 {position: absolute; left:585px; top:300px; opacity: 0;}
+
+.content .con .main .section1 .firecon {position: relative; width:290px; height:290px; margin: 0 auto; top:320px; opacity: 0; filter:alpha(opacity=0); }
+.content .con .main .section1 .firecon .flvwrap .fire {position: absolute; width:290px; height:290px; top:0px; left:0px; background: url("http://cdn.hanwhafireworks.com/web/images/main/firebg.png") 0 0 no-repeat; }
+.content .con .main .section1 .firecon .fireover {position: absolute; width:156px; height:156px; top:70px; left:70px; background: url("http://cdn.hanwhafireworks.com/web/images/main/phoOver.png") 0 0 no-repeat; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section1 .firecon .firetxt1 { position: absolute; width:152px; height:152px; top:70px; left:70px; }
+/*버튼빛효과*/
+.content .con .main .section1 .firecon .ticket a{ position: absolute;  text-indent: -200000px; float:left; width:100px; height:33px; top:154px; left:95px; background: url("http://cdn.hanwhafireworks.com/web/images/main/fire_txt2.png") 0 0 no-repeat; background-position: 0 0; }
+/*.content .con .main .section1 .firecon .ticket .ticketbg{ position: absolute;  width:100px; height:33px; top:154px; left:95px; background-color:#fff; opacity:.5; filter:alpha(opacity=.5); display:none;}*/
+.content .con .main .section1 .firecon .ticket a:hover { background-position: 0 -33px;}
+.content .con .main .section1 .firecon .ticket .linelight1 { position: absolute; width:65px; height:1px; top:154px; left:95px;}
+.content .con .main .section1 .firecon .ticket .linelight2 { position: absolute; width:65px; height:1px; top:186px; left:135px;}
+
+.content .con .main .section1 .date {position: absolute; left:688px; top:615px; opacity: 0; filter:alpha(opacity=0); }
+.content .con .main .section1 .scrolldown {position: absolute; float:left; left:950px; top:735px; width:23px; height:57px; opacity: 0; filter:alpha(opacity=0); }
+.content .con .main .section1 .scrolldown a{position: absolute;  height:57px;  }
+.content .con .main .section1 .scrolldown .ww1{ position: absolute; width :13px; height:7px; left:4px; top:44px; opacity: .7; filter:alpha(opacity=70); }
+.content .con .main .section1 .scrolldown .ww2{ position: absolute; width :13px; height:7px; left:4px; top:50px; opacity: .5; filter:alpha(opacity=50); }
+
+/* ------폭죽 타입1------*/
+.content .con .main .section1 .ftype1 {position: absolute; width:200px; height:200px; left:420px; top:100px; }
+.content .con .main .section1 .ftype1 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section1 .ftype2 {position: absolute; width:300px; height:300px; left:1200px; top:500px; }
+.content .con .main .section1 .ftype2 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+
+/* section 2*/
+.content .con .main .section2 { position: relative;width: 100%; height: 980px; margin:0 auto; } /*background-color: red;*/
+.content .con .main .section2 .f1 {position: absolute; left: 263px; top: -67px; } /*transform: scale(0.9,0.9);*/
+.content .con .main .section2 .f1 img { width:557px; height:550px; margin-left:50px; margin-top:50px; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section2 .stitle {position: relative;  width: 625px; height: 200px; top:250px; margin:0 auto; text-align: center; }
+.content .con .main .section2 .stitle .st1 {position:relative; padding-bottom:33px;  margin:0 auto; }
+.content .con .main .section2 .stitle .st2 {position:relative; padding-bottom:33px;  margin:0 auto; }
+
+/*-------픽토1 축제안내------*/
+.content .con .main .section2 .pictobox {position: relative; width: 530px; height: 340px; top:280px; margin:0 auto; text-align: center; }
+
+/*
+.content .con .main .section2 .pictobox .pbox1 {position: absolute; width: 175px; height: 340px; left:0px; margin:0 auto;}
+.content .con .main .section2 .pictobox .pbox1 .icon { position: relative; width: 134px; height: 160px;   margin:0 auto; text-align: center; }
+.content .con .main .section2 .pictobox .pbox1 .icon img { position: absolute; width: 134px; height: 122px; left:0px; bottom:8px; }
+.content .con .main .section2 .pictobox .pbox1 .txt { width: 86px; height:23px; margin:42px auto 27px auto; }
+.content .con .main .section2 .pictobox .pbox1 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+*/
+
+.content .con .main .section2 .pictobox .pbox2 {position: absolute; width: 175px; height: 340px; top:0px; left:0px; text-align: center;  }
+.content .con .main .section2 .pictobox .pbox2 .icon { position: relative; width: 148px; height: 160px;  margin:0 auto; text-align: center; }
+.content .con .main .section2 .pictobox .pbox2 .icon img { position: absolute; width: 148px; height: 120px; left:0px; bottom:10px; margin:0 auto; }
+.content .con .main .section2 .pictobox .pbox2 .txt { width: 113px; height:22px; margin:42px auto 27px auto; }
+.content .con .main .section2 .pictobox .pbox2 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section2 .pictobox .pbox3 {position: absolute; width: 175px; height: 340px; top:0px; right:0px; text-align: center;  }
+.content .con .main .section2 .pictobox .pbox3 .icon { position: relative; width: 131px; height: 160px;  margin:0 auto; text-align: center; }
+.content .con .main .section2 .pictobox .pbox3 .icon img { position: absolute; width: 131px; height: 117px; left:4px; bottom:8px; margin:0 auto; }
+.content .con .main .section2 .pictobox .pbox3 .txt { width: 134px; height:23px; margin:42px auto 27px auto; }
+.content .con .main .section2 .pictobox .pbox3 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+/*픽토 오버1 */
+.content .con .main .section2 .boxover {position: absolute; width: 1920px; height: 540px; top:280px; margin:0 auto; text-align: center;}
+
+/*
+.content .con .main .section2 .boxover .box1{position: absolute; width: 324px; height: 324px; top:190px; left:450px; opacity:0; filter:alpha(opacity=0);  cursor: pointer;}
+.content .con .main .section2 .boxover .box1 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section2 .boxover .box1 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section2 .boxover .box1 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box1 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 65px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box1 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 18px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box1 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+*/
+
+.content .con .main .section2 .boxover .box2{position: absolute; width: 324px; height: 324px; top:190px; left:621px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section2 .boxover .box2 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0;filter:alpha(opacity=0); }
+.content .con .main .section2 .boxover .box2 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section2 .boxover .box2 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box2 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 67px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box2 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 18px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box2 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section2 .boxover .box3{position: absolute; width: 324px; height: 324px; top:190px; left:975px; opacity:0; filter:alpha(opacity=0);  cursor: pointer;}
+.content .con .main .section2 .boxover .box3 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box3 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section2 .boxover .box3 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box3 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 67px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box3 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 18px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .boxover .box3 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+
+
+/* ------폭죽 타입2---------*/
+.content .con .main .section2 .ftype1 {position: absolute; width:200px; height:200px; left:340px; top:280px; }
+.content .con .main .section2 .ftype1 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .ftype2 {position: absolute; width:300px; height:300px; left:1200px; top:160px; }
+.content .con .main .section2 .ftype2 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .ftype3 {position: absolute; width:200px; height:200px; left:700px; top:10px; }
+.content .con .main .section2 .ftype3 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+/*라인모션*/
+.content .con .main .section2 .linedown {position: absolute; width:120px; height:400px; left:1082px; top:191px; opacity:0;filter:alpha(opacity=0); display:none}
+.content .con .main .section2 .linedown img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section2 .lineup {position: absolute; width:120px; height:400px; left:1082px; top:191px; display:none}
+.content .con .main .section2 .lineup img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0); }
+
+.content .con .main .section2 .scrolldown {position: absolute; float:left; left:935px; top:775px; width:45px; height:57px; opacity: 1; filter:alpha(opacity=100); cursor: pointer;}
+.content .con .main .section2 .scrolldown .ww1{ position: absolute; width :13px; height:7px; left:14px; top:44px; opacity: .7; filter:alpha(opacity=70); }
+.content .con .main .section2 .scrolldown .ww2{ position: absolute; width :13px; height:7px; left:14px; top:50px; opacity: .5; filter:alpha(opacity=50); }
+
+
+/* section 3*/
+.content .con .main .section3 { position: relative; width: 100%; height: 980px;  } /*background-color: #f5f5f5;*/
+.content .con .main .section3 .f1 {position: absolute; right: 226px; top: -176px; } /* transform: scale(0.9,0.9); */
+.content .con .main .section3 .f1 img { width:545px; height:570px; margin-right:50px; margin-top:50px; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section3 .stitle {position: relative; width: 600px; height: 200px; top:250px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .stitle .st1 {position:relative; padding-bottom:33px; margin:0 auto; }
+.content .con .main .section3 .stitle .st2 {position:relative; padding-bottom:33px; margin:0 auto; }
+
+/*-------픽토2 불꽃정보-------*/
+.content .con .main .section3 .pictobox {position: relative; width: 872px; height: 340px; top:280px; margin:0 auto; text-align: center; }
+
+.content .con .main .section3 .pictobox .pbox1 {position: absolute; width: 175px; height: 340px; left:0px; margin:0 auto;  }
+.content .con .main .section3 .pictobox .pbox1 .icon { position: relative; width: 129px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .pictobox .pbox1 .icon img { position: absolute; width: 129px; height: 132px; left:-5px; bottom:8px; margin:0 auto; }
+.content .con .main .section3 .pictobox .pbox1 .txt { width: 155px; height:23px; margin:42px auto 27px auto; }
+.content .con .main .section3 .pictobox .pbox1 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section3 .pictobox .pbox2 {position: absolute; width: 175px; height: 340px; left:345px; margin:0 auto; }
+.content .con .main .section3 .pictobox .pbox2 .icon { position: relative; width: 158px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .pictobox .pbox2 .icon img { position: absolute; width: 158px; height: 108px; left:0px; bottom:14px; margin:0 auto;  }
+.content .con .main .section3 .pictobox .pbox2 .txt { width: 112px; height:24px; margin:42px auto 27px auto; }
+.content .con .main .section3 .pictobox .pbox2 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section3 .pictobox .pbox3 {position: absolute; width: 175px; height: 340px;  right:0px; margin:0 auto; }
+.content .con .main .section3 .pictobox .pbox3 .icon { position: relative; width: 123px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .pictobox .pbox3 .icon img { position: absolute; width: 123px; height: 120px; left:0px; bottom:9px; margin:0 auto; }
+.content .con .main .section3 .pictobox .pbox3 .txt { width: 148px; height:24px; margin:42px auto 27px auto; }
+.content .con .main .section3 .pictobox .pbox3 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+/*픽토 오버1 */
+.content .con .main .section3 .boxover {position: absolute; width: 1920px; height: 540px; top:278px; margin:0 auto; text-align: center; 0}
+
+.content .con .main .section3 .boxover .box1{position: absolute; width: 324px; height: 324px; top:190px; left:450px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section3 .boxover .box1 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section3 .boxover .box1 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .boxover .box1 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box1 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 66px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box1 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box1 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section3 .boxover .box2{position: absolute; width: 324px; height: 324px; top:190px; left:795px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section3 .boxover .box2 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section3 .boxover .box2 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .boxover .box2 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box2 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 66px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box2 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box2 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section3 .boxover .box3{position: absolute; width: 324px; height: 324px; top:190px; left:1147px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section3 .boxover .box3 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section3 .boxover .box3 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section3 .boxover .box3 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box3 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 66px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box3 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .boxover .box3 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+/* ------폭죽 타입3--------*/
+.content .con .main .section3 .ftype1 {position: absolute; width:300px; height:300px; left:420px; top:100px; }
+.content .con .main .section3 .ftype1 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .ftype2 {position: absolute; width:300px; height:300px; left:1400px; top:260px; }
+.content .con .main .section3 .ftype2 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section3 .ftype3 {position: absolute; width:200px; height:200px; left:700px; top:10px; }
+.content .con .main .section3 .ftype3 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+/*라인모션*/
+.content .con .main .section3 .linedown {position: absolute; width:140px; height:360px; left:625px; top:149px;  opacity:0;filter:alpha(opacity=0);}
+.content .con .main .section3 .linedown img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section3 .lineup {position: absolute; width:140px; height:360px; left:625px; top:149px; }
+.content .con .main .section3 .lineup img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0); }
+
+.content .con .main .section3 .scrolldown {position: absolute; float:left; left:935px; top:775px; width:45px; height:57px; opacity: 1; filter:alpha(opacity=100); cursor: pointer;}
+.content .con .main .section3 .scrolldown .ww1{ position: absolute; width :13px; height:7px; left:14px; top:44px; opacity: .7; filter:alpha(opacity=70); }
+.content .con .main .section3 .scrolldown .ww2{ position: absolute; width :13px; height:7px; left:14px; top:50px; opacity: .5; filter:alpha(opacity=50); }
+
+/* section 4*/
+.content .con .main .section4 { position: relative;width: 100%; height: 980px;  } /*background-color: #40b7f6;*/
+.content .con .main .section4 .f1 {position: absolute; left: 248px; top:-15px; }/* transform: scale(0.9,0.9); */
+.content .con .main .section4 .f1 img { width:489px; height:432px; margin-left:50px; margin-top:50px; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section4 .stitle {position: relative;  width: 500px; height: 200px; top:250px; margin:0 auto; text-align: center; }
+.content .con .main .section4 .stitle .st1 {position:relative; padding-bottom:33px;  margin:0 auto; }
+.content .con .main .section4 .stitle .st2 {position:relative; padding-bottom:33px;  margin:0 auto; }
+
+/*--------픽토3 안전지침-------*/
+.content .con .main .section4 .pictobox {position: relative; width: 872px; height: 340px; top:280px; margin:0 auto; text-align: center; }
+
+.content .con .main .section4 .pictobox .pbox1 {position: absolute; width: 175px; height: 340px; left:0px; text-align: center; margin:0 auto; }
+.content .con .main .section4 .pictobox .pbox1 .icon { position: relative; width: 115px; height: 160px;  margin:0 auto; text-align: center; }
+.content .con .main .section4 .pictobox .pbox1 .icon img { position: absolute; width: 115px; height: 110px; left:0px; bottom:19px; margin:0 auto; }
+.content .con .main .section4 .pictobox .pbox1 .txt { width: 248px; height:22px; margin:42px auto 27px -34px; }
+.content .con .main .section4 .pictobox .pbox1 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section4 .pictobox .pbox2 {position: absolute; width: 175px; height: 340px; top:0px; left:345px; text-align: center; }
+.content .con .main .section4 .pictobox .pbox2 .icon { position: relative; width: 170px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section4 .pictobox .pbox2 .icon img { position: absolute; width: 170px; height: 132px; left:0px; bottom:0px; margin:0 auto; }
+.content .con .main .section4 .pictobox .pbox2 .txt { width: 228px; height:23px; margin:42px auto 27px -25px; }
+.content .con .main .section4 .pictobox .pbox2 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section4 .pictobox .pbox3 {position: absolute; width: 175px; height: 340px; top:0px; right:0px; text-align: center; }
+.content .con .main .section4 .pictobox .pbox3 .icon { position: relative; width: 139px; height: 160px;  margin:0 auto; text-align: center; }
+.content .con .main .section4 .pictobox .pbox3 .icon img { position: absolute; width: 139px; height: 110px; left:0px; bottom:19px; margin:0 auto; }
+.content .con .main .section4 .pictobox .pbox3 .txt { width: 184px; height:23px; margin:42px auto 27px -5px; }
+.content .con .main .section4 .pictobox .pbox3 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+
+/*픽토 오버4 */
+.content .con .main .section4 .boxover {position: absolute; width: 1920px; height: 540px; top:278px; margin:0 auto; text-align: center; 0}
+.content .con .main .section4 .boxover .box1{position: absolute; width: 324px; height: 324px; top:190px; left:450px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section4 .boxover .box1 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section4 .boxover .box1 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section4 .boxover .box1 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box1 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 65px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box1 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 18px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box1 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section4 .boxover .box2{position: absolute; width: 324px; height: 324px; top:190px; left:795px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section4 .boxover .box2 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section4 .boxover .box2 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section4 .boxover .box2 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section4 .boxover .box2 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 65px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section4 .boxover .box2 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box2 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section4 .boxover .box3{position: absolute; width: 324px; height: 324px; top:190px; left:1147px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section4 .boxover .box3 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box3 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section4 .boxover .box3 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box3 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 66px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box3 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .boxover .box3 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+/* ------폭죽 타입4--------*/
+.content .con .main .section4 .ftype1 {position: absolute; width:300px; height:300px; left:1020px; top:0px; }
+.content .con .main .section4 .ftype1 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .ftype2 {position: absolute; width:300px; height:300px; left:1200px; top:220px; }
+.content .con .main .section4 .ftype2 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .ftype3 {position: absolute; width:200px; height:200px; left:680px; top:100px; }
+.content .con .main .section4 .ftype3 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+
+/*라인모션*/
+.content .con .main .section4 .linedown {position: absolute; width:120px; height:370px; left:1161px; top:284px;  }
+.content .con .main .section4 .linedown img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section4 .lineup {position: absolute; width:120px; height:370px; left:1161px; top:284px; }
+.content .con .main .section4 .lineup img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section4 .scrolldown {position: absolute; float:left; left:935px; top:775px; width:45px; height:57px; opacity: 1; filter:alpha(opacity=100); cursor: pointer;}
+.content .con .main .section4 .scrolldown .ww1{ position: absolute; width :13px; height:7px; left:14px; top:44px; opacity: .7; filter:alpha(opacity=70); }
+.content .con .main .section4 .scrolldown .ww2{ position: absolute; width :13px; height:7px; left:14px; top:50px; opacity: .5; filter:alpha(opacity=50); }
+
+
+/* section 5*/
+.content .con .main .section5 { position: relative; width: 100%; height: 980px;  } /* background-color: yellow;*/
+.content .con .main .section5 .f1 {position: absolute; right: 174px; top: 16px; } /*transform: scale(0.9,0.9);*/
+.content .con .main .section5 .f1 img { width:628px; height:496px; margin-right:50px; margin-top:50px; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section5 .stitle {position: relative;  width: 500px; height: 200px; top:250px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .stitle .st1 {position:relative; padding-bottom:33px;  margin:0 auto; }
+.content .con .main .section5 .stitle .st2 {position:relative; padding-bottom:33px;  margin:0 auto; }
+
+/*-------픽토4 운영센터-------*/
+.content .con .main .section5 .pictobox {position: relative; width: 872px; height: 340px; top:280px; margin:0 auto; text-align: center; }
+
+.content .con .main .section5 .pictobox .pbox1 {position: absolute; width: 175px; height: 340px; left:0px; margin:0 auto;  }
+.content .con .main .section5 .pictobox .pbox1 .icon { position: relative; width: 118px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .pictobox .pbox1 .icon img { position: absolute; width: 118px; height: 118px; left:-22px; bottom:0px; margin:0 auto; }
+.content .con .main .section5 .pictobox .pbox1 .txt { width: 83px; height:23px; margin:42px auto 27px auto; }
+.content .con .main .section5 .pictobox .pbox1 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section5 .pictobox .pbox2 {position: absolute; width: 175px; height: 340px; left:345px; margin:0 auto; }
+.content .con .main .section5 .pictobox .pbox2 .icon { position: relative; width: 114px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .pictobox .pbox2 .icon img { position: absolute; width: 114px; height: 113px; left:0px; bottom:0px; margin:0 auto; }
+.content .con .main .section5 .pictobox .pbox2 .txt { width: 47px; height:21px; margin:43px auto 27px auto; }
+.content .con .main .section5 .pictobox .pbox2 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+.content .con .main .section5 .pictobox .pbox3 {position: absolute; width: 175px; height: 340px; right:0px; margin:0 auto;  }
+.content .con .main .section5 .pictobox .pbox3 .icon { position: relative; width: 116px; height: 160px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .pictobox .pbox3 .icon img { position: absolute; width: 116px; height: 117px; left:8px; bottom:0px; margin:0 auto; }
+.content .con .main .section5 .pictobox .pbox3 .txt { width: 110px; height:22px; margin:42px auto 27px auto; }
+.content .con .main .section5 .pictobox .pbox3 .btn { width: 46px; height:45px; text-align: center; margin:0 auto;}
+
+/*픽토 오버5 */
+.content .con .main .section5 .boxover {position: absolute; width: 1920px; height: 540px; top:278px; margin:0 auto; text-align: center; 0}
+.content .con .main .section5 .boxover .box1{position: absolute; width: 324px; height: 324px; top:190px; left:450px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section5 .boxover .box1 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0); }
+.content .con .main .section5 .boxover .box1 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .boxover .box1 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box1 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 65px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box1 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box1 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section5 .boxover .box2{position: absolute; width: 324px; height: 324px; top:190px; left:795px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section5 .boxover .box2 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0);  }
+.content .con .main .section5 .boxover .box2 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .boxover .box2 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box2 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 66px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box2 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 16px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box2 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section5 .boxover .box3{position: absolute; width: 324px; height: 324px; top:190px; left:1147px; opacity:0; filter:alpha(opacity=0); cursor: pointer;}
+.content .con .main .section5 .boxover .box3 .boxbg{ position: absolute; width: 100%;  height: 323px;  margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box3 .boxcon {position: absolute; width: 324px; height: 299px; top:0px; left:0px; padding-top:25px; margin:0 auto; text-align: center; }
+.content .con .main .section5 .boxover .box3 .boxcon .boxicon{ position: absolute; width: 100%;  height: 83px;  top:24px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box3 .boxcon .boxtxt1{ position: absolute;  width: 100%;  height: 65px; top:124px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box3 .boxcon .boxtxt2{ position: absolute;  width: 100%;  height: 17px; top:216px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .boxover .box3 .boxcon .boxplus{ position: absolute;  width: 100%;  height: 45px; top:262px; margin:0 auto; opacity:0; filter:alpha(opacity=0);}
+
+/* ------폭죽 타입4---------*/
+.content .con .main .section5 .ftype1 {position: absolute; width:300px; height:300px; left:420px; top:140px; }
+.content .con .main .section5 .ftype1 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .ftype2 {position: absolute; width:300px; height:300px; left:900px; top:20px; }
+.content .con .main .section5 .ftype2 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .ftype3 {position: absolute; width:200px; height:200px; left:1400px; top:400px; }
+.content .con .main .section5 .ftype3 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+/*라인모션*/
+.content .con .main .section5 .linedown {position: absolute; width:200px; height:330px; left:510px; top:246px; }
+.content .con .main .section5 .linedown img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section5 .lineup {position: absolute; width:200px; height:330px; left:510px; top:246px; }
+.content .con .main .section5 .lineup img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+
+.content .con .main .section5 .scrolldown {position: absolute; float:left; left:935px; top:775px; width:45px; height:57px; opacity: 1; filter:alpha(opacity=100); cursor: pointer;}
+.content .con .main .section5 .scrolldown .ww1{ position: absolute; width :13px; height:7px; left:14px; top:44px; opacity: .7; filter:alpha(opacity=70); }
+.content .con .main .section5 .scrolldown .ww2{ position: absolute; width :13px; height:7px; left:14px; top:50px; opacity: .5; filter:alpha(opacity=50); }
+
+
+/* section 6*/
+.content .con .main .section6 { position: relative; width: 100%; height: 980px;  } /*background-color: #40b7f6;*/
+.content .con .main .section6 .stitle2 {position: relative;  width: 546px; height: 54px; top:270px; margin:0 auto; text-align: center; }
+.content .con .main .section6 .stitle2 img {position:relative; margin:0 auto; }
+
+/*.content .con .main .section6 .navi {position: relative;  width: 794px; height: 112px; bottom: -670px; margin:0 auto;  }*/
+.content .con .main .section6 .navi {position: relative;  width: 654px; height: 112px; top: 630px;left:50px; margin:0 auto;  }
+
+.content .con .main .section6 .navi .menu1 {float:left; width: 155px; height: 112px; left:0;  }
+.content .con .main .section6 .navi .menu1 .menu {width: 63px; height: 18px; left:0;  padding-bottom:13px }
+.content .con .main .section6 .navi .menu1 .botline {width: 15px; height: 1px; padding-bottom:15px; }
+.content .con .main .section6 .navi .menu1 .bot1 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu1 .bot1 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu1_1.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu1 .bot1 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu1 .bot2 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu1 .bot2 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu1_2.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu1 .bot2 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu1:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu1 .bot1 a:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu1 .bot2 a:after{content: ''; display: block; clear: both; }
+
+.content .con .main .section6 .navi .menu2 {float:left; width: 155px; height: 112px;  }
+.content .con .main .section6 .navi .menu2 .menu {width: 63px; height: 18px; left:0;  padding-bottom:13px }
+.content .con .main .section6 .navi .menu2 .botline {width: 15px; height: 1px;padding-bottom:15px; }
+.content .con .main .section6 .navi .menu2 .bot1 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu2 .bot1 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu3_1.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu2 .bot1 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu2 .bot3 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu2 .bot3 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu3_2.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu2 .bot3 a:hover { background-position: 0 -15px; }
+
+.content .con .main .section6 .navi .menu2 .bot2 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu2 .bot2 a { text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main_141105/bot_menu3_3.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu2 .bot2 a:hover { background-position: 0 -15px; }
+
+.content .con .main .section6 .navi .menu2:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu2 .bot1 a:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu2 .bot2 a:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu2 .bot3 a:after{content: ''; display: block; clear: both; }
+
+.content .con .main .section6 .navi .menu3 {float:left; width: 155px; height: 112px; }
+.content .con .main .section6 .navi .menu3 .menu {width: 63px; height: 18px; left:0;  padding-bottom:13px }
+.content .con .main .section6 .navi .menu3 .botline {width: 15px; height: 1px;padding-bottom:15px; }
+.content .con .main .section6 .navi .menu3 .bot1 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu3 .bot1 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu2_1.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu3 .bot1 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu3 .bot2 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu3 .bot2 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu2_2.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu3 .bot2 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu3 .bot3 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu3 .bot3 a { text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu2_3.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu3 .bot3 a:hover { background-position: 0 -15px; }
+
+.content .con .main .section6 .navi .menu3:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu3 .bot1 a:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu3 .bot2 a:after{content: ''; display: block; clear: both; }
+
+.content .con .main .section6 .navi .menu4 {float:left; width: 175px; height: 112px; }
+.content .con .main .section6 .navi .menu4 .menu {width: 63px; height: 18px; left:0;  padding-bottom:13px }
+.content .con .main .section6 .navi .menu4 .botline {width: 15px; height: 1px;padding-bottom:15px; }
+.content .con .main .section6 .navi .menu4 .bot1 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu4 .bot1 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu4_1.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu4 .bot1 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu4 .bot2 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu4 .bot2 a{ text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu4_2.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu4 .bot2 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu4 .bot3 {height:12px; padding-bottom:10px;}
+.content .con .main .section6 .navi .menu4 .bot3 a { text-indent: -200000px;  float:left;  width: 100%; height: 15px; background:url("http://cdn.hanwhafireworks.com/web/images/main/bot_menu4_3.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .navi .menu4 .bot3 a:hover { background-position: 0 -15px; }
+.content .con .main .section6 .navi .menu4:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu4 .bot1 a:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu4 .bot2 a:after{content: ''; display: block; clear: both; }
+.content .con .main .section6 .navi .menu4 .bot3 a:after{content: ''; display: block; clear: both; }
+
+/*스크롤업모션*/
+.content .con .main .section6 .scrollup {position: absolute; float:left; left:950px; top:830px; width:23px; height:57px; opacity: 1; filter:alpha(opacity=100);}
+.content .con .main .section6 .scrollup a{position: absolute;  height:38px; bottom:0; }
+.content .con .main .section6 .scrollup .ww1{ position: absolute; width :13px; height:7px; left:4px; top:6px; opacity: .5; filter:alpha(opacity=50);   }
+.content .con .main .section6 .scrollup .ww2{ position: absolute; width :13px; height:7px; left:4px; top:0px; opacity: .7; filter:alpha(opacity=70);   }
+
+
+
+/* ------폭죽 타입3--------*/
+.content .con .main .section6 .ftype1 {position: absolute; width:150px; height:150px; left:630px; top:60px; }
+.content .con .main .section6 .ftype1 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section6 .ftype2 {position: absolute; width:150px; height:150px; left:380px; top:210px; }
+.content .con .main .section6 .ftype2 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+.content .con .main .section6 .ftype3 {position: absolute; width:150px; height:150px; left:280px; top:90px; }
+.content .con .main .section6 .ftype3 img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+/*라인모션*/
+.content .con .main .section6 .linedown {position: absolute; width:200px; height:330px; left:623px; top:140px; }
+.content .con .main .section6 .linedown img {position: absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0);}
+
+
+/* 개인정보취급방침 & 이용약관*/
+.content .con .main .section6 .footermenu { position: absolute; width:790px; height:70px; left:600px; top:870px;text-align: center;  }
+.content .con .main .section6 .footermenu .fmenu {position: relative;height:70px; width:790px; padding-bottom:10px; text-align: center; }
+/*.content .con .main .section6 .footermenu .fmenu .btn1 { float:left; height: 60px; padding-left:10px;  }*/
+.content .con .main .section6 .footermenu .fmenu .btn1 { text-indent: -200000px;  float:left; bottom:0px; width: 128px; height: 60px; background:url("http://cdn.hanwhafireworks.com/web/images/main/footer_banner_1.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .footermenu .fmenu .btn2 { float:left; height: 28px; padding-left:10px; padding-top:35px; }
+.content .con .main .section6 .footermenu .fmenu .btn2 a{ text-indent: -200000px;  float:left;  width: 29px; height: 28px; background:url("http://cdn.hanwhafireworks.com/web/images/main/footer_fb.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .footermenu .fmenu .btn2 a:hover { background-position: 0 -28px; }
+.content .con .main .section6 .footermenu .fmenu .btn3 { float:left; height: 14px; padding-left:5px; padding-top:35px; }
+.content .con .main .section6 .footermenu .fmenu .btn3 a{ text-indent: -200000px;  float:left;  width: 29px; height: 28px; background:url("http://cdn.hanwhafireworks.com/web/images/main/footer_blog.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .footermenu .fmenu .btn3 a:hover { background-position: 0 -28px; }
+.content .con .main .section6 .footermenu .fmenu .ff1 { float:left; height: 14px; padding-left:25px;  padding-top:41px;}
+.content .con .main .section6 .footermenu .fmenu .ff1 a{ text-indent: -200000px;  float:left;  width: 89px; height: 14px; background:url("http://cdn.hanwhafireworks.com/web/images/main/fmenu_1.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .footermenu .fmenu .ff1 a:hover { background-position: 0 -14px; }
+.content .con .main .section6 .footermenu .fmenu .ff2 { float:left; height: 14px; padding-left:10px; padding-top:41px;}
+.content .con .main .section6 .footermenu .fmenu .ff2 a{ text-indent: -200000px;  float:left;  width: 45px; height: 14px; background:url("http://cdn.hanwhafireworks.com/web/images/main/fmenu_2.png") no-repeat; background-position: 0 0; }
+.content .con .main .section6 .footermenu .fmenu .ff2 a:hover { background-position: 0 -14px; }
+.content .con .main .section6 .footermenu .fmenu .ffline { float:left; height: 11px; padding-left:10px; padding-top:41px;}
+.content .con .main .section6 .footermenu .fmenu .copyright { float:left; height: 10px; padding-left:25px; padding-top:1px; padding-top:41px;}
+
+/* header */
+.header { position:fixed; width: 100%;  height: 75px;  bottom:-100px; min-width:1250px; z-index: 10; }
+/*.header:after{content: ''; display: block; clear: both;}*/
+.header .navicon { position: absolute; width: 100%; height: 66px; min-width: 980px; margin: 0 auto; }
+.header .navicon .navibar{ position: absolute; width: 100%; height: 75px; background-color: #15181d; opacity: .9; filter:alpha(opacity=90); }
+.header .navicon h1 { position: relative; float: left; margin-left:80px; padding-top: 17px; }
+/*
+.header .navicon .nav { position: relative; left:-13px;  width: 450px; height:93px; margin: 0 auto; padding-top: 25px; }
+.header .navicon .nav li a { float: left; margin: 0px 0 0 34px; }
+.header .navicon .nav li a:after{ content: ''; display: block; clear: both;}
+*/
+
+/** GNB */
+/*
+#header h1{float:left;}
+#header h1 img{padding:27px 0 0 78px;}
+*/
+/*.header .navicon .gnb{position:absolute; left:50%; margin-left:-257px; padding-top:20px;}*/
+.header .navicon .gnb{position:absolute; left:50%; margin-left:-225px; padding-top:14px;}
+.header .navicon .gnb li{position:relative; float:left; width:60px; height:46px; margin-left:25px; cursor:pointer;}
+.header .navicon .gnb li > a{display: BLOCK; height: 46px;}
+.header .navicon .gnb li:first-child{margin:0;}
+
+
+.header .navicon .gnb .gnb2{margin-left:36px;}
+.header .navicon .gnb .gnb3{margin-left:46px;}
+.header .navicon .gnb .gnb4{margin-left:20px;}
+.header .navicon .gnb .gnb5{margin-left:27px;}
+
+.header .navicon .gnb .gnb1 .gnb_txt{margin-left:5px;}
+.header .navicon .gnb .gnb2 .gnb_txt{margin-left:-16px; top:33px;}
+.header .navicon .gnb .gnb3 .gnb_txt{margin-left:5px;}
+.header .navicon .gnb .gnb4 .gnb_txt{margin-left:0px;}
+.header .navicon .gnb .gnb5 .gnb_txt{margin-left:0px;}
+
+
+.header .navicon .gnb li div{overflow:hidden; position:relative; width:0px; height:0px; margin:12px 0 0 30px; opacity:0; filter:alpha(opacity=0); border-radius:12px;}
+.header .navicon .gnb li div img{top:-12px; left:-12px;}
+.header .navicon .gnb li img{position:absolute;}
+.header .navicon .gnb li .gnb_bullet_off{top:6px; left:50%; margin-left:-6px;}
+.header .navicon .gnb li .gnb_txt{bottom:0; opacity:0.45; filter:alpha(opacity=45);}
+
+/*여기부터 하기*/
+#header .login_menu{position:absolute; right:80px; margin-top:30px;}
+#header .login_menu .btn_ticket{position:relative; float:left; width:146px; height:35px; margin-right:51px; cursor:pointer;
+    background:url('http://cdn.hanwhafireworks.com/web/images/gnb/btn_fire.png') 0 0;}
+#header .login_menu .btn_ticket img{position:absolute;}
+#header .login_menu .btn_ticket .t1{position:absolute; left:5px; top:0px;}
+#header .login_menu .btn_ticket .t2{position:absolute;left:70px; top:34px; }
+#header .login_menu .btn_ticket .btn_glow{top:1px; left:1px; opacity:0; filter:alpha(opacity=0);}
+#header .login_menu .btn_ticket .btn_ticket_mask{position:absolute; overflow:hidden; width:142px; height:35px; left:2px;}
+
+/*
+.header .navicon .login_menu{position:absolute; right:80px; margin-top:30px;}
+.header .navicon .login_menu .btn_ticket{position:relative; float:left; width:146px; height:35px; margin-right:51px; cursor:pointer;
+    background:url('http://cdn.hanwhafireworks.com/web/images/main/gnb/btn_fire.png') 0 0;}
+.header .navicon .login_menu .btn_ticket img{position:absolute;}
+.header .navicon .login_menu .btn_ticket .btn_glow{top:1px; left:1px; opacity:0; filter:alpha(opacity=0);}
+.header .navicon .login_menu .btn_ticket .btn_ticket_mask{position:absolute; overflow:hidden; width:142px; height:35px; left:2px;}
+.header .navicon .login_menu ul{float:left; margin-top:10px;}
+.header .navicon .login_menu ul li{float:left; margin-left:11px;}
+.header .navicon .login_menu ul li:first-child{margin:0;}
+*/
+
+
+.header .topMenu { position: absolute; right: 0px; top:21px; height: 42px; padding-right:80px;  }
+.header .topMenu:after{content: ''; display: block; clear: both; }
+
+.header .topMenu li{ position: relative; float:left;  margin: 0 0 0 15px; }
+.header .topMenu .ticket{cursor: pointer; overflow:hidden;}
+.header .topMenu .ticket a{ text-indent: -200000px; display: inline-block; float:left; width:159px; height:33px; top:154px; left:75px; background: url("http://cdn.hanwhafireworks.com/web/images/main_141105/fire_txt2.png") 0 0 no-repeat; background-position: 0 0; }
+/*.header .topMenu .ticket .ticketbg{ position: absolute;  width:100px; height:33px; top:0px; left:0px; background-color:#fff; opacity:0; filter:alpha(opacity=0); display:none;}*/
+.header .topMenu .ticket a:hover { background-position: 0 -33px; }
+.header .topMenu .ticket .linelight1 { position: absolute; width:65px; height:1px; top:0px; left:0px; }
+.header .topMenu .ticket .linelight2 { position: absolute; width:65px; height:1px; top:32px; left:40px;}
+.header .topMenu .ticket .linelight_y1 { position: absolute; width:1px; height:23px; top:23px; left:0px;}
+.header .topMenu .ticket .linelight_y2 { position: absolute; width:1px; height:23px; top:-23px; left:99px;}
+
+
+.header .topMenu .smenu1 a{ text-indent: -200000px;  float:left; width: 33px; height:10px; background:url("http://cdn.hanwhafireworks.com/web/images/main/smenu1.png") no-repeat; background-position: 0 0; margin:12px 0 0 20px; }
+.header .topMenu .smenu1 a:hover{  background-position: 0 -10px; }
+
+.header .topMenu .smenu2 a{ text-indent: -200000px;  float:left; width: 24px; height:10px; background:url("http://cdn.hanwhafireworks.com/web/images/main/smenu2.png") no-repeat; background-position: 0 0; margin-top:12px; }
+.header .topMenu .smenu2 a:hover{  background-position: 0 -10px; }
+
+.header .topMenu .smenu3 a{ text-indent: -200000px;  float:left; width: 22px; height:10px; background:url("http://cdn.hanwhafireworks.com/web/images/main/smenu3.png") no-repeat; background-position: 0 0; margin-top:12px; }
+.header .topMenu .smenu3 a:hover{  background-position: 0 -10px; }
+
+.header .topMenu .smenu4 { width:21px; height:17px; top:7.5px;  }
+/*
+.header .topMenu .smenu4 a{ text-indent: -200000px;  float:left; width: 21px; height:17px; background:url("http://cdn.hanwhafireworks.com/web/images/main/soundbtn.png") no-repeat; background-position: 0 0; margin-top:8px; opacity:.8;filter:alpha(opacity=80);}
+.header .topMenu .smenu4 a:hover{  background-position: 0 0px; }
+*/
+
+/* 로그아웃 */
+.header .topMenu .smenu5 a{ text-indent: -200000px;  float:left; width: 41px; height:10px; background:url("http://cdn.hanwhafireworks.com/web/images/main/smenu1_logout.png") no-repeat; background-position: 0 0; margin-top:12px; }
+.header .topMenu .smenu5 a:hover{  background-position: 0 -10px; }
+/* 마이페이지 */
+.header .topMenu .smenu6 a{ text-indent: -200000px;  float:left; width: 43px; height:10px; background:url("http://cdn.hanwhafireworks.com/web/images/main/smenu2_mypage.png") no-repeat; background-position: 0 0; margin-top:12px; }
+.header .topMenu .smenu6 a:hover{  background-position: 0 -10px; }
+
+#dimmed { position:fixed; top:0; left:0; width:100%; height:100%; background-color:#000; opacity:0.2; filter:alpha(opacity=20); z-index:12; display:none; }
+#sublayer { position:fixed; top:0; left:0; width:100%; height:100%; z-index:13; display:none; }
+#sublayer iframe { overflow:hidden; }
+
+

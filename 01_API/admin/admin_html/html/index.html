@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="common/css/style.css">
+	<script type="text/javascript" src="common/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="common/js/front.js"></script>
+	<script type="text/javascript">
+	$(function(){
+
+		// 로그인
+		var inputItem1 = $(".input1");
+		var inputItem2 = $(".input2");
+
+		inputItem1.val('ID').focus(function(){
+			if( inputItem1.val() == 'ID' ){
+				inputItem1.val('');
+			}
+		}).blur(function(){
+			if( inputItem1.val() == '' ){
+				inputItem1.val('ID');
+			}
+		});
+
+		inputItem2.val('password').focus(function(){
+			if( inputItem2.val() == 'password' ){
+				inputItem2.val('');
+			}
+		}).blur(function(){
+			if( inputItem2.val() == '' ){
+				inputItem2.val('password');
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+
+	<div id="warp">
+		<!-- header -->
+		<div id="header">
+			<h1><a href="#none"><img src="images/logo/logo_h1.png" alt="RAILEUROPE"></a></h1>
+			<div class="logout">CJ ONE 관리자 페이지입니다. 로그인해주세요.</div>
+		</div>
+		<!-- //header -->
+
+		<!-- box-main -->
+		<div id="box-main">
+			<!-- 로그인 -->
+			<div class="box-login">
+				<p class="gap"><input type="text" class="input-type-1 input1" title="아이디" value=""></p>
+				<p class="gap"><input type="text" class="input-type-1 input2" title="비밀번호" value=""></p>
+				<input type="image" src="images/btn/btn_login.jpg" alt="로그인" class="input-img-1">
+			</div>
+			<!-- //로그인 -->
+			<p style="padding:106px 0 0 0;text-align:right;">
+				<img src="images/main/main_vs.jpg" alt="hello">
+			</p>
+			<!-- 하단 text -->
+			<div class="dl-textType-1">
+				<p>회사 웹사이트 :  www.aaa.co.kr </p>
+			</div>
+			<!-- //하단 text -->
+		</div>
+		<!-- //box-main -->
+	</div>
+
+</body>
+</html>

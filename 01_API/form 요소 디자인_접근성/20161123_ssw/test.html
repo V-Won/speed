@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0}
+        body{font-family:'돋움',dotum,sans-serif}
+        a{text-decoration:none;}
+
+        .wrap{padding:20px}
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/front.js"></script>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- checkbox -->       
+        <style>
+            .common-check-box{}
+            .common-check-box:after{content:"";display:block;clear:both;}
+            .common-check-wrap{float:left;position:relative;display:block;margin-right:10px;background:#fff;}
+            .common-check-wrap > input[type="checkbox"]{position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;z-index:-1;overflow:hidden;opacity:0;vertical-align:top;}
+            .common-check-wrap > label{position:relative;display:block;min-height:15px;padding-left:25px;background:url('img/icon_check2_off.png') no-repeat 0 50%;cursor:pointer;font-size:14px;line-height:18px;color:#666;vertical-align:top;z-index:1;}
+            .common-check-wrap > label.on{background:url('img/icon_check2_on.png') no-repeat 0 50%;}
+            .common-check-wrap > label.focus{outline:1px dotted #000;}
+        </style>
+        <div data-control="checkbox">
+	        <div class="common-check-box">
+	            <div class="common-check-wrap">
+	                <input type="checkbox" id="a">
+	                <label for="a">체크1</label>
+	            </div>
+	            <div class="common-check-wrap">
+	                <input type="checkbox" id="b">
+	                <label for="b">체크2</label>
+	            </div>
+	            <div class="common-check-wrap">
+	                <input type="checkbox" id="c">
+	                <label for="c">체크3</label>
+	            </div>
+	            
+	            <div class="common-check-wrap total">
+	                <input type="checkbox" id="d">
+	                <label for="d">전부체크</label>
+	            </div>
+	        </div>
+	        <div class="common-check-box">
+	            <div class="common-check-wrap">
+	                <input type="checkbox" id="a2">
+	                <label for="a2">체크1</label>
+	            </div>
+	            <div class="common-check-wrap">
+	                <input type="checkbox" id="b2">
+	                <label for="b2">체크2</label>
+	            </div>
+	            <div class="common-check-wrap">
+	                <input type="checkbox" id="c3">
+	                <label for="c3">체크3</label>
+	            </div>
+	            
+	            <div class="common-check-wrap total">
+	                <input type="checkbox" id="d4">
+	                <label for="d4">전부체크</label>
+	            </div>
+	        </div>
+		</div>
+        <script type="text/javascript">
+        	Ckbox.initialize();
+        </script>
+        <!-- //checkbox -->
+        
+        <!-- radio -->
+        <style>
+            .common-radio-box{}
+            .common-radio-box:after{content:"";display:block;clear:both;}
+            .common-radio-wrap{float:left;position:relative;display:block;margin-right:10px;background:#fff;}
+            .common-radio-wrap > input[type="radio"]{position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;z-index:-1;overflow:hidden;opacity:0;vertical-align:top;}
+            .common-radio-wrap > label{position:relative;display:block;min-height:16px;padding-left:20px;background:url('img/icon_radio_off.png') no-repeat 0 50%;cursor:pointer;font-size:12px;line-height:18px;color:#888;vertical-align:top;z-index:1;}
+            .common-radio-wrap > label.on{background:url('img/icon_radio_on.png') no-repeat 0 50%;}
+            .common-radio-wrap > label.focus{outline:1px dotted #000;}
+        </style>
+        <div data-control="radio">
+	        <div class="common-radio-box">
+	            <div class="common-radio-wrap">
+	                <input type="radio" id="male" name="gender">
+	                <label for="male">남자</label>
+	            </div>
+	            <div class="common-radio-wrap">
+	                <input type="radio" id="female" name="gender">
+	                <label for="female">여자</label>
+	            </div>
+	        </div>
+	        <div class="common-radio-box">
+	            <div class="common-radio-wrap">
+	                <input type="radio" id="male2" name="gender2">
+	                <label for="male2">남자</label>
+	            </div>
+	            <div class="common-radio-wrap">
+	                <input type="radio" id="female2" name="gender2">
+	                <label for="female2">여자</label>
+	            </div>
+	        </div>
+		</div>
+        <script type="text/javascript">
+        	radio.initialize();
+        </script>
+        <!-- //radio -->
+
+        <!-- select -->
+        <style>
+            .common-select-box{margin-bottom:50px;}
+            .common-select-wrap{position:relative;height:40px;line-height:40px;border:1px solid #dbdbdb;background:#fff;}
+            .common-select-wrap.focus{outline:1px dotted #000;}
+            .common-select-wrap > .arrow{position:absolute;top:50%;right:12px;width:9px;height:5px;margin-top:-2px;background:url('img/icon_select_arrow_off.jpg') no-repeat 0 0;z-index: 0;}
+            .common-select-wrap > label{position:absolute;top:10px;left:12px;font-size:14px;line-height:20px;color:#999;z-index: 0;}
+            .common-select-wrap > .ipt-label{position:absolute;top:10px;left:0;width:100%;height:20px;border:0;background:transparent;font-size:14px;line-height:20px;color:#999;text-indent:12px;z-index: 0;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+			.common-select-wrap > select{width:100%;height:40px;background:transparent;line-height:40px; border: 0;opacity: 0;position:relative;vertical-align:top;z-index:3;filter:alpha(opacity=0);  /* IE8 숨기기 */-webkit-appearance: none; /* 네이티브 외형 감추기 */-moz-appearance: none;appearance: none;}
+        </style>
+        <div data-control="selectBox">
+	        <div class="common-select-box">
+	            <div class="common-select-wrap">
+	                <span class="arrow"></span>
+	                <input type="text" class="ipt-label" value="선택" readonly="readonly" title="선택" tabindex="-1">
+	                <select title="선택">
+	                    <option value="">선택</option>
+	                    <option value="1111">1111</option>
+	                    <option value="22222">22222</option>
+	                    <option value="22222">22222</option>
+	                    <option value="22222">22222</option>
+	                    <option value="22222">22222</option>
+	                    <option value="22222">22222</option>
+	                    <option value="333333">333333</option>
+	                </select>       
+	            </div>
+	        </div>
+		</div>
+        <script type="text/javascript">
+        	selectBox.initialize();
+        </script>
+        <!-- //select -->
+
+        <!-- input-file -->
+        <style>
+            .common-file-box{position:relative;padding-right:100px;}
+            .common-file-box > .file-name{display:block;height:30px;padding:0 10px;border:1px solid #aaa;font-size:14px;line-height:30px;overflow:hidden;}
+            .common-file-box > .btn-file{position:absolute;top:0;right:0;width:100px;height:32px;background:#aaa;color:#fff;font-size:14px;line-height:32px;text-align:center;}
+            .common-file-box > .btn-file.focus{outline:1px dotted #000;}
+            .common-file-box > .btn-file.del{display:none;z-index:10;}
+            .common-file-box > .ipt-file{position:absolute;top:0;right:0;width:100px;height:32px;opacity:0;filter:alpha(opacity=0);cursor:pointer;appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+            .common-btn-file-wrap{margin-top:10px;}
+            .common-btn-file-wrap > a{display:block;width:131px;height:30px;background:#aaa;border:1px solid #aaa;color:#fff;font-size:14px;line-height:30px;text-align:center;text-decoration:none;}
+        </style>
+        <div data-control="fileBox">
+	        <div class="common-file-box">
+	            <p class="file-name">파일명 (용량)</p>
+	            <span class="btn-file">파일 선택</span>
+	            <a href="#none" class="btn-file del">파일 삭제</a>
+	            <input type="file" class="ipt-file">
+	        </div>
+	        <div class="common-btn-file-wrap"><a href="#none" id="btnFileDel">선택한파일삭제</a></div>
+		</div>
+        <script type="text/javascript">
+        	fileBox.initialize();
+        </script>
+        <!-- //input-file -->
+
+    </div>
+    
+</body>
+</html>
