@@ -5,68 +5,376 @@
   <meta charset="utf-8">
   <meta name="viewport"
     content="width=device-width, initiainclude-htmll-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
   <title></title>
 </head>
 
 <body>
-  <style>
-    body {
-      overflow-x: hidden;
+
+  <!-- **
+    * 에어팟 스크롤 샘플
+      https://codepen.io/j-v-w/pen/ZEbGzyv
+    * -->
+
+  <section class="canvas">
+    <div class="top-text font-size-1">
+      1. 3D Image Sequence Scroll
+    </div>
+    <canvas id="hero-lightpass" />
+  </section>
+
+  <script>
+    const canvas1 = () => {
+      const html = document.documentElement;
+      const canvas = document.getElementById("hero-lightpass");
+      const context = canvas.getContext("2d");
+
+      const frameCount = 600;
+      const currentFrame = index => (
+        // `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/02-head-bob-turn/${index.toString().padStart(4, '0')}.jpg`
+
+        `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+      )
+
+      const preloadImages = () => {
+        for (let i = 1; i < frameCount; i++) {
+          const img = new Image();
+          img.src = currentFrame(i);
+        }
+      };
+
+      const img = new Image()
+      img.src = currentFrame(1);
+      canvas.width = 1158;
+      canvas.height = 770;
+      // img.onload = function () {
+      //   context.drawImage(img, 0, 0);
+      // }
+      img.addEventListener('onload', () => {
+        context.drawImage(img, 0, 0);
+      })
+
+      const updateImage = index => {
+        img.src = currentFrame(index);
+        context.drawImage(img, 0, 0);
+      }
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = html.scrollTop;
+        const maxScrollTop = html.scrollHeight - window.innerHeight;
+        const scrollFraction = scrollTop / maxScrollTop;
+        const frameIndex = Math.min(
+          frameCount - 1,
+          Math.ceil(scrollFraction * frameCount)
+        );
+
+        requestAnimationFrame(() => updateImage(frameIndex + 1))
+      });
+
+      preloadImages()
     }
 
-    * {
-      padding: 0;
-      margin: 0;
+    canvas1();
+  </script>
+
+  <!-- **
+    * https://codepen.io/GreenSock/pen/LYrRbdd
+    * -->
+
+  <section class="canvas2">
+    <p class="top-text">
+      2. 3D Image Sequence & Loop Animation<br>(스크롤 끝나면 3D 이미지 자동 회전)
+    </p>
+    <div class="track">
+      <div class="brick-wrap">
+        <canvas style="display:absolute; inset:0; width: 80vw; height: 80vh" id="brick"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- **
+    * 
+    * -->
+
+  <section class="img_Boxsequence">
+    <p class="top-text">영상 자동 추출 해서 시퀀스 이미지로 반복</p>
+    <div id="img_sequence">
+      <canvas width="1300" height="800" id="screen"></canvas>
+    </div>
+  </section>
+
+  <script>
+    var canvas3 = document.getElementById('screen');
+    var context3 = canvas3.getContext('2d');
+    var imgNum3 = 1;
+    var img3 = new Image();
+
+    playSequence();
+
+    function playSequence() {
+      var timer = setInterval(function () {
+
+        if (imgNum3 > 50) {
+          imgNum3 = 1;//이미지가 번호가 086까지 있기 때문에
+        }
+
+        player(imgNum3);
+        imgNum3++;
+      }, 50);
     }
 
-    .img,
-    svg {
-      width: 100vw;
-      position: absolute;
-      top: 0;
-      left: 0;
+    //playSequence라는 함수에 1초가 증가될때 마다 파일명을 1씩 증가하는 파일명으로 설정!
+    function player(num) {
+      //console.log("number:" + num);
+      img3.src = "images/ezgif-frame-001 (" + num + ").png";
     }
 
-    section {
-      height: 100vh;
-      position: relative;
-    }
+    //여기까지는 캔버스에 이미지를 불러만 오고 캔버스에 그리지 않은것(윗부분)
+    //불러올때마다 이미지를 그리는 코드(아래부분)
 
-    .section1 {
-      background-color: #fff;
-    }
+    img3.addEventListener('load', function (e) {
+      context3.clearRect(0, 0, context3.canvas.width, context3.canvas.height);
+      context3.drawImage(img3, 0, 0);
+    })
+  </script>
 
-    .section2 {
-      background-color: #000;
-    }
+  <!-- **
+    * codepen 샘플
+      https://codepen.io/nikhil8krishnan/pen/rVoXJa
+    * 
+    * -->
+  <section class="svg-animate">
+    <div class="top-text">
+      SVG Animation
+    </div>
+    <div class="box-flex">
+      <div class="svg-gap">
+        <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="250" height="250" rx="125" stroke="white" stroke-width="6" class="color-type-1">
+          </rect>
 
-    .section3 {}
+          <circle cx="127.5" cy="128.5" r="83" stroke="white" class="color-type-1 color-2"></circle>
 
-    .section3 svg,
-    .section4 svg {
-      width: 100vw;
-      height: 100vh;
-    }
+          <circle cx="127.5" cy="128.5" r="41" stroke="white" class="color-type-1 color-3"></circle>
 
-    .section3 .gap,
-    .section4 .gap {
-      position: static;
-      top: auto;
-      transform: translateY(0);
-    }
+          <circle cx="70" cy="70" r="14" fill="white">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="4s" from="0 129 129"
+              to="-360 129 129" />
+          </circle>
 
-    .section4{
-      background-color: #000;
-    }
+          <circle cx="56" cy="170" r="21" fill="white">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="360 129 129" />
+          </circle>
 
-    .gap {
-      position: absolute;
-      height: 667px;
-      top: 50vh;
-      left: 0;
-      transform: translateY(-50%);
-    }
-  </style>
+          <circle cx="168" cy="128" r="14" fill="white">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="7s" from="0 129 129"
+              to="-360 129 129" />
+          </circle>
+        </svg>
+        <p class="text-1">Rotate</p>
+      </div>
+
+      <div class="svg-gap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none"
+          class="svg-motion">
+          <rect x="3" y="3" width="250" height="250" rx="125" stroke="white" stroke-width="6"></rect>
+          <line x1="130" y1="47" x2="130" y2="213" stroke="white" stroke-width="2" data-index="1">
+          </line>
+          <line x1="86.6342" y1="201.38" x2="169.634" y2="57.6197" stroke="white" stroke-width="2" data-index="2">
+          </line>
+          <line x1="56.6199" y1="170.634" x2="200.38" y2="87.634" stroke="white" stroke-width="2" data-index="3">
+          </line>
+          <line x1="46.0002" y1="129" x2="212" y2="129" stroke="white" stroke-width="2" data-index="4">
+          </line>
+          <line x1="57.6199" y1="87.634" x2="201.38" y2="170.634" stroke="white" stroke-width="2" data-index="5">
+          </line>
+          <line x1="88.366" y1="57.6201" x2="171.366" y2="201.38" stroke="white" stroke-width="2" data-index="6">
+          </line>
+        </svg>
+        <script>
+          const cnt = 500;
+
+          let item = document.querySelectorAll('.svg-motion line');
+
+          const motion = (e) => {
+            setTimeout(() => {
+              item.forEach((e) => {
+                e.classList.remove('color-type-2');
+              });
+              document.querySelector('[data-index="' + e + '"]').classList.add('color-type-2');
+              if (e == item.length) {
+                setTimeoutFun();
+                return i = 0;
+              }
+            }, cnt * e);
+          }
+
+          const setTimeoutFun = () => {
+            for (var i = 1; i <= item.length; i++) {
+              motion(i);
+            }
+          }
+
+          setTimeoutFun();
+        </script>
+        <p class="text-1">Line Color</p>
+      </div>
+
+      <div class="svg-gap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+          <rect x="3" y="3" width="250" height="250" rx="125" stroke="white" stroke-width="6"></rect>
+          <line x1="130" y1="47" x2="130" y2="213" stroke="white" stroke-width="2" data-index="1">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="86.6342" y1="201.38" x2="169.634" y2="57.6197" stroke="white" stroke-width="2" data-index="2">
+            <!-- <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s" from="0 129 129"
+          to="-360 129 129" /> -->
+          </line>
+          <line x1="56.6199" y1="170.634" x2="200.38" y2="87.634" stroke="white" stroke-width="2" data-index="3">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="46.0002" y1="129" x2="212" y2="129" stroke="white" stroke-width="2" data-index="4">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="57.6199" y1="87.634" x2="201.38" y2="170.634" stroke="white" stroke-width="2" data-index="5">
+            <!-- <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s" from="0 129 129"
+          to="-360 129 129" /> -->
+          </line>
+          <line x1="88.366" y1="57.6201" x2="171.366" y2="201.38" stroke="white" stroke-width="2" data-index="6">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+        </svg>
+        <p class="text-1">Single Rotate</p>
+      </div>
+
+      <div class="svg-gap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+          <rect x="3" y="3" width="250" height="250" rx="125" stroke="white" stroke-width="6"></rect>
+          <line x1="130" y1="47" x2="130" y2="213" stroke="white" stroke-width="2" data-index="1">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="86.6342" y1="201.38" x2="169.634" y2="57.6197" stroke="white" stroke-width="2" data-index="2">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="56.6199" y1="170.634" x2="200.38" y2="87.634" stroke="white" stroke-width="2" data-index="3">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="46.0002" y1="129" x2="212" y2="129" stroke="white" stroke-width="2" data-index="4">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="57.6199" y1="87.634" x2="201.38" y2="170.634" stroke="white" stroke-width="2" data-index="5">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+          <line x1="88.366" y1="57.6201" x2="171.366" y2="201.38" stroke="white" stroke-width="2" data-index="6">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="10s"
+              from="0 129 129" to="-360 129 129" />
+          </line>
+        </svg>
+        <p class="text-1">Total Rotate</p>
+      </div>
+      <a href="#none" style="color:#fff;">A, Button 태그에 마우스 오버시 Cursor Scale 적용</a>
+    </div>
+  </section>
+
+  <section class="svg-animate-bg">
+    <div class="top-text">Svg Gradient Animation</div>
+    <svg width="276" height="276" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="270" height="270" rx="135" stroke="url(#paint0_linear_487_4149)" stroke-width="6" />
+      <defs>
+        <linearGradient id="paint0_linear_487_4149" x1="0" y1="0" x2="274.068" y2="276" gradientUnits="userSpaceOnUse">
+          <!-- <stop stop-color="#5433FF"></stop>
+          <stop offset="0.505" stop-color="#20BDFF"></stop>
+          <stop offset="1" stop-color="#A5FECB"></stop> -->
+
+          <stop offset="0" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="3s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="50%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values=".5;.2;.5" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="100%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values="1;.9;1" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF;#FFDDB7" dur="3.1500000000000004s"
+              repeatCount="indefinite"></animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5"
+            dur="4.199999999999999s" repeatCount="indefinite"></animateTransform>
+      </defs>
+    </svg>
+
+    <svg width="276" height="276" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="16" width="244" height="244" rx="17" stroke="url(#paint0_linear_487_4153)" stroke-width="6" />
+      <defs>
+        <linearGradient id="paint0_linear_487_4153" x1="13" y1="13" x2="261.25" y2="263" gradientUnits="userSpaceOnUse">
+          <!-- <stop stop-color="#5433FF" />
+          <stop offset="0.505" stop-color="#20BDFF" />
+          <stop offset="1" stop-color="#A5FECB" /> -->
+
+          <stop offset="0" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="3s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="50%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values=".5;.2;.5" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="100%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values="1;.9;1" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF;#FFDDB7" dur="3.1500000000000004s"
+              repeatCount="indefinite"></animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5"
+            dur="4.199999999999999s" repeatCount="indefinite"></animateTransform>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <svg width="276" height="276" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M129.785 7.96163C134.898 5.13908 141.102 5.13909 146.215 7.96165L251.215 65.9216C256.635 68.9132 260 74.6143 260 80.8047V195.195C260 201.386 256.635 207.087 251.215 210.078L146.215 268.038C141.102 270.861 134.898 270.861 129.785 268.038L24.7845 210.078L23.3347 212.705L24.7845 210.078C19.365 207.087 16 201.386 16 195.195V80.8047C16 74.6143 19.365 68.9132 24.7845 65.9216L129.785 7.96163Z"
+        stroke="url(#paint0_linear_487_4158)" stroke-width="6" stroke-linejoin="bevel" />
+      <defs>
+        <linearGradient id="paint0_linear_487_4158" x1="13" y1="0" x2="285.921" y2="248.954"
+          gradientUnits="userSpaceOnUse">
+          <!-- <stop stop-color="#5433FF" />
+          <stop offset="0.505" stop-color="#20BDFF" />
+          <stop offset="1" stop-color="#A5FECB" /> -->
+
+          <stop offset="0" stop-color="#086FFF">
+            <animate attributeName="stop-color" values="#086FFF;#FFDDB7;#086FFF" dur="3s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="50%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values=".5;.2;.5" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+          </stop>
+          <stop offset="100%" stop-color="#FFDDB7">
+            <animate attributeName="offset" values="1;.9;1" dur="3.1500000000000004s" repeatCount="indefinite">
+            </animate>
+            <animate attributeName="stop-color" values="#FFDDB7;#086FFF;#FFDDB7" dur="3.1500000000000004s"
+              repeatCount="indefinite"></animate>
+          </stop>
+          <animateTransform attributeName="gradientTransform" type="rotate" from="0 .5 .5" to="360 .5 .5"
+            dur="4.199999999999999s" repeatCount="indefinite"></animateTransform>
+        </linearGradient>
+      </defs>
+    </svg>
+
+  </section>
 
   <section class="section1">
     <div class="gap">
@@ -1101,6 +1409,33 @@
     </div>
   </section>
 
+  <section class="section0">
+    <div class="box-img">
+      <span>
+        <img
+          src="https://s3-alpha-sig.figma.com/img/f76d/1c6d/cc287f87da586bcfb1862c2c4b1104fc?Expires=1708300800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HPgcfkBllOgEqPOzmTic~TNzPJ2DCt6CfOc9m3PbVtL4kHPaYV9j2cbmmwyp9n8DujGDKVqGPthoO2u3MxBBHajVU5orp-lph3JEpkQ8AdqZBTiQaq54lGWvrsRxHR4ce1plgoKuKDlvRI9TpEa~-qSfwCsTqxV5Ih-R7nFwZkAGrKulARzCaviqUzntHnnrGeDa8lX1nLW6qpV3fUrInUt2Q9gnlOVtt0Ad37-mKbUdUfLx2ocFCDWhZN1TDsTOVSOqxyo8p1NCFUzIcAn~w0~3I59NthMuAjU3ue50jzZfmZkPFLebt~O35sgvzjMaabq2fZkucdUt0K7kMpA1eg__"
+          alt="">
+      </span>
+    </div>
+    <div class="gap">
+      <svg viewBox="0 0 4321 1199" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_681_54)">
+          <path
+            d="M1.5498 1180.99C92.6798 1169.96 168.03 1138.61 247.51 1096.06C350.73 1040.8 444.97 962.16 536.8 889.95C629.78 816.83 714.83 726.53 828.75 686.03C894.54 662.64 964.72 658.3 1033.76 653.25C1095.04 648.77 1184.36 654.18 1228.21 602.87C1247.4 580.41 1256.86 556.45 1288.73 547.88C1295.56 546.04 1302.65 545.24 1309.72 545.24C1389.55 545.24 1389.55 646.51 1469.38 646.51C1549.21 646.51 1549.21 545.24 1629.05 545.24C1708.89 545.24 1708.88 646.51 1788.71 646.51C1868.54 646.51 1868.53 545.24 1948.35 545.24C2028.17 545.24 2028.18 646.51 2108.01 646.51C2187.84 646.51 2187.84 545.24 2267.68 545.24C2347.52 545.24 2347.52 646.51 2427.35 646.51C2507.18 646.51 2507.18 545.24 2587.02 545.24C2666.86 545.24 2666.87 646.51 2746.71 646.51C2826.55 646.51 2826.56 545.24 2906.4 545.24C2948.63 545.24 2982.54 574.87 3013.48 600C3072.42 647.87 3145.75 654.63 3216.86 673.18C3293.28 693.11 3368.89 718.39 3437.96 757.25C3543.61 816.69 3629.44 904.98 3722.74 982.37C3841.8 1081.14 3977.9 1164.5 4129.16 1196.92"
+            stroke="white" stroke-width="12" stroke-miterlimit="10" />
+          <path
+            d="M0.189941 47.64C122.99 59.24 247.85 82.83 354.72 147.45C466.44 215.01 548.48 318.84 652.91 397.15C734.13 458.05 825.11 508.09 924.01 530.94C996.94 547.8 1073.16 549.57 1144.56 573.18C1200.33 591.63 1249.23 646.49 1309.73 646.49C1389.57 646.49 1389.57 545.22 1469.42 545.22C1549.27 545.22 1549.27 646.49 1629.11 646.49C1708.95 646.49 1708.94 545.22 1788.78 545.22C1868.62 545.22 1868.62 646.49 1948.45 646.49C2028.28 646.49 2028.28 545.22 2108.12 545.22C2187.96 545.22 2187.95 646.49 2267.78 646.49C2347.61 646.49 2347.6 545.22 2427.42 545.22C2507.24 545.22 2507.25 646.49 2587.08 646.49C2666.91 646.49 2666.91 545.22 2746.75 545.22C2826.59 545.22 2826.58 646.49 2906.41 646.49C2924.24 646.49 2941.36 640.48 2956.92 632.14C2973.43 623.29 2987.87 611.05 3004.73 602.79C3011.96 599.25 3018.93 595.22 3025.97 591.3C3044.8 580.82 3063.85 570.73 3083.2 561.24C3140.07 533.35 3199.67 509.96 3261.59 496.09C3305.75 486.2 3351.45 481.17 3396.65 485.28C3497.74 494.48 3586.54 412.38 3667.75 351.49C3772.18 273.18 3854.22 169.35 3965.94 101.79C4072.81 37.17 4197.66 13.57 4320.47 1.97998"
+            stroke="#2AF87C" stroke-width="12" stroke-miterlimit="10" />
+        </g>
+        <defs>
+          <clipPath id="clip0_681_54">
+            <rect width="4320.66" height="1198.87" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  </section>
+
   <section class="section2">
     <div class="gap">
       <img src="https://deepmind.google/technologies/gemini/static/images/StartBuilding_001_BG.png" alt="" class="img">
@@ -1158,6 +1493,16 @@
           </g>
         </g>
       </svg>
+    </div>
+  </section>
+
+  <section class="section2_1">
+    <div class="gap">
+      <img src="https://deepmind.google/technologies/gemini/static/images/StartBuilding_001_BG.png" alt="" class="img">
+      <div class="c-animation-wrapper js-scrub-controlled-animation-wrapper">
+        <div class="c-animation js-scrub-controlled-animation" data-animation-source="StartBuilding_001.json">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2075,30 +2420,183 @@
     </div>
   </section>
 
-  <section class="section4">
-    <div class="gap">
-      <svg id="chart-mobile" width="442" height="30" viewBox="0 0 442 30" fill="none" xmlns="http://www.w3.org/2000/svg"
-        style="width: 618.138px; rotate: -0.484898rad;">
-        <path
-          d="M1.86391 26.361L19.6592 10.343L34.2663 6.45284L43.2323 9.59318L55.0296 13.7252L78.9116 3.01777L87.8775 6.15811L98.046 13.4281L114.471 4.34714L127.258 16.2426L140.897 13.6029L152.036 9.02766L167.397 7.52094L177.733 3.72422L188.68 11.7967L203.831 3.32894L219.028 2.2941L242.081 4.54093L250.457 4.82597L260.839 8.46215L268.485 4.78282L290.192 12.3857C296.32 11.5298 309.24 9.73305 311.902 9.39386C314.563 9.05467 331.18 6.78684 339.156 5.69533L355.201 11.3149L403.029 16.9416L428.866 23.342L441.135 27.6393"
-          stroke="url(#paint0_linear_844_5220)" stroke-width="3"></path>
-        <defs>
-          <linearGradient id="paint0_linear_844_5220" x1="179.485" y1="-420.1" x2="507.493" y2="-305.214"
-            gradientUnits="userSpaceOnUse">
-            <stop stop-color="white"></stop>
-            <stop offset="1" stop-color="#4FABFF"></stop>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-  </section>
+  <!-- 마우스 커서 -->
+  <div class="cursor"></div>
+  <!-- //마우스 커서 -->
 
   <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
   <script src="https://assets.codepen.io/16327/DrawSVGPlugin3.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.1/lottie.min.js"></script>
 
   <script>
+    // 마우스커서
+    gsap.set(".cursor", { xPercent: -50, yPercent: -50 });
+
+    const Tc = document.querySelector(".cursor"),
+      Pc = document.querySelectorAll("a, button");
+
+    let xTo = gsap.quickTo(".cursor", "x", { duration: 0.6, ease: "power3" }),
+      yTo = gsap.quickTo(".cursor", "y", { duration: 0.6, ease: "power3" });
+
+    window.addEventListener("mousemove", e => {
+      xTo(e.clientX);
+      yTo(e.clientY);
+    });
+
+    document.addEventListener("mouseenter", (function () {
+      Tc.style.opacity = 1
+    }
+    ));
+    document.addEventListener("mouseleave", (function () {
+      Tc.style.opacity = 0
+    }
+    ));
+    Pc.forEach((e) => {
+      e.addEventListener("mouseover", (function () {
+        Tc.style.width = '100px';
+        Tc.style.height = '100px';
+      }));
+      e.addEventListener("mouseleave", (function () {
+        Tc.style.width = '30px';
+        Tc.style.height = '30px';
+      }));
+    });
+
+    // 샘플
+    document.querySelector('.svg-animate-bg').addEventListener("mouseover", (function () {
+      Tc.style.width = '200px';
+      Tc.style.height = '200px';
+    }));
+    document.querySelector('.svg-animate-bg').addEventListener("mouseleave", (function () {
+      Tc.style.width = '30px';
+      Tc.style.height = '30px';
+    }));
+    // //마우스커서
+
     gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger);
+
+    // canvas
+    gsap.fromTo(".canvas", {
+      drawSVG: 0
+    }, {
+      scrollTrigger: {
+        //markers: true,
+        trigger: ".canvas",
+        pin: true,
+        scrub: 0.1,
+        start: "top top",
+        end: "+=6500"
+      }
+    })
+
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        scrub: true
+      }
+    });
+
+    tl.from("#hero-lightpass", {
+      scale: 0.5,
+      duration: 1
+    }, 0)
+      .to("#hero-lightpass", {
+        scale: 1,
+        duration: 0.25
+      }, 0.75)
+
+    // 상자
+    gsap.registerPlugin(ScrollTrigger);
+
+    const canvas = document.querySelector(".canvas2 canvas");
+    //console.clear();
+    if (canvas) {
+      let URL = `https://moonbase.nyc3.cdn.digitaloceanspaces.com/lvdv-brick-dev/webp/frame_`;
+
+      canvas.width = 1920;
+      canvas.height = 1200;
+
+      const context = canvas.getContext("2d");
+
+      const frameCount = 599;
+      const scrollableFrames = 200;
+      const images = [];
+      const position = {
+        frame: 0,
+        mergingFrame: 0
+      };
+      let isLooping;
+      const positionTo = gsap.quickTo(position, "mergingFrame", {
+        onUpdate: () => {
+          position.frame = Math.round(position.mergingFrame);
+          render();
+        },
+        duration: 0.5,
+        onComplete: () => isLooping = false
+      });
+      const currentFrame = (index) =>
+        URL + (index + 1).toString().padStart(3, "0") + ".webp";
+
+      for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images.push(img);
+      }
+
+      let scrollAnimation = gsap.to(position, {
+        frame: scrollableFrames - 1,
+        snap: "frame",
+        ease: "circ.inOut",
+        onUpdate: () => {
+          if (isLooping) {
+            loop.paused() && positionTo(position.frame);
+          } else {
+            render();
+          }
+        },
+        scrollTrigger: {
+          scrub: 0.5,
+          trigger: ".canvas2",
+          start: "top top",
+          end: "+=3500",
+          pin: true,
+          //markers: true,
+          onLeave: function () {
+            isLooping = true;
+            positionTo.tween.pause();
+            loop.play(0);
+          },
+          onEnterBack: function () {
+            loop.pause();
+            positionTo(position.frame);
+          }
+        }
+      });
+
+      images[0].onload = render;
+
+      function render() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[position.frame], 0, 0);
+      }
+
+      let loop = gsap.fromTo(position, {
+        frame: 200
+      }, {
+        frame: 598,
+        duration: 13,
+        repeat: -1,
+        snap: "frame",
+        ease: "none",
+        onUpdate: () => {
+          position.mergingFrame = position.frame;
+          positionTo.tween.invalidate();
+          render();
+        },
+        paused: true
+      }
+      );
+    }
 
     // section1
     gsap.fromTo(".section1 path", {
@@ -2109,6 +2607,22 @@
       scrollTrigger: {
         //markers: true,
         trigger: ".section1",
+        pin: true,
+        scrub: 0.5,
+        start: "top top",
+        end: "bottom"
+      }
+    })
+
+    // section0
+    gsap.fromTo(".section0 path", {
+      drawSVG: 0
+    }, {
+      drawSVG: "100%",
+      ease: "none",
+      scrollTrigger: {
+        //markers: true,
+        trigger: ".section0",
         pin: true,
         scrub: 0.5,
         start: "top top",
@@ -2130,6 +2644,77 @@
         end: "bottom"
       }
     })
+
+    // section2_1
+    gsap.registerPlugin(ScrollTrigger);
+
+    class ScrubControlledAnimation {
+      constructor() {
+        this.DOM = {
+          animationWrapper: ".js-scrub-controlled-animation-wrapper",
+          animation: ".js-scrub-controlled-animation",
+          states: {}
+        };
+
+        this.animationWrapper = document.querySelector(this.DOM.animationWrapper);
+
+        this.animation = document.querySelector(this.DOM.animation);
+
+        this.init();
+      }
+
+      init() {
+        console.log("ScrubControlledAnimation init()");
+
+        if (this.animation) {
+          this.scrubAnimation();
+        }
+      }
+
+      scrubAnimation() {
+        const scrubAnimationOptions = {
+          container: this.animation,
+          renderer: "svg",
+          loop: false,
+          autoplay: false,
+          path: this.animation.getAttribute("data-animation-source")
+        };
+
+        /**
+         *
+         */
+        let scrubAnimation = lottie.loadAnimation(scrubAnimationOptions);
+
+        scrubAnimation.addEventListener("DOMLoaded", () => {
+          this.loadAnimation(scrubAnimation);
+        });
+      }
+
+      loadAnimation(animation) {
+        const scrubAnimationTimeline = gsap.timeline({}).to(
+          { frame: 0 },
+          {
+            duration: 1,
+            frame: animation.totalFrames - 1,
+            onUpdate: function () {
+              animation.goToAndStop(Math.round(this.targets()[0].frame), true);
+            }
+          },
+          "start"
+        );
+
+        ScrollTrigger.create({
+          trigger: this.animationWrapper,
+          animation: scrubAnimationTimeline,
+          // markers: true,
+          start: "top center",
+          end: "bottom top",
+          scrub: 0.4
+        });
+      }
+    }
+
+    new ScrubControlledAnimation();
 
     // section3
     gsap.fromTo(".section3 path", {
