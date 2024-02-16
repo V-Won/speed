@@ -7,13 +7,13 @@ body {
   margin: 0;
 }
 
-.img,
-svg {
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+// .img,
+// svg {
+//   width: 100vw;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
 
 section {
   height: 100vh;
@@ -22,6 +22,13 @@ section {
 
 .section0 {
   background-color: #000;
+  .img,
+  svg {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .section0 svg {
@@ -30,25 +37,32 @@ section {
 
 .section1 {
   background-color: #fff;
+  .img,
+  svg {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
-.section2,
-.section2_1 {
+.section2 {
   background-color: #000;
+  .img,
+  svg {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .section3 {
 }
 
-.section2_1 svg {
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-  position: absolute;
-  top: 50%;
-  //left: -150px;
-  max-width: initial;
-  //transform: translate3d(0, -50%, 0);
+#lottie2 {
+  width: 100vw;
+  height: 100vh;
 }
 
 .section3 svg,
@@ -57,7 +71,6 @@ section {
   height: 100vh;
 }
 
-.section2_1 .gap,
 .section3 .gap,
 .section4 .gap {
   position: static;
@@ -258,5 +271,24 @@ section {
     overflow: hidden;
     width: 100%;
     height: 100%;
+  }
+}
+
+.box-gemini {
+  background-color: #000;
+  position: relative;
+  .img {
+    position: absolute;
+    top: 50%;
+    max-width: initial;
+    height: auto;
+    transform: translate3d(0, -50%, 0);
+    left: 0;
+    width: 100%;
+  }
+  #animationWindow2 {
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
   }
 }

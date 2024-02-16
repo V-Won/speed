@@ -276,14 +276,6 @@
     const tops = panels.map((panel) => ScrollTrigger.create({ trigger: panel, start: 'top top' }));
 
     // 1st
-    const lenis = new Lenis()
-
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
 
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
