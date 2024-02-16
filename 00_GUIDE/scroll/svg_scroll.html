@@ -16,6 +16,27 @@
     * -->
 
   <section>
+    <!-- button -->
+    <!-- **
+      * https://codepen.io/matt-rudd/pen/MWLZMdx
+      * -->
+    <div class="box-button">
+      <a href="#none" class="button button-stroke not-cursor" style="
+            --button-stroke: var(--color-surface-white);
+            --button-hoverColor: var(--color-just-black);" data-block="button">
+        <span class="circle"></span>
+        <span class="button-label" style="z-index: 100">Not Cursor</span>
+        <span class="button-label2" style="z-index: 100">Not Cursor</span>
+      </a>
+      <a href="#none" class="button button-stroke" style="
+            --button-stroke: var(--color-surface-white);
+            --button-hoverColor: var(--color-just-black);" data-block="button">
+        <span class="circle"></span>
+        <span class="button-label" style="z-index: 100">Cursor</span>
+        <span class="button-label2" style="z-index: 100">Cursor</span>
+      </a>
+    </div>
+    <!-- //button -->
     <div id="animationWindow" style="background:#ededed;width: 100%;height: 100%;"></div>
   </section>
 
@@ -2433,6 +2454,132 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.1/lottie.min.js"></script>
 
   <script>
+    // button hover animate
+    class Button {
+      constructor(buttonElement) {
+        this.block = buttonElement;
+        this.init();
+        this.initEvents();
+      }
+
+      init() {
+        const el = gsap.utils.selector(this.block);
+
+        this.DOM = {
+          button: this.block,
+          flair: el(".circle"),
+          text: el(".button__label")
+        };
+
+        this.xSet = gsap.quickSetter(this.DOM.flair, "xPercent");
+        this.ySet = gsap.quickSetter(this.DOM.flair, "yPercent");
+        this.hasFill = this.DOM.button.classList.contains("button--fill");
+      }
+
+      getXY(e) {
+        const { left, top, width, height } =
+          this.DOM.button.getBoundingClientRect();
+
+        const xTransformer = gsap.utils.pipe(
+          gsap.utils.mapRange(0, width, 0, 100),
+          gsap.utils.clamp(0, 100)
+        );
+
+        const yTransformer = gsap.utils.pipe(
+          gsap.utils.mapRange(0, height, 0, 100),
+          gsap.utils.clamp(0, 100)
+        );
+
+        return {
+          x: xTransformer(e.clientX - left),
+          y: yTransformer(e.clientY - top),
+        };
+      }
+
+      initEvents() {
+        this.DOM.button.addEventListener("mouseenter", (e) => {
+          gsap.fromTo(this.DOM.text, {
+            color: "#FFFCE1"
+          }, {
+            color: "#000",
+            duration: 1,
+            ease: "power2.out"
+          });
+
+          const { x, y } = this.getXY(e);
+
+          this.xSet(x);
+          this.ySet(y);
+
+          if (this.hasFill) {
+            gsap.to(this.DOM.flair, {
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+            });
+
+          } else {
+            gsap.to(this.DOM.flair, {
+              scale: 1,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          }
+        });
+
+        this.DOM.button.addEventListener("mouseleave", (e) => {
+          const { x, y } = this.getXY(e);
+
+          gsap.killTweensOf(this.DOM.flair);
+
+          if (this.hasFill) {
+            gsap.to(this.DOM.flair, {
+              xPercent: x > 90 ? x + 20 : x < 10 ? x - 20 : x,
+              yPercent: y > 90 ? y + 20 : y < 10 ? y - 20 : y,
+              opacity: 0,
+              duration: 1,
+              ease: "power2.out",
+            });
+
+          } else {
+            gsap.to(this.DOM.flair, {
+              xPercent: x > 90 ? x + 20 : x < 10 ? x - 20 : x,
+              yPercent: y > 90 ? y + 20 : y < 10 ? y - 20 : y,
+              scale: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+            gsap.fromTo(this.DOM.text, {
+              color: "#000"
+            }, {
+              color: "#FFFCE1",
+              duration: 1,
+              ease: "power2.out"
+            });
+          }
+        });
+
+        this.DOM.button.addEventListener("mousemove", (e) => {
+          const { x, y } = this.getXY(e);
+
+          gsap.to(this.DOM.flair, {
+            xPercent: x,
+            yPercent: y,
+            duration: this.hasFill ? 1 : 0.4,
+            ease: "power2",
+          });
+        });
+      }
+    }
+
+    const buttonElements = document.querySelectorAll('[data-block="button"]');
+
+    // Create instances of the Button class for each button element.
+    buttonElements.forEach((buttonElement) => {
+      new Button(buttonElement);
+    });
+    // //button
+
     // 마우스커서
     gsap.set(".cursor", { xPercent: -50, yPercent: -50 });
 
@@ -2456,9 +2603,17 @@
     }
     ));
     Pc.forEach((e) => {
+      if (e.classList.contains('not-cursor')) {
+        e.addEventListener("mouseover", (function () {
+          Tc.style.display = 'none';
+        }));
+        e.addEventListener("mouseleave", (function () {
+          Tc.style.display = 'block';
+        }));
+      }
       e.addEventListener("mouseover", (function () {
-        Tc.style.width = '100px';
-        Tc.style.height = '100px';
+        Tc.style.width = '50px';
+        Tc.style.height = '50px';
       }));
       e.addEventListener("mouseleave", (function () {
         Tc.style.width = '30px';
@@ -2468,8 +2623,8 @@
 
     // 샘플
     document.querySelector('.svg-animate-bg').addEventListener("mouseover", (function () {
-      Tc.style.width = '200px';
-      Tc.style.height = '200px';
+      Tc.style.width = '300px';
+      Tc.style.height = '300px';
     }));
     document.querySelector('.svg-animate-bg').addEventListener("mouseleave", (function () {
       Tc.style.width = '30px';
@@ -2665,7 +2820,7 @@
       });
       const currentFrame = (index) =>
         URL + (index + 1).toString().padStart(3, "0") + ".webp";
-      
+
 
       for (let i = 0; i < frameCount; i++) {
         const img = new Image();

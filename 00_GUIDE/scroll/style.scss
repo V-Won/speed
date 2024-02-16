@@ -7,14 +7,6 @@ body {
   margin: 0;
 }
 
-// .img,
-// svg {
-//   width: 100vw;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
-
 section {
   height: 100vh;
   position: relative;
@@ -31,8 +23,10 @@ section {
   }
 }
 
-.section0 svg {
-  transform: rotate(147deg);
+.section0 {
+  svg {
+    transform: rotate(147deg);
+  }
 }
 
 .section1 {
@@ -57,29 +51,40 @@ section {
   }
 }
 
-.section3 {
-}
-
 #lottie2 {
   width: 100vw;
   height: 100vh;
 }
 
-.section3 svg,
-.section4 svg {
-  width: 100vw;
-  height: 100vh;
+.section3 {
+  svg {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
-.section3 .gap,
-.section4 .gap {
-  position: static;
-  top: auto;
-  transform: translateY(0);
+.section4 {
+  svg {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.section3 {
+  .gap {
+    position: static;
+    top: auto;
+    transform: translateY(0);
+  }
 }
 
 .section4 {
   background-color: #000;
+  .gap {
+    position: static;
+    top: auto;
+    transform: translateY(0);
+  }
 }
 
 .gap {
@@ -97,44 +102,32 @@ section {
   width: 826px;
   height: 1300px;
   display: none;
-}
-
-.box-img span {
-  position: relative;
-}
-
-.box-img span:after {
-  content: "";
-  display: block;
-  border-radius: 30px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, #000 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.box-img img {
-  border-radius: 30px;
-  margin: 0 auto;
-  width: 826px;
-  height: 1300px;
+  img {
+    border-radius: 30px;
+    margin: 0 auto;
+    width: 826px;
+    height: 1300px;
+  }
+  span {
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      border-radius: 30px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, #000 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
 }
 
 .svg-animate {
   background-color: #000;
   position: relative;
-}
-
-.svg-animate svg {
-  display: inline-block;
-  position: static;
-  margin: 10px;
-}
-
-.svg-animate {
   .color-type-1 {
     animation-duration: 3s;
     animation-delay: 1s;
@@ -153,6 +146,11 @@ section {
     animation-name: colorChange2;
     animation-iteration-count: infinite;
     animation-duration: 5s;
+  }
+  svg {
+    display: inline-block;
+    position: static;
+    margin: 10px;
   }
 }
 
@@ -288,7 +286,94 @@ section {
   }
   #animationWindow2 {
     position: absolute;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
+  }
+}
+
+// button
+:root {
+  --color-just-black: #0e100f;
+  --color-surface-white: #000;
+}
+.box-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  gap: 30px;
+  padding: 100px 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #6e6e6e;
+  .button {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 450;
+    overflow: hidden;
+    position: relative;
+    border-radius: 999px;
+    background: #f8f4e6;
+    box-shadow:
+      0px 1px 1px 0px rgba(255, 255, 255, 0.25) inset,
+      0px -1px 1px 0px rgba(255, 255, 255, 0.1) inset,
+      0px 8px 6px 0px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(50px);
+    height: 48px;
+    width: 200px;
+    &:hover {
+      span {
+        color: #fff;
+      }
+    }
+    &.button-stroke {
+      .circle {
+        transform: scale(0);
+        transform-origin: 0 0;
+        will-change: transform;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        &::before {
+          aspect-ratio: 1/1;
+          background: var(--button-stroke);
+          border-radius: 50%;
+          content: "";
+          display: block;
+          left: 0;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          transform: translate(-50%, -50%);
+          width: 170%;
+        }
+      }
+    }
+    .button-label,
+    .button-label2 {
+    }
+    .button-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #000;
+      z-index: 40;
+    }
+    .button-label2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #000;
+      z-index: 20;
+    }
   }
 }
