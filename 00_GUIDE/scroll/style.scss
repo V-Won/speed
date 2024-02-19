@@ -273,7 +273,8 @@ section {
 }
 
 #animationWindow{
-  transform: translateY(-100px);
+  //transform: translateY(-100px);
+  position: relative;
 }
 
 .box-gemini {

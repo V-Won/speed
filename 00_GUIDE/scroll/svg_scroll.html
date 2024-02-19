@@ -2641,24 +2641,19 @@
       }
     });
 
-    hellow.from("#animationWindow", {
-      scale: 0.5,
-      y: 0
-    }, 0).to("#animationWindow", {
-        scale: 1,
-        y: 500
-      }, 0.75)
+    hellow.to("#animationWindow", { scale: 1, y:500})
 
     LottieScrollTrigger({
+      animation: hellow,
       target: "#animationWindow",
       path: "https://assets.codepen.io/35984/tapered_hello.json",
       speed: "medium",
       trigger: '.box-hellow',
-      pin: false,
       start: "top top",
-      end: "bottom",
-      //markers: true,
-      scrub: 2
+      end : "bottom",
+      markers: true,
+      pin: true,
+      scrub: 3
     });
 
     function LottieScrollTrigger(vars) {
