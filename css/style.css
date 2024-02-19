@@ -251,6 +251,10 @@ section {
   height: 100%;
 }
 
+#animationWindow {
+  transform: translateY(-100px);
+}
+
 .box-gemini {
   background-color: #000;
   position: relative;
@@ -277,16 +281,16 @@ section {
 
 .box-button {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
   display: flex;
   gap: 30px;
-  padding: 100px 0;
+  padding: 20px 0;
   justify-content: center;
   align-items: center;
-  background-color: #6e6e6e;
+  background-color: #F8F4E6;
 }
 .box-button .button {
   cursor: pointer;
@@ -300,6 +304,7 @@ section {
   backdrop-filter: blur(50px);
   height: 48px;
   width: 200px;
+  border: 1px solid #D2D5DE;
 }
 .box-button .button:hover span {
   color: #fff;
