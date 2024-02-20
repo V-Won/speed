@@ -109,16 +109,16 @@
       position: relative;
     }
 
-    .parallax__item__img.active:after{
+    .parallax__item__img.active:after {
       content: 'active Class 추가';
       display: block;
       position: absolute;
-      top:50%;
-      left:50%;
+      top: 50%;
+      left: 50%;
       color: red;
       font-weight: bold;
       text-align: center;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) scale(2);
       font-size: 20px;
       background: #000;
     }
@@ -252,7 +252,7 @@
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
 
   <script>
-    
+
     const box1 = document.querySelector("#section1 .parallax__item__img");
     const box2 = document.querySelector("#section2 .parallax__item__img");
     const box3 = document.querySelector("#section3 .parallax__item__img");
@@ -269,6 +269,8 @@
       x: 500,
       borderRadius: 100,
       rotation: 360,
+      repeat: -1, // 무한 반복
+      yoyo: true // 무한 반복 repeat 시키면서 끝났을때 반대로 돌리기
     });
 
     // 02 : trigger
@@ -277,10 +279,10 @@
       x: 500,
       rotation: 360,
       borderRadius: 100,
-      
+
       scrollTrigger: {
         trigger: box2,  //시작점 설정
-        start:"top 50%",
+        start: "top 50%",
         id: "box2",
         markers: true
       }
@@ -327,7 +329,7 @@
         trigger: box5,
         start: "top 50%",
         end: "bottom 20%",
-        scrub: 0.2,    //true, 1, 2,....
+        scrub: 1,    //true, 1, 2,....
         markers: false,
       }
     });
@@ -336,13 +338,13 @@
     gsap.to(box6, {
       duration: 2,
       x: 500,
-      rotation: 360,
+      rotation: 720,
       borderRadius: 100,
 
       scrollTrigger: {
         trigger: box6,
         start: "top 50%",
-        end: "3000px 100px", // 3000px 스크롤 할때 까지 pin 고정.
+        end: "2000px 100px", // 3000px 스크롤 할때 까지 pin 고정.
         pin: true,
         scrub: true,
         markers: false,
@@ -386,7 +388,10 @@
         // onEnterBack : () => {console.log("onEnterBack")}, // end 지점 반대로 돌아옴
         // onLeaveBack : () => {console.log("onLeaveBack")}, // start 지점 반대로 돌아옴
         // onUpdate : (self) => {console.log("onUpdate", self.progress.toFixed(3))}, // scroll 퍼센트 구하기 가능
-        onToggle: (e) => { console.log("onToggle", e.isActive) }, // true false callback
+        // onToggle: (e) => { console.log("onToggle", e.isActive) }, // true false callback
+        onToggle: (e) => {
+          e.isActive ? box8.classList.add("active") : box8.classList.remove("active");
+        } // 요소가 뷰포트에 들어오면 "active" 클래스를 추가하고 나가면 제거
       }
     });
   </script>
