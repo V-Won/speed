@@ -2682,7 +2682,8 @@
       end: "bottom",
       markers: true,
       pin: true,
-      scrub: 3
+      scrub: 3,
+      anticipatePin: 1
     });
 
     function LottieScrollTrigger(vars) {
@@ -2759,7 +2760,8 @@
           start: "top top",
           //end: speeds[vars.speed] || "+=1000",
           end: "+=4000",
-          scrub: 1
+          scrub: 1,
+          anticipatePin: 1
         },
         ctx = gsap.context && gsap.context(),
         animation = lottie.loadAnimation({
@@ -2815,7 +2817,8 @@
         pin: true,
         scrub: 1,
         start: "top top",
-        end: "+=4000"
+        end: "+=4000",
+        anticipatePin: 1
       }
     })
 
@@ -2859,6 +2862,7 @@
           render();
         },
         duration: 0.5,
+        anticipatePin: 1,
         onComplete: () => isLooping = false
       });
       const currentFrame = (index) =>
@@ -2938,7 +2942,8 @@
         pin: true,
         scrub: 0.5,
         start: "top top",
-        end: "bottom"
+        end: "bottom",
+        anticipatePin: 1
       }
     })
 
@@ -2955,7 +2960,8 @@
         scrub: 3,
         start: "top top",
         //end: "bottom"
-        end: "+=6000"
+        end: "+=6000",
+        anticipatePin: 1
       }
     })
 
@@ -2971,7 +2977,8 @@
         scrub: 3,
         start: "top top",
         //end: "bottom"
-        end: "+=6000"
+        end: "+=6000",
+        anticipatePin: 1
       }
     })
 
@@ -2986,7 +2993,8 @@
         pin: true,
         scrub: 0.5,
         start: "top top",
-        end: "bottom"
+        end: "bottom",
+        anticipatePin: 1
       }
     })
   </script>

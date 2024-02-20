@@ -317,15 +317,14 @@
     
     // 01 : 이미지 애니메이션 주기
     const ani1 = gsap.timeline();
-    
-    ani1.to("#section1 .parallax__item__img", { rotation: 720, scale: 0, borderRadius: 200, position: "relative" })
-      .to("#section1 .parallax__item__img", { rotation: 0, scale: 1, borderRadius: 20 })
-      .to("#section1 .parallax__item__img", { left: "-200px" })
+    ani1.to("#section1 .parallax__item__img, #section1 .red", { rotation: 720, scale: 0, borderRadius: 200, position: "relative" })
+      .to("#section1 .parallax__item__img, #section1 .red", { rotation: 0, scale: 1, borderRadius: 20 })
+      .to("#section1 .parallax__item__img, #section1 .red", { left: "-200px" })
       .to("#section1 .parallax__item__img, #section1 .red", { left: "200px" })
-      .to("#section1 .parallax__item__img", { left: "0" })
-      .to("#section1 .parallax__item__img", { top: "-200px" })
-      .to("#section1 .parallax__item__img", { top: "200px" })
-      .to("#section1 .parallax__item__img", { top: "0", opacity:"0" })
+      .to("#section1 .parallax__item__img, #section1 .red", { left: "0" })
+      .to("#section1 .parallax__item__img, #section1 .red", { top: "-200px" })
+      .to("#section1 .parallax__item__img, #section1 .red", { top: "200px" })
+      .to("#section1 .parallax__item__img, #section1 .red", { top: "0", opacity:"0" })
 
     ScrollTrigger.create({
       animation: ani1,
@@ -340,7 +339,6 @@
 
     // 02 : 이미지 순차적으로 나오기
     const ani2 = gsap.timeline();
-    
     ani2.from("#section2 .i1", { y: 200, autoAlpha: 0, borderRadius: 200 })
       .from("#section2 .i2", { y: -200, autoAlpha: 1, borderRadius: 200 })
       .from("#section2 .i3", { y: 200, autoAlpha: 0, borderRadius: 200 });
@@ -362,9 +360,9 @@
       autoAlpha: 0,
       y: -100,
       ease: "back.out(4)",
-      stagger: {
+      stagger: { // GSAP의 stagger 옵션은 여러 요소에 애니메이션을 동시에 적용하며 각 요소 사이에 지연 시간을 설정할 수 있게 해줍니다. 이를 통해 매력적이고 리듬감 넘치는 효과를 만들 수 있습니다.
         amount: 10,
-        from: "random"
+        from: "random" // center
       }
     })
 
