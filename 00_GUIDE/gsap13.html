@@ -183,7 +183,9 @@
 
     #section3,
     #section5,
-    #section7{background: transparent;}
+    #section7 {
+      background: transparent;
+    }
 
     /* option */
     #parallax__cont {
@@ -382,7 +384,11 @@
     const horizontal = document.querySelector("#horizontal");
     const sections = gsap.utils.toArray("#horizontal > section");
 
-    let scrollTween = gsap.to(sections, {
+    /**
+     * to
+     *  애니메이션의 목표 값을 정의합니다. 현재 값은 시작 값으로 사용됩니다.
+    */
+    gsap.to(sections, {
       xPercent: -100 * (sections.length - 1), // 마지막 요소를 제외한 모든 요소들을 왼쪽으로 100%만큼 이동
       ease: "none", // 이징 효과를 적용하지 않는 것
       scrollTrigger: {
@@ -391,11 +397,11 @@
         end: () => "+=" + (horizontal.offsetWidth - innerWidth), // 애니메이션이 끝나는 시점을 지정하는 옵션
         pin: true,
         scrub: 1,
-        // snap: {
-        //   snapTo: 1 / (sections.length - 1), // 스크롤 위치를 요소들의 위치에 스냅하는 옵션
-        //   inertia: true, // 스냅 시의 관성 효과를 비활성
-        //   duration: { min: 0.1, max: 0.1 }, // 애니메이션의 최소 및 최대 지속 시간을 설정
-        // },
+        snap: {
+          snapTo: 1 / (sections.length - 1), // 스크롤 위치를 요소들의 위치에 스냅하는 옵션
+          inertia: true, // 스냅 시의 관성 효과를 비활성
+          duration: { min: 0.1, max: 0.1 }, // 애니메이션의 최소 및 최대 지속 시간을 설정
+        },
         invalidateOnRefresh: true, // 페이지 새로고침 시 스크롤 트리거 위치를 재계산
         anticipatePin: 1 // 스크롤 트리거 요소의 위치를 예측하여 부드럽게 고정하는 옵션
       }
@@ -405,6 +411,10 @@
     const horizontal2 = document.querySelector("#horizontal2");
     const sections2 = gsap.utils.toArray("#horizontal2 > section");
 
+    /**
+     * from
+     *  애니메이션의 시작 값을 정의합니다. 목표 값은 현재 값으로 사용됩니다. (뒤로 재생하는 것과 비슷합니다.)
+    */
     gsap.from(sections2, {
       xPercent: -100 * (sections2.length - 1),
       ease: "none",
@@ -427,12 +437,12 @@
     // 이미지 애니메이션 주기
     const ani1 = gsap.timeline();
 
-    ani1.to(".img-1 img", { rotation: 720, scale: 0.3, borderRadius: 200, "margin-top":"-50vh" }, '+=1')
-        .to(".img-1 img", { "filter":"hue-rotate(1rad)", "margin-top":"50vh" }, '+=1')
-        .to(".img-1 img", { "filter":"hue-rotate(1rad)", "margin-top":"-50vh" }, '+=1')
-        .to(".img-1 img", { "filter":"hue-rotate(50rad)", "margin-top":"-50vh" }, '+=1')
-        .to(".img-1 img", { "filter":"hue-rotate(100rad)", "margin-top":"0", "opacity":"0" }, '+=1')
-        .to(".img-1 img", { "filter":"hue-rotate(100rad)", "margin-top":"-50vh", "opacity":"0" }, '+=1')
+    ani1.to(".img-1 img", { rotation: 720, scale: 0.3, borderRadius: 200, "margin-top": "-50vh" }, '+=1')
+      .to(".img-1 img", { "filter": "hue-rotate(1rad)", "margin-top": "50vh" }, '+=1')
+      .to(".img-1 img", { "filter": "hue-rotate(1rad)", "margin-top": "-50vh" }, '+=1')
+      .to(".img-1 img", { "filter": "hue-rotate(50rad)", "margin-top": "-50vh" }, '+=1')
+      .to(".img-1 img", { "filter": "hue-rotate(100rad)", "margin-top": "0", "opacity": "0" }, '+=1')
+      .to(".img-1 img", { "filter": "hue-rotate(100rad)", "margin-top": "-50vh", "opacity": "0" }, '+=1')
 
     ScrollTrigger.create({
       animation: ani1,
