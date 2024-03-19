@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initiainclude-htmll-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+  <title></title>
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="../static/images/logo/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../static/images/logo/favicon.png" />
+
+  <!-- Favorites Thumbnails -->
+  <link rel="apple-touch-icon" href="../static/images/logo/share-200x200.jpg">
+  <link rel="image_src" href="../static/images/logo/share-200x200.jpg">
+
+  <link rel="stylesheet" href="../static/css/style.css"><!-- 공통 css -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"><!-- AOS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- swiper css -->
+</head>
+
+<body>
+
+  <!-- header -->
+  <div include-html="static/include/header.html" data-include="header"></div>
+  <!-- //header -->
+
+  <!-- box-wrap -->
+  <div class="box-wrap">
+    <!-- inner-wrap -->
+    <div class="inner-wrap" style="max-width: 1950px;margin:0 auto;padding:0 50px;">
+      <div class="inner-gap-1">
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">SelectBox</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item">
+              <div class="input-wrap flex" style="align-items:start;">
+                <!-- 
+                  common-selectbox-1
+                  비활성화 시 disabled 클래스 추가
+                  에러 시 error 클래스 추가
+                -->
+                <div class="common-selectbox-1" data-event="commonSelectBox">
+                  <button class="button">Label</button>
+                  <ul class="list">
+                    <li><button>Placeholder 01</button></li>
+                    <li><button>Placeholder 02</button></li>
+                    <li><button>Placeholder 03</button></li>
+                    <li><button>Placeholder 04</button></li>
+                    <li><button>Placeholder 05</button></li>
+                  </ul>
+                </div>
+                <div class="common-selectbox-1 disabled" data-event="commonSelectBox">
+                  <button class="button">Disabled</button>
+                  <ul class="list">
+                    <li><button>Placeholder 01</button></li>
+                    <li><button>Placeholder 02</button></li>
+                    <li><button>Placeholder 03</button></li>
+                    <li><button>Placeholder 04</button></li>
+                    <li><button>Placeholder 05</button></li>
+                  </ul>
+                </div>
+                <div class="common-selectbox-1 error" data-event="commonSelectBox">
+                  <button class="button">Error</button>
+                  <ul class="list">
+                    <li><button>Placeholder 01</button></li>
+                    <li><button>Placeholder 02</button></li>
+                    <li><button>Placeholder 03</button></li>
+                    <li><button>Placeholder 04</button></li>
+                    <li><button>Placeholder 05</button></li>
+                  </ul>
+                  <p class="success-text-1">Success message goes here</p>
+                  <p class="success-text-2">Success message goes here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">File</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item">
+              <div class="input-wrap">
+                <textarea id="form-7" class="common-textarea" placeholder="내용을 입력해주세요."></textarea>
+              </div>
+            </div>
+            <div class="form-item file-wrap">
+              <div class="input-wrap">
+                <div class="file-btn-wrap">
+                  <label for="form-8" class="file-btn">파일 찾기</label>
+                  <input type="file" id="form-8">
+                </div>
+                <ul class="file-item" data-event="fileDelete">
+                  <li>
+                    <span>Attach_File_01.zip</span>
+                    <button class="del-btn">삭제</button>
+                  </li>
+                  <li>
+                    <span>Attach_File_01Attach_File_01Attach_File_01Attach_File_01Attach_File_01Attach_File_01.zip</span>
+                    <button class="del-btn">삭제</button>
+                  </li>
+                  <li>
+                    <span>Attach_File_01.zip</span>
+                    <button class="del-btn">삭제</button>
+                  </li>
+                  <li>
+                    <span>Attach_File_01.zip</span>
+                    <button class="del-btn">삭제</button>
+                  </li>
+                </ul>
+                <p class="file-noti">※ 첨부파일 용량은 최대 10MB 입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">Form</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item">
+              <div class="input-wrap">
+                <!-- 라디오버튼 -->
+                <div class="box-radio">
+                  <div class="radioitem">
+                    <label>
+                      <input type="radio" name="test0">
+                      <span>Radio label</span>
+                    </label>
+                  </div>
+
+                  <div class="radioitem">
+                    <label>
+                      <input type="radio" name="test0">
+                      <span>Radio label</span>
+                    </label>
+                  </div>
+
+                  <div class="radioitem">
+                    <label>
+                      <input type="radio" name="" disabled>
+                      <span>Radio label</span>
+                    </label>
+                  </div>
+
+                  <div class="radioitem">
+                    <label>
+                      <input type="radio" name="" checked disabled>
+                      <span>Radio label</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-item">
+              <div class="input-wrap">
+                <!-- 체크박스 -->
+                <!-- **
+                  * 전체 체크 GUIDE
+                    전체 체크 item data-event="checkboxAll" 
+                    자식 체크 data-event="checkbox"
+                  * -->
+                <div class="box-check">
+                  <div class="checkitem" data-event="checkboxAll">
+                    <label>
+                      <input type="checkbox" name="test1">
+                      <span>전체 체크</span>
+                    </label>
+                  </div>
+
+                  <div class="checkitem" data-event="checkbox">
+                    <label>
+                      <input type="checkbox" name="test1">
+                      <span><strong>(필수)</strong>check box</span>
+                    </label>
+                  </div>
+
+                  <div class="checkitem" data-event="checkbox">
+                    <label>
+                      <input type="checkbox" name="test1">
+                      <span>check box</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="box-check">
+                  <div class="checkitem" data-event="checkboxAll">
+                    <label>
+                      <input type="checkbox" name="test2">
+                      <span>전체 체크</span>
+                    </label>
+                  </div>
+
+                  <div class="checkitem" data-event="checkbox">
+                    <label>
+                      <input type="checkbox" name="test2">
+                      <span><strong>(필수)</strong>check box</span>
+                    </label>
+                  </div>
+
+                  <div class="checkitem" data-event="checkbox">
+                    <label>
+                      <input type="checkbox" name="test2">
+                      <span>check box</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- **
+                  * 개별 체크
+                  * -->
+                <div class="box-check">
+                  <div class="checkitem">
+                    <label>
+                      <input type="checkbox" name="test3">
+                      <span>check box</span>
+                    </label>
+                  </div>
+                  <div class="checkitem">
+                    <label>
+                      <input type="checkbox" name="test3">
+                      <span>check box</span>
+                    </label>
+                  </div>
+                  <div class="checkitem">
+                    <label>
+                      <input type="checkbox" name="test3" disabled>
+                      <span>disabled</span>
+                    </label>
+                  </div>
+                  <div class="checkitem">
+                    <label>
+                      <input type="checkbox" name="test3" disabled checked>
+                      <span>disabled</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">Button</p>
+          </div>
+          <div class="form-inner">
+            <!-- **
+              * 모든 공통 Btn class Type
+                class="common-btn"
+              * Disabled Type
+                class="disabled"
+              * outline
+                class="outline"
+              * icon만 있을때
+                class="outline icon"
+              * Class Type
+                class="common-btnType-1"
+              * -->
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Primary Medium - Filled</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn common-btnType-1 button-stroke" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn common-btnType-1 disabled" data-block="button">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+              </div>
+            </div>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Primary Medium - Outlined</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn outline common-btnType-1 button-stroke" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn common-btnType-1 disabled" data-block="button">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+              </div>
+            </div>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Primary Medium - None</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn common-btnType-2">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn common-btnType-2 disabled">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn common-btnType-2 size-1">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+              </div>
+            </div>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Primary Medium - icon</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn outline icon common-btnType-1 button-stroke" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label"></span>
+                </a>
+                <a href="#none" class="common-btn outline icon disabled common-btnType-1 button-stroke"
+                  data-block="button">
+                  <span class="button-label"></span>
+                </a>
+              </div>
+            </div>
+            <br><br><br>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Secondary Medium - Filled</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn secondary common-btnType-1 button-stroke" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn secondary common-btnType-1 disabled" data-block="button">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+              </div>
+            </div>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Secondary Medium - Outlined</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn outline secondary common-btnType-1 button-stroke" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn secondary common-btnType-1 disabled" data-block="button">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+              </div>
+            </div>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Secondary Medium - None</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn secondary common-btnType-2">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+                <a href="#none" class="common-btn secondary common-btnType-2 disabled">
+                  <span class="button-label">SHOW MORE</span>
+                </a>
+              </div>
+            </div>
+            <div class="form-item ct">
+              <div class="label-wrap">
+                <label class="input-label" for="">Secondary Medium - icon</label>
+              </div>
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-btn outline icon secondary common-btnType-1 button-stroke"
+                  data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label"></span>
+                </a>
+                <a href="#none" class="common-btn outline icon disabled secondary common-btnType-1 button-stroke"
+                  data-block="button">
+                  <span class="button-label"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">Tab</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item ct">
+              <div class="common-box-btn" style="gap:40px;">
+                <a href="#none" class="common-tabType-1 button-stroke size-1" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label">(Pre)Clinical candidate R&D service</span>
+                </a>
+                <a href="#none" class="common-tabType-1 button-stroke" data-block="button">
+                  <span class="circle"></span>
+                  <span class="button-label">(Pre)Clinical candidate R&D service</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">Label</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item ct">
+              <div class="common-box-btn" style="gap:40px;">
+                <div>
+                  <div class="common-input-container">
+                    <label for="Label1">Label</label>
+                    <input type="text" id="Label1">
+                  </div>
+                </div>
+                <div>
+                  <div class="common-input-container">
+                    <label for="Label2">Label</label>
+                    <input type="text" id="Label2">
+                  </div>
+                </div>
+                <div class="input-success">
+                  <div class="common-input-container">
+                    <label for="Label3">Label</label>
+                    <input type="text" id="Label3" value="text">
+                  </div>
+                  <p class="success-text-1">Success message goes here</p>
+                </div>
+                <div class="input-error">
+                  <div class="common-input-container">
+                    <label for="Label4">Label</label>
+                    <input type="text" id="Label4" value="text">
+                  </div>
+                  <p class="success-text-2">Success message goes here</p>
+                </div>
+                <div>
+                  <div class="common-input-container">
+                    <label for="Label5">Textarea</label>
+                    <!-- <input type="text" id="Label5"> -->
+                    <textarea id="Label5"></textarea>
+                  </div>
+                </div>
+              </div>
+              <script>
+                // input focus label
+                const inputs = document.querySelectorAll('.common-input-container input, .common-input-container textarea');
+
+                for (const input of inputs) {
+                  const label = input.parentNode.querySelector('label');
+
+                  input.addEventListener('focus', () => {
+                    label.parentNode.classList.add('focus');
+                  });
+
+                  input.addEventListener('blur', () => {
+                    if (input.value === '') {
+                      label.parentNode.classList.remove('focus');
+                    }
+                  });
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">State Icon</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item ct">
+              <div class="common-box-btn" style="gap:40px;">
+                <img src="../static/images/icon/icon_state_1_big.svg" alt="">
+                <img src="../static/images/icon/icon_state_2_big.svg" alt="">
+                <img src="../static/images/icon/icon_state_1.svg" alt="">
+                <img src="../static/images/icon/icon_state_2.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">Paging</p>
+          </div>
+          <div class="form-inner">
+            <div class="form-item">
+              <!-- common-paging -->
+              <div class="common-paging">
+                <ul>
+                  <li><a href="#none" class="btn-first" title="첫 페이지 이동"></a></li>
+                  <li><a href="#none" class="btn-prev" title="이전 페이지 이동"></a></li>
+                  <li><a href="#none" class="is-active">1</a></li>
+                  <li><a href="#none">2</a></li>
+                  <li><a href="#none">3</a></li>
+                  <li><a href="#none">4</a></li>
+                  <li><a href="#none">5</a></li>
+                  <li><a href="#none" class="btn-next" title="다음 페이지 이동"></a></li>
+                  <li><a href="#none" class="btn-last" title="마지막 페이지 이동"></a></li>
+                </ul>
+              </div>
+              <!-- //common-paging -->
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-tit">
+            <p class="title">Layer Popup</p>
+          </div>
+          <div class="form-inner">
+
+            <div class="form-item">
+              <div class="common-btn-center">
+                <a href="#none" class="common-btn common-btnType-1 button-stroke" data-block="button"
+                  data-event="layerOpen" data-layerId="ly-1">
+                  <span class="circle"></span>
+                  <span class="button-label">layer Popup</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //inner-wrap -->
+  </div>
+  <!-- //box-wrap -->
+
+  <!-- footer -->
+  <div include-html="static/include/footer.html" data-include="footer"></div>
+  <!-- //footer -->
+
+  <!-- 일반 팝업 -->
+  <div class="box-layer" id="ly-1">
+    <div class="inner-layer" tabindex="0">
+      <div class="gap">
+        <div class="box">
+          <!-- 팝업 내용 -->
+          <div class="pop-kv">
+            <p class="pop-title">POPUP TITLE</p>
+          </div>
+          <div class="pop-innerGap">
+            POPUP TEXT<br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget nibh tincidunt, commodo mi ut, semper
+            massa. Donec eleifend mauris vel justo porta, aliquam convallis dui sagittis. Pellentesque aliquet, lacus
+            eget egestas mollis, ligula odio ultrices justo, sed elementum urna quam ut est. Nam consequat sapien at
+            diam ultricies vestibulum. Nam aliquam iaculis sapien, id fermentum massa congue quis. Maecenas pretium,
+            dolor eget pharetra congue, ligula libero sagittis diam, nec faucibus ligula lacus vitae lorem. Fusce semper
+            venenatis sem id porta. In eget egestas justo, a aliquam eros. Suspendisse gravida tincidunt ante, sit amet
+            pharetra nulla pellentesque eu. Sed porttitor purus sed rhoncus vulputate. Phasellus ligula ex, viverra nec
+            iaculis ac, pellentesque sit amet elit. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+            Nulla sit amet justo quam. Nam pellentesque est at augue mattis, eu gravida elit semper. Ut dui enim,
+            volutpat egestas gravida scelerisque, ullamcorper sagittis diam. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Sed in orci tempor, feugiat turpis nec, ultricies magna. Duis sit amet ligula ut massa
+            finibus aliquam eget vitae enim. Fusce tempus ipsum at ante volutpat accumsan. In malesuada lacus et iaculis
+            luctus. Proin quis tincidunt lectus. Proin finibus est est, non condimentum massa ullamcorper ultricies.
+            Nulla egestas sapien in auctor sodales.
+            Integer auctor libero at est auctor congue. Proin eget viverra est. Sed ac lacus sed nibh dictum volutpat ac
+            ac arcu. Fusce non vulputate enim. Praesent non tempus lectus. Nulla eu eleifend metus, non pellentesque
+            nunc. Ut ac cursus ante. Fusce quis pellentesque nisl, non elementum urna.
+            Maecenas vel malesuada risus. Suspendisse bibendum, nunc sed egestas aliquet, elit turpis scelerisque sem,
+            eget porta mauris eros eu urna. Integer ac tempor nisl, et luctus elit. In volutpat est vitae volutpat
+            congue. Ut dignissim commodo urna vitae cursus. Sed ut dignissim est. Aliquam faucibus quam velit, eu tempus
+            elit pretium lobortis. Aliquam tempor metus non fringilla congue. In mauris eros, consequat nec tellus eu,
+            vehicula egestas libero. Quisque id volutpat sem. Etiam eu eleifend neque. Praesent cursus, metus ut finibus
+            convallis, sem lorem ultrices purus, eu pellentesque lacus lacus nec turpis. Donec quis rhoncus neque. Fusce
+            blandit pellentesque velit.
+            Suspendisse vestibulum imperdiet enim, sit amet dapibus lacus vulputate vitae. Donec elementum eu tortor a
+            mattis. Etiam aliquet venenatis magna nec feugiat. Praesent auctor ipsum eu venenatis aliquam. Fusce
+            aliquam, arcu eget pulvinar gravida, turpis nibh tincidunt lorem, eu pretium est turpis vitae quam. Sed
+            finibus consequat lorem, eget hendrerit diam. Sed sit amet vestibulum mi, et egestas arcu. Ut vitae
+            sollicitudin magna, at faucibus magna.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget nibh tincidunt, commodo mi ut, semper
+            massa. Donec eleifend mauris vel justo porta, aliquam convallis dui sagittis. Pellentesque aliquet, lacus
+            eget egestas mollis, ligula odio ultrices justo, sed elementum urna quam ut est. Nam consequat sapien at
+            diam ultricies vestibulum. Nam aliquam iaculis sapien, id fermentum massa congue quis. Maecenas pretium,
+            dolor eget pharetra congue, ligula libero sagittis diam, nec faucibus ligula lacus vitae lorem. Fusce semper
+            venenatis sem id porta. In eget egestas justo, a aliquam eros. Suspendisse gravida tincidunt ante, sit amet
+            pharetra nulla pellentesque eu. Sed porttitor purus sed rhoncus vulputate. Phasellus ligula ex, viverra nec
+            iaculis ac, pellentesque sit amet elit. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+            Nulla sit amet justo quam. Nam pellentesque est at augue mattis, eu gravida elit semper. Ut dui enim,
+            volutpat egestas gravida scelerisque, ullamcorper sagittis diam. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Sed in orci tempor, feugiat turpis nec, ultricies magna. Duis sit amet ligula ut massa
+            finibus aliquam eget vitae enim. Fusce tempus ipsum at ante volutpat accumsan. In malesuada lacus et iaculis
+            luctus. Proin quis tincidunt lectus. Proin finibus est est, non condimentum massa ullamcorper ultricies.
+            Nulla egestas sapien in auctor sodales.
+            Integer auctor libero at est auctor congue. Proin eget viverra est. Sed ac lacus sed nibh dictum volutpat ac
+            ac arcu. Fusce non vulputate enim. Praesent non tempus lectus. Nulla eu eleifend metus, non pellentesque
+            nunc. Ut ac cursus ante. Fusce quis pellentesque nisl, non elementum urna.
+            Maecenas vel malesuada risus. Suspendisse bibendum, nunc sed egestas aliquet, elit turpis scelerisque sem,
+            eget porta mauris eros eu urna. Integer ac tempor nisl, et luctus elit. In volutpat est vitae volutpat
+            congue. Ut dignissim commodo urna vitae cursus. Sed ut dignissim est. Aliquam faucibus quam velit, eu tempus
+            elit pretium lobortis. Aliquam tempor metus non fringilla congue. In mauris eros, consequat nec tellus eu,
+            vehicula egestas libero. Quisque id volutpat sem. Etiam eu eleifend neque. Praesent cursus, metus ut finibus
+            convallis, sem lorem ultrices purus, eu pellentesque lacus lacus nec turpis. Donec quis rhoncus neque. Fusce
+            blandit pellentesque velit.
+            Suspendisse vestibulum imperdiet enim, sit amet dapibus lacus vulputate vitae. Donec elementum eu tortor a
+            mattis. Etiam aliquet venenatis magna nec feugiat. Praesent auctor ipsum eu venenatis aliquam. Fusce
+            aliquam, arcu eget pulvinar gravida, turpis nibh tincidunt lorem, eu pretium est turpis vitae quam. Sed
+            finibus consequat lorem, eget hendrerit diam. Sed sit amet vestibulum mi, et egestas arcu. Ut vitae
+            sollicitudin magna, at faucibus magna.
+          </div>
+          <!-- //팝업 내용 -->
+        </div>
+      </div>
+    </div>
+    <div class="verticalAlign"></div>
+    <button data-event="layerClose">닫기</button>
+  </div>
+  <!-- //일반 팝업 -->
+
+  <!-- 공통 js -->
+  <script src="../static/js/gsap.min.js"></script>
+  <script src="../static/js/ScrollTrigger.min.js"></script>
+  <script src="../static/js/lottie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../static/js/includeHTML.js"></script>
+  <script src="../static/js/front.js"></script>
+  <script src="../static/js/gnb.js"></script>
+  <script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js"></script>
+  <!-- //공통 js -->
+
+  <script>
+    selectBox.initialize();
+    checkboxAll.initialize();
+    fileDelete.initialize();
+    layerPopup.initialize();
+
+    // AOS
+    AOS.init();
+  </script>
+
+</body>
+
+</html>
