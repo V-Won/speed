@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initiainclude-htmll-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- swiper css -->
+</head>
+
+<body>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <div class="box box-a" data-speed="1">a</div>
+      <div class="box box-b" data-speed="clamp(0.8)">b</div>
+      <div class="box box-c" data-speed="1.5">c</div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollToPlugin.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    ScrollTrigger.normalizeScroll(true)
+
+    let smoother = ScrollSmoother.create({
+      smooth: 2,
+      effects: true,
+      normalizeScroll: true
+    });
+
+    ScrollTrigger.create({
+      trigger: ".box-c",
+      pin: true,
+      start: "center center",
+      end: "+=300",
+      markers: true
+    });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+  "liveSassCompile.settings.formats": [
+      {
+          "format": "expanded",
+          "extensionName": ".css",
+          "savePath": "", // 컴파일된 css 파일이 저장될 경로
+          "savePathReplacementPairs": null
+      }
+  ],
+  "liveServer.settings.port": 5505,
+  "launch": {
+  
+    "configurations": [],
+    "compounds": []
+  },
+  "json.schemas": [
+    
+  
+    
+    
+    
+
+  ]
+}
